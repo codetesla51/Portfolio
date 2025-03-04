@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0" y1="0" x2="600" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#121212"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="neonGradient" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#2ecc71" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00ff88" stop-opacity="0.8"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="600" fill="url(#backgroundGradient)"/>
+
+  <!-- Neon Glow Ring -->
+  <circle cx="300" cy="300" r="280" fill="none" stroke="url(#neonGradient)" stroke-width="4" filter="url(#glow)" opacity="0.6"/>
+
+  <!-- U Letter - Modernized with Neon Effect -->
+  <path d="M150 150 L150 360 Q150 430, 250 430 L290 430" 
+        fill="none" stroke="url(#neonGradient)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+
+  <!-- D Letter - Cleaner & Balanced with Neon Effect -->
+  <path d="M290 150 L290 430" 
+        fill="none" stroke="url(#neonGradient)" stroke-width="20" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M290 150 Q290 150, 380 150 Q430 150, 430 260 L430 340 Q430 430, 380 430 L290 430" 
+        fill="none" stroke="url(#neonGradient)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+
+  <!-- Accent Points with Glow -->
+  <circle cx="150" cy="150" r="8" fill="#2ecc71" filter="url(#glow)"/>
+  <circle cx="290" cy="150" r="8" fill="#2ecc71" filter="url(#glow)"/>
+  <circle cx="290" cy="430" r="8" fill="#2ecc71" filter="url(#glow)"/>
+
+  <!-- Tech-Inspired Minimalist Details -->
+  <path d="M60 280 L30 300 L60 320" stroke="url(#neonGradient)" stroke-width="4" fill="none" opacity="0.8" filter="url(#glow)"/>
+  <path d="M540 280 L570 300 L540 320" stroke="url(#neonGradient)" stroke-width="4" fill="none" opacity="0.8" filter="url(#glow)"/>
+
+  <!-- Code Snippet Effect -->
+  <rect x="240" y="460" width="120" height="10" rx="5" fill="url(#neonGradient)" opacity="0.5" filter="url(#glow)"/>
+  <rect x="280" y="490" width="40" height="10" rx="5" fill="url(#neonGradient)" opacity="0.3" filter="url(#glow)"/>
+
+  <!-- Additional Glow Effects -->
+  <circle cx="300" cy="300" r="300" fill="none" stroke="url(#neonGradient)" stroke-width="2" opacity="0.1" filter="url(#glow)"/>
+</svg>
