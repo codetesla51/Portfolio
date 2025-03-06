@@ -2,7 +2,6 @@
   import Heading from "$lib/components/heading.svelte";
   import Card from "$lib/components/projectCard.svelte";
   
-  // Dummy project data
   const projects = [
     {
       title: "E-commerce Platform",
@@ -27,19 +26,27 @@
   ];
 </script>
 
-<section class="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-  <Heading 
-    heading="My Works"
-    subtext="I've worked on tons of little projects over the years but these are the ones that I'm most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas on how it can be improved."
-  />
- <div class="flex flex-wrap justify-center gap-4 md:gap-6 mt-12">
-  {#each projects as project}
-    <Card 
-      title={project.title}
-      about={project.about}
-      link={project.link}
-      class="w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] rounded-3xl shadow-lg p-6"
-    />
-  {/each}
-</div>
+<section class="py-12 md:py-16 px-4 md:px-8 max-w-7xl mx-auto">
+<Heading 
+  heading="My Work"
+  subtext="Over the years, I've built numerous projects, but these are the ones I'm most proud of. Many are open-source, so if something stands out to you, feel free to explore the code or contribute your ideas to make them even better."
+/>  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 mt-12">
+    {#each projects as project}
+      <Card 
+        title={project.title}
+        about={project.about}
+        link={project.link}
+        class="w-full rounded-3xl shadow-lg p-6 transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+      />
+    {/each}
+  </div>
 </section>
+
+<style>
+  /* Additional responsive tweaks if needed */
+  @media (max-width: 640px) {
+    section {
+      padding: 2rem 1rem;
+    }
+  }
+</style>

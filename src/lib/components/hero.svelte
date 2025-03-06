@@ -43,7 +43,7 @@ uthman.innovate();`;
   
   <div class=" mx-auto px-4 py-8 md:py-12 lg:py-16">
     <!-- Responsive grid layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ">
       <!-- Content side -->
       <div class="z-20 text-text order-2 lg:order-1">
         <!-- Available tag -->

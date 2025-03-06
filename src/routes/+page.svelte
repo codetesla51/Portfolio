@@ -2,10 +2,10 @@
 import Hero from "$lib/components/hero.svelte";
 import Project from "$lib/components/project.svelte";
 import Parallex from "$lib/components/parrallex.svelte";
+import Contact from "$lib/components/contact.svelte";
 
-import Nav from "$lib/components/nav.svelte";
 </script>
 
-<Nav/>
 <Hero/>
 <Project/>
+<Contact/>
