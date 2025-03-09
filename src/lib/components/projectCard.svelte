@@ -2,37 +2,43 @@
   export let project;
   export let index;
   
-  function handleViewDetailsClick(event) {
+function handleViewDetailsClick(event) {
+  event.preventDefault();
   
-    event.preventDefault();
-    
-    
-    console.log('View Details clicked for project:', project.name);
-    
-    document.body.classList.add('is-loading');
-    
-    const loadingDiv = document.createElement('div');
-    loadingDiv.className = 'fixed inset-0 flex flex-col items-center justify-center z-[9999] bg-sec bg-opacity-90';
-    
-    const spinner = document.createElement('div');
-    spinner.className = 'w-12 h-12 border-4 border-t-acc border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mb-4';
-    
-    const loadingText = document.createElement('p');
-    loadingText.className = 'text-text font-ice text-xl';
-    loadingText.innerText = 'Loading project...';
-    
-    loadingDiv.appendChild(spinner);
-    loadingDiv.appendChild(loadingText);
-    document.body.appendChild(loadingDiv);
-    
-    console.log('Manual loader added to DOM');
-    
-    setTimeout(() => {
-      console.log('Navigating to:', `/projects/${project.slug}`);
-      window.location.href = `/projects/${project.slug}`;
-    }, 100);
-  }
-</script>
+  console.log('View Details clicked for project:', project.name);
+  
+  document.body.classList.add('is-loading');
+  
+  const loadingDiv = document.createElement('div');
+  loadingDiv.className = 'fixed inset-0 flex flex-col items-center justify-center z-[9999] bg-sec bg-opacity-90';
+  
+  const spinner = document.createElement('div');
+  spinner.className = 'w-12 h-12 border-4 border-t-acc border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mb-4';
+  
+  const loadingText = document.createElement('p');
+  loadingText.className = 'text-text font-ice text-xl';
+  loadingText.innerText = 'Loading project...';
+  
+  loadingDiv.appendChild(spinner);
+  loadingDiv.appendChild(loadingText);
+  document.body.appendChild(loadingDiv);
+  
+  console.log('Manual loader added to DOM');
+  
+  // Add a timeout to remove the loader if navigation takes too long
+  const loaderTimeout = setTimeout(() => {
+    if (document.body.contains(loadingDiv)) {
+      document.body.removeChild(loadingDiv);
+      document.body.classList.remove('is-loading');
+      console.log('Loader removed due to timeout');
+    }
+  }, 5000); // 5 seconds timeout
+  
+  setTimeout(() => {
+    console.log('Navigating to:', `/projects/${project.slug}`);
+    window.location.href = `/projects/${project.slug}`;
+  }, 100);
+}</script>
 
 <div class="bg-card p-6 rounded-xl border border-acc/30 hover:border-acc transition-all duration-300 transform hover:-translate-y-1 h-full">
   <div class="flex justify-between items-start mb-4">
