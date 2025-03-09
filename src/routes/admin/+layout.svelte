@@ -31,7 +31,7 @@
       
       // If not on login page and not authenticated, redirect to login
       if (!isLoginPage) {
-        goto('/admin/login');
+        goto('/admin/auth');
       }
     }
     
