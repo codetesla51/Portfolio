@@ -5,7 +5,7 @@ export async function load({ fetch }) {
   return {
     projects: await withLoading(async () => {
       try {
-        const res = await fetch('http://127.0.0.1:8000/projects');
+        const res = await fetch('https://portfolio-backend-x9in.vercel.app/projects');
 
         if (!res.ok) {
           throw new Error(`Failed to fetch projects: ${res.status}`);
