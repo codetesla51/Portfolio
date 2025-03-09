@@ -153,7 +153,7 @@
 </script>
 
 {#if loading}
-<div class="fixed inset-0 z-50 flex items-center justify-center bg-sec bg-opacity-90 backdrop-blur-sm transition-opacity duration-500">
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-sec  backdrop-blur-sm transition-opacity duration-500">
 	<div class="w-full max-w-md p-4 bg-transparent">
 		<!-- Terminal Window -->
 		<div class="bg-[#1a1a1a] p-4 rounded-lg border border-acc/20 shadow-lg relative overflow-hidden">

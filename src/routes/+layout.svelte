@@ -22,10 +22,8 @@
       once: false
     });
     
-    // Safety mechanism to ensure loader eventually disappears
     safetyTimeout = setTimeout(() => {
       if ($isLoading) {
-        console.warn("Safety timeout triggered - forcing loader to hide");
         forceResetLoading();
       }
     }, 8000);

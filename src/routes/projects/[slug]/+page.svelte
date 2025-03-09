@@ -25,11 +25,6 @@
     <!-- Project Header -->
     <header class="mb-8 border-b border-acc/30 pb-4">
       <h1 class="text-4xl md:text-5xl font-ice font-bold text-acc mb-3">{data.project.name}</h1>
-      <div class="flex items-center text-text font-mono text-sm space-x-4">
-        <time datetime={data.project.created_at}>Created: {new Date(data.project.created_at).toLocaleDateString()}</time>
-        <span class="inline-block h-1 w-1 rounded-full bg-acc/50"></span>
-        <time datetime={data.project.updated_at}>Updated: {new Date(data.project.updated_at).toLocaleDateString()}</time>
-      </div>
     </header>
     
     <!-- Featured Image -->
@@ -38,7 +33,7 @@
         <img 
           src="{data.project.image}" 
           alt="{data.project.name}" 
-          class="w-full object-cover h-64 md:h-80"
+          class="w-full object-cover h-64 md:h-80 transition-transform duration-500 hover:scale-105"
         >
       {:else}
         <div class="w-full h-48 md:h-64 flex items-center justify-center bg-gradient-to-br from-sec to-card border border-acc/20">
@@ -59,7 +54,7 @@
       <h3 class="text-xl font-ice font-semibold text-acc mb-3">Tech Stack</h3>
       <div class="flex flex-wrap gap-2">
         {#each data.project.tech_stack as tech}
-          <span class="bg-sec px-3 py-1 rounded-md text-text font-mono border border-acc/20 hover:border-acc/40 transition-colors">{tech}</span>
+          <span class="bg-sec px-3 py-1 rounded-md text-text font-mono border border-acc/20 hover:border-acc/70 hover:text-acc hover:bg-sec/80 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md">{tech}</span>
         {/each}
       </div>
     </div>
@@ -139,42 +134,81 @@
   }
 
   :global(.prose pre) {
-    background-color: theme('colors.sec');
+    background-color: theme('colors.card');
     border: 1px solid theme('colors.acc/20');
-    border-radius: 0.375rem;
-    padding: 1rem;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    padding-top: 2rem;
     font-family: theme('fontFamily.mono');
     overflow-x: auto;
-    margin: 1.25rem 0;
+    margin: 1.5rem 0;
     color: theme('colors.text');
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  :global(.prose pre:before) {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    background-color: theme('colors.sec');
+    border-bottom: 1px solid theme('colors.acc/10');
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  :global(.prose pre:after) {
+    content: '';
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: #FF5F56;
+    border-radius: 50%;
+    box-shadow: 1.25rem 0 0 #FFBD2E, 2.5rem 0 0 #27C93F;
   }
 
   :global(.prose code) {
     font-family: theme('fontFamily.mono');
-    background-color: rgba(30, 30, 30, 0.5);
-    padding: 0.125rem 0.25rem;
+    background-color: theme('colors.card');
+    padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
-    color: theme('colors.text');
+    color: theme('colors.acc/90');
+    font-size: 0.9em;
+    border: 1px solid theme('colors.acc/10');
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  :global(.prose code:hover) {
+    background-color: theme('colors.acc/10');
+    border-color: theme('colors.acc/30');
   }
 
   :global(.prose a) {
     color: theme('colors.acc');
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 2px;
-    transition: color 0.2s;
+    text-decoration: none;
+    border-bottom: 2px solid theme('colors.acc/30');
+    transition: border-color 0.3s, color 0.3s;
+    padding-bottom: 1px;
   }
 
   :global(.prose a:hover) {
-    color: theme('colors.acc/80');
+    color: theme('colors.acc');
+    border-bottom: 2px solid theme('colors.acc');
   }
 
   :global(.prose blockquote) {
     border-left: 4px solid theme('colors.acc/50');
-    padding-left: 1rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
     font-style: italic;
     color: theme('colors.text');
     margin: 1.5rem 0;
+    background-color: theme('colors.sec/50');
+    border-radius: 0 0.5rem 0.5rem 0;
   }
 
   :global(.prose ul), :global(.prose ol) {
@@ -189,28 +223,35 @@
   }
 
   :global(.prose img) {
-    border-radius: 0.375rem;
+    border-radius: 0.5rem;
     margin: 1.5rem auto;
     max-width: 100%;
     display: block;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     border: 1px solid theme('colors.acc/10');
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease;
   }
+
   :global(.prose img:hover) {
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out;
-}
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
   :global(.prose hr) {
     border: 0;
     height: 1px;
-    background-color: theme('colors.acc/30');
-    margin: 2rem 0;
+    background: linear-gradient(90deg, transparent, theme('colors.acc/40'), transparent);
+    margin: 2.5rem 0;
   }
 
   :global(.prose table) {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin: 1.5rem 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   :global(.prose th) {
@@ -218,18 +259,23 @@
     color: theme('colors.acc');
     font-family: theme('fontFamily.ice');
     font-weight: 600;
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     text-align: left;
-    border-bottom: 1px solid theme('colors.acc/30');
+    border-bottom: 2px solid theme('colors.acc/30');
   }
 
   :global(.prose td) {
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
     border-bottom: 1px solid theme('colors.sec');
     color: theme('colors.text');
+    transition: background-color 0.2s;
   }
 
-  :global(.prose tr:hover) {
-    background-color: theme('colors.sec/70');
+  :global(.prose tr:hover td) {
+    background-color: theme('colors.sec/80');
+  }
+
+  :global(.prose tr:last-child td) {
+    border-bottom: none;
   }
 </style>
