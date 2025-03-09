@@ -1,266 +1,293 @@
 <script>
-  import { onMount } from 'svelte';
-
-  const socialLinks = [
-    { 
-      name: "GitHub", 
-      url: "https://github.com/codetesla51",
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>`
-    },
-    { 
-      name: "LinkedIn", 
-      url: "https://www.linkedin.com/in/uthman-dev/",
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>`
-    },
-    { 
-      name: "X", 
-      url: "https://twitter.com/uthmandev",
-      icon: `<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>`
-    }
-  ];
-
-  // Email Popup State
-  let showEmailPopup = false;
+  // Reactive variables for form state
+  let name = '';
   let email = '';
-  let selectedInquiry = '';
-  let additionalDetails = '';
-  let isSubmitting = false;
+  let inquiryType = 'project'; // Default selection
+  let message = '';
+  
+  // Form status states
+  let submitting = false;
   let submitSuccess = false;
-  let submitError = false;
-
-const inquiryOptions = [
-    { 
-      title: 'Project Inquiry', 
-      description: 'Discuss a potential project or collaboration',
-      icon: { 
-        viewBox: "0 0 24 24", 
-        path: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-      }
-    },
-    { 
-      title: 'Job Offer', 
-      description: 'Explore career opportunities',
-      icon: { 
-        viewBox: "0 0 24 24", 
-        path: "M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"
-      }
-    },
-    { 
-      title: 'Freelance Work', 
-      description: 'Contract-based or short-term projects',
-      icon: { 
-        viewBox: "0 0 24 24", 
-        path: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-      }
-    },
-    { 
-      title: 'Consultation', 
-      description: 'Technical advice or strategy session',
-      icon: { 
-        viewBox: "0 0 24 24", 
-        path: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.782 2.782L8.5 8.5M7 14l-1.5 1.5M3 3l3 3m0 0l3 3m-3-3h6m0 8h2a2 2 0 002-2V7a2 2 0 00-2-2h-2"
-      }
-    },
-    { 
-      title: 'Speaking/Workshop', 
-      description: 'Invite for events or training',
-      icon: { 
-        viewBox: "0 0 24 24", 
-        path: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-      }
-    },
-    { 
-      title: 'Other', 
-      description: 'Something not listed here',
-      icon: { 
-        viewBox: "0 0 24 24", 
-        path: "M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-      }
-    }
-  ];
-  async function handleEmailSubmit(e) {
-    e.preventDefault();
-    isSubmitting = true;
+  let submitError = null;
+  
+  // Format the inquiry type to match API expectations
+  function formatInquiryType(type) {
+    const formats = {
+      'project': 'Project Collaboration',
+      'job': 'Job Opportunity',
+      'partnership': 'Partnership Proposal',
+      'other': 'Other Inquiry'
+    };
+    
+    return formats[type] || type;
+  }
+  
+  // Handle form submission
+  async function handleSubmit() {
+    submitting = true;
     submitSuccess = false;
-    submitError = false;
-
+    submitError = null;
+    
     try {
-      // Simulated form submission - replace with actual backend logic
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Format inquiry type for the API
+      const formattedInquiryType = formatInquiryType(inquiryType);
       
-      // Reset form
-      email = '';
-      selectedInquiry = '';
-      additionalDetails = '';
+      console.log('Sending data:', {
+        name,
+        email,
+        inquiry: formattedInquiryType,
+        message
+      });
+      
+      const response = await fetch('http://127.0.0.1:8000/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          inquiry: formattedInquiryType,
+          message
+        })
+      });
+      
+      const data = await response.json();
+      console.log('Response data:', data);
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to submit the form');
+      }
+      
       submitSuccess = true;
       
-      // Optional: Close popup after success
-      setTimeout(() => {
-        showEmailPopup = false;
-      }, 2000);
+      // Reset form
+      name = '';
+      email = '';
+      inquiryType = 'project';
+      message = '';
+      
     } catch (error) {
-      submitError = true;
+      console.error('Error submitting form:', error);
+      submitError = 'There was an error sending your message. Please try again later.';
     } finally {
-      isSubmitting = false;
+      submitting = false;
     }
   }
 </script>
 
-<section id="contact" class="bg-sec py-16 px-4 md:px-8 lg:px-16">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-acc font-ice mb-8 text-center">Let's Connect</h2>
-    
-    <div class="space-y-6">
-      <div class="text-center max-w-xl mx-auto mb-8">
-        <p class="text-text/80 leading-relaxed">
-          I'm always open to exciting opportunities, collaborations, and interesting conversations. 
-          Whether you're looking to discuss a project, explore potential partnerships, 
-          or just want to say hello, feel free to reach out.
-        </p>
-      </div>
-
-      <div class="flex flex-col items-center space-y-6">
-        <div class="text-center">
-          <h3 class="text-xl font-semibold text-acc mb-4">Connect on Social Media</h3>
-          <div class="flex space-x-4 justify-center">
-            {#each socialLinks as social}
-              <a 
-                href={social.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                class="text-text/70 hover:text-acc transition-colors duration-300"
-                aria-label={`${social.name} Profile`}
-              >
-                {@html social.icon}
-              </a>
-            {/each}
+<section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <h2 
+    class="text-3xl font-bold text-acc mb-4 font-ice"
+    data-aos="fade-right"
+    data-aos-delay="100"
+  >
+    Get In Touch
+  </h2>
+  
+  <p 
+    class="text-text/80 max-w-2xl mb-8"
+    data-aos="fade-right"
+    data-aos-delay="150"
+  >
+    Have a project in mind or want to collaborate? I'm always open to new opportunities and challenges. Let's create something amazing together!
+  </p>
+  
+  <div class="grid md:grid-cols-5 gap-8">
+    <div 
+      class="md:col-span-2"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      <div class="space-y-6">
+        <div class="flex items-start space-x-4">
+          <div class="bg-acc/10 p-2 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-acc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold font-ice text-text">Email Me</h3>
+            <p class="text-text/70 mt-1 font-mono">contact@uthman.dev</p>
           </div>
         </div>
-
-        <!-- OR Divider -->
-        <div class="flex items-center justify-center space-x-4 w-full max-w-md">
-          <div class="flex-grow border-t border-text/20"></div>
-          <span class="text-text/70 px-4">OR</span>
-          <div class="flex-grow border-t border-text/20"></div>
+        
+        <div class="flex items-start space-x-4">
+          <div class="bg-acc/10 p-2 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-acc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold font-ice text-text">Location</h3>
+            <p class="text-text/70 mt-1 font-mono">Lagos, Nigeria</p>
+          </div>
         </div>
-
-        <!-- Send Email Button -->
-        <button 
-          on:click={() => showEmailPopup = true}
-          class="bg-acc text-sec px-6 py-3 rounded-md hover:bg-acc/90 transition-colors duration-300 font-mono"
-        >
-          Send an Email
-        </button>
+        
+        <div class="flex items-start space-x-4">
+          <div class="bg-acc/10 p-2 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-acc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold font-ice text-text">Response Time</h3>
+            <p class="text-text/70 mt-1 font-mono">Usually within 24 hours</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- Email Popup -->
-  {#if showEmailPopup}
+    
     <div 
-      class="fixed inset-0 bg-black/100 z-50 flex items-center justify-center p-4"
-      on:click|self={() => showEmailPopup = false}
+      class="md:col-span-3 bg-card rounded-xl border border-acc/30 p-6 md:p-8"
+      data-aos="zoom-in"
+      data-aos-delay="300"
     >
+      <div class="flex items-center space-x-2 mb-6">
+        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div class="w-3 h-3 rounded-full bg-acc"></div>
+        <div class="ml-2 text-xs font-mono opacity-70">~/contact-form.sh</div>
+      </div>
       
-      <div 
-        class="bg-card p-8 rounded-lg shadow-lg w-full max-w-4xl"
-        on:click|stopPropagation
-      >
-        <h3 class="text-2xl font-bold text-acc mb-6 text-center">What can I help you with?</h3>
-        
-        <form on:submit={handleEmailSubmit} class="space-y-6">
-          <div class="mb-6">
-            <label for="email" class="block text-text/80 mb-2 font-mono">Your Email</label>
+      {#if submitSuccess}
+        <div class="bg-acc/20 border border-acc/50 text-text p-4 rounded-lg mb-6">
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-acc mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span class="font-bold font-ice">Message Sent Successfully!</span>
+          </div>
+          <p class="mt-2 text-text/80">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+        </div>
+      {/if}
+      
+      {#if submitError}
+        <div class="bg-red-100 border border-red-400 text-red-700 p-4 rounded-lg mb-6">
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span class="font-bold font-ice">Error!</span>
+          </div>
+          <p class="mt-2">{submitError}</p>
+        </div>
+      {/if}
+      
+      <form class="space-y-6" on:submit|preventDefault={handleSubmit}>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div data-aos="fade-up" data-aos-delay="350">
+            <label for="name" class="block font-mono text-text mb-2">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              bind:value={name}
+              required
+              class="w-full bg-sec border border-acc/30 rounded-lg px-4 py-3 font-mono text-text focus:border-acc focus:outline-none transition-colors"
+              placeholder="John Doe"
+            />
+          </div>
+          <div data-aos="fade-up" data-aos-delay="400">
+            <label for="email" class="block font-mono text-text mb-2">Email</label>
             <input 
               type="email" 
-              id="email"
+              id="email" 
               bind:value={email}
               required
-              class="w-full bg-sec/50 text-text border border-text/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-acc/50 transition-all duration-300"
-              placeholder="you@example.com"
+              class="w-full bg-sec border border-acc/30 rounded-lg px-4 py-3 font-mono text-text focus:border-acc focus:outline-none transition-colors"
+              placeholder="john@example.com"
             />
           </div>
-
-          <div class="grid md:grid-cols-3 gap-4">
-            {#each inquiryOptions as option}
-              <div 
-                class="border border-text/20 rounded-lg p-4 cursor-pointer transition-all duration-300 
-                       hover:border-acc hover:bg-sec/30 
-                       {selectedInquiry === option.title ? 'border-acc bg-sec/30' : ''}"
-                on:click={() => selectedInquiry = option.title}
-                on:keydown={(e) => e.key === 'Enter' && (selectedInquiry = option.title)}
-                tabindex="0"
-                role="button"
-                aria-pressed={selectedInquiry === option.title}
-              >
-                <div class="flex items-center space-x-4">
-                  <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            class="h-8 w-8" 
-            fill="none" 
-            viewBox="{option.icon.viewBox}" 
-            stroke="currentColor"
-          >
-            <path 
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              stroke-width="2" 
-              d="{option.icon.path}"
-            />
-          </svg>
-                  <div>
-                    <h4 class="font-semibold text-text">{option.title}</h4>
-                    <p class="text-text/70 text-sm">{option.description}</p>
-                  </div>
-                </div>
-              </div>
-            {/each}
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="450">
+          <label class="block font-mono text-text mb-2">Inquiry Type</label>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="relative">
+              <input 
+                type="radio" 
+                id="project" 
+                bind:group={inquiryType} 
+                value="project" 
+                class="peer hidden" 
+                checked 
+              />
+              <label for="project" class="block w-full text-center bg-sec border border-acc/30 rounded-lg px-3 py-2 font-mono text-text cursor-pointer peer-checked:bg-acc/10 peer-checked:border-acc transition-colors">Project</label>
+            </div>
+            <div class="relative">
+              <input 
+                type="radio" 
+                id="job" 
+                bind:group={inquiryType} 
+                value="job" 
+                class="peer hidden" 
+              />
+              <label for="job" class="block w-full text-center bg-sec border border-acc/30 rounded-lg px-3 py-2 font-mono text-text cursor-pointer peer-checked:bg-acc/10 peer-checked:border-acc transition-colors">Job Offer</label>
+            </div>
+            <div class="relative">
+              <input 
+                type="radio" 
+                id="partnership" 
+                bind:group={inquiryType} 
+                value="partnership" 
+                class="peer hidden" 
+              />
+              <label for="partnership" class="block w-full text-center bg-sec border border-acc/30 rounded-lg px-3 py-2 font-mono text-text cursor-pointer peer-checked:bg-acc/10 peer-checked:border-acc transition-colors">Partnership</label>
+            </div>
+            <div class="relative">
+              <input 
+                type="radio" 
+                id="other" 
+                bind:group={inquiryType} 
+                value="other" 
+                class="peer hidden" 
+              />
+              <label for="other" class="block w-full text-center bg-sec border border-acc/30 rounded-lg px-3 py-2 font-mono text-text cursor-pointer peer-checked:bg-acc/10 peer-checked:border-acc transition-colors">Other</label>
+            </div>
           </div>
-
-          <div class="mt-6">
-            <label for="details" class="block text-text/80 mb-2 font-mono">Additional Details</label>
-            <textarea 
-              id="details"
-              bind:value={additionalDetails}
-              rows="4"
-              class="w-full bg-sec/50 text-text border border-text/20 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-acc/50 transition-all duration-300"
-              placeholder="Provide more context about your inquiry..."
-            ></textarea>
-          </div>
-
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="500">
+          <label for="message" class="block font-mono text-text mb-2">Message</label>
+          <textarea 
+            id="message" 
+            rows="5" 
+            bind:value={message}
+            required
+            class="w-full bg-sec border border-acc/30 rounded-lg px-4 py-3 font-mono text-text focus:border-acc focus:outline-none transition-colors resize-none"
+            placeholder="Hello Uthman, I'd like to discuss a project idea..."
+          ></textarea>
+        </div>
+        
+        <div class="flex justify-end" data-aos="fade-up" data-aos-delay="550">
           <button 
-            type="submit" 
-            disabled={isSubmitting || !selectedInquiry}
-            class="w-full bg-acc text-sec py-3 rounded-md hover:bg-acc/90 transition-colors duration-300 font-mono flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            type="submit"
+            disabled={submitting}
+            class="inline-flex items-center px-6 py-3 bg-acc text-sec font-semibold rounded-lg hover:bg-acc/90 transition-colors font-ice"
           >
-            {#if isSubmitting}
-              <svg class="animate-spin h-5 w-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            {#if submitting}
+              <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-sec" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
+              Sending...
+            {:else}
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              Send Message
             {/if}
-            Send Email
           </button>
-
-          {#if submitSuccess}
-            <p class="text-green-500 text-center mt-4">Email sent successfully!</p>
-          {/if}
-
-          {#if submitError}
-            <p class="text-red-500 text-center mt-4">Failed to send email. Please try again.</p>
-          {/if}
-        </form>
-
-        <!-- Close Button -->
-        <button 
-          on:click={() => showEmailPopup = false}
-          class="absolute top-4 right-4 text-text/50 hover:text-acc transition-colors duration-300"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+        </div>
+      </form>
     </div>
-  {/if}
+  </div>
 </section>
