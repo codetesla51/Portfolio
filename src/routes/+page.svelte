@@ -33,8 +33,8 @@ export let data;
   };
 
   const personalInfo = {
-    fullName: "Uthman Dev",
-    jobTitle: "Backend Engineer | DevOps Enthusiast",
+    fullName: "Oladele Uthman",
+    jobTitle: "Software Engineer (Frontend & Backend) | DevOps Enthusiast",
     email: "uoladele99@gmail.com",
     phone: "07063432968",
     location: "Ilorin, Kwara State, Nigeria",

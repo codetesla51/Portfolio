@@ -291,27 +291,12 @@ const replyToMessage = (email, subject, originalContent) => {
     }
   };
   
-  const logout = async () => {
-    try {
-      const token = localStorage.getItem('admin_token');
-      if (token) {
-        await fetch('https://portfolio-backend-x9in.vercel.app/admin/logout', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-      }
-      
+  const logout = () => {
+    
       localStorage.removeItem('admin_token');
-      goto('/admin');
-    } catch (error) {
-      console.error('Logout failed:', error);
-      localStorage.removeItem('admin_token');
-      goto('/admin');
-    }
-  };
-  
+      goto('/admin/auth');
+    } 
+
   const addNewProject = () => {
     editMode = false;
     showProjectForm = true;

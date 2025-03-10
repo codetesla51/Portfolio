@@ -1,6 +1,6 @@
 <script>
   import Profile from "../../assets/52def21b-5811-4e7a-9dd9-f768cb60dc49.jpeg";
-
+import Resume from "../../assets/resume.pdf";
   export let personalInfo;
   
 </script>
@@ -107,7 +107,7 @@
           
           <div class="flex flex-wrap gap-3 ml-auto">
             <a 
-              href="/path/to/uthman-dev-cv.pdf" 
+              href={Resume} 
               download 
               class="inline-flex items-center px-4 py-2 bg-acc text-sec font-semibold rounded-lg hover:bg-acc/90 transition-colors font-ice"
               data-aos="fade-up"

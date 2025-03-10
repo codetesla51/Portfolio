@@ -105,7 +105,7 @@ export let bioText = [
       
 <div class="space-y-4 text-text/80">
     <p>
-        Hey, I'm <span class="text-acc font-semibold">Uthman Oladele</span>, a backend engineer specializing in web backend development.
+        Hey, I'm <span class="text-acc font-semibold">Oladele Uthman </span>, a backend engineer specializing in web backend development.
     </p>
 
     <p>

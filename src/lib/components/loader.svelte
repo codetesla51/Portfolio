@@ -1,9 +1,7 @@
-<!-- src/lib/components/Loader.svelte -->
 <script>
 	import { onMount, tick } from 'svelte';
 	import { writable, derived } from 'svelte/store';
 	
-	// Loading text content with enhanced styling and more developer details
 	const loadingStages = [
 		'// Booting Uthman Dev Environment 🚀',
 		'const developer = {',
@@ -45,17 +43,38 @@
 	let progress = 0;
 	let loading = true;
 	
-	// Calculated loading percentage
 	$: loadingPercent = Math.min(Math.round(progress), 100);
 	
-	// Function to type text with a realistic effect
+	function disableScroll() {
+		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+		
+		document.body.style.overflow = 'hidden';
+		
+		document.body.dataset.scrollTop = scrollTop.toString();
+		document.body.dataset.scrollLeft = scrollLeft.toString();
+		
+		window.scrollTo(scrollLeft, scrollTop);
+	}
+
+	function enableScroll() {
+		const scrollTop = parseInt(document.body.dataset.scrollTop || '0');
+		const scrollLeft = parseInt(document.body.dataset.scrollLeft || '0');
+		
+		document.body.style.overflow = '';
+		
+		delete document.body.dataset.scrollTop;
+		delete document.body.dataset.scrollLeft;
+		
+		window.scrollTo(scrollLeft, scrollTop);
+	}
+	
 	async function typeText(text) {
 		typingInProgress = true;
 		displayingText = '';
 		
 		for (let i = 0; i < text.length; i++) {
 			displayingText += text[i];
-			// Random typing speed for realistic effect
 			const typeDelay = Math.floor(
 				Math.random() * (config.typingSpeed.max - config.typingSpeed.min) + 
 				config.typingSpeed.min
@@ -63,30 +82,25 @@
 			await new Promise(resolve => setTimeout(resolve, typeDelay));
 		}
 		
-		// Add completed line to displayed lines
 		displayedLines = [...displayedLines, displayingText];
 		displayingText = '';
 		typingInProgress = false;
 	}
 	
-	// Terminal glitch effect (occasionally applies)
 	function applyRandomGlitch() {
 		if (Math.random() > 0.8 && displayedLines.length > 0) {
 			const glitchIndex = Math.floor(Math.random() * displayedLines.length);
 			const originalLine = displayedLines[glitchIndex];
 			
-			// Create a glitched version of the line
 			const glitchLine = originalLine
 				.split('')
 				.map(char => Math.random() > 0.9 ? randomChar() : char)
 				.join('');
 				
-			// Temporarily show glitch
 			const updatedLines = [...displayedLines];
 			updatedLines[glitchIndex] = glitchLine;
 			displayedLines = updatedLines;
 			
-			// Restore original after short delay
 			setTimeout(() => {
 				const restoredLines = [...displayedLines];
 				restoredLines[glitchIndex] = originalLine;
@@ -95,19 +109,18 @@
 		}
 	}
 	
-	// Generate random character for glitch effect
 	function randomChar() {
 		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]|\\:;"\'<>,.?/';
 		return chars.charAt(Math.floor(Math.random() * chars.length));
 	}
 	
 	onMount(async () => {
-		// Blink cursor throughout loading
+		disableScroll();
+		
 		const cursorTimer = setInterval(() => {
 			showCursor = !showCursor;
 		}, config.cursorBlinkSpeed);
 		
-		// Apply occasional glitch effect
 		const glitchTimer = setInterval(() => {
 			if (!loading) {
 				clearInterval(glitchTimer);
@@ -116,20 +129,15 @@
 			applyRandomGlitch();
 		}, 800);
 		
-		// Initial delay before starting
 		await new Promise(resolve => setTimeout(resolve, config.initialDelay));
 		
-		// Process each loading stage with typing animation
 		for (let i = 0; i < loadingStages.length; i++) {
 			currentLineIndex = i;
 			
-			// Type the current line
 			await typeText(loadingStages[i]);
 			
-			// Increment progress
 			progress += config.progressIncrement;
 			
-			// Pause between lines (variable timing)
 			const pauseDuration = Math.floor(
 				Math.random() * (config.linePause.max - config.linePause.min) +
 				config.linePause.min
@@ -137,15 +145,15 @@
 			await new Promise(resolve => setTimeout(resolve, pauseDuration));
 		}
 		
-		// Ensure progress reaches 100% at the end
 		progress = 100;
 		
-		// Small delay after completion before removing loader
 		setTimeout(() => {
 			loading = false;
+			enableScroll();
 		}, 800);
 		
 		return () => {
+			enableScroll();
 			clearInterval(cursorTimer);
 			clearInterval(glitchTimer);
 		};
@@ -153,7 +161,7 @@
 </script>
 
 {#if loading}
-<div class="fixed inset-0 z-50 flex items-center justify-center bg-sec  backdrop-blur-sm transition-opacity duration-500">
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-sec backdrop-blur-sm transition-opacity duration-500">
 	<div class="w-full max-w-md p-4 bg-transparent">
 		<!-- Terminal Window -->
 		<div class="bg-[#1a1a1a] p-4 rounded-lg border border-acc/20 shadow-lg relative overflow-hidden">
@@ -193,7 +201,6 @@
 {/if}
 
 <style>
-/* Base animations */
 @keyframes pulse {
 	0%, 100% { opacity: 1; }
 	50% { opacity: 0; }
@@ -209,7 +216,6 @@
 	50% { box-shadow: 0 0 15px rgba(46, 204, 113, 0.9); }
 }
 
-/* Matrix-style scan line effect */
 @keyframes scanline {
 	0% {
 		transform: translateY(-100%);
@@ -219,7 +225,6 @@
 	}
 }
 
-/* Apply animations */
 .cursor {
 	animation: pulse 0.7s infinite;
 }
