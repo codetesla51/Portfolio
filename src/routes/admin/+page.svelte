@@ -31,7 +31,7 @@
       }
     } catch (err) {
       error = 'Connection error. Please try again.';
-      console.error('Login error:', err);
+      console.error('Login error:', err);am
     } finally {
       loading = false;
     }
