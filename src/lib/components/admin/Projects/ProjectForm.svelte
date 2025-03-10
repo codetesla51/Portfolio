@@ -5,7 +5,6 @@
   export let submitProject;
 </script>
 
-
 <div class="bg-card rounded-lg border border-acc/30 backdrop-blur-sm p-6 mb-6">
   <h3 class="text-xl font-ice text-acc mb-4">{editMode ? 'EDIT PROJECT' : 'ADD NEW PROJECT'}</h3>
   
@@ -37,6 +36,16 @@
         class="w-full p-3 border bg-sec text-text font-mono border-acc/50 focus:border-acc focus:ring-1 focus:ring-acc rounded-md outline-none h-32"
         placeholder="Enter project description"
       ></textarea>
+    </div>
+    
+    <div>
+      <label class="block text-sm font-mono text-text/70 mb-1">IMAGE URL</label>
+      <input 
+        type="text" 
+        bind:value={newProject.image} 
+        class="w-full p-3 border bg-sec text-text font-mono border-acc/50 focus:border-acc focus:ring-1 focus:ring-acc rounded-md outline-none"
+        placeholder="https://example.com/your-project-image.png"
+      />
     </div>
     
     <div class="flex items-center">

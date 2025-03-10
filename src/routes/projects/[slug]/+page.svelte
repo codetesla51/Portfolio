@@ -93,11 +93,13 @@
 {/if}
 
 <style>
+  /* Base typography */
   :global(.prose) {
     color: theme('colors.text');
     max-width: none;
   }
-
+  
+  /* Headings */
   :global(.prose h1) {
     color: theme('colors.acc');
     font-family: theme('fontFamily.ice');
@@ -125,14 +127,132 @@
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
   }
-
+  
+  /* Paragraphs */
   :global(.prose p) {
     margin-top: 1rem;
     margin-bottom: 1rem;
     line-height: 1.7;
     color: theme('colors.text');
   }
-
+  
+  /* Strong/Bold styling with accent color */
+  :global(.prose strong) {
+    color: theme('colors.acc');
+    font-weight: 700;
+    padding: 0 0.15em;
+    border-bottom: 1px dotted theme('colors.acc/30');
+    transition: background-color 0.2s ease;
+  }
+  
+  :global(.prose strong:hover) {
+    background-color: theme('colors.acc/10');
+  }
+  
+  /* Italic styling */
+  :global(.prose em) {
+    font-style: italic;
+    color: theme('colors.text/90');
+    letter-spacing: 0.01em;
+  }
+  
+  /* Underline */
+  :global(.prose u) {
+    text-decoration: none;
+    border-bottom: 2px solid theme('colors.acc/40');
+    padding-bottom: 1px;
+  }
+  
+  /* Strikethrough */
+  :global(.prose del) {
+    text-decoration: line-through;
+    color: theme('colors.text/70');
+  }
+  
+  /* Mark/Highlight */
+  :global(.prose mark) {
+    background-color: theme('colors.acc/20');
+    color: theme('colors.text');
+    padding: 0.1em 0.2em;
+    border-radius: 0.2em;
+  }
+  
+  /* Superscript */
+  :global(.prose sup) {
+    font-size: 0.75em;
+    color: theme('colors.acc');
+    vertical-align: super;
+    padding: 0 0.2em;
+  }
+  
+  /* Subscript */
+  :global(.prose sub) {
+    font-size: 0.75em;
+    vertical-align: sub;
+    color: theme('colors.text/80');
+  }
+  
+  /* Small text */
+  :global(.prose small) {
+    font-size: 0.8em;
+    color: theme('colors.text/70');
+    font-style: italic;
+  }
+  
+  /* Definition lists */
+  :global(.prose dt) {
+    font-weight: 700;
+    color: theme('colors.acc');
+    margin-top: 1rem;
+  }
+  
+  :global(.prose dd) {
+    margin-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+  
+  /* Keyboard styling */
+  :global(.prose kbd) {
+    background-color: theme('colors.card');
+    border: 1px solid theme('colors.acc/30');
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 0 theme('colors.acc/30');
+    color: theme('colors.text');
+    display: inline-block;
+    font-family: theme('fontFamily.mono');
+    font-size: 0.85em;
+    line-height: 1;
+    padding: 0.2em 0.4em;
+    margin: 0 0.2em;
+    vertical-align: middle;
+  }
+  
+  /* Abbreviations */
+  :global(.prose abbr) {
+    border-bottom: 1px dotted theme('colors.acc/50');
+    cursor: help;
+    text-decoration: none;
+  }
+  
+  /* Quotes */
+  :global(.prose q) {
+    font-style: italic;
+    color: theme('colors.acc/90');
+    quotes: """ """ "'" "'";
+  }
+  
+  :global(.prose q:before) {
+    content: open-quote;
+    color: theme('colors.acc');
+  }
+  
+  :global(.prose q:after) {
+    content: close-quote;
+    color: theme('colors.acc');
+  }
+  
+  /* Code blocks */
   :global(.prose pre) {
     background-color: theme('colors.card');
     border: 1px solid theme('colors.acc/20');
@@ -172,6 +292,7 @@
     box-shadow: 1.25rem 0 0 #FFBD2E, 2.5rem 0 0 #27C93F;
   }
 
+  /* Inline code */
   :global(.prose code) {
     font-family: theme('fontFamily.mono');
     background-color: theme('colors.card');
@@ -188,6 +309,7 @@
     border-color: theme('colors.acc/30');
   }
 
+  /* Links */
   :global(.prose a) {
     color: theme('colors.acc');
     text-decoration: none;
@@ -201,6 +323,7 @@
     border-bottom: 2px solid theme('colors.acc');
   }
 
+  /* Blockquotes */
   :global(.prose blockquote) {
     border-left: 4px solid theme('colors.acc/50');
     padding: 0.5rem 0 0.5rem 1.5rem;
@@ -211,6 +334,7 @@
     border-radius: 0 0.5rem 0.5rem 0;
   }
 
+  /* Lists */
   :global(.prose ul), :global(.prose ol) {
     padding-left: 1.5rem;
     margin: 1rem 0;
@@ -221,7 +345,18 @@
     margin: 0.5rem 0;
     color: theme('colors.text');
   }
+  
+  /* Enhanced list items */
+  :global(.prose li::marker) {
+    color: theme('colors.acc');
+  }
+  
+  :global(.prose li:hover) {
+    background-color: theme('colors.sec/40');
+    border-radius: 0.25rem;
+  }
 
+  /* Images */
   :global(.prose img) {
     border-radius: 0.5rem;
     margin: 1.5rem auto;
@@ -237,6 +372,7 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 
+  /* Horizontal rule */
   :global(.prose hr) {
     border: 0;
     height: 1px;
@@ -244,6 +380,7 @@
     margin: 2.5rem 0;
   }
 
+  /* Tables */
   :global(.prose table) {
     width: 100%;
     border-collapse: separate;
@@ -278,4 +415,11 @@
   :global(.prose tr:last-child td) {
     border-bottom: none;
   }
+  
+  /* Text selection */
+  :global(.prose ::selection) {
+    background-color: theme('colors.acc/30');
+    color: theme('colors.text');
+  }
 </style>
+
