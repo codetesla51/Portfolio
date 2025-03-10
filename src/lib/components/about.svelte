@@ -2,24 +2,40 @@
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
 
-  export let bioText = [
-    "// About Uthman Oladele",
-    "const aboutMe = {",
-    "  name: 'Uthman Oladele',",
-    "  passion: 'Building scalable and innovative applications',",
-    "  experience: '4+ years in web and backend development',",
-    "  background: 'Self-taught developer with a problem-solving mindset',",
-    "  currentFocus: 'Exploring system design and automation',",
-    "  philosophy: 'Clean code, scalable systems, and seamless experiences',",
-    "};",
-    "",
-    "// Why I build things",
-    "function whyIBuild() {",
-    "  return 'I believe technology should make life easier and solve real problems';",
-    "}",
-    "",
-    "// Let's create something amazing together!"
-  ];
+export let bioText = [
+  "// Meet Uthman Oladele - The Backend Architect 🚀",
+  "const uthman = {",
+  "    alias: 'UthmanDev',",
+  "    role: 'Backend Engineer | DevOps Enthusiast',",
+  "    experience: 'Crafting scalable, resilient backend systems.',",
+  "    mindset: 'Self-taught problem solver, efficiency-driven innovator.',",
+  "    techStack: ['Go', 'Ruby', 'PHP', 'Bash', 'Svelte'],",
+  "    currentFocus: 'Mastering systems design, automation & backend optimization.',",
+  "    philosophy: 'Write code that lasts. Build tools that matter. Automate everything.',",
+  "    approach: {",
+  "        architecture: 'Design for scale, optimize for performance.',",
+  "        security: 'Harden every layer, assume nothing is safe.',",
+  "        DevOps: 'Automate deployments, streamline workflows.',",
+  "        innovation: 'Solve problems, not just write code.'",
+  "    }",
+  "};",
+  "",
+  "// The Why Behind the Code",
+  "function whyIBuild() {",
+  "    return `Tech should do the hard work, so people don’t have to. ",
+  "            I build to automate, optimize, and empower.`;",
+  "}",
+  "",
+  "// Core Beliefs 💡",
+  "const beliefs = [",
+  "    'Backend should be fast, scalable, and secure.',",
+  "    'Automation isn’t optional; it’s the future.',",
+  "    'Clean, efficient code is non-negotiable.',",
+  "    'Every system should be built with failure recovery in mind.'",
+  "];",
+  "",
+  "// Let’s push boundaries and build something legendary together! ⚡️"
+];
 
   let bioTerminalLines = [];
   let currentLine = 0;
@@ -87,22 +103,19 @@
     <div data-aos="fade-right" data-aos-duration="1000">
       <h2 class="text-3xl font-bold text-acc mb-4 font-ice">About Me</h2>
       
-      <div class="space-y-4 text-text/80">
-        <p>
-          Hey, I'm <span class="text-acc font-semibold">Uthman Oladele</span>. I love solving real-world problems through technology.
-        </p>
-        
-        <p>
-          With <span class="text-acc font-semibold">4+ years</span> of experience, I specialize in crafting scalable and efficient software solutions. My focus is on automation, backend systems, and seamless user experiences.
-        </p>
+<div class="space-y-4 text-text/80">
+    <p>
+        Hey, I'm <span class="text-acc font-semibold">Uthman Oladele</span>, a backend engineer specializing in web backend development.
+    </p>
 
-        <p>
-          I enjoy breaking down complex problems into simple solutions. Every project I work on is an opportunity to build something impactful.
-        </p>
+    <p>
+        With <span class="text-acc font-semibold">4+ years</span> of experience, I focus on writing clean, efficient, and maintainable backend code.
+    </p>
 
-        <p>Let's build something amazing together!</p>
-      </div>
-    </div>
+    <p>
+        Currently, I'm learning <span class="text-acc font-semibold">Go</span>, exploring <span class="text-acc font-semibold">systems design</span>, and improving my backend development skills.
+    </p>
+</div>    </div>
     
     <div 
       data-aos="fade-left"

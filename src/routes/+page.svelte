@@ -44,32 +44,49 @@ export let data;
       status: "Undergraduate"
     },
      projects, 
-        achievements: [
-      "Built an AI-powered CLI Assistant (Raven)",
-      "Developed a Laravel ORM from scratch",
-      "Contributed to Open Source, 200+ PRs merged",
-      "Technical Writer with 50+ published articles"
-    ]
+  achievements: [
+    "Built open-source tools to streamline backend development",
+    "Built a 2FA library from scratch using PHP",
+    "Developed a REST API from scratch with PHP",
+    "Over 2000 GitHub commits in 2024",
+    "Maintains open-source repositories for developer tools",
+  ]
   };
 
-  let bioText = [
-    "// About Uthman Oladele",
-    "const aboutMe = {",
-    "  name: 'Uthman Oladele',",
-    "  passion: 'Building scalable and innovative applications',",
-    "  experience: '4+ years in web and backend development',",
-    "  background: 'Self-taught developer with a problem-solving mindset',",
-    "  currentFocus: 'Exploring system design and automation',",
-    "  philosophy: 'Clean code, scalable systems, and seamless experiences',",
-    "};",
-    "",
-    "// Why I build things",
-    "function whyIBuild() {",
-    "  return 'I believe technology should make life easier and solve real problems';",
-    "}",
-    "",
-    "// Let's create something amazing together!"
-  ];
+let bioText = [
+  "// Meet Uthman Oladele - The Backend Architect 🚀",
+  "const uthman = {",
+  "    alias: 'UthmanDev',",
+  "    role: 'Backend Engineer | DevOps Enthusiast',",
+  "    experience: 'Crafting scalable, resilient backend systems.',",
+  "    mindset: 'Self-taught problem solver, efficiency-driven innovator.',",
+  "    techStack: ['Go', 'Ruby', 'PHP', 'Bash', 'Svelte'],",
+  "    currentFocus: 'Mastering systems design, automation & backend optimization.',",
+  "    philosophy: 'Write code that lasts. Build tools that matter. Automate everything.',",
+  "    approach: {",
+  "        architecture: 'Design for scale, optimize for performance.',",
+  "        security: 'Harden every layer, assume nothing is safe.',",
+  "        DevOps: 'Automate deployments, streamline workflows.',",
+  "        innovation: 'Solve problems, not just write code.'",
+  "    }",
+  "};",
+  "",
+  "// The Why Behind the Code",
+  "function whyIBuild() {",
+  "    return `Tech should do the hard work, so people don’t have to. ",
+  "            I build to automate, optimize, and empower.`;",
+  "}",
+  "",
+  "// Core Beliefs 💡",
+  "const beliefs = [",
+  "    'Backend should be fast, scalable, and secure.',",
+  "    'Automation isn’t optional; it’s the future.',",
+  "    'Clean, efficient code is non-negotiable.',",
+  "    'Every system should be built with failure recovery in mind.'",
+  "];",
+  "",
+  "// Let’s push boundaries and build something legendary together! ⚡️"
+];
 </script>
 
 

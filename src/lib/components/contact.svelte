@@ -110,7 +110,7 @@
           </div>
           <div>
             <h3 class="font-bold font-ice text-text">Email Me</h3>
-            <p class="text-text/70 mt-1 font-mono">contact@uthman.dev</p>
+            <p class="text-text/70 mt-1 font-mono">uoladele99@gmail.com</p>
           </div>
         </div>
         
