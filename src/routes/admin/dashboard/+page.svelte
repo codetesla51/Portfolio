@@ -200,16 +200,12 @@ onMount(async () => {
         throw new Error("No admin token found");
       }
       
-      // Make API call to mark message as read
       const response = await fetch(`https://portfolio-backend-x9in.vercel.app/contacts/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({
-          is_read: true
-        })
       });
       
       console.log("Mark as read API response status:", response.status);

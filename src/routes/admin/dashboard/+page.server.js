@@ -1,7 +1,7 @@
 export async function load({ fetch }) {
   console.log("Server-side load function executing");
   try {
-    const response = await fetch('https://portfolio-backend-x9in.vercel.app/projects');
+    const response = await fetch('https://portfolio-backend-x9in.vercel.app/admin/projects');
 
     if (!response.ok) {
       console.error(`Error fetching projects: ${response.status}`);
