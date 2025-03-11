@@ -159,17 +159,14 @@ onMount(async () => {
       const token = localStorage.getItem('admin_token');
       
       // Make API call to update project status
-      const response = await fetch(`https://portfolio-backend-x9in.vercel.app/projects/${project.slug}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          display_status: updatedStatus
-        })
-      });
-      
+const response = await fetch(`https://portfolio-backend-x9in.vercel.app/contacts/${id}`, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  },
+  body: JSON.stringify({ is_read: true })
+});      
       if (!response.ok) {
         throw new Error(`Failed to update project status: ${response.status}`);
       }
