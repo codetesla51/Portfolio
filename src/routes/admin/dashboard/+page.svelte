@@ -157,8 +157,7 @@ const toggleProjectStatus = async (id) => {
 
     const token = localStorage.getItem('admin_token');
 
-    // Make API call to toggle display_status
-    const response = await fetch(`https://portfolio-backend-x9in.vercel.app/api/projects/${id}/toggle-display`, {
+    const response = await fetch(`https://portfolio-backend-x9in.vercel.app/projects/${id}/toggle-display`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -172,8 +171,12 @@ const toggleProjectStatus = async (id) => {
 
     const data = await response.json();
 
-    // Update local state with new display_status from the response
-    projects = projects.map(p => p.id === id ? { ...p, display_status: data.new_status } : p);
+    // Update local state correctly
+    projects = projects.map(p => 
+      p.id === id ? { ...p, display_status: data.new_status } : p
+    );
+
+    console.log("Updated project status:", data.new_status);
 
   } catch (error) {
     console.error('Error toggling project status:', error);
