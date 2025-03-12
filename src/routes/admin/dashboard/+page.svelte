@@ -150,41 +150,36 @@ onMount(async () => {
     ];
   }
   
-  const toggleProjectStatus = async (id) => {
-    try {
-      const project = projects.find(p => p.id === id);
-      if (!project) return;
-      
-      const updatedStatus = !project.display_status;
-      const token = localStorage.getItem('admin_token');
-      
-      // Make API call to update project status
-const response = await fetch(`https://portfolio-backend-x9in.vercel.app/contacts/${id}`, {
-  method: 'PUT',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
-  },
-  body: JSON.stringify({ is_read: true })
-});      
-      if (!response.ok) {
-        throw new Error(`Failed to update project status: ${response.status}`);
+const toggleProjectStatus = async (id) => {
+  try {
+    const project = projects.find(p => p.id === id);
+    if (!project) return;
+
+    const token = localStorage.getItem('admin_token');
+
+    // Make API call to toggle display_status
+    const response = await fetch(`https://portfolio-backend-x9in.vercel.app/api/projects/${id}/toggle-display`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
       }
-      
-      // Update local state if API call was successful
-      projects = projects.map(p => {
-        if (p.id === id) {
-          return { ...p, display_status: updatedStatus };
-        }
-        return p;
-      });
-      
-    } catch (error) {
-      console.error('Error toggling project status:', error);
-      alert('Failed to update project status. Please try again.');
+    });
+
+    if (!response.ok) {
+      throw new Error(`Failed to update project status: ${response.status}`);
     }
-  };
-  
+
+    const data = await response.json();
+
+    // Update local state with new display_status from the response
+    projects = projects.map(p => p.id === id ? { ...p, display_status: data.new_status } : p);
+
+  } catch (error) {
+    console.error('Error toggling project status:', error);
+    alert('Failed to update project status. Please try again.');
+  }
+};  
   const markAsRead = async (id) => {
     try {
       const message = messages.find(m => m.id === id);
