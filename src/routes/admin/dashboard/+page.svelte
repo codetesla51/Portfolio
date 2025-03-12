@@ -158,7 +158,7 @@ const toggleProjectStatus = async (id) => {
     const token = localStorage.getItem('admin_token');
 
     const response = await fetch(`https://portfolio-backend-x9in.vercel.app/projects/${id}/toggle-display`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
