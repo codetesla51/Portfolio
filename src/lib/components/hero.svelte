@@ -1,5 +1,5 @@
 <script>
-  import Profile from "../../assets/52def21b-5811-4e7a-9dd9-f768cb60dc49.jpeg";
+  import Profile from "../../assets/add04cf25230636a7806eb5ce532bc8e.jpg";
 import Resume from "../../assets/resume.pdf";
   export let personalInfo;
   
