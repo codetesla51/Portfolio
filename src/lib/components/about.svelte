@@ -192,11 +192,18 @@ export let bioText = [
               <img src="https://skillicons.dev/icons?i=ruby" alt="Ruby" class="w-4 h-4 mr-2" />
               Ruby
             </div>
-            {#each ['PHP', 'Docker', 'K8s'] as tech}
-              <span class="px-3 py-2 bg-acc/20 text-acc rounded-lg text-sm font-mono border border-acc/30 hover:bg-acc/30 transition-colors duration-200">
-                {tech}
-              </span>
-            {/each}
+            <div class="flex items-center px-3 py-2 bg-acc/20 text-acc rounded-lg text-sm font-mono border border-acc/30 hover:bg-acc/30 transition-colors duration-200">
+              <img src="https://skillicons.dev/icons?i=php" alt="PHP" class="w-4 h-4 mr-2" />
+              PHP
+            </div>
+            <div class="flex items-center px-3 py-2 bg-acc/20 text-acc rounded-lg text-sm font-mono border border-acc/30 hover:bg-acc/30 transition-colors duration-200">
+              <img src="https://skillicons.dev/icons?i=docker" alt="Docker" class="w-4 h-4 mr-2" />
+              Docker
+            </div>
+            <div class="flex items-center px-3 py-2 bg-acc/20 text-acc rounded-lg text-sm font-mono border border-acc/30 hover:bg-acc/30 transition-colors duration-200">
+              <img src="https://skillicons.dev/icons?i=kubernetes" alt="Kubernetes" class="w-4 h-4 mr-2" />
+              K8s
+            </div>
           </div>
         </div>
       </div>
