@@ -4,7 +4,8 @@
   import Contact from "$lib/components/contact.svelte";
   import About from "$lib/components/about.svelte";
   import Skills from "$lib/components/skills.svelte";
-export let data;
+
+  export let data;
   let { projects, error } = data;
 
   const skillCategories = {
@@ -43,25 +44,79 @@ export let data;
       degree: "Computer Science",
       status: "Undergraduate"
     },
-     projects, 
-  achievements: [
-    "Built open-source tools to streamline backend development",
-    "Built a 2FA library from scratch using PHP",
-    "Developed a REST API from scratch with PHP",
-    "Over 2000 GitHub commits in 2024",
-    "Maintains open-source repositories for developer tools",
-  ]
+    socialLinks: [
+      // Add your social links here if needed
+      // { name: "GitHub", url: "https://github.com/your-username", icon: "..." },
+    ],
+    achievements: [
+      "Built open-source tools to streamline backend development",
+      "Built a 2FA library from scratch using PHP",
+      "Developed a REST API from scratch with PHP",
+      "Over 2000 GitHub commits in 2024",
+      "Maintains open-source repositories for developer tools",
+    ]
   };
 
-
+  // Bio text for About component
+  const bioText = [
+    "// Meet Uthman Oladele - The Go Backend Engineer 🚀",
+    "package main",
+    "",
+    "import (",
+    "    \"fmt\"",
+    "    \"time\"",
+    "    \"context\"",
+    ")",
+    "",
+    "type Developer struct {",
+    "    Alias        string",
+    "    Role         string",
+    "    Experience   string",
+    "    Mindset      string",
+    "    TechStack    []string",
+    "    CurrentFocus string",
+    "    Philosophy   string",
+    "}",
+    "",
+    "func NewUthman() *Developer {",
+    "    return &Developer{",
+    "        Alias:        \"UthmanDev\",",
+    "        Role:         \"Go Backend Engineer | DevOps Enthusiast\",",
+    "        Experience:   \"Crafting high-performance, concurrent systems\",",
+    "        Mindset:      \"Self-taught Gopher, performance-driven innovator\",",
+    "        TechStack:    []string{\"Go\", \"Ruby\", \"PHP\", \"Docker\", \"K8s\"},",
+    "        CurrentFocus: \"Mastering Go concurrency & distributed systems\",",
+    "        Philosophy:   \"Write idiomatic Go. Build for scale. Ship fast.\",",
+    "    }",
+    "}",
+    "",
+    "// WhyIBuild demonstrates my core motivation",
+    "func (d *Developer) WhyIBuild() string {",
+    "    return \"Building blazingly fast backends that handle millions \" +",
+    "           \"of requests. Go's simplicity meets enterprise scale.\"",
+    "}",
+    "",
+    "// CoreBeliefs represents my engineering principles",
+    "var CoreBeliefs = []string{",
+    "    \"Goroutines make concurrency elegant and efficient\",",
+    "    \"Microservices should communicate via clean APIs\",",
+    "    \"Performance optimization is a continuous journey\",",
+    "    \"Error handling in Go prevents production disasters\",",
+    "}",
+    "",
+    "func main() {",
+    "    uthman := NewUthman()",
+    "    fmt.Printf(\"Ready to build something legendary with %s!\\n\", ",
+    "               uthman.TechStack[0]) // Go first! 🐹",
+    "}"
+  ];
 </script>
 
-
-  <Hero {personalInfo} />
-  <About {bioText} />
-  <Skills {skillCategories} />
-  <Projects projects={personalInfo.projects} />
-  <Contact />
+<Hero {personalInfo} />
+<About {bioText} />
+<Skills {skillCategories} />
+<Projects {projects} />
+<Contact />
 
 <style lang="postcss">
   /* Terminal cursor animation */
