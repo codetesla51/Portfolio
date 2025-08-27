@@ -3,38 +3,56 @@
   import { browser } from '$app/environment';
 
 export let bioText = [
-  "// Meet Uthman Oladele - The Backend Architect 🚀",
-  "const uthman = {",
-  "    alias: 'UthmanDev',",
-  "    role: 'Backend Engineer | DevOps Enthusiast',",
-  "    experience: 'Crafting scalable, resilient backend systems.',",
-  "    mindset: 'Self-taught problem solver, efficiency-driven innovator.',",
-  "    techStack: ['Go', 'Ruby', 'PHP', 'Bash', 'Svelte'],",
-  "    currentFocus: 'Mastering systems design, automation & backend optimization.',",
-  "    philosophy: 'Write code that lasts. Build tools that matter. Automate everything.',",
-  "    approach: {",
-  "        architecture: 'Design for scale, optimize for performance.',",
-  "        security: 'Harden every layer, assume nothing is safe.',",
-  "        DevOps: 'Automate deployments, streamline workflows.',",
-  "        innovation: 'Solve problems, not just write code.'",
-  "    }",
-  "};",
+  "// Meet Uthman Oladele - The Go Backend Engineer 🚀",
+  "package main",
   "",
-  "// The Why Behind the Code",
-  "function whyIBuild() {",
-  "    return `Tech should do the hard work, so people don't have to. ",
-  "            I build to automate, optimize, and empower.`;",
+  "import (",
+  "    \"fmt\"",
+  "    \"time\"",
+  "    \"context\"",
+  ")",
+  "",
+  "type Developer struct {",
+  "    Alias        string",
+  "    Role         string",
+  "    Experience   string",
+  "    Mindset      string",
+  "    TechStack    []string",
+  "    CurrentFocus string",
+  "    Philosophy   string",
   "}",
   "",
-  "// Core Beliefs 💡",
-  "const beliefs = [",
-  "    'Backend should be fast, scalable, and secure.',",
-  "    'Automation isn't optional; it's the future.',",
-  "    'Clean, efficient code is non-negotiable.',",
-  "    'Every system should be built with failure recovery in mind.'",
-  "];",
+  "func NewUthman() *Developer {",
+  "    return &Developer{",
+  "        Alias:        \"UthmanDev\",",
+  "        Role:         \"Go Backend Engineer | DevOps Enthusiast\",",
+  "        Experience:   \"Crafting high-performance, concurrent systems\",",
+  "        Mindset:      \"Self-taught Gopher, performance-driven innovator\",",
+  "        TechStack:    []string{\"Go\", \"Ruby\", \"PHP\", \"Docker\", \"K8s\"},",
+  "        CurrentFocus: \"Mastering Go concurrency & distributed systems\",",
+  "        Philosophy:   \"Write idiomatic Go. Build for scale. Ship fast.\",",
+  "    }",
+  "}",
   "",
-  "// Let's push boundaries and build something legendary together! ⚡️"
+  "// WhyIBuild demonstrates my core motivation",
+  "func (d *Developer) WhyIBuild() string {",
+  "    return \"Building blazingly fast backends that handle millions \" +",
+  "           \"of requests. Go's simplicity meets enterprise scale.\"",
+  "}",
+  "",
+  "// CoreBeliefs represents my engineering principles",
+  "var CoreBeliefs = []string{",
+  "    \"Goroutines make concurrency elegant and efficient\",",
+  "    \"Microservices should communicate via clean APIs\",",
+  "    \"Performance optimization is a continuous journey\",",
+  "    \"Error handling in Go prevents production disasters\",",
+  "}",
+  "",
+  "func main() {",
+  "    uthman := NewUthman()",
+  "    fmt.Printf(\"Ready to build something legendary with %s!\\n\", ",
+  "               uthman.TechStack[0]) // Go first! 🐹",
+  "}"
 ];
 
   let bioTerminalLines = [];
@@ -119,15 +137,15 @@ export let bioText = [
         <div class="bg-card/80 backdrop-blur-sm rounded-2xl p-8 border-2 border-acc/20 shadow-xl hover:shadow-2xl transition-all duration-500">
           <div class="space-y-6 text-lg leading-relaxed">
             <p class="text-text/90">
-              Hey, I'm <span class="text-acc font-bold text-xl">Oladele Uthman</span>, a backend engineer specializing in web backend development.
+              Hey, I'm <span class="text-acc font-bold text-xl">Oladele Uthman</span>, a Go backend engineer specializing in high-performance, concurrent systems.
             </p>
 
             <p class="text-text/90">
-              With <span class="text-acc font-bold">4+ years</span> of experience, I focus on writing clean, efficient, and maintainable backend code.
+              With <span class="text-acc font-bold">4+ years</span> of experience, I focus on writing idiomatic Go code that scales efficiently and handles massive concurrent loads.
             </p>
 
             <p class="text-text/90">
-              Currently, I'm learning <span class="text-acc font-bold">Go</span>, exploring <span class="text-acc font-bold">systems design</span>, and improving my backend development skills.
+              Currently mastering <span class="text-acc font-bold">Go concurrency patterns</span>, exploring <span class="text-acc font-bold">distributed systems</span>, and building microservices that perform at enterprise scale.
             </p>
           </div>
         </div>
@@ -137,25 +155,23 @@ export let bioText = [
           <div class="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-acc/30 hover:border-acc/60 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
             <div class="flex items-center mb-3">
               <div class="w-10 h-10 bg-acc/20 rounded-lg flex items-center justify-center mr-3">
-                <svg class="w-5 h-5 text-acc" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                </svg>
+                <img src="https://skillicons.dev/icons?i=go" alt="Go" class="w-6 h-6" />
               </div>
-              <h3 class="font-bold text-acc font-ice">Backend Focus</h3>
+              <h3 class="font-bold text-acc font-ice">Go Expert</h3>
             </div>
-            <p class="text-sm text-text/80">Building scalable, secure server-side applications and APIs.</p>
+            <p class="text-sm text-text/80">Building blazingly fast, concurrent backend systems with Go.</p>
           </div>
 
           <div class="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-acc/30 hover:border-acc/60 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
             <div class="flex items-center mb-3">
               <div class="w-10 h-10 bg-acc/20 rounded-lg flex items-center justify-center mr-3">
                 <svg class="w-5 h-5 text-acc" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                 </svg>
               </div>
-              <h3 class="font-bold text-acc font-ice">DevOps Ready</h3>
+              <h3 class="font-bold text-acc font-ice">Microservices</h3>
             </div>
-            <p class="text-sm text-text/80">Automation enthusiast with CI/CD and deployment expertise.</p>
+            <p class="text-sm text-text/80">Designing distributed architectures that scale to millions of users.</p>
           </div>
         </div>
 
@@ -168,8 +184,16 @@ export let bioText = [
             Tech Stack
           </h3>
           <div class="flex flex-wrap gap-3">
-            {#each ['Go', 'Ruby', 'PHP', 'Bash', 'Svelte'] as tech}
-              <span class="px-3 py-1 bg-acc/20 text-acc rounded-lg text-sm font-mono border border-acc/30 hover:bg-acc/30 transition-colors duration-200">
+            <div class="flex items-center px-3 py-2 bg-acc/20 text-acc rounded-lg text-sm font-mono border border-acc/30 hover:bg-acc/30 transition-colors duration-200">
+              <img src="https://skillicons.dev/icons?i=go" alt="Go" class="w-4 h-4 mr-2" />
+              Go
+            </div>
+            <div class="flex items-center px-3 py-2 bg-acc/20 text-acc rounded-lg text-sm font-mono border border-acc/30 hover:bg-acc/30 transition-colors duration-200">
+              <img src="https://skillicons.dev/icons?i=ruby" alt="Ruby" class="w-4 h-4 mr-2" />
+              Ruby
+            </div>
+            {#each ['PHP', 'Docker', 'K8s'] as tech}
+              <span class="px-3 py-2 bg-acc/20 text-acc rounded-lg text-sm font-mono border border-acc/30 hover:bg-acc/30 transition-colors duration-200">
                 {tech}
               </span>
             {/each}
@@ -186,7 +210,7 @@ export let bioText = [
               <div class="w-3.5 h-3.5 rounded-full bg-red-500 mx-1 shadow-sm"></div>
               <div class="w-3.5 h-3.5 rounded-full bg-yellow-500 mx-1 shadow-sm"></div>
               <div class="w-3.5 h-3.5 rounded-full bg-acc mx-1 shadow-sm"></div>
-              <div class="ml-3 text-sm font-mono text-text/70">about-me.js</div>
+              <div class="ml-3 text-sm font-mono text-text/70">main.go</div>
             </div>
             
             <!-- Terminal controls -->
@@ -228,7 +252,7 @@ export let bioText = [
             <div class="flex justify-between items-center text-xs font-mono text-text/60">
               <div class="flex items-center space-x-4">
                 <span>Lines: {bioText.length}</span>
-                <span>Mode: JavaScript</span>
+                <span>Mode: Go</span>
               </div>
               <div class="flex items-center space-x-2">
                 <div class="w-2 h-2 rounded-full bg-green-500"></div>
