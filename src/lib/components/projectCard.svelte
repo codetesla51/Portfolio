@@ -65,6 +65,28 @@ function handleViewDetailsClick(event) {
         >
           {#if project.icon}
             <img src={`https://skillicons.dev/icons?i=${project.icon}`} alt={project.name} class="w-8 h-8" />
+          {:else if project.tech_stack}
+            {#if project.tech_stack.toLowerCase().includes('go')}
+              <img src="https://skillicons.dev/icons?i=go" alt="Go" class="w-8 h-8" />
+            {:else if project.tech_stack.toLowerCase().includes('ruby')}
+              <img src="https://skillicons.dev/icons?i=ruby" alt="Ruby" class="w-8 h-8" />
+            {:else if project.tech_stack.toLowerCase().includes('php')}
+              <img src="https://skillicons.dev/icons?i=php" alt="PHP" class="w-8 h-8" />
+            {:else if project.tech_stack.toLowerCase().includes('react')}
+              <img src="https://skillicons.dev/icons?i=react" alt="React" class="w-8 h-8" />
+            {:else if project.tech_stack.toLowerCase().includes('svelte')}
+              <img src="https://skillicons.dev/icons?i=svelte" alt="Svelte" class="w-8 h-8" />
+            {:else if project.tech_stack.toLowerCase().includes('javascript')}
+              <img src="https://skillicons.dev/icons?i=js" alt="JavaScript" class="w-8 h-8" />
+            {:else if project.tech_stack.toLowerCase().includes('python')}
+              <img src="https://skillicons.dev/icons?i=python" alt="Python" class="w-8 h-8" />
+            {:else if project.tech_stack.toLowerCase().includes('docker')}
+              <img src="https://skillicons.dev/icons?i=docker" alt="Docker" class="w-8 h-8" />
+            {:else}
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-acc group-hover:text-acc transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            {/if}
           {:else}
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-acc group-hover:text-acc transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
