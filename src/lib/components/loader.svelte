@@ -27,7 +27,7 @@
 		'        Role:       "Full Stack Developer",',
 		'        Skills:     []string{"Go", "JavaScript", "React", "Docker"},',
 		'        Status:     "Available for projects",',
-		'        Experience: 5,',
+		'        Experience: 4,',
 		'    }',
 		'',
 		'    // 📂 Initializing Portfolio System',
@@ -58,16 +58,16 @@
 		'}'
 	];
 	
-	// Enhanced configuration with more realistic timing
+	// Configuration options (maintaining original timing)
 	const config = {
-		typingSpeed: { min: 15, max: 50 },     // Faster, more realistic typing
-		linePause: { min: 200, max: 500 },     // Shorter pauses for better flow
-		initialDelay: 500,                      // Slightly longer initial delay
-		cursorBlinkSpeed: 530,                  // Slightly faster cursor
-		progressIncrement: 2.5,                 // Smoother progress increments
-		glitchIntensity: 0.85,                  // Slightly more glitches
-		glitchDuration: 120,                    // Shorter glitch duration
-		finalPause: 1200                        // Pause before completion
+		typingSpeed: { min: 20, max: 70 },     // Original speed per character
+		linePause: { min: 300, max: 700 },     // Original pause between lines
+		initialDelay: 300,                      // Original delay before starting
+		cursorBlinkSpeed: 500,                  // Original cursor blink interval
+		progressIncrement: 7,                   // Original progress bar increment per line
+		glitchIntensity: 0.8,                  // Original glitch frequency
+		glitchDuration: 150,                    // Original glitch duration
+		finalPause: 800                         // Original pause before completion
 	};
 	
 	// Enhanced state variables
@@ -84,25 +84,17 @@
 	let cpuUsage = 0;
 	
 	$: loadingPercent = Math.min(Math.round(progress), 100);
-	$: {
-		if (loadingPercent < 25) systemStatus = 'INITIALIZING';
-		else if (loadingPercent < 50) systemStatus = 'COMPILING';
-		else if (loadingPercent < 75) systemStatus = 'LINKING';
-		else if (loadingPercent < 100) systemStatus = 'OPTIMIZING';
-		else systemStatus = 'READY';
-	}
 	
 	function disableScroll() {
 		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 		const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 		
 		document.body.style.overflow = 'hidden';
-		document.body.style.position = 'fixed';
-		document.body.style.width = '100%';
-		document.body.style.height = '100%';
 		
 		document.body.dataset.scrollTop = scrollTop.toString();
 		document.body.dataset.scrollLeft = scrollLeft.toString();
+		
+		window.scrollTo(scrollLeft, scrollTop);
 	}
 
 	function enableScroll() {
@@ -110,9 +102,6 @@
 		const scrollLeft = parseInt(document.body.dataset.scrollLeft || '0');
 		
 		document.body.style.overflow = '';
-		document.body.style.position = '';
-		document.body.style.width = '';
-		document.body.style.height = '';
 		
 		delete document.body.dataset.scrollTop;
 		delete document.body.dataset.scrollLeft;
@@ -129,18 +118,10 @@
 			displayingText += text[i];
 			currentCharIndex = i;
 			
-			// Variable typing speed based on character type
-			let typeDelay;
-			if (text[i] === ' ') {
-				typeDelay = Math.floor(Math.random() * 10) + 5; // Faster for spaces
-			} else if (/[{}();,.]/.test(text[i])) {
-				typeDelay = Math.floor(Math.random() * 20) + 20; // Slower for punctuation
-			} else {
-				typeDelay = Math.floor(
-					Math.random() * (config.typingSpeed.max - config.typingSpeed.min) + 
-					config.typingSpeed.min
-				);
-			}
+			const typeDelay = Math.floor(
+				Math.random() * (config.typingSpeed.max - config.typingSpeed.min) + 
+				config.typingSpeed.min
+			);
 			
 			await new Promise(resolve => setTimeout(resolve, typeDelay));
 		}
@@ -156,18 +137,9 @@
 			const glitchIndex = Math.floor(Math.random() * displayedLines.length);
 			const originalLine = displayedLines[glitchIndex];
 			
-			if (originalLine.length === 0) return;
-			
 			const glitchLine = originalLine
 				.split('')
-				.map(char => {
-					if (Math.random() > 0.92) {
-						return randomChar();
-					} else if (Math.random() > 0.95) {
-						return char.toUpperCase() === char ? char.toLowerCase() : char.toUpperCase();
-					}
-					return char;
-				})
+				.map(char => Math.random() > 0.9 ? randomChar() : char)
 				.join('');
 				
 			const updatedLines = [...displayedLines];
@@ -183,7 +155,7 @@
 	}
 	
 	function randomChar() {
-		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]|\\:;"\'<>,.?/~`';
+		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]|\\:;"\'<>,.?/';
 		return chars.charAt(Math.floor(Math.random() * chars.length));
 	}
 	
@@ -223,13 +195,7 @@
 			
 			await typeText(loadingStages[i]);
 			
-			// Dynamic progress increment based on line content
-			let increment = config.progressIncrement;
-			if (loadingStages[i].includes('func main()')) increment *= 2;
-			if (loadingStages[i].includes('fmt.Println')) increment *= 1.5;
-			if (loadingStages[i].includes('//')) increment *= 0.8;
-			
-			progress += increment;
+			progress += config.progressIncrement;
 			
 			const pauseDuration = Math.floor(
 				Math.random() * (config.linePause.max - config.linePause.min) +
@@ -255,88 +221,39 @@
 </script>
 
 {#if loading}
-<div class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/95 backdrop-blur-sm transition-opacity duration-500">
-	<div class="w-full max-w-2xl p-6 bg-transparent">
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-sec backdrop-blur-sm transition-opacity duration-500">
+	<div class="w-full max-w-md p-4 bg-transparent">
 		<!-- Terminal Window -->
-		<div class="bg-gray-900 p-1 rounded-lg border border-cyan-500/30 shadow-2xl relative overflow-hidden terminal-glow">
+		<div class="bg-[#1a1a1a] p-4 rounded-lg border border-acc/20 shadow-lg relative overflow-hidden">
 			<!-- Terminal Header -->
-			<div class="bg-gray-800 px-4 py-3 rounded-t-lg border-b border-gray-700">
-				<div class="flex items-center justify-between">
-					<div class="flex items-center space-x-2">
-						<div class="w-3 h-3 bg-red-500 rounded-full hover:bg-red-400 transition-colors cursor-pointer"></div>
-						<div class="w-3 h-3 bg-yellow-500 rounded-full hover:bg-yellow-400 transition-colors cursor-pointer"></div>
-						<div class="w-3 h-3 bg-green-500 rounded-full hover:bg-green-400 transition-colors cursor-pointer"></div>
-					</div>
-					<div class="text-cyan-400 text-sm font-mono font-bold tracking-wider">
-						🔧 GO COMPILER v1.21.0
-					</div>
-					<div class="text-gray-400 text-sm font-mono">
-						{loadingPercent}%
-					</div>
+			<div class="flex items-center justify-between mb-3">
+				<div class="flex items-center space-x-2">
+					<div class="w-3 h-3 bg-red-500 rounded-full"></div>
+					<div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+					<div class="w-3 h-3 bg-green-500 rounded-full"></div>
 				</div>
-			</div>
-			
-			<!-- System Metrics Bar -->
-			<div class="bg-gray-800 px-4 py-2 border-b border-gray-700">
-				<div class="flex justify-between items-center text-xs font-mono">
-					<div class="flex space-x-4">
-						<span class="text-green-400">CPU: {Math.round(cpuUsage)}%</span>
-						<span class="text-blue-400">MEM: {Math.round(memoryUsage)}%</span>
-						<span class="text-yellow-400">PID: 1337</span>
-					</div>
-					<div class="text-cyan-300 font-bold tracking-wide pulse-text">
-						{systemStatus}
-					</div>
+				<div class="text-acc/70 text-xs font-ice">⚙️ GO COMPILER</div>
+				<div class="text-text/50 text-xs font-mono">
+					{loadingPercent}%
 				</div>
 			</div>
 			
 			<!-- Progress Bar -->
-			<div class="px-4 py-2 bg-gray-800 border-b border-gray-700">
-				<div class="h-2 w-full bg-gray-700 rounded-full overflow-hidden relative">
-					<div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-300 rounded-full glow-effect relative overflow-hidden" 
-						 style="width: {loadingPercent}%">
-						<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
-									transform -skew-x-12 animate-shimmer"></div>
-					</div>
-				</div>
+			<div class="h-1 w-full bg-sec/50 rounded-full mb-3 overflow-hidden">
+				<div class="h-full bg-acc transition-all duration-300 rounded-full glow-effect" style="width: {loadingPercent}%"></div>
 			</div>
 			
 			<!-- Terminal Content -->
-			<div class="bg-black p-4 rounded-b-lg">
-				<div class="relative">
-					<pre class="font-mono text-green-400 text-sm whitespace-pre-wrap break-words 
-							   min-h-[300px] max-h-[400px] overflow-y-auto terminal-content 
-							   leading-relaxed selection:bg-cyan-500/30">{#each displayedLines as line, index}<span class="line-number text-gray-600 mr-4 select-none">{String(index + 1).padStart(2, '0')}</span><span class="code-line">{line}</span>
-{/each}{#if typingInProgress}<span class="line-number text-gray-600 mr-4 select-none">{String(displayedLines.length + 1).padStart(2, '0')}</span><span class="code-line">{displayingText}</span>{/if}{#if showCursor}<span class="cursor text-green-400">█</span>{/if}</pre>
-				</div>
+			<div class="bg-[#0d0d0d] p-3 rounded border border-acc/10 shadow-inner">
+				<pre class="font-mono text-acc text-sm whitespace-pre-wrap break-words min-h-[200px] max-h-[300px] overflow-y-auto terminal-content">
+{#each displayedLines as line}{line}
+{/each}{#if typingInProgress}{displayingText}{/if}{#if showCursor}<span class="cursor">▋</span>{/if}</pre>
 			</div>
 			
-			<!-- Status Footer -->
-			<div class="bg-gray-800 px-4 py-3 rounded-b-lg flex justify-between items-center text-xs font-mono border-t border-gray-700">
-				<div class="flex space-x-6">
-					<div class="text-gray-400">
-						Line: <span class="text-cyan-400">{currentLineIndex + 1}/{loadingStages.length}</span>
-					</div>
-					<div class="text-gray-400">
-						Char: <span class="text-green-400">{currentCharIndex}</span>
-					</div>
-				</div>
-				<div class="flex items-center space-x-2">
-					<div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-					<span class="text-green-400 font-bold">
-						{loadingPercent < 100 ? 'COMPILING' : 'BUILD SUCCESS'}
-					</span>
-				</div>
-			</div>
-		</div>
-		
-		<!-- Build Info -->
-		<div class="mt-4 text-center text-gray-400 text-sm font-mono">
-			<div class="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
-				<div>🏗️ Building Uthman Dev Portfolio</div>
-				<div class="text-xs mt-1 text-gray-500">
-					go build -ldflags="-s -w" -o portfolio ./cmd/server
-				</div>
+			<!-- System Status -->
+			<div class="mt-3 flex justify-between items-center text-xs font-mono">
+				<div class="text-text/50">Initialize: <span class="text-acc">{currentLineIndex + 1}/{loadingStages.length}</span></div>
+				<div class="text-acc/90 blink-slow">SYSTEM {loadingPercent < 100 ? 'LOADING' : 'READY'}</div>
 			</div>
 		</div>
 	</div>
