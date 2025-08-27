@@ -53,40 +53,7 @@ export let data;
   ]
   };
 
-let bioText = [
-  "// Meet Uthman Oladele - The Backend Architect 🚀",
-  "const uthman = {",
-  "    alias: 'UthmanDev',",
-  "    role: 'Backend Engineer | DevOps Enthusiast',",
-  "    experience: 'Crafting scalable, resilient backend systems.',",
-  "    mindset: 'Self-taught problem solver, efficiency-driven innovator.',",
-  "    techStack: ['Go', 'Ruby', 'PHP', 'Bash', 'Svelte'],",
-  "    currentFocus: 'Mastering systems design, automation & backend optimization.',",
-  "    philosophy: 'Write code that lasts. Build tools that matter. Automate everything.',",
-  "    approach: {",
-  "        architecture: 'Design for scale, optimize for performance.',",
-  "        security: 'Harden every layer, assume nothing is safe.',",
-  "        DevOps: 'Automate deployments, streamline workflows.',",
-  "        innovation: 'Solve problems, not just write code.'",
-  "    }",
-  "};",
-  "",
-  "// The Why Behind the Code",
-  "function whyIBuild() {",
-  "    return `Tech should do the hard work, so people don’t have to. ",
-  "            I build to automate, optimize, and empower.`;",
-  "}",
-  "",
-  "// Core Beliefs 💡",
-  "const beliefs = [",
-  "    'Backend should be fast, scalable, and secure.',",
-  "    'Automation isn’t optional; it’s the future.',",
-  "    'Clean, efficient code is non-negotiable.',",
-  "    'Every system should be built with failure recovery in mind.'",
-  "];",
-  "",
-  "// Let’s push boundaries and build something legendary together! ⚡️"
-];
+
 </script>
 
 
