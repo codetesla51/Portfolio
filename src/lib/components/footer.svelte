@@ -94,46 +94,8 @@
           </div>
         </div>
 
-        <!-- Quick Links -->
-        <div data-aos="fade-up" data-aos-delay="200">
-          <h4 class="text-acc font-bold font-ice mb-6 text-lg flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-            </svg>
-            Quick Links
-          </h4>
-          <nav class="space-y-3">
-            {#each quickLinks as link}
-              <a 
-                href={link.href} 
-                class="block text-text/70 hover:text-acc transition-colors duration-300 font-mono text-sm hover:translate-x-2 transform transition-transform duration-200"
-              >
-                ▸ {link.name}
-              </a>
-            {/each}
-          </nav>
-        </div>
-
-        <!-- Tech Stack -->
-        <div data-aos="fade-up" data-aos-delay="300">
-          <h4 class="text-acc font-bold font-ice mb-6 text-lg flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
-            </svg>
-            Tech Stack
-          </h4>
-          <div class="space-y-3">
-            {#each techStack as tech}
-              <div class="flex items-center space-x-3 p-2 rounded-lg hover:bg-card/30 transition-colors duration-200">
-                <img src={tech.icon} alt={tech.name} class="w-5 h-5" />
-                <span class="text-text/70 font-mono text-sm">{tech.name}</span>
-              </div>
-            {/each}
-          </div>
-        </div>
-      </div>
-    </div>
-
+       
+     
     <!-- Enhanced bottom section -->
     <div class="border-t border-acc/20 py-8">
       <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
@@ -158,16 +120,7 @@
           </div>
         </div>
 
-        <!-- Back to top -->
-        <a 
-          href="#hero" 
-          class="group inline-flex items-center px-4 py-2 bg-acc/20 hover:bg-acc text-acc hover:text-sec rounded-lg transition-all duration-300 transform hover:scale-105"
-        >
-          <svg class="w-4 h-4 mr-2 transform group-hover:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/>
-          </svg>
-          <span class="font-mono text-sm">Back to Top</span>
-        </a>
+  
       </div>
     </div>
   </div>
