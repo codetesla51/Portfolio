@@ -23,28 +23,155 @@
       svg: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>`
     }
   ];
+
+  const quickLinks = [
+    { name: "Home", href: "#hero" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" }
+  ];
+
+  const techStack = [
+    { name: "Go", icon: "https://skillicons.dev/icons?i=go" },
+    { name: "Ruby", icon: "https://skillicons.dev/icons?i=ruby" },
+    { name: "PHP", icon: "https://skillicons.dev/icons?i=php" },
+    { name: "Svelte", icon: "https://skillicons.dev/icons?i=svelte" },
+    { name: "Docker", icon: "https://skillicons.dev/icons?i=docker" }
+  ];
 </script>
 
-<footer class="bg-bg text-text py-8 px-4 text-center">
-  <div class="max-w-md mx-auto">
-    <div class="flex justify-center space-x-6 mb-6">
-      {#each socialLinks as social}
-        <a
-          href={social.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-text/70 hover:text-acc transition-colors duration-300"
-        >
-          {@html social.svg}
-        </a>
-      {/each}
+<footer class="relative bg-gradient-to-t from-sec to-sec/95 text-text overflow-hidden">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, rgba(var(--acc-rgb), 0.1) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(var(--acc-rgb), 0.1) 0%, transparent 50%)"></div>
+  </div>
+  
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Main footer content -->
+    <div class="py-16">
+      <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        
+        <!-- Brand Section -->
+        <div class="lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
+          <div class="mb-6">
+            <h3 class="text-3xl font-black text-acc font-ice mb-3">uthman dev</h3>
+            <p class="text-text/80 text-lg leading-relaxed">
+              Building high-performance backend systems with Go. 
+              Passionate about clean code, scalable architecture, and developer tools.
+            </p>
+          </div>
+          
+          <!-- Enhanced social links -->
+          <div class="mb-8">
+            <h4 class="text-acc font-bold font-ice mb-4 text-lg">Let's Connect</h4>
+            <div class="flex space-x-4">
+              {#each socialLinks as social}
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group p-3 bg-card/50 rounded-xl border border-acc/30 hover:border-acc/70 hover:bg-acc/10 transition-all duration-300 transform hover:scale-110"
+                  aria-label={social.name}
+                >
+                  <div class="text-text/70 group-hover:text-acc transition-colors duration-300">
+                    {@html social.svg}
+                  </div>
+                </a>
+              {/each}
+            </div>
+          </div>
+
+          <!-- Status indicator -->
+          <div class="flex items-center space-x-3 p-4 bg-card/30 rounded-xl border border-acc/20">
+            <div class="flex items-center space-x-2">
+              <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+              <span class="text-sm font-mono text-text/80">Available for work</span>
+            </div>
+            <div class="w-px h-6 bg-acc/30"></div>
+            <span class="text-sm font-mono text-acc">Open to opportunities</span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h4 class="text-acc font-bold font-ice mb-6 text-lg flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+            </svg>
+            Quick Links
+          </h4>
+          <nav class="space-y-3">
+            {#each quickLinks as link}
+              <a 
+                href={link.href} 
+                class="block text-text/70 hover:text-acc transition-colors duration-300 font-mono text-sm hover:translate-x-2 transform transition-transform duration-200"
+              >
+                ▸ {link.name}
+              </a>
+            {/each}
+          </nav>
+        </div>
+
+        <!-- Tech Stack -->
+        <div data-aos="fade-up" data-aos-delay="300">
+          <h4 class="text-acc font-bold font-ice mb-6 text-lg flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
+            </svg>
+            Tech Stack
+          </h4>
+          <div class="space-y-3">
+            {#each techStack as tech}
+              <div class="flex items-center space-x-3 p-2 rounded-lg hover:bg-card/30 transition-colors duration-200">
+                <img src={tech.icon} alt={tech.name} class="w-5 h-5" />
+                <span class="text-text/70 font-mono text-sm">{tech.name}</span>
+              </div>
+            {/each}
+          </div>
+        </div>
+      </div>
     </div>
 
-    <p class="text-text/50 text-sm mb-2">
-      © {currentYear} Uthman Dev. All Rights Reserved
-    </p>
-    <p class="text-text/50 text-sm">
-      Built with Svelte, Laravel, and Tailwind
-    </p>
+    <!-- Enhanced bottom section -->
+    <div class="border-t border-acc/20 py-8">
+      <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
+        
+        <!-- Copyright -->
+        <div class="flex flex-col lg:flex-row lg:items-center space-y-2 lg:space-y-0 lg:space-x-6 text-center lg:text-left">
+          <p class="text-text/60 text-sm font-mono">
+            © {currentYear} Uthman Dev. All Rights Reserved
+          </p>
+          <div class="hidden lg:block w-px h-4 bg-acc/30"></div>
+          <div class="flex items-center justify-center lg:justify-start space-x-2">
+            <span class="text-text/60 text-sm">Built with</span>
+            <div class="flex items-center space-x-2">
+              <img src="https://skillicons.dev/icons?i=svelte" alt="Svelte" class="w-4 h-4" />
+              <span class="text-acc text-sm font-semibold">Svelte</span>
+            </div>
+            <span class="text-text/60">+</span>
+            <div class="flex items-center space-x-2">
+              <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind" class="w-4 h-4" />
+              <span class="text-acc text-sm font-semibold">Tailwind</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to top -->
+        <a 
+          href="#hero" 
+          class="group inline-flex items-center px-4 py-2 bg-acc/20 hover:bg-acc text-acc hover:text-sec rounded-lg transition-all duration-300 transform hover:scale-105"
+        >
+          <svg class="w-4 h-4 mr-2 transform group-hover:-translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/>
+          </svg>
+          <span class="font-mono text-sm">Back to Top</span>
+        </a>
+      </div>
+    </div>
   </div>
+
+  <!-- Animated accent line -->
+  <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-acc to-transparent opacity-60"></div>
 </footer>
