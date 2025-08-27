@@ -2,6 +2,139 @@
   export let project;
   export let index;
   
+  // Tech stack mapping for skillicons.dev
+  const techStackMap = {
+    'JavaScript': 'js',
+    'TypeScript': 'ts',
+    'React': 'react',
+    'Svelte': 'svelte',
+    'Vue': 'vue',
+    'Angular': 'angular',
+    'Node.js': 'nodejs',
+    'Express': 'express',
+    'Next.js': 'nextjs',
+    'Nuxt.js': 'nuxtjs',
+    'Go': 'go',
+    'Python': 'python',
+    'Java': 'java',
+    'C#': 'cs',
+    'PHP': 'php',
+    'Ruby': 'ruby',
+    'Rust': 'rust',
+    'C++': 'cpp',
+    'C': 'c',
+    'HTML': 'html',
+    'CSS': 'css',
+    'SASS': 'sass',
+    'SCSS': 'sass',
+    'Tailwind': 'tailwind',
+    'Bootstrap': 'bootstrap',
+    'Material-UI': 'materialui',
+    'Chakra UI': 'chakra',
+    'MongoDB': 'mongodb',
+    'MySQL': 'mysql',
+    'PostgreSQL': 'postgres',
+    'SQLite': 'sqlite',
+    'Redis': 'redis',
+    'Firebase': 'firebase',
+    'Supabase': 'supabase',
+    'Docker': 'docker',
+    'Kubernetes': 'kubernetes',
+    'AWS': 'aws',
+    'Azure': 'azure',
+    'GCP': 'gcp',
+    'Netlify': 'netlify',
+    'Vercel': 'vercel',
+    'Heroku': 'heroku',
+    'Git': 'git',
+    'GitHub': 'github',
+    'GitLab': 'gitlab',
+    'Figma': 'figma',
+    'Adobe XD': 'xd',
+    'Photoshop': 'ps',
+    'Illustrator': 'ai',
+    'Linux': 'linux',
+    'Ubuntu': 'ubuntu',
+    'Windows': 'windows',
+    'macOS': 'apple',
+    'VSCode': 'vscode',
+    'Vim': 'vim',
+    'Webpack': 'webpack',
+    'Vite': 'vite',
+    'Babel': 'babel',
+    'Jest': 'jest',
+    'Cypress': 'cypress',
+    'Electron': 'electron',
+    'Flutter': 'flutter',
+    'React Native': 'react',
+    'Unity': 'unity',
+    'Blender': 'blender',
+    'Three.js': 'threejs',
+    'D3.js': 'd3',
+    'GraphQL': 'graphql',
+    'Apollo': 'apollo',
+    'Prisma': 'prisma',
+    'Strapi': 'strapi',
+    'Django': 'django',
+    'Flask': 'flask',
+    'FastAPI': 'fastapi',
+    'Spring': 'spring',
+    'Laravel': 'laravel',
+    'Rails': 'rails',
+    'Symfony': 'symfony'
+  };
+
+  // Function to parse tech stack string and return array of technologies
+  function parseTechStack(techStackString) {
+    if (!techStackString) return [];
+    
+    // Split by common separators and clean up
+    const techs = techStackString
+      .split(/[,;|&+\n]/)
+      .map(tech => tech.trim())
+      .filter(tech => tech.length > 0);
+    
+    return techs;
+  }
+
+  // Function to get skill icon identifier
+  function getSkillIcon(tech) {
+    // Direct match
+    if (techStackMap[tech]) {
+      return techStackMap[tech];
+    }
+    
+    // Case-insensitive match
+    const lowerTech = tech.toLowerCase();
+    for (const [key, value] of Object.entries(techStackMap)) {
+      if (key.toLowerCase() === lowerTech) {
+        return value;
+      }
+    }
+    
+    // Partial match for common variations
+    if (lowerTech.includes('next')) return 'nextjs';
+    if (lowerTech.includes('nuxt')) return 'nuxtjs';
+    if (lowerTech.includes('node')) return 'nodejs';
+    if (lowerTech.includes('express')) return 'express';
+    if (lowerTech.includes('mongo')) return 'mongodb';
+    if (lowerTech.includes('postgres') || lowerTech.includes('postgresql')) return 'postgres';
+    if (lowerTech.includes('mysql')) return 'mysql';
+    if (lowerTech.includes('tailwind')) return 'tailwind';
+    if (lowerTech.includes('bootstrap')) return 'bootstrap';
+    if (lowerTech.includes('docker')) return 'docker';
+    if (lowerTech.includes('aws')) return 'aws';
+    if (lowerTech.includes('firebase')) return 'firebase';
+    if (lowerTech.includes('github')) return 'github';
+    if (lowerTech.includes('git')) return 'git';
+    
+    // Return null if no match found - we'll show a default icon
+    return null;
+  }
+
+  // Get parsed technologies
+  $: technologies = parseTechStack(project.tech_stack);
+  
 function handleViewDetailsClick(event) {
   event.preventDefault();
   
@@ -42,21 +175,21 @@ function handleViewDetailsClick(event) {
 </script>
 
 <div class="group relative bg-card/80 backdrop-blur-sm rounded-2xl border-2 border-acc/20 hover:border-acc/60 transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] h-full overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-acc/20">
-  
+
   <!-- Enhanced background gradient on hover -->
   <div class="absolute inset-0 bg-gradient-to-br from-acc/5 via-transparent to-acc/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-  
+
   <!-- Subtle animated border effect -->
   <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-acc/20 via-transparent to-acc/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-  
+
   <div class="relative z-10 p-8">
-    
+
     <!-- Enhanced header section -->
     <div class="flex justify-between items-start mb-6">
       <div class="relative">
         <!-- Glowing effect behind icon -->
         <div class="absolute inset-0 bg-acc/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-110"></div>
-        
+
         <div 
           class="relative p-4 bg-gradient-to-br from-sec to-sec/90 rounded-xl border-2 border-acc/40 group-hover:border-acc/70 transition-all duration-300 group-hover:scale-110"
           data-aos="zoom-in"
@@ -72,7 +205,7 @@ function handleViewDetailsClick(event) {
           {/if}
         </div>
       </div>
-      
+
       <!-- Enhanced project number -->
       <div 
         class="flex items-center space-x-2"
@@ -96,19 +229,19 @@ function handleViewDetailsClick(event) {
       >
         {project.name}
       </h3>
-      
+
       <!-- Animated underline -->
       <div class="w-0 h-0.5 bg-gradient-to-r from-acc to-acc/60 group-hover:w-full transition-all duration-500"></div>
     </div>
 
-    <!-- Enhanced tech stack display -->
+    <!-- Enhanced tech stack display with icons -->
     <div 
       class="mb-8"
       data-aos="fade-up"
       data-aos-delay={500 + (index * 50)}
       data-aos-anchor-placement="top-bottom"
     >
-      <div class="flex items-center mb-3">
+      <div class="flex items-center mb-4">
         <svg class="w-4 h-4 text-acc mr-2" fill="currentColor" viewBox="0 0 20 20">
           <path d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
         </svg>
@@ -116,11 +249,38 @@ function handleViewDetailsClick(event) {
           Tech Stack
         </span>
       </div>
-      
-      <div class="bg-sec/50 rounded-lg p-3 border border-acc/20 group-hover:border-acc/40 transition-all duration-300">
-        <p class="font-mono text-sm text-text/90 group-hover:text-text transition-colors duration-300">
-          {project.tech_stack}
-        </p>
+
+      <div class="bg-sec/50 rounded-lg p-4 border border-acc/20 group-hover:border-acc/40 transition-all duration-300">
+        {#if technologies.length > 0}
+          <div class="flex flex-wrap gap-3">
+            {#each technologies as tech, i}
+              <div class="group/tech flex items-center space-x-2 bg-card/60 hover:bg-card/80 rounded-lg px-3 py-2 border border-acc/10 hover:border-acc/30 transition-all duration-300 transform hover:scale-105">
+                {#if getSkillIcon(tech)}
+                  <img 
+                    src={`https://skillicons.dev/icons?i=${getSkillIcon(tech)}`} 
+                    alt={tech} 
+                    class="w-5 h-5 group-hover/tech:scale-110 transition-transform duration-200" 
+                  />
+                {:else}
+                  <!-- Default fallback icon for unmapped technologies -->
+                  <div class="w-5 h-5 bg-acc/20 rounded border border-acc/40 flex items-center justify-center group-hover/tech:scale-110 transition-transform duration-200">
+                    <svg class="w-3 h-3 text-acc" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9 12a1 1 0 102 0V8a1 1 0 10-2 0v4zm1-10C4.477 2 0 6.477 0 12s4.477 10 10 10 10-4.477 10-10S15.523 2 10 2zM8 7a1 1 0 112 0 1 1 0 01-2 0z"/>
+                    </svg>
+                  </div>
+                {/if}
+                <span class="font-mono text-xs text-text/90 group-hover/tech:text-text transition-colors duration-200 font-medium">
+                  {tech}
+                </span>
+              </div>
+            {/each}
+          </div>
+        {:else}
+          <!-- Fallback for when tech_stack parsing fails -->
+          <p class="font-mono text-sm text-text/70 italic">
+            {project.tech_stack}
+          </p>
+        {/if}
       </div>
     </div>
 
@@ -131,14 +291,21 @@ function handleViewDetailsClick(event) {
       data-aos-delay={600 + (index * 50)}
       data-aos-anchor-placement="top-bottom"
     >
-      <!-- Status indicator -->
-      <div class="flex items-center space-x-2">
-        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-        <span class="text-xs font-mono text-text/60 group-hover:text-text/80 transition-colors duration-300">
-          Available
-        </span>
+      <!-- Status indicator with tech count -->
+      <div class="flex items-center space-x-3">
+        <div class="flex items-center space-x-2">
+          <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span class="text-xs font-mono text-text/60 group-hover:text-text/80 transition-colors duration-300">
+            Available
+          </span>
+        </div>
+        {#if technologies.length > 0}
+          <div class="text-xs font-mono text-acc/60 group-hover:text-acc/80 transition-colors duration-300">
+            {technologies.length} {technologies.length === 1 ? 'Tech' : 'Technologies'}
+          </div>
+        {/if}
       </div>
-      
+
       <!-- Enhanced CTA button -->
       <a 
         href={`/projects/${project.slug}`} 
