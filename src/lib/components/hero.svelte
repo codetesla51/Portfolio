@@ -16,7 +16,9 @@
         <!-- Badge -->
         <div class="inline-block p-1 bg-gradient-to-r from-acc/20 to-acc/10 rounded-2xl mb-6">
           <div class="bg-sec/80 backdrop-blur-sm rounded-xl px-4 sm:px-6 py-2 sm:py-3">
-            <span class="font-mono text-acc/80 text-xs sm:text-sm font-semibold tracking-wider uppercase">Full Stack Developer</span>
+            <span class="font-mono text-acc/80 text-xs sm:text-sm font-semibold tracking-wider uppercase">
+  Backend-Focused Full Stack Developer
+</span>
           </div>
         </div>
         
@@ -34,8 +36,8 @@
         
         <!-- Description -->
         <p class="text-lg sm:text-xl lg:text-2xl text-text/90 leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
-          Creating exceptional digital experiences with modern technologies and thoughtful design
-        </p>
+  Engineering scalable backends and APIs with Go and modern web technologies.
+</p>
 
         <!-- Essential info -->
         <div class="mb-6 sm:mb-8 space-y-3 sm:space-y-4 flex flex-col items-center lg:items-start">
@@ -78,9 +80,7 @@
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 mr-2 sm:mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 7h.01M7 3h5c.512 0 .987.17 1.387.48l5.226 4.168c.377.302.387.922 0 1.204L13.387 12.52c-.4.31-.875.48-1.387.48H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z"/>
-            </svg>
+            
             View Projects
           </a>
         </div>
@@ -99,7 +99,7 @@
 
           <!-- Status indicator -->
           <div class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-acc text-sec px-3 py-1 sm:px-4 sm:py-2 rounded-full font-mono text-xs sm:text-sm font-bold shadow-lg">
-            Available
+            Ready For Work
           </div>
 
           <!-- Social links positioned here -->
