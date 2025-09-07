@@ -137,22 +137,26 @@ export let bioText = [
       
       <!-- Enhanced Left Content -->
       <div class="space-y-8" data-aos="fade-right" data-aos-duration="1000">
-        <!-- Main intro card -->
-        <div class="bg-card/80 backdrop-blur-sm rounded-2xl p-4 border-2 border-acc/20 shadow-xl hover:shadow-2xl transition-all duration-500">
-          <div class="space-y-6 text-lg leading-relaxed">
-            <p class="text-text/90">
-              Hey, I'm <span class="text-acc font-bold text-xl">Oladele Uthman</span>, a Go backend engineer specializing in high-performance, concurrent systems.
-            </p>
+       <!-- Main intro card -->
+<div class="bg-card/80 backdrop-blur-sm rounded-2xl p-4 border-2 border-acc/20 shadow-xl hover:shadow-2xl transition-all duration-500">
+  <div class="space-y-6 text-lg leading-relaxed">
+    <p class="text-text/90">
+      Hey, I'm <span class="text-acc font-bold text-xl">Oladele Uthman</span>, a Computer Science student and Go backend engineer focused on systems design and compiler theory.
+    </p>
 
-            <p class="text-text/90">
-              With <span class="text-acc font-bold">4+ years</span> of experience, I focus on writing idiomatic Go code that scales efficiently and handles massive concurrent loads.
-            </p>
+    <p class="text-text/90">
+      I specialize in designing secure, scalable APIs and backend architectures that emphasize reliability and performance. My work spans from structuring data flows and optimizing databases to building services that integrate cleanly with modern infrastructures.
+    </p>
 
-            <p class="text-text/90">
-              Currently mastering <span class="text-acc font-bold">Go concurrency patterns</span>, exploring <span class="text-acc font-bold">distributed systems</span>, and building microservices that perform at enterprise scale.
-            </p>
-          </div>
-        </div>
+    <p class="text-text/90">
+      Beyond backend development, I actively explore <span class="text-acc font-bold">systems fundamentals</span>—studying compiler theory, distributed systems, and the deeper mechanics of programming languages. This research mindset shapes how I approach engineering problems: not just writing code, but understanding the theory that makes code powerful.
+    </p>
+
+    <p class="text-text/90">
+      As a CS student, I bridge academic learning with practical engineering. I enjoy applying theoretical insights to real-world backend challenges, aiming to deliver solutions that are both technically sound and future-ready.
+    </p>
+  </div>
+</div>
 
         <!-- Skills highlight cards -->
         <div class="grid sm:grid-cols-2 gap-6">
