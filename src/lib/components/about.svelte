@@ -3,7 +3,7 @@
   import { browser } from '$app/environment';
   import Heading from '$lib/components/heading.svelte';
 export let bioText = [
-  "// Meet Uthman Oladele - The Go Backend Engineer 🚀",
+  "// Meet Uthman Oladele - Go Backend Developer",
   "package main",
   "",
   "import (",
@@ -25,27 +25,26 @@ export let bioText = [
   "func NewUthman() *Developer {",
   "    return &Developer{",
   "        Alias:        \"UthmanDev\",",
-  "        Role:         \"Go Backend Engineer | DevOps Enthusiast\",",
-  "        Experience:   \"Crafting high-performance, concurrent systems\",",
-  "        Mindset:      \"Self-taught Gopher, performance-driven innovator\",",
-  "        TechStack:    []string{\"Go\", \"Ruby\", \"PHP\", \"Docker\", \"K8s\"},",
-  "        CurrentFocus: \"Mastering Go concurrency & distributed systems\",",
-  "        Philosophy:   \"Write idiomatic Go. Build for scale. Ship fast.\",",
+  "        Role:         \"CS Student | Go Backend Developer\",",
+  "        Experience:   \"Designing APIs and exploring systems fundamentals\",",
+  "        Mindset:      \"Curious learner, theory-driven engineer\",",
+  "        TechStack:    []string{\"Go\", \"PHP\", \"Laravel\", \"Svelte\", \"Bash\"},",
+  "        CurrentFocus: \"Systems design & compiler theory\",",
+  "        Philosophy:   \"Write clean Go. Build reliable backends. Keep learning.\",",
   "    }",
   "}",
   "",
   "// WhyIBuild demonstrates my core motivation",
   "func (d *Developer) WhyIBuild() string {",
-  "    return \"Building blazingly fast backends that handle millions \" +",
-  "           \"of requests. Go's simplicity meets enterprise scale.\"",
+  "    return \"Building backends that are secure, scalable, and grounded in solid fundamentals.\"",
   "}",
   "",
   "// CoreBeliefs represents my engineering principles",
   "var CoreBeliefs = []string{",
-  "    \"Goroutines make concurrency elegant and efficient\",",
-  "    \"Microservices should communicate via clean APIs\",",
-  "    \"Performance optimization is a continuous journey\",",
-  "    \"Error handling in Go prevents production disasters\",",
+  "    \"APIs should be clean and reliable\",",
+  "    \"Systems are stronger when theory meets practice\",",
+  "    \"Performance optimization is guided by understanding, not guesswork\",",
+  "    \"Good error handling prevents disasters\",",
   "}",
   "",
   "func main() {",
@@ -165,9 +164,8 @@ export let bioText = [
               <div class="w-10 h-10 bg-acc/20 rounded-lg flex items-center justify-center mr-3">
                 <img src="https://skillicons.dev/icons?i=go" alt="Go" class="w-6 h-6" />
               </div>
-              <h3 class="font-bold text-acc font-ice">Go Expert</h3>
-            </div>
-            <p class="text-sm text-text/80">Building blazingly fast, concurrent backend systems with Go.</p>
+              <h3 class="font-bold text-acc font-ice">Go Backend Developer</h3>
+<p class="text-sm text-text/80">Exploring systems design while building secure, scalable backends with Go.</p>
           </div>
 
           <div class="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-acc/30 hover:border-acc/60 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
