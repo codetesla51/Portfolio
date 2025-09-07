@@ -68,34 +68,21 @@
 
     <!-- Bottom section -->
     <div class="border-t border-acc/20 py-6 sm:py-8">
-      <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+      <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 text-center">
         
         <!-- Copyright -->
-        <div class="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 text-center lg:text-left">
-          <p class="text-text/60 text-xs sm:text-sm font-mono">
-            © {currentYear} Uthman Dev. All Rights Reserved
-          </p>
-          <div class="hidden sm:block w-px h-3 bg-acc/30"></div>
-          <div class="flex items-center justify-center space-x-2 text-xs sm:text-sm">
-            <span class="text-text/60">Built with</span>
-            <img src="https://skillicons.dev/icons?i=svelte" alt="Svelte" class="w-3 h-3 sm:w-4 sm:h-4" />
-            <span class="text-acc font-semibold">Svelte</span>
-            <span class="text-text/60">+</span>
-            <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind" class="w-3 h-3 sm:w-4 sm:h-4" />
-            <span class="text-acc font-semibold">Tailwind</span>
-          </div>
+        <p class="text-text/60 text-xs sm:text-sm font-mono">
+          © {currentYear} Uthman Dev. All Rights Reserved
+        </p>
+        <div class="hidden sm:block w-px h-3 bg-acc/30"></div>
+        <div class="flex items-center justify-center space-x-2 text-xs sm:text-sm">
+          <span class="text-text/60">Built with</span>
+          <img src="https://skillicons.dev/icons?i=svelte" alt="Svelte" class="w-3 h-3 sm:w-4 sm:h-4" />
+          <span class="text-acc font-semibold">Svelte</span>
+          <span class="text-text/60">+</span>
+          <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind" class="w-3 h-3 sm:w-4 sm:h-4" />
+          <span class="text-acc font-semibold">Tailwind</span>
         </div>
-
-        <!-- Back to top -->
-        <a
-          href="#hero"
-          class="inline-flex items-center space-x-2 text-text/70 hover:text-acc transition-colors duration-300 text-xs sm:text-sm font-mono"
-        >
-          <span>Back to top</span>
-          <svg class="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </a>
       </div>
     </div>
   </div>
