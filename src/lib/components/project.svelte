@@ -8,8 +8,8 @@ import Heading from '$lib/components/heading.svelte';
 <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
   <Heading 
   badge="Portfolio"
-  heading="Featured Projects" 
-  subtext="A curated selection of my work showcasing expertise in modern web development, innovative solutions, and thoughtful user experiences" 
+  heading="Things I’ve Built" 
+  subtext="Selected projects demonstrating backend engineering, API design, and systems thinking applied in practice." 
 />
   <div class="grid md:grid-cols-3 gap-6 p-4">
     {#each projects as project, i}
