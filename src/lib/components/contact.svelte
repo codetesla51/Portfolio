@@ -81,8 +81,8 @@ import Heading from '$lib/components/heading.svelte';
 <section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
   <Heading 
   badge="Let's Connect"
-  heading="Get In Touch" 
-  subtext="Ready to bring your vision to life? I'm available for new projects and collaborations. Let's discuss how we can create something exceptional together." 
+  heading="Let’s Build Something" 
+  subtext="If you need backend craft, API design, or scalable systems — I’m available." 
 />
   
   <div class="grid md:grid-cols-5 gap-8">
