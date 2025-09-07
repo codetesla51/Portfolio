@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
-
+  import Heading from '$lib/components/heading.svelte';
 export let bioText = [
   "// Meet Uthman Oladele - The Go Backend Engineer 🚀",
   "package main",
@@ -125,7 +125,11 @@ export let bioText = [
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-5xl font-black text-acc mb-6 font-ice">About Me</h2>
+      <Heading 
+  badge="Introduction"
+  heading="About Me" 
+  subtext="Passionate developer crafting digital experiences with precision, creativity, and cutting-edge technology" 
+/>
       <div class="w-24 h-1 bg-gradient-to-r from-acc to-acc/60 mx-auto rounded-full"></div>
     </div>
 
