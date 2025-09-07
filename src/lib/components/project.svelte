@@ -11,7 +11,7 @@ import Heading from '$lib/components/heading.svelte';
   heading="Featured Projects" 
   subtext="A curated selection of my work showcasing expertise in modern web development, innovative solutions, and thoughtful user experiences" 
 />
-  <div class="grid md:grid-cols-3 gap-6">
+  <div class="grid md:grid-cols-3 gap-6 p-4">
     {#each projects as project, i}
       <div 
         data-aos="fade-up" 
