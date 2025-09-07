@@ -5,7 +5,7 @@
   export let centered = false; // Center alignment option
 </script>
 
-<div class="flex flex-col justify-start items-start text-left p-6">
+<div class="flex flex-col justify-start items-start text-left p-6 py-4 px-4">
   
   <!-- Optional Badge -->
   {#if badge}
