@@ -110,7 +110,7 @@ function handleViewDetailsClick(event) {
       data-aos-delay={500 + (index * 50)}
       data-aos-anchor-placement="top-bottom"
     >
-      <div class="flex items-center mb-4">
+      <div class="flex items-center mb-3">
         <svg class="w-4 h-4 text-acc mr-2" fill="currentColor" viewBox="0 0 20 20">
           <path d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
         </svg>
@@ -119,30 +119,10 @@ function handleViewDetailsClick(event) {
         </span>
       </div>
 
-      <div class="bg-sec/50 rounded-lg p-4 border border-acc/20 group-hover:border-acc/40 transition-all duration-300 relative overflow-hidden">
-        <!-- Subtle background pattern -->
-        <div class="absolute inset-0 bg-gradient-to-br from-acc/5 via-transparent to-acc/10 opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
-        
-        {#if project.tech_stack}
-          <div class="relative z-10">
-            {#each (project.tech_stack || '').split(',').filter(tech => tech.trim()) as tech, i}
-              <span 
-                class="inline-block px-3 py-1.5 m-1 bg-card/70 hover:bg-card/90 text-text/90 hover:text-text font-mono text-sm rounded-full border border-acc/20 hover:border-acc/50 transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-sm hover:shadow-md cursor-default"
-              >
-                {tech.trim()}
-                <!-- Small accent dot -->
-                <span class="inline-block w-1 h-1 bg-acc/60 rounded-full ml-2 hover:bg-acc transition-colors duration-300"></span>
-              </span>
-            {/each}
-          </div>
-        {:else}
-          <p class="font-mono text-sm text-text/70 italic text-center relative z-10">
-            No tech stack specified
-          </p>
-        {/if}
-        
-        <!-- Animated border highlight -->
-        <div class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-transparent via-acc to-transparent w-0 group-hover:w-full transition-all duration-700"></div>
+      <div class="bg-sec/50 rounded-lg p-3 border border-acc/20 group-hover:border-acc/40 transition-all duration-300">
+        <p class="font-mono text-sm text-text/90 group-hover:text-text transition-colors duration-300">
+          {project.tech_stack || 'No tech stack specified'}
+        </p>
       </div>
     </div>
 
