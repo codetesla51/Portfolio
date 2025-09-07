@@ -13,7 +13,7 @@
   let docHeight = 0;
   let scrollPercentage = 0;
   let showScrollControls = false;
-  let scrollDirection = "down"; // "up" or "down"
+  let lastScrollY = 0;
   
   // Initialize animation frame ID for cleanup
   let animationFrameId;
@@ -40,10 +40,11 @@
   }
   
   function updateScrollInfo() {
+    lastScrollY = scrollY;
     scrollY = window.scrollY;
     innerHeight = window.innerHeight;
     docHeight = document.body.scrollHeight;
-    scrollPercentage = (scrollY / (docHeight - innerHeight)) * 100;
+    scrollPercentage = Math.min((scrollY / (docHeight - innerHeight)) * 100, 100);
     
     // Only show scroll controls when user has scrolled a bit
     showScrollControls = scrollY > 200;
@@ -63,13 +64,17 @@
     });
   }
   
-  function toggleScrollDirection() {
-    scrollDirection = scrollDirection === "down" ? "up" : "down";
+  // Fixed function - only scroll when button is actually clicked
+  function handleScrollButtonClick() {
+    // Check if we're closer to top or bottom
+    const middlePoint = (docHeight - innerHeight) / 2;
     
-    if (scrollDirection === "up") {
-      scrollToTop();
-    } else {
+    if (scrollY < middlePoint) {
+      // We're in the top half, scroll to bottom
       scrollToBottom();
+    } else {
+      // We're in the bottom half, scroll to top
+      scrollToTop();
     }
   }
   
@@ -121,7 +126,9 @@
       document.body.style.cursor = 'default';
       
       // Cancel animation frame
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   });
 </script>
@@ -157,20 +164,23 @@
   }
   
   .scroll-button {
-    @apply w-12 h-12 rounded-full bg-sec border-2 border-acc flex items-center justify-center 
-           text-acc font-mono shadow-lg hover:bg-opacity-80 transition-all duration-200;
+    @apply w-14 h-14 rounded-xl bg-card/20 backdrop-blur-md border border-acc/30 
+           flex items-center justify-center text-acc font-mono shadow-lg 
+           hover:bg-card/30 hover:border-acc/50 hover:scale-110 
+           transition-all duration-300 cursor-none;
   }
   
   .scroll-indicator-container {
-    @apply fixed top-0 left-0 right-0 h-1 bg-sec z-50;
+    @apply fixed top-0 left-0 right-0 h-1 bg-sec/50 backdrop-blur-sm z-50;
   }
   
   .scroll-indicator {
-    @apply h-full bg-acc transition-all duration-300;
+    @apply h-full bg-gradient-to-r from-acc/60 to-acc transition-all duration-300;
   }
   
   .percentage-text {
-    @apply fixed top-4 right-6 text-acc font-mono text-sm z-50 bg-sec bg-opacity-70 px-2 py-1 rounded;
+    @apply fixed top-4 right-6 text-acc font-mono text-sm z-50 
+           bg-card/20 backdrop-blur-md border border-acc/30 px-3 py-1.5 rounded-lg;
   }
 </style>
 
@@ -194,14 +204,21 @@
 
 <!-- Scroll Controls -->
 <div class="scroll-controls {showScrollControls ? 'visible' : ''}">
-  <button class="scroll-button" on:click={toggleScrollDirection} data-cursor-hover>
-    {#if scrollDirection === "down"}
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="18 15 12 9 6 15"></polyline>
-      </svg>
-    {:else}
+  <button 
+    class="scroll-button" 
+    on:click={handleScrollButtonClick} 
+    data-cursor-hover
+    aria-label="Scroll to {scrollY < (docHeight - innerHeight) / 2 ? 'bottom' : 'top'}"
+  >
+    {#if scrollY < (docHeight - innerHeight) / 2}
+      <!-- Show down arrow when in top half -->
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    {:else}
+      <!-- Show up arrow when in bottom half -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
       </svg>
     {/if}
   </button>
