@@ -9,57 +9,26 @@
   export let data;
   let { projects, error } = data;
 
-  // Scroll reveal state
-  let scrollY = 0;
-  let innerHeight = 0;
+  // Fog overlay state
+  let showFogOverlay = true;
 
-  // Section refs for scroll detection
-  let heroRef;
-  let aboutRef;
-  let skillsRef;
-  let projectsRef;
-  let contactRef;
+  function checkScrollPosition() {
+    const scrollPosition = window.innerHeight + window.scrollY;
+    const pageHeight = document.documentElement.scrollHeight;
+    
+    if (scrollPosition >= pageHeight - 1) {
+      showFogOverlay = false;
+    } else {
+      showFogOverlay = true;
+    }
+  }
 
   onMount(() => {
-    const updateScroll = () => {
-      scrollY = window.scrollY;
-      innerHeight = window.innerHeight;
-    };
-
-    window.addEventListener('scroll', updateScroll);
-    window.addEventListener('resize', updateScroll);
-    updateScroll();
-
+    window.addEventListener('scroll', checkScrollPosition);
     return () => {
-      window.removeEventListener('scroll', updateScroll);
-      window.removeEventListener('resize', updateScroll);
+      window.removeEventListener('scroll', checkScrollPosition);
     };
   });
-
-  // Calculate section visibility
-  $: getSectionOpacity = (element) => {
-    if (!element) return 1;
-    
-    const rect = element.getBoundingClientRect();
-    const sectionTop = rect.top;
-    const sectionHeight = rect.height;
-    
-    // Start darkening when section is 100vh away from viewport
-    const fadeStartDistance = innerHeight;
-    const fadeEndDistance = innerHeight * 0.3; // Fully visible when 30% into viewport
-    
-    if (sectionTop > fadeStartDistance) {
-      // Section is far below viewport - fully dark
-      return 0.15;
-    } else if (sectionTop > fadeEndDistance) {
-      // Section is approaching viewport - fade in
-      const progress = (fadeStartDistance - sectionTop) / (fadeStartDistance - fadeEndDistance);
-      return 0.15 + (0.85 * progress);
-    } else {
-      // Section is in or past viewport - fully visible
-      return 1;
-    }
-  };
 
   const skillCategories = {
     "Programming Languages": [
@@ -162,50 +131,16 @@
   ];
 </script>
 
-<!-- Hero Section - Always fully visible -->
-<section bind:this={heroRef} id="hero">
-  <Hero {personalInfo} />
-</section>
+<!-- Fog overlay -->
+{#if showFogOverlay}
+  <div class="fog-overlay"></div>
+{/if}
 
-<!-- About Section with scroll reveal -->
-<section 
-  bind:this={aboutRef} 
-  id="about"
-  class="scroll-reveal-section"
-  style="opacity: {getSectionOpacity(aboutRef)}; filter: brightness({getSectionOpacity(aboutRef) < 1 ? 0.4 : 1});"
->
-  <About {bioText} />
-</section>
-
-<!-- Skills Section with scroll reveal -->
-<section 
-  bind:this={skillsRef} 
-  id="skills"
-  class="scroll-reveal-section"
-  style="opacity: {getSectionOpacity(skillsRef)}; filter: brightness({getSectionOpacity(skillsRef) < 1 ? 0.4 : 1});"
->
-  <Skills {skillCategories} />
-</section>
-
-<!-- Projects Section with scroll reveal -->
-<section 
-  bind:this={projectsRef} 
-  id="projects"
-  class="scroll-reveal-section"
-  style="opacity: {getSectionOpacity(projectsRef)}; filter: brightness({getSectionOpacity(projectsRef) < 1 ? 0.4 : 1});"
->
-  <Projects {projects} />
-</section>
-
-<!-- Contact Section with scroll reveal -->
-<section 
-  bind:this={contactRef} 
-  id="contact"
-  class="scroll-reveal-section"
-  style="opacity: {getSectionOpacity(contactRef)}; filter: brightness({getSectionOpacity(contactRef) < 1 ? 0.4 : 1});"
->
-  <Contact />
-</section>
+<Hero {personalInfo} />
+<About {bioText} />
+<Skills {skillCategories} />
+<Projects {projects} />
+<Contact />
 
 <style lang="postcss">
   /* Terminal cursor animation */
@@ -220,38 +155,39 @@
     50% { opacity: 0.3; }
   }
 
-  /* Scroll reveal sections */
-  .scroll-reveal-section {
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                filter 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, filter, transform;
+  /* Fog overlay styled to match portfolio theme */
+  .fog-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh;
+    background: linear-gradient(
+      to top, 
+      rgba(var(--sec-rgb, 15, 15, 15), 0.95), 
+      rgba(var(--sec-rgb, 15, 15, 15), 0.7) 20%,
+      rgba(var(--sec-rgb, 15, 15, 15), 0.3) 60%,
+      transparent
+    );
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 40;
   }
 
-  /* Prevent layout shift during transitions */
-  section {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Ensure hero stays fully visible */
-  #hero {
-    opacity: 1 !important;
-    filter: brightness(1) !important;
-  }
-
-  /* Enhanced scroll reveal effect */
-  .scroll-reveal-section {
-    transform: translateY(0);
-  }
-
-  .scroll-reveal-section[style*="opacity: 0.15"] {
-    transform: translateY(20px);
-  }
-
-  /* Performance optimizations */
-  * {
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
+  /* Add subtle accent glow at the edge */
+  .fog-overlay::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg, 
+      transparent, 
+      rgba(var(--acc-rgb, 46, 204, 113), 0.3) 50%, 
+      transparent
+    );
   }
 </style>
