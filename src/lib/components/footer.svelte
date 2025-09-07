@@ -54,15 +54,7 @@
       <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
         
         <!-- Brand Section -->
-        <div class="lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
-          <div class="mb-6">
-            <h3 class="text-3xl font-black text-acc font-ice mb-3">uthman dev</h3>
-            <p class="text-text/80 text-lg leading-relaxed">
-              Building high-performance backend systems with Go. 
-              Passionate about clean code, scalable architecture, and developer tools.
-            </p>
-          </div>
-          
+        
           <!-- Enhanced social links -->
           <div class="mb-8">
             <h4 class="text-acc font-bold font-ice mb-4 text-lg">Let's Connect</h4>
