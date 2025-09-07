@@ -36,7 +36,7 @@
         
         <!-- Description -->
         <p class="text-lg sm:text-xl lg:text-2xl text-text/90 leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
-  Engineering scalable backends and APIs with Go and modern web technologies.
+  Building scalable backends and APIs with Go and modern web technologies.
 </p>
 
         <!-- Essential info -->
