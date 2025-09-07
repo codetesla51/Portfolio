@@ -1,5 +1,6 @@
 <script>
   // Reactive variables for form state
+import Heading from '$lib/components/heading.svelte';
   let name = '';
   let email = '';
   let inquiryType = 'project'; // Default selection
@@ -78,21 +79,11 @@
 </script>
 
 <section id="contact" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-  <h2 
-    class="text-3xl font-bold text-acc mb-4 font-ice"
-    data-aos="fade-right"
-    data-aos-delay="100"
-  >
-    Get In Touch
-  </h2>
-  
-  <p 
-    class="text-text/80 max-w-2xl mb-8"
-    data-aos="fade-right"
-    data-aos-delay="150"
-  >
-    Have a project in mind or want to collaborate? I'm always open to new opportunities and challenges. Let's create something amazing together!
-  </p>
+  <Heading 
+  badge="Let's Connect"
+  heading="Get In Touch" 
+  subtext="Ready to bring your vision to life? I'm available for new projects and collaborations. Let's discuss how we can create something exceptional together." 
+/>
   
   <div class="grid md:grid-cols-5 gap-8">
     <div 
