@@ -130,7 +130,7 @@ export let bioText = [
   heading="About Me" 
   subtext="Passionate developer crafting digital experiences with precision, creativity, and cutting-edge technology" 
 />
-      <div class="w-24 h-1 bg-gradient-to-r from-acc to-acc/60 mx-auto rounded-full"></div>
+      
     </div>
 
     <div class="grid lg:grid-cols-2 gap-12 items-start">
