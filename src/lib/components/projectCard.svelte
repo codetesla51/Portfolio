@@ -103,7 +103,7 @@ function handleViewDetailsClick(event) {
       <div class="w-0 h-0.5 bg-gradient-to-r from-acc to-acc/60 group-hover:w-full transition-all duration-500"></div>
     </div>
 
-    <!-- Enhanced tech stack display with icons -->
+    <!-- Enhanced tech stack display -->
     <div 
       class="mb-8"
       data-aos="fade-up"
@@ -119,20 +119,31 @@ function handleViewDetailsClick(event) {
         </span>
       </div>
 
-      <div class="bg-sec/50 rounded-lg p-4 border border-acc/20 group-hover:border-acc/40 transition-all duration-300">
+      <div class="bg-sec/50 rounded-lg p-4 border border-acc/20 group-hover:border-acc/40 transition-all duration-300 relative overflow-hidden">
+        <!-- Subtle background pattern -->
+        <div class="absolute inset-0 bg-gradient-to-br from-acc/5 via-transparent to-acc/10 opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
         {#if project.tech_stack}
-          <div class="flex justify-center">
-            <img 
-              src={`https://skillicons.dev/icons?i=${project.tech_stack}`} 
-              alt="Tech Stack" 
-              class="max-w-full h-auto transition-transform duration-300 group-hover:scale-105" 
-            />
+          <div class="relative z-10">
+            {#each project.tech_stack.split(',') as tech, i}
+              <span 
+                class="inline-block px-3 py-1.5 m-1 bg-card/70 hover:bg-card/90 text-text/90 hover:text-text font-mono text-sm rounded-full border border-acc/20 hover:border-acc/50 transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-sm hover:shadow-md cursor-default"
+                style="animation-delay: {i * 100}ms"
+              >
+                {tech.trim()}
+                <!-- Small accent dot -->
+                <span class="inline-block w-1 h-1 bg-acc/60 rounded-full ml-2 group-hover:bg-acc transition-colors duration-300"></span>
+              </span>
+            {/each}
           </div>
         {:else}
-          <p class="font-mono text-sm text-text/70 italic text-center">
+          <p class="font-mono text-sm text-text/70 italic text-center relative z-10">
             No tech stack specified
           </p>
         {/if}
+        
+        <!-- Animated border highlight -->
+        <div class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-transparent via-acc to-transparent w-0 group-hover:w-full transition-all duration-700"></div>
       </div>
     </div>
 
