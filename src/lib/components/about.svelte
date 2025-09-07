@@ -138,7 +138,7 @@ export let bioText = [
       <!-- Enhanced Left Content -->
       <div class="space-y-8" data-aos="fade-right" data-aos-duration="1000">
         <!-- Main intro card -->
-        <div class="bg-card/80 backdrop-blur-sm rounded-2xl p-8 border-2 border-acc/20 shadow-xl hover:shadow-2xl transition-all duration-500">
+        <div class="bg-card/80 backdrop-blur-sm rounded-2xl p-4 border-2 border-acc/20 shadow-xl hover:shadow-2xl transition-all duration-500">
           <div class="space-y-6 text-lg leading-relaxed">
             <p class="text-text/90">
               Hey, I'm <span class="text-acc font-bold text-xl">Oladele Uthman</span>, a Go backend engineer specializing in high-performance, concurrent systems.
