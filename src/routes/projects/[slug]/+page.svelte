@@ -13,80 +13,176 @@
 </script>
 
 {#if data.project}
-  <article class="max-w-3xl mx-auto p-6 bg-sec/90 rounded-lg shadow-xl mt-8 mb-12">
-    <!-- Back Button -->
-    <a href="/" class="inline-flex items-center text-text hover:text-acc transition-colors mb-6 group">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-      </svg>
-      <span class="font-ice">Back to Projects</span>
-    </a>
-    
-    <!-- Project Header -->
-    <header class="mb-8 border-b border-acc/30 pb-4">
-      <h1 class="text-4xl md:text-5xl font-ice font-bold text-acc mb-3">{data.project.name}</h1>
-    </header>
-    
-    <!-- Featured Image -->
-    <div class="mb-8 rounded-lg overflow-hidden bg-card">
-      {#if data.project.image}
-        <img 
-          src="{data.project.image}" 
-          alt="{data.project.name}" 
-          class="w-full object-cover h-64 md:h-80 transition-transform duration-500 hover:scale-105"
-        >
-      {:else}
-        <div class="w-full h-48 md:h-64 flex items-center justify-center bg-gradient-to-br from-sec to-card border border-acc/20">
-          <div class="text-center">
-            <div class="text-acc/40 text-5xl mb-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <p class="font-ice text-text text-xl">No image available</p>
-          </div>
-        </div>
-      {/if}
-    </div>
-    
-    <!-- Tech Stack Section -->
-    <div class="mb-8 bg-card rounded-lg p-4">
-      <h3 class="text-xl font-ice font-semibold text-acc mb-3">Tech Stack</h3>
-      <div class="flex flex-wrap gap-2">
-        {#each data.project.tech_stack as tech}
-          <span class="bg-sec px-3 py-1 rounded-md text-text font-mono border border-acc/20 hover:border-acc/70 hover:text-acc hover:bg-sec/80 transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-md">{tech}</span>
-        {/each}
-      </div>
-    </div>
-    
-    <!-- Description Section -->
-    <div class="prose prose-lg max-w-none">
-      {@html parsedDescription}
-    </div>
-    
-    <!-- Bottom Back Button -->
-    <div class="mt-10 pt-6 border-t border-acc/30">
-      <a href="/#projects" class="inline-flex items-center text-text hover:text-acc transition-colors group">
+  <!-- Hero Section -->
+  <div class="relative min-h-screen bg-gradient-to-br from-sec via-sec/90 to-card/50">
+    <!-- Back Button - Fixed Position -->
+    <div class="fixed top-6 left-6 z-50">
+      <a href="/" class="inline-flex items-center px-4 py-2 bg-sec/90 backdrop-blur-sm border border-acc/20 rounded-lg text-text hover:text-acc hover:border-acc/60 transition-all duration-300 group shadow-lg hover:shadow-xl">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-        <span class="font-ice">Back to Projects</span>
+        <span class="font-ice font-semibold">Back to Projects</span>
       </a>
     </div>
-  </article>
+
+    <!-- Main Content Container -->
+    <div class="max-w-6xl mx-auto px-6 pt-24 pb-12">
+      
+      <!-- Project Header -->
+      <header class="text-center mb-16">
+        <div class="inline-block p-1 bg-gradient-to-r from-acc/20 to-acc/10 rounded-2xl mb-6">
+          <div class="bg-sec/80 backdrop-blur-sm rounded-xl px-6 py-3">
+            <span class="font-mono text-acc/80 text-sm font-semibold tracking-wider uppercase">Featured Project</span>
+          </div>
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-ice font-bold text-acc mb-6 leading-tight">
+          {data.project.name}
+        </h1>
+        
+        <!-- Decorative line -->
+        <div class="flex items-center justify-center space-x-4 mb-8">
+          <div class="w-20 h-0.5 bg-gradient-to-r from-transparent to-acc/50"></div>
+          <div class="w-2 h-2 bg-acc rounded-full animate-pulse"></div>
+          <div class="w-20 h-0.5 bg-gradient-to-l from-transparent to-acc/50"></div>
+        </div>
+      </header>
+
+      <!-- Project Image and Tech Stack Grid -->
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        
+        <!-- Featured Image -->
+        <div class="lg:col-span-2">
+          <div class="relative group rounded-2xl overflow-hidden bg-card border border-acc/20 shadow-2xl">
+            {#if data.project.image}
+              <img 
+                src="{data.project.image}" 
+                alt="{data.project.name}" 
+                class="w-full object-cover h-64 md:h-96 transition-all duration-700 group-hover:scale-105"
+              >
+              <!-- Image overlay on hover -->
+              <div class="absolute inset-0 bg-gradient-to-t from-sec/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            {:else}
+              <div class="w-full h-64 md:h-96 flex items-center justify-center bg-gradient-to-br from-sec to-card">
+                <div class="text-center">
+                  <div class="text-acc/40 text-6xl mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p class="font-ice text-text/60 text-xl">No image available</p>
+                </div>
+              </div>
+            {/if}
+          </div>
+        </div>
+
+        <!-- Tech Stack Sidebar -->
+        <div class="space-y-6">
+          
+          <!-- Tech Stack Card -->
+          <div class="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-acc/20 shadow-xl hover:shadow-2xl transition-all duration-500 group">
+            <div class="flex items-center mb-6">
+              <div class="p-2 bg-acc/10 rounded-lg mr-3 group-hover:bg-acc/20 transition-colors duration-300">
+                <svg class="w-5 h-5 text-acc" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-ice font-bold text-acc group-hover:text-acc transition-colors duration-300">
+                Tech Stack
+              </h3>
+            </div>
+            
+            <div class="space-y-3">
+              {#each data.project.tech_stack as tech}
+                <div class="group/tech bg-sec/60 hover:bg-sec/80 rounded-xl px-4 py-3 border border-acc/10 hover:border-acc/30 transition-all duration-300 transform hover:translate-x-2">
+                  <div class="flex items-center justify-between">
+                    <span class="font-mono text-text group-hover/tech:text-acc transition-colors duration-300 font-medium">
+                      {tech}
+                    </span>
+                    <div class="w-2 h-2 bg-acc/40 rounded-full group-hover/tech:bg-acc group-hover/tech:animate-pulse transition-all duration-300"></div>
+                  </div>
+                </div>
+              {/each}
+            </div>
+          </div>
+
+          <!-- Project Stats Card -->
+          <div class="bg-gradient-to-br from-acc/10 to-acc/5 rounded-2xl p-6 border border-acc/30 shadow-xl">
+            <h4 class="font-ice text-acc font-bold mb-4 text-lg">Project Status</h4>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-text/80 text-sm">Status</span>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span class="font-mono text-text font-semibold text-sm">Active</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-text/80 text-sm">Technologies</span>
+                <span class="font-mono text-acc font-bold">{data.project.tech_stack.length}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description Section -->
+      <section class="mb-16">
+        <div class="bg-card/40 backdrop-blur-sm rounded-2xl border border-acc/20 shadow-2xl overflow-hidden">
+          
+          <!-- Section Header -->
+          <div class="bg-gradient-to-r from-sec/80 to-card/60 px-8 py-6 border-b border-acc/20">
+            <div class="flex items-center">
+              <div class="p-2 bg-acc/10 rounded-lg mr-4">
+                <svg class="w-6 h-6 text-acc" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h2 class="text-3xl font-ice font-bold text-acc">Project Overview</h2>
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <div class="px-8 py-8">
+            <div class="prose prose-lg max-w-none">
+              {@html parsedDescription}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Navigation -->
+      <div class="flex justify-center">
+        <a href="/#projects" class="group inline-flex items-center px-8 py-4 bg-acc/10 hover:bg-acc hover:text-sec border-2 border-acc rounded-full text-acc transition-all duration-300 font-ice font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span>Back to Projects</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
 {:else}
-  <div class="flex items-center justify-center h-64">
-    <div class="text-center bg-sec p-8 rounded-lg shadow-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-red-500/70 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <p class="text-red-500 text-center text-xl font-ice">Project not found.</p>
-      <p class="text-text mt-2 font-mono">The requested project could not be located.</p>
-      <a href="/" class="inline-flex items-center mt-4 text-text hover:text-acc transition-colors">
+  <!-- Error State -->
+  <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-sec to-card/50 px-6">
+    <div class="text-center bg-card/60 backdrop-blur-sm p-12 rounded-2xl shadow-2xl border border-acc/20 max-w-md">
+      <div class="mb-6">
+        <div class="w-16 h-16 mx-auto bg-red-500/10 rounded-full flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h1 class="text-2xl font-ice font-bold text-red-500 mb-2">Project Not Found</h1>
+        <p class="text-text/80 font-mono mb-6">The requested project could not be located in our database.</p>
+      </div>
+      
+      <a href="/" class="inline-flex items-center px-6 py-3 bg-acc hover:bg-acc/80 text-sec rounded-lg transition-all duration-300 font-ice font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
         </svg>
-        Return to Home
+        Return Home
       </a>
     </div>
   </div>
@@ -421,5 +517,22 @@
     background-color: theme('colors.acc/30');
     color: theme('colors.text');
   }
-</style>
 
+  /* Custom scrollbar for webkit browsers */
+  :global(::-webkit-scrollbar) {
+    width: 8px;
+  }
+
+  :global(::-webkit-scrollbar-track) {
+    background: theme('colors.sec');
+  }
+
+  :global(::-webkit-scrollbar-thumb) {
+    background: theme('colors.acc/40');
+    border-radius: 4px;
+  }
+
+  :global(::-webkit-scrollbar-thumb:hover) {
+    background: theme('colors.acc/60');
+  }
+</style>
