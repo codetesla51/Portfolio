@@ -137,9 +137,10 @@
 {/if}
 
 <Hero {personalInfo} />
+<Projects {projects} />
 <About {bioText} />
 <Skills {skillCategories} />
-<Projects {projects} />
+
 <Contact />
 
 <style lang="postcss">
