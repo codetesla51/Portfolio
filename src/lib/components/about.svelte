@@ -154,30 +154,30 @@ export let bioText = [
   </div>  
 </div>  <!-- Skills highlight cards -->  
     <div class="grid sm:grid-cols-2 gap-6">  
-      <div class="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-acc/30 hover:border-acc/60 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">  
-        <div class="flex items-center mb-3">  
-          <div class="w-10 h-10 bg-acc/20 rounded-lg flex items-center justify-center mr-3">  
-            <img src="https://skillicons.dev/icons?i=go" alt="Go" class="w-6 h-6" />  
-          </div>  
-          <h3 class="font-bold text-acc font-ice">Go Backend Developer</h3>
+  <!-- First card -->
+  <div class="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-acc/30 hover:border-acc/60 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">  
+    <div class="flex items-center mb-3">  
+      <div class="w-10 h-10 bg-acc/20 rounded-lg flex items-center justify-center mr-3">  
+        <img src="https://skillicons.dev/icons?i=go" alt="Go" class="w-6 h-6" />  
+      </div>  
+      <h3 class="font-bold text-acc font-ice">Go Backend Developer</h3>  
+    </div>  
+    <p class="text-sm text-text/80">Exploring systems design while building secure, scalable backends with Go.</p>  
+  </div>  
 
-<p class="text-sm text-text/80">Exploring systems design while building secure, scalable backends with Go.</p>  
-          </div>  <div class="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-acc/30 hover:border-acc/60 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">  
-        <div class="flex items-center mb-3">  
-          <div class="w-10 h-10 bg-acc/20 rounded-lg flex items-center justify-center mr-3">  
-            <svg class="w-5 h-5 text-acc" fill="currentColor" viewBox="0 0 20 20">  
-              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>  
-            </svg>  
-          </div>  
-          <h3 class="font-bold text-acc font-ice">Backend Specialist</h3>  
-        </div>  
-        <p class="text-sm text-text/80">
-
-Building scalable, secure backends with a focus on APIs, databases, and performance.
-
-</p>  
-          </div>  
-        </div>  <!-- Tech stack showcase -->  
+  <!-- Second card -->
+  <div class="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-acc/30 hover:border-acc/60 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">  
+    <div class="flex items-center mb-3">  
+      <div class="w-10 h-10 bg-acc/20 rounded-lg flex items-center justify-center mr-3">  
+        <svg class="w-5 h-5 text-acc" fill="currentColor" viewBox="0 0 20 20">  
+          <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>  
+        </svg>  
+      </div>  
+      <h3 class="font-bold text-acc font-ice">Backend Specialist</h3>  
+    </div>  
+    <p class="text-sm text-text/80">Building scalable, secure backends with a focus on APIs, databases, and performance.</p>  
+  </div>  
+</div>
     <div class="bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-acc/30" data-aos="fade-up" data-aos-delay="400">  
       <h3 class="font-bold text-acc font-ice mb-4 flex items-center">  
         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">  
