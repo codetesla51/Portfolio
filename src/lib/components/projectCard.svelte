@@ -125,7 +125,7 @@ function handleViewDetailsClick(event) {
         
         {#if project.tech_stack}
           <div class="relative z-10">
-            {#each project.tech_stack.split(',') as tech, i}
+            {#each (project.tech_stack || '').split(',').filter(tech => tech.trim()) as tech, i}
               <span 
                 class="inline-block px-3 py-1.5 m-1 bg-card/70 hover:bg-card/90 text-text/90 hover:text-text font-mono text-sm rounded-full border border-acc/20 hover:border-acc/50 transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 shadow-sm hover:shadow-md cursor-default"
               >
