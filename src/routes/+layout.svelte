@@ -10,7 +10,6 @@
   import AOS from 'aos';
   import 'aos/dist/aos.css';
   
-  // Safety timeout to force hide loader after 8 seconds
   let safetyTimeout;
   
   onMount(() => {

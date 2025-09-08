@@ -17,6 +17,7 @@
   
   // Initialize animation frame ID for cleanup
   let animationFrameId;
+  let isScrollButtonClicked = false; // Prevent accidental triggers
 
   function updateMousePosition(e) {
     mouseX = e.clientX;
@@ -31,7 +32,9 @@
     isClicking = false;
   }
   
-  function handleLinkEnter() {
+  function handleLinkEnter(event) {
+    // Don't trigger hover effects during programmatic scrolling
+    if (isScrollButtonClicked) return;
     isHoveringLink = true;
   }
   
@@ -51,21 +54,40 @@
   }
   
   function scrollToTop() {
+    isScrollButtonClicked = true;
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
+    
+    // Reset flag after scroll completes
+    setTimeout(() => {
+      isScrollButtonClicked = false;
+    }, 1000);
   }
   
   function scrollToBottom() {
+    isScrollButtonClicked = true;
     window.scrollTo({
       top: docHeight,
       behavior: 'smooth'
     });
+    
+    // Reset flag after scroll completes
+    setTimeout(() => {
+      isScrollButtonClicked = false;
+    }, 1000);
   }
   
   // Fixed function - only scroll when button is actually clicked
-  function handleScrollButtonClick() {
+  function handleScrollButtonClick(event) {
+    // Prevent any accidental triggers
+    event.preventDefault();
+    event.stopPropagation();
+    
+    // Only proceed if this was an actual intentional click
+    if (event.type !== 'click' || isScrollButtonClicked) return;
+    
     // Check if we're closer to top or bottom
     const middlePoint = (docHeight - innerHeight) / 2;
     
@@ -94,7 +116,7 @@
     window.addEventListener('scroll', updateScrollInfo);
     window.addEventListener('resize', updateScrollInfo);
     
-    // Add hover effects to interactive elements
+    // Add hover effects to interactive elements (excluding scroll button during programmatic scroll)
     document.querySelectorAll('a, button, [data-cursor-hover], input, textarea, select').forEach(el => {
       el.addEventListener('mouseenter', handleLinkEnter);
       el.addEventListener('mouseleave', handleLinkLeave);
@@ -167,7 +189,7 @@
     @apply w-14 h-14 rounded-xl bg-card/20 backdrop-blur-md border border-acc/30 
            flex items-center justify-center text-acc font-mono shadow-lg 
            hover:bg-card/30 hover:border-acc/50 hover:scale-110 
-           transition-all duration-300 cursor-none;
+           transition-all duration-300 cursor-none select-none;
   }
   
   .scroll-indicator-container {
@@ -206,8 +228,9 @@
 <div class="scroll-controls {showScrollControls ? 'visible' : ''}">
   <button 
     class="scroll-button" 
-    on:click={handleScrollButtonClick} 
-    data-cursor-hover
+    on:click={handleScrollButtonClick}
+    on:mouseenter|preventDefault
+    on:mouseleave|preventDefault
     aria-label="Scroll to {scrollY < (docHeight - innerHeight) / 2 ? 'bottom' : 'top'}"
   >
     {#if scrollY < (docHeight - innerHeight) / 2}
