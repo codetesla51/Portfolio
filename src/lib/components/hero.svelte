@@ -11,7 +11,7 @@
   <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
       
-      <!-- Content Section - First on mobile -->
+      
       <div class="order-1 text-center lg:text-left">
         <!-- Badge -->
         <div class="inline-block p-1 bg-gradient-to-r from-acc/20 to-acc/10 rounded-2xl mb-6">
