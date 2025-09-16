@@ -40,7 +40,7 @@ import Heading from '$lib/components/heading.svelte';
         message
       });
       
-      const response = await fetch('https://fasterportbackend.onrender.com/contacts', {
+      const response = await fetch('  https://portfolio-backend-x9in.vercel.app/contacts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
