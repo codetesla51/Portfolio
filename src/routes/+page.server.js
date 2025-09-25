@@ -5,7 +5,7 @@ export async function load({ fetch }) {
   return {
     projects: await withLoading(async () => {
       try {
-        const res = await fetch('  https://portfolio-backend-x9in.vercel.app/projects');
+        const res = await fetch('https://uthmangobackend.leapcell.app/projects');
 
         if (!res.ok) {
           throw new Error(`Failed to fetch projects: ${res.status}`);
