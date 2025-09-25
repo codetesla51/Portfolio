@@ -40,7 +40,7 @@ import Heading from '$lib/components/heading.svelte';
         message
       });
       
-      const response = await fetch('https://uthmangobackend.leapcell.app/contacts', {
+      const response = await fetch('https://uthmangobackend.leapcell.app/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
