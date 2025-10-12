@@ -10,7 +10,7 @@ export async function load({ params, fetch }) {
   try {
     const project = await withLoading(async () => {
       try {
-        const res = await fetch(`https://uthmangobackend.leapcell.app/projects/${slug}`);
+        const res = await fetch(`https://portfolio-backend-x9in.vercel.app/projects/${slug}`);
 
         if (!res.ok) {
           throw new Error(`Failed to fetch project: ${res.status}`);
