@@ -17,10 +17,10 @@ export default {
         '5xl': '3.052rem'
       },
       colors: {
-  acc: '#3b82f6',      // clean blue
-  text: '#f8fafc',     // pure light
-  sec: '#1e293b',      // slate dark
-  card: 'rgba(51, 65, 85, 0.7)' // slate transparent
+  acc: '#f97316',      // bold orange (high energy)
+  text: '#f1f5f9',     // crisp white-gray
+  sec: '#18181b',      // pure dark
+  card: 'rgba(39, 39, 42, 0.9)' // zinc dark
 }
     }
   },
