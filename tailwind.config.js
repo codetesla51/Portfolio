@@ -17,10 +17,10 @@ export default {
         '5xl': '3.052rem'
       },
       colors: {
-        acc: '#2ecc71',
-        text: '#e0e0e0',
-        sec: '#1e1e1e',
-        card: 'rgba(30, 30, 30, 0.7)'
+        acc: '#1abc9c',      // bright teal-green
+        text: '#f0f0f0',     // slightly lighter text
+        sec: '#222222',      // slightly lighter dark background
+        card: 'rgba(40, 40, 40, 0.75)' // slightly more opaque card
       }
     }
   },
