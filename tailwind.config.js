@@ -17,10 +17,10 @@ export default {
         '5xl': '3.052rem'
       },
       colors: {
-  acc: '#818cf8',      // gentle indigo (very soft)
-  text: '#cbd5e1',     // muted light gray
-  sec: '#0f172a',      // deep navy
-  card: 'rgba(30, 41, 59, 0.5)' // very subtle overlay
+  acc: '#60a5fa',      // soft blue (calm, not aggressive)
+  text: '#e2e8f0',     // soft light gray (not harsh white)
+  sec: '#0f172a',      // deep navy-black (softer than pure black)
+  card: 'rgba(30, 41, 59, 0.6)' // subtle slate overlay
 }
     }
   },
