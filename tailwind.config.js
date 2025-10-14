@@ -17,10 +17,10 @@ export default {
         '5xl': '3.052rem'
       },
       colors: {
-  acc: '#ffffff',      // pure white accent (for hover/focus)
-  text: '#e5e5e5',     // soft light gray
-  sec: '#0a0a0a',      // deep black
-  card: 'rgba(30, 30, 30, 0.6)' // subtle dark gray overlay
+  acc: '#a8a29e',      // warm gray (stone-like)
+  text: '#e7e5e4',     // warm light gray
+  sec: '#0c0a09',      // warm black
+  card: 'rgba(28, 25, 23, 0.6)' // warm dark overlay
 }
     }
   },
