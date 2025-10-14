@@ -25,7 +25,7 @@ export async function withLoading(asyncFn) {
     
     // Ensure loader shows for at least 1000ms (aesthetic purposes)
     const elapsed = Date.now() - startTime;
-    const minDuration = 1000;
+    const minDuration = 2000;
     
     if (elapsed < minDuration) {
       await new Promise(resolve => setTimeout(resolve, minDuration - elapsed));
