@@ -1,8 +1,8 @@
 // src/lib/stores/loader.js
 import { writable } from 'svelte/store';
 
-// Create a store with initial value true to show loader immediately
-export const isLoading = writable(true);
+// Start with false - let the page load control it
+export const isLoading = writable(false);
 
 // Helper functions
 export function startLoading() {
@@ -18,19 +18,14 @@ export function stopLoading() {
 // Async function wrapper to handle loading state
 export async function withLoading(asyncFn) {
   startLoading();
-  return new Promise((resolve, reject) => {
-    Promise.resolve()
-      .then(async () => {
-        try {
-          const result = await asyncFn();
-          resolve(result);
-        } catch (error) {
-          reject(error);
-        } finally {
-          stopLoading();
-        }
-      });
-  });
+  try {
+    const result = await asyncFn();
+    return result;
+  } catch (error) {
+    throw error;
+  } finally {
+    stopLoading();
+  }
 }
 
 // Force reset function for emergency use
@@ -38,13 +33,23 @@ export function forceResetLoading() {
   isLoading.set(false);
 }
 
-// Timeout to prevent stuck loading state
+// Timeout to prevent stuck loading state (15 seconds max)
 if (typeof window !== 'undefined') {
-  setTimeout(() => {
-    isLoading.subscribe(value => {
-      if (value === true) {
+  let timeoutId;
+  
+  isLoading.subscribe(value => {
+    if (value === true) {
+      // Clear any existing timeout
+      if (timeoutId) clearTimeout(timeoutId);
+      
+      // Set new timeout
+      timeoutId = setTimeout(() => {
+        console.warn('Loading timeout reached - forcing reset');
         forceResetLoading();
-      }
-    });
-  }, 15000);
+      }, 15000);
+    } else {
+      // Clear timeout when loading stops
+      if (timeoutId) clearTimeout(timeoutId);
+    }
+  });
 }
