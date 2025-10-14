@@ -1,8 +1,7 @@
 <script>
   export let heading = "";
   export let subtext = "";
-  export let badge = ""; // Optional badge text
-  export let centered = false; // Center alignment option
+  export let badge = "";
 </script>
 
 <div class="flex flex-col justify-start items-start text-left p-6 py-4 px-4 mt-6 mb-12 md:mt-8 md:mb-16">

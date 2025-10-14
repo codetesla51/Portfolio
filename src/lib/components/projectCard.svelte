@@ -144,8 +144,10 @@ function handleViewDetailsClick(event) {
       <!-- Enhanced CTA button -->
       <a 
         href={`/projects/${project.slug}`} 
+        title="View project details"
         class="group/btn inline-flex items-center px-6 py-3 bg-transparent border-2 border-acc/40 text-acc hover:bg-acc hover:text-sec font-bold rounded-lg transition-all duration-300 font-mono text-sm transform hover:scale-105 hover:shadow-lg hover:shadow-acc/25"
         on:click={handleViewDetailsClick}
+        
       >
         <span class="mr-2">View Details</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

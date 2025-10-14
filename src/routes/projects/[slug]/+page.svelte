@@ -17,7 +17,9 @@
   <div class="relative min-h-screen bg-gradient-to-br from-sec via-sec/90 to-card/50">
     <!-- Back Button - Fixed Position -->
     <div class="fixed top-6 left-6 z-50">
-      <a href="/" class="inline-flex items-center px-4 py-2 bg-sec/90 backdrop-blur-sm border border-acc/20 rounded-lg text-text hover:text-acc hover:border-acc/60 transition-all duration-300 group shadow-lg hover:shadow-xl">
+      <a href="/"
+      title="Back to home"
+      class="inline-flex items-center px-4 py-2 bg-sec/90 backdrop-blur-sm border border-acc/20 rounded-lg text-text hover:text-acc hover:border-acc/60 transition-all duration-300 group shadow-lg hover:shadow-xl">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
@@ -154,7 +156,9 @@
 
       <!-- Bottom Navigation -->
       <div class="flex justify-center">
-        <a href="/#projects" class="group inline-flex items-center px-8 py-4 bg-acc/10 hover:bg-acc hover:text-sec border-2 border-acc rounded-full text-acc transition-all duration-300 font-ice font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
+        <a href="/#projects"
+        title="Back to home"
+        class="group inline-flex items-center px-8 py-4 bg-acc/10 hover:bg-acc hover:text-sec border-2 border-acc rounded-full text-acc transition-all duration-300 font-ice font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
@@ -174,11 +178,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
-        <h1 class="text-2xl font-ice font-bold text-red-500 mb-2">Project Not Found</h1>
+        <h2 class="text-2xl font-ice font-bold text-red-500 mb-2">Project Not Found</h2>
         <p class="text-text/80 font-mono mb-6">The requested project could not be located in our database.</p>
       </div>
       
-      <a href="/" class="inline-flex items-center px-6 py-3 bg-acc hover:bg-acc/80 text-sec rounded-lg transition-all duration-300 font-ice font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
+      <a href="/" 
+      title="Back to home"
+      class="inline-flex items-center px-6 py-3 bg-acc hover:bg-acc/80 text-sec rounded-lg transition-all duration-300 font-ice font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
         </svg>
