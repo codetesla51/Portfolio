@@ -1,5 +1,5 @@
 // src/routes/[slug]/+page.js
-import { withLoading, stopLoading } from '$lib/stores/loader';
+import { withLoading } from '$lib/stores/loader'; // Remove stopLoading import
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params, fetch }) {
@@ -9,25 +9,20 @@ export async function load({ params, fetch }) {
 
   try {
     const project = await withLoading(async () => {
-      try {
-        const res = await fetch(`https://portfolio-backend-x9in.vercel.app/projects/${slug}`);
+      const res = await fetch(`https://portfolio-backend-x9in.vercel.app/projects/${slug}`);
 
-        if (!res.ok) {
-          throw new Error(`Failed to fetch project: ${res.status}`);
-        }
-
-        const data = await res.json();
-        return data;
-      } catch (error) {
-        console.error(`Error in fetch operation: ${error.message}`);
-        throw error;
+      if (!res.ok) {
+        throw new Error(`Failed to fetch project: ${res.status}`);
       }
+
+      const data = await res.json();
+      return data;
     });
 
     return { project };
   } catch (error) {
     console.error('Failed to load project in page.js:', error);
-    stopLoading();
+    // stopLoading() not needed - withLoading() handles it
     return {
       project: null,
       error: error.message
