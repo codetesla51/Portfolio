@@ -60,7 +60,7 @@
     jobTitle: "Software Engineer (Frontend & Backend) | DevOps Enthusiast",
     email: "uoladele99@gmail.com",
     phone: "07063432968",
-    location: "Ilorin, Kwara State, Nigeria",
+    location: "Lagos State, Nigeria",
     education: {
       institution: "University of Ilorin (UniLorin)",
       degree: "Computer Science",
