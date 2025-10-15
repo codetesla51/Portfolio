@@ -38,9 +38,9 @@
           </div>
         </div>
         
-        <h1 class="text-5xl md:text-7xl font-ice font-bold text-acc mb-6 leading-tight">
+        <h2 class="text-5xl md:text-7xl font-ice font-bold text-acc mb-6 leading-tight">
           {data.project.name}
-        </h1>
+        </h2>
         
         <!-- Decorative line -->
         <div class="flex items-center justify-center space-x-4 mb-8">
