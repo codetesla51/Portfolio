@@ -18,9 +18,9 @@
   <!-- Main Heading -->
   {#if heading}
     <div class="mb-4">
-      <h1 class="text-4xl md:text-5xl font-bold text-acc font-ice mb-4 leading-tight">
+      <h2 class="text-4xl md:text-5xl font-bold text-acc font-ice mb-4 leading-tight">
         {heading}
-      </h1>
+      </h2>
       
       <!-- Decorative line -->
       <div class="flex items-center space-x-4 mb-2">
