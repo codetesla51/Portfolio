@@ -125,7 +125,7 @@ import Heading from '$lib/components/heading.svelte';
               </div>
               <div>
                 <h4 class="font-bold font-ice text-text">Location</h4>
-                <p class="text-text/70 mt-1 font-mono">Ilorin, Kwara State, Nigeria</p>
+                <p class="text-text/70 mt-1 font-mono">Lagos State, Nigeria</p>
               </div>
             </div>
             
