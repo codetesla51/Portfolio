@@ -3,52 +3,83 @@
   <!-- Homepage -->
   <url>
     <loc>https://devuthman.vercel.app/</loc>
-    <lastmod>2025-01-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
+
   <!-- Projects Section -->
   <url>
     <loc>https://devuthman.vercel.app/#projects</loc>
+    <lastmod>2025-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <!-- Individual Projects -->
-  
+
+  <!-- GO-CHAT -->
+  <url>
+    <loc>https://devuthman.vercel.app/projects/go-chat-concurrent-terminal-chat-server</loc>
+    <lastmod>2025-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Raw-HTTP -->
+  <url>
+    <loc>https://devuthman.vercel.app/projects/raw-http-http-server-built-from-tcp-sockets</loc>
+    <lastmod>2025-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- GoLexer -->
   <url>
     <loc>https://devuthman.vercel.app/projects/golexer-high-performance-go-lexical-analyzer</loc>
-    <lastmod>2025-01-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <!-- Axion Calculator -->
   <url>
     <loc>https://devuthman.vercel.app/projects/axion-cli-math-engine</loc>
-    <lastmod>2025-01-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <!-- Swift2FA -->
   <url>
     <loc>https://devuthman.vercel.app/projects/swift2fa-secure-two-factor-authentication-library</loc>
-    <lastmod>2025-01-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <!-- Brevity -->
   <url>
     <loc>https://devuthman.vercel.app/projects/brevity-ai-powered-pdf-summerizer</loc>
-    <lastmod>2025-01-13</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  
-  
+
+  <!-- About Section -->
+  <url>
+    <loc>https://devuthman.vercel.app/#about</loc>
+    <lastmod>2025-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://devuthman.vercel.app/#contact</loc>
+    <lastmod>2025-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
