@@ -23,9 +23,9 @@
         </div>
         
         <!-- Main heading -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-acc mb-4 sm:mb-6 font-ice leading-tight">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-acc mb-4 sm:mb-6 font-ice leading-tight">
           Uthman Dev
-        </h1>
+        </h2>
         
         <!-- Decorative line -->
         <div class="flex items-center justify-center lg:justify-start space-x-4 mb-6 sm:mb-8">
