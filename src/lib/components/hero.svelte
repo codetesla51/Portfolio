@@ -1,6 +1,6 @@
 <script>
   import Profile from "../../assets/1fd78e28449345cb772e60eb101b66b2.gif";
-  import Resume from "../../assets/html.pdf";
+  import Resume from "../../assets/Oladele Uthman — Backend Engineer.pdf";
   export let personalInfo;
 </script>
 
