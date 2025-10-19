@@ -1,17 +1,17 @@
+
+
+
 <script>
-  // Reactive variables for form state
-import Heading from '$lib/components/heading.svelte';
+  import Heading from '$lib/components/heading.svelte';
   let name = '';
   let email = '';
-  let inquiryType = 'project'; // Default selection
+  let inquiryType = 'project';
   let message = '';
   
-  // Form status states
   let submitting = false;
   let submitSuccess = false;
   let submitError = null;
   
-  // Format the inquiry type to match API expectations
   function formatInquiryType(type) {
     const formats = {
       'project': 'Project Collaboration',
@@ -23,14 +23,12 @@ import Heading from '$lib/components/heading.svelte';
     return formats[type] || type;
   }
   
-  // Handle form submission
   async function handleSubmit() {
     submitting = true;
     submitSuccess = false;
     submitError = null;
     
     try {
-      // Format inquiry type for the API
       const formattedInquiryType = formatInquiryType(inquiryType);
       
       console.log('Sending data:', {
@@ -40,30 +38,27 @@ import Heading from '$lib/components/heading.svelte';
         message
       });
       
-      const response = await fetch('https://uthmangobackend.leapcell.app/contact', {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('inquiry', formattedInquiryType);
+      formData.append('message', message);
+      
+      const response = await fetch('https://standalone-digest-ebrjc7rlb-codetesla51s-projects.vercel.app/api/index.php?action=form', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          inquiry: formattedInquiryType,
-          message
-        })
+        body: formData
       });
       
       const data = await response.json();
-      console.log('Response data:', data);
+      
+      console.log('Response:', data);
       
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to submit the form');
+        throw new Error(data.error || 'Failed to send message');
       }
       
       submitSuccess = true;
       
-      // Reset form
       name = '';
       email = '';
       inquiryType = 'project';
@@ -77,13 +72,12 @@ import Heading from '$lib/components/heading.svelte';
     }
   }
 </script>
-
 <section id="contact" class="relative py-20 overflow-hidden">
   <!-- Clean background -->
   <div class="absolute inset-0 bg-gradient-to-b from-sec to-sec/95"></div>
-  
+
   <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    
+
     <!-- Section Header -->
     <div class="text-center mb-16" data-aos="fade-up">
       <Heading 
@@ -92,16 +86,16 @@ import Heading from '$lib/components/heading.svelte';
         subtext="Ready to bring your vision to life? I'm available for new projects and collaborations. Let's discuss how we can create something exceptional together." 
       />
     </div>
-    
+
     <div class="grid lg:grid-cols-2 gap-16 items-start">
-      
+
       <!-- Contact Info -->
       <div class="space-y-8" data-aos="fade-right" data-aos-delay="200">
-        
+
         <!-- Main contact card -->
         <div class="bg-card/60 backdrop-blur-sm rounded-2xl p-8 border border-acc/20 shadow-xl hover:shadow-2xl hover:border-acc/40 transition-all duration-500">
           <h3 class="text-xl font-ice font-bold text-acc mb-6">Let's Connect</h3>
-          
+
           <div class="space-y-6">
             <div class="flex items-start space-x-4">
               <div class="bg-acc/10 p-3 rounded-lg flex-shrink-0">
@@ -115,7 +109,7 @@ import Heading from '$lib/components/heading.svelte';
                 <p class="text-text/70 mt-1 font-mono break-all">uoladele99@gmail.com</p>
               </div>
             </div>
-            
+
             <div class="flex items-start space-x-4">
               <div class="bg-acc/10 p-3 rounded-lg flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-acc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -128,7 +122,7 @@ import Heading from '$lib/components/heading.svelte';
                 <p class="text-text/70 mt-1 font-mono">Lagos State, Nigeria</p>
               </div>
             </div>
-            
+
             <div class="flex items-start space-x-4">
               <div class="bg-acc/10 p-3 rounded-lg flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-acc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -155,11 +149,11 @@ import Heading from '$lib/components/heading.svelte';
           </p>
         </div>
       </div>
-      
+
       <!-- Contact Form -->
       <div data-aos="fade-left" data-aos-delay="300">
         <div class="bg-card/60 backdrop-blur-sm rounded-2xl border border-acc/20 shadow-xl hover:shadow-2xl hover:border-acc/40 transition-all duration-500 overflow-hidden">
-          
+
           <!-- Terminal header -->
           <div class="flex items-center space-x-2 p-4 bg-card/80 border-b border-acc/20">
             <div class="w-3 h-3 rounded-full bg-red-500"></div>
@@ -167,9 +161,9 @@ import Heading from '$lib/components/heading.svelte';
             <div class="w-3 h-3 rounded-full bg-acc"></div>
             <div class="ml-3 text-sm font-mono text-text/70">contact-form</div>
           </div>
-          
+
           <div class="p-8">
-            
+
             {#if submitSuccess}
               <div class="bg-acc/10 border border-acc/30 text-text p-4 rounded-lg mb-6">
                 <div class="flex items-center">
@@ -182,7 +176,7 @@ import Heading from '$lib/components/heading.svelte';
                 <p class="mt-2 text-text/80 text-sm">Thanks for reaching out. I'll get back to you soon.</p>
               </div>
             {/if}
-            
+
             {#if submitError}
               <div class="bg-red-500/10 border border-red-500/30 text-text p-4 rounded-lg mb-6">
                 <div class="flex items-center">
@@ -196,9 +190,9 @@ import Heading from '$lib/components/heading.svelte';
                 <p class="mt-2 text-sm">{submitError}</p>
               </div>
             {/if}
-            
+
             <form class="space-y-6" on:submit|preventDefault={handleSubmit}>
-              
+
               <!-- Name and Email Row -->
               <div class="grid md:grid-cols-2 gap-6">
                 <div>
@@ -224,7 +218,7 @@ import Heading from '$lib/components/heading.svelte';
                   />
                 </div>
               </div>
-              
+
               <!-- Inquiry Type -->
               <div>
                 <label class="block font-mono text-text mb-3 text-sm">What's this about? *</label>
@@ -279,7 +273,7 @@ import Heading from '$lib/components/heading.svelte';
                   </div>
                 </div>
               </div>
-              
+
               <!-- Message -->
               <div>
                 <label for="message" class="block font-mono text-text mb-2 text-sm">Message *</label>
@@ -292,7 +286,7 @@ import Heading from '$lib/components/heading.svelte';
                   placeholder="Tell me about your project or idea..."
                 ></textarea>
               </div>
-              
+
               <!-- Submit Button -->
               <div class="flex justify-end pt-2">
                 <button 
