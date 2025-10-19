@@ -1,14 +1,17 @@
 <script>
-  import Heading from '$lib/components/heading.svelte';
+  // Reactive variables for form state
+import Heading from '$lib/components/heading.svelte';
   let name = '';
   let email = '';
-  let inquiryType = 'project';
+  let inquiryType = 'project'; // Default selection
   let message = '';
   
+  // Form status states
   let submitting = false;
   let submitSuccess = false;
   let submitError = null;
   
+  // Format the inquiry type to match API expectations
   function formatInquiryType(type) {
     const formats = {
       'project': 'Project Collaboration',
@@ -20,12 +23,14 @@
     return formats[type] || type;
   }
   
+  // Handle form submission
   async function handleSubmit() {
     submitting = true;
     submitSuccess = false;
     submitError = null;
     
     try {
+      // Format inquiry type for the API
       const formattedInquiryType = formatInquiryType(inquiryType);
       
       console.log('Sending data:', {
@@ -35,27 +40,30 @@
         message
       });
       
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('inquiry', formattedInquiryType);
-      formData.append('message', message);
-      
-      const response = await fetch('https://standalone-digest-ebrjc7rlb-codetesla51s-projects.vercel.app/api/index.php?action=form', {
+      const response = await fetch('https://uthmangobackend.leapcell.app/contact', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          inquiry: formattedInquiryType,
+          message
+        })
       });
       
       const data = await response.json();
-      
-      console.log('Response:', data);
+      console.log('Response data:', data);
       
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message');
+        throw new Error(data.message || 'Failed to submit the form');
       }
       
       submitSuccess = true;
       
+      // Reset form
       name = '';
       email = '';
       inquiryType = 'project';
@@ -69,6 +77,7 @@
     }
   }
 </script>
+
 <section id="contact" class="relative py-20 overflow-hidden">
   <!-- Clean background -->
   <div class="absolute inset-0 bg-gradient-to-b from-sec to-sec/95"></div>
