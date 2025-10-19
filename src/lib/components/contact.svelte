@@ -1,18 +1,14 @@
-
 <script>
-  // Reactive variables for form state
-import Heading from '$lib/components/heading.svelte';
+  import Heading from '$lib/components/heading.svelte';
   let name = '';
   let email = '';
-  let inquiryType = 'project'; // Default selection
+  let inquiryType = 'project';
   let message = '';
   
-  // Form status states
   let submitting = false;
   let submitSuccess = false;
   let submitError = null;
   
-  // Format the inquiry type to match API expectations
   function formatInquiryType(type) {
     const formats = {
       'project': 'Project Collaboration',
@@ -24,14 +20,12 @@ import Heading from '$lib/components/heading.svelte';
     return formats[type] || type;
   }
   
-  // Handle form submission
   async function handleSubmit() {
     submitting = true;
     submitSuccess = false;
     submitError = null;
     
     try {
-      // Format inquiry type for the API
       const formattedInquiryType = formatInquiryType(inquiryType);
       
       console.log('Sending data:', {
@@ -41,7 +35,14 @@ import Heading from '$lib/components/heading.svelte';
         message
       });
       
-      const response = await fetch('https://uthmangobackend.leapcell.app/contact', {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('inquiry', formattedInquiryType);
+      formData.append('message', message);
+      
+      // Send to LeapCell
+      const response1 = await fetch('https://uthmangobackend.leapcell.app/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,16 +56,24 @@ import Heading from '$lib/components/heading.svelte';
         })
       });
       
-      const data = await response.json();
-      console.log('Response data:', data);
+      // Send to your Vercel form endpoint
+      const response2 = await fetch('https://standalone-digest-xgu5.vercel.app/api/index.php?action=form', {
+        method: 'POST',
+        body: formData
+      });
       
-      if (!response.ok) {
-        throw new Error(data.message || 'Failed to submit the form');
+      const data1 = await response1.json();
+      const data2 = await response2.json();
+      
+      console.log('LeapCell response:', data1);
+      console.log('Vercel response:', data2);
+      
+      if (!response1.ok || !response2.ok) {
+        throw new Error(data1.message || data2.error || 'Failed to submit the form');
       }
       
       submitSuccess = true;
       
-      // Reset form
       name = '';
       email = '';
       inquiryType = 'project';
@@ -78,6 +87,7 @@ import Heading from '$lib/components/heading.svelte';
     }
   }
 </script>
+
 <section id="contact" class="relative py-20 overflow-hidden">
   <!-- Clean background -->
   <div class="absolute inset-0 bg-gradient-to-b from-sec to-sec/95"></div>
