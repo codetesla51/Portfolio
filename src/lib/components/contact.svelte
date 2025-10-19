@@ -35,45 +35,23 @@
         message
       });
       
-      // Send to LeapCell
-      const response1 = await fetch('https://uthmangobackend.leapcell.app/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          inquiry: formattedInquiryType,
-          message
-        })
-      });
-      
-      // Send to Vercel/your email
       const formData = new FormData();
       formData.append('name', name);
       formData.append('email', email);
       formData.append('inquiry', formattedInquiryType);
       formData.append('message', message);
       
-      const response2 = await fetch('https://standalone-digest-ebrjc7rlb-codetesla51s-projects.vercel.app/api/index.php?action=form', {
+      const response = await fetch('https://standalone-digest-ebrjc7rlb-codetesla51s-projects.vercel.app/api/index.php?action=form', {
         method: 'POST',
         body: formData
       });
       
-      const data1 = await response1.json();
-      const data2 = await response2.json();
+      const data = await response.json();
       
-      console.log('LeapCell Response:', data1);
-      console.log('Vercel Response:', data2);
+      console.log('Response:', data);
       
-      if (!response1.ok) {
-        throw new Error(data1.message || 'Failed to submit to LeapCell');
-      }
-      
-      if (!response2.ok) {
-        throw new Error(data2.error || 'Failed to send email');
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
       }
       
       submitSuccess = true;
@@ -91,7 +69,6 @@
     }
   }
 </script>
-
 <section id="contact" class="relative py-20 overflow-hidden">
   <!-- Clean background -->
   <div class="absolute inset-0 bg-gradient-to-b from-sec to-sec/95"></div>
