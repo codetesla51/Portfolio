@@ -62,11 +62,18 @@
         body: formData
       });
       
-      const data = await response1.json();
-      console.log('Response data:', data);
+      const data1 = await response1.json();
+      const data2 = await response2.json();
+      
+      console.log('LeapCell Response:', data1);
+      console.log('Vercel Response:', data2);
       
       if (!response1.ok) {
-        throw new Error(data.message || 'Failed to submit the form');
+        throw new Error(data1.message || 'Failed to submit to LeapCell');
+      }
+      
+      if (!response2.ok) {
+        throw new Error(data2.error || 'Failed to send email');
       }
       
       submitSuccess = true;
