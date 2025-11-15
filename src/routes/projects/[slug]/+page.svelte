@@ -13,9 +13,7 @@
 </script>
 
 {#if data.project}
-  <!-- Hero Section -->
   <div class="relative min-h-screen bg-gradient-to-br from-sec via-sec/90 to-card/50">
-    <!-- Back Button - Fixed Position -->
     <div class="fixed top-6 left-6 z-50">
       <a href="/"
       title="Back to home"
@@ -27,22 +25,19 @@
       </a>
     </div>
 
-    <!-- Main Content Container -->
     <div class="max-w-6xl mx-auto px-6 pt-24 pb-12">
-      
-      <!-- Project Header -->
+
       <header class="text-center mb-16">
         <div class="inline-block p-1 bg-gradient-to-r from-acc/20 to-acc/10 rounded-2xl mb-6">
           <div class="bg-sec/80 backdrop-blur-sm rounded-xl px-6 py-3">
             <span class="font-mono text-acc/80 text-sm font-semibold tracking-wider uppercase">Featured Project</span>
           </div>
         </div>
-        
+
         <h2 class="text-5xl md:text-7xl font-ice font-bold text-acc mb-6 leading-tight">
           {data.project.name}
         </h2>
-        
-        <!-- Decorative line -->
+
         <div class="flex items-center justify-center space-x-4 mb-8">
           <div class="w-20 h-0.5 bg-gradient-to-r from-transparent to-acc/50"></div>
           <div class="w-2 h-2 bg-acc rounded-full animate-pulse"></div>
@@ -50,10 +45,8 @@
         </div>
       </header>
 
-      <!-- Project Image and Tech Stack Grid -->
       <div class="grid lg:grid-cols-3 gap-8 mb-16">
-        
-        <!-- Featured Image -->
+
         <div class="lg:col-span-2">
           <div class="relative group rounded-2xl overflow-hidden bg-card border border-acc/20 shadow-2xl">
             {#if data.project.image}
@@ -62,7 +55,6 @@
                 alt="{data.project.name}" 
                 class="w-full object-cover h-64 md:h-96 transition-all duration-700 group-hover:scale-105"
               >
-              <!-- Image overlay on hover -->
               <div class="absolute inset-0 bg-gradient-to-t from-sec/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             {:else}
               <div class="w-full h-64 md:h-96 flex items-center justify-center bg-gradient-to-br from-sec to-card">
@@ -79,10 +71,8 @@
           </div>
         </div>
 
-        <!-- Tech Stack Sidebar -->
         <div class="space-y-6">
-          
-          <!-- Tech Stack Card -->
+
           <div class="bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-acc/20 shadow-xl hover:shadow-2xl transition-all duration-500 group">
             <div class="flex items-center mb-6">
               <div class="p-2 bg-acc/10 rounded-lg mr-3 group-hover:bg-acc/20 transition-colors duration-300">
@@ -94,7 +84,7 @@
                 Tech Stack
               </h3>
             </div>
-            
+
             <div class="space-y-3">
               {#each data.project.tech_stack as tech}
                 <div class="group/tech bg-sec/60 hover:bg-sec/80 rounded-xl px-4 py-3 border border-acc/10 hover:border-acc/30 transition-all duration-300 transform hover:translate-x-2">
@@ -109,31 +99,12 @@
             </div>
           </div>
 
-          <!-- Project Stats Card -->
-          <div class="bg-gradient-to-br from-acc/10 to-acc/5 rounded-2xl p-6 border border-acc/30 shadow-xl">
-            <h4 class="font-ice text-acc font-bold mb-4 text-lg">Project Status</h4>
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-text/80 text-sm">Status</span>
-                <div class="flex items-center space-x-2">
-                  <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span class="font-mono text-text font-semibold text-sm">Active</span>
-                </div>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-text/80 text-sm">Technologies</span>
-                <span class="font-mono text-acc font-bold">{data.project.tech_stack.length}</span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
-      <!-- Description Section -->
       <section class="mb-16">
         <div class="bg-card/40 backdrop-blur-sm rounded-2xl border border-acc/20 shadow-2xl overflow-hidden">
-          
-          <!-- Section Header -->
+
           <div class="bg-gradient-to-r from-sec/80 to-card/60 px-8 py-6 border-b border-acc/20">
             <div class="flex items-center">
               <div class="p-2 bg-acc/10 rounded-lg mr-4">
@@ -144,8 +115,7 @@
               <h2 class="text-3xl font-ice font-bold text-acc">Project Overview</h2>
             </div>
           </div>
-          
-          <!-- Content -->
+
           <div class="px-8 py-8">
             <div class="prose prose-lg max-w-none">
               {@html parsedDescription}
@@ -154,7 +124,6 @@
         </div>
       </section>
 
-      <!-- Bottom Navigation -->
       <div class="flex justify-center">
         <a href="/#projects"
         title="Back to home"
@@ -169,7 +138,6 @@
   </div>
 
 {:else}
-  <!-- Error State -->
   <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-sec to-card/50 px-6">
     <div class="text-center bg-card/60 backdrop-blur-sm p-12 rounded-2xl shadow-2xl border border-acc/20 max-w-md">
       <div class="mb-6">
@@ -181,7 +149,7 @@
         <h2 class="text-2xl font-ice font-bold text-red-500 mb-2">Project Not Found</h2>
         <p class="text-text/80 font-mono mb-6">The requested project could not be located in our database.</p>
       </div>
-      
+
       <a href="/" 
       title="Back to home"
       class="inline-flex items-center px-6 py-3 bg-acc hover:bg-acc/80 text-sec rounded-lg transition-all duration-300 font-ice font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
@@ -193,6 +161,8 @@
     </div>
   </div>
 {/if}
+
+
 
 <style>
   /* Base typography */
