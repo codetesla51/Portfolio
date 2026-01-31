@@ -18,7 +18,7 @@
 <nav class="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-3">
   <!-- Navigation dots -->
   <a 
-    href="#hero" 
+    href="/" 
     class="group relative w-2.5 h-2.5 rounded-full bg-neutral-800 hover:bg-white transition-all duration-300"
     aria-label="Home"
   >
@@ -27,7 +27,7 @@
     </span>
   </a>
   <a 
-    href="#projects" 
+    href="/#projects" 
     class="group relative w-2.5 h-2.5 rounded-full bg-neutral-800 hover:bg-white transition-all duration-300"
     aria-label="Projects"
   >
@@ -36,7 +36,7 @@
     </span>
   </a>
   <a 
-    href="#writing" 
+    href="/#writing" 
     class="group relative w-2.5 h-2.5 rounded-full bg-neutral-800 hover:bg-white transition-all duration-300"
     aria-label="Writing"
   >
@@ -88,21 +88,21 @@
     <div class="absolute bottom-14 right-0 bg-neutral-900 border border-neutral-800 rounded-xl p-3 min-w-[120px] shadow-xl animate-fade-in">
       <div class="flex flex-col gap-1">
         <a 
-          href="#hero" 
+          href="/" 
           class="text-sm text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors px-3 py-2 rounded-lg"
           on:click={() => showNav = false}
         >
           Home
         </a>
         <a 
-          href="#projects" 
+          href="/#projects" 
           class="text-sm text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors px-3 py-2 rounded-lg"
           on:click={() => showNav = false}
         >
           Projects
         </a>
         <a 
-          href="#writing" 
+          href="/#writing" 
           class="text-sm text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors px-3 py-2 rounded-lg"
           on:click={() => showNav = false}
         >

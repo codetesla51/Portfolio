@@ -7,6 +7,7 @@
   import "../app.css";
   
   $: isAdmin = $page.url.pathname.startsWith('/admin');
+  $: isProjectDetail = $page.url.pathname.startsWith('/projects/');
 </script>
 
 <svelte:head>
@@ -18,7 +19,7 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col relative">
-  {#if !isAdmin}
+  {#if !isAdmin && !isProjectDetail}
     <Nav />
   {/if}
   <Loader />

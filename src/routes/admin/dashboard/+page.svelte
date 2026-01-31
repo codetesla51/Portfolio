@@ -59,20 +59,31 @@ onMount(async () => {
         
         console.log("Projects API response status:", response.status);
         
-        if (response.ok) {
+        // Check content-type before parsing JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          console.warn("Projects API did not return JSON, got:", contentType);
+          projects = [];
+        } else if (response.ok) {
           const result = await response.json();
           console.log("Projects API Response:", result);
           
-          if (result && Array.isArray(result.projects)) {
+          // Handle different response structures
+          if (result && Array.isArray(result.data)) {
+            projects = result.data;
+          } else if (result && Array.isArray(result.projects)) {
             projects = result.projects;
-            console.log("Projects loaded:", projects.length);
+          } else if (Array.isArray(result)) {
+            projects = result;
           } else {
             projects = [];
             console.warn("API didn't return an array of projects");
           }
+          console.log("Projects loaded:", projects.length);
         } else {
           const errorText = await response.text();
           console.error("Projects API error:", errorText);
+          projects = [];
         }
       } catch (fallbackError) {
         console.error("Projects fetch failed:", fallbackError);
@@ -99,12 +110,27 @@ onMount(async () => {
         
         console.log("Contacts API response status:", contactsResponse.status);
         
-        if (contactsResponse.ok) {
+        // Check content-type before parsing JSON
+        const contentType = contactsResponse.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          console.warn("Contacts API did not return JSON, got:", contentType);
+          messages = getFallbackMessages();
+        } else if (contactsResponse.ok) {
           const result = await contactsResponse.json();
           console.log("Contacts API Response:", result);
           
-          if (result && Array.isArray(result.data)) { // Access the 'data' array
-            messages = result.data.map(contact => ({
+          // Handle different response structures
+          let contactsArray = null;
+          if (result && Array.isArray(result.data)) {
+            contactsArray = result.data;
+          } else if (result && Array.isArray(result.contacts)) {
+            contactsArray = result.contacts;
+          } else if (Array.isArray(result)) {
+            contactsArray = result;
+          }
+          
+          if (contactsArray) {
+            messages = contactsArray.map(contact => ({
               id: contact.id,
               from: contact.email,
               name: contact.name,
