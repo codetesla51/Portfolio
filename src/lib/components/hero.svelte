@@ -1,159 +1,127 @@
 <script>
-  import Profile from "../../assets/1fd78e28449345cb772e60eb101b66b2.gif";
   import Resume from "../../assets/Oladele Uthman - Backend Engineer (1).pdf";
   export let personalInfo;
+  
+  const skills = ['Go', 'PHP', 'Svelte', 'Bash', 'PostgreSQL', 'MySQL'];
 </script>
 
-<section id="hero" class="relative overflow-hidden min-h-screen flex items-center">
-  <!-- Clean background -->
-  <div class="absolute inset-0 bg-gradient-to-br from-sec via-sec/95 to-sec/90"></div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+  <!-- Subtle gradient orbs -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-white/[0.02] rounded-full blur-3xl"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/[0.015] rounded-full blur-3xl"></div>
   
-  <div class="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-      
-      
-      <div class="order-1 text-center lg:text-left">
-        <!-- Badge -->
-        <div class="inline-block p-1 bg-gradient-to-r from-acc/20 to-acc/10 rounded-2xl mb-6">
-          <div class="bg-sec/80 backdrop-blur-sm rounded-xl px-4 sm:px-6 py-2 sm:py-3">
-            <span class="font-mono text-acc/80 text-xs sm:text-sm font-semibold tracking-wider uppercase">
-  Backend-Focused Full Stack Developer
-</span>
-          </div>
-        </div>
-        
-        <!-- Main heading -->
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-acc mb-4 sm:mb-6 font-ice leading-tight">
-          Uthman Dev
-        </h2>
-        
-        <!-- Decorative line -->
-        <div class="flex items-center justify-center lg:justify-start space-x-4 mb-6 sm:mb-8">
-          <div class="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-acc/60 to-acc/30"></div>
-          <div class="w-2 h-2 bg-acc rounded-full animate-pulse"></div>
-          <div class="w-8 sm:w-12 h-0.5 bg-gradient-to-r from-acc/30 to-transparent"></div>
-        </div>
-        
-        <!-- Description -->
-        <p class="text-lg sm:text-xl lg:text-2xl text-text/90 leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0">
-  Building scalable backends and APIs with Go and modern web technologies.
-</p>
+  <!-- Grid pattern overlay -->
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,black_40%,transparent_100%)]"></div>
 
-        <!-- Essential info -->
-        <div class="mb-6 sm:mb-8 space-y-3 sm:space-y-4 flex flex-col items-center lg:items-start">
-          <div class="flex items-center text-text/80">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 text-acc flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span class="font-mono text-base sm:text-lg">{personalInfo.location}</span>
-          </div>
-          
-          <div class="flex items-center text-text/80">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 text-acc flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <span class="font-mono text-base sm:text-lg break-all">{personalInfo.email}</span>
-          </div>
-        </div>
+  <div class="relative max-w-2xl w-full text-center py-20">
+    <!-- Status badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-8 border border-neutral-800 rounded-full text-xs text-neutral-500 animate-fade-in">
+      <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+      Available for work
+    </div>
 
-        <!-- Action buttons -->
-        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center lg:justify-start">
-          <a 
-            href={Resume} 
-            download 
-            class="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-acc text-sec font-bold rounded-xl hover:bg-acc/90 hover:scale-105 transition-all duration-300 font-ice text-base sm:text-lg shadow-lg w-full sm:w-auto"
-            data-aos="fade-up"
-            data-aos-delay="400"
-            title="Downlod My Resume "
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 mr-2 sm:mr-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Download CV
-          </a>
-          
-          <a 
-            href="#projects" 
-            class="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-acc text-acc font-bold rounded-xl hover:bg-acc hover:text-sec hover:scale-105 transition-all duration-300 font-ice text-base sm:text-lg w-full sm:w-auto"
-            data-aos="fade-up"
-            data-aos-delay="500"
-            title="View my Projects">
-          
-            
-            View Projects
-          </a>
-        </div>
-      </div>
+    <!-- Name with subtle gradient -->
+    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 animate-slide-up">
+      <span class="bg-gradient-to-b from-white via-white to-neutral-400 bg-clip-text text-transparent">
+        Uthman Oladele
+      </span>
+    </h1>
 
-      <!-- Profile Section - Second on mobile -->
-      <div class="order-2 flex justify-center" data-aos="fade-left" data-aos-delay="100">
-        <div class="relative">
-          <!-- Subtle glow -->
-          <div class="absolute inset-0 bg-acc blur-3xl opacity-20 rounded-full scale-110"></div>
-          
-          <!-- Profile image -->
-          <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-2 border-acc/20 shadow-2xl">
-            <img src={Profile} alt="Uthman Dev" class="object-cover w-full h-full" />
-          </div>
+    <!-- Role with accent -->
+    <p class="text-lg sm:text-xl text-neutral-400 mb-6 animate-slide-up">
+      Backend Engineer
+    </p>
 
-          <!-- Status indicator -->
-          <div class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-acc text-sec px-3 py-1 sm:px-4 sm:py-2 rounded-full font-mono text-xs sm:text-sm font-bold shadow-lg">
-            Ready For Work
-          </div>
+    <!-- Divider -->
+    <div class="flex items-center justify-center gap-4 mb-8 animate-fade-in">
+      <div class="h-px w-12 bg-gradient-to-r from-transparent to-neutral-700"></div>
+      <span class="text-neutral-700 text-xs font-mono">///</span>
+      <div class="h-px w-12 bg-gradient-to-l from-transparent to-neutral-700"></div>
+    </div>
 
-          <!-- Social links positioned here -->
-          <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-            <div class="flex items-center space-x-3 sm:space-x-4 bg-card/90 backdrop-blur-sm rounded-full px-4 py-3 border border-acc/20 shadow-lg">
-              <a 
-                href="https://www.facebook.com/profile.php?id=100089196350154" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-text/70 hover:text-acc transition-all duration-300 transform hover:scale-110"
-                aria-label="Facebook"
-                title="View my Facebook profile"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35c-0.73 0-1.325 0.595-1.325 1.325v21.35c0 0.73 0.595 1.325 1.325 1.325h11.495v-9.294h-3.129v-3.622h3.129v-2.671c0-3.1 1.893-4.789 4.656-4.789 1.325 0 2.464 0.099 2.797 0.144v3.24l-1.92 0.001c-1.506 0-1.797 0.716-1.797 1.765v2.309h3.586l-0.467 3.622h-3.119v9.294h6.125c0.73 0 1.325-0.595 1.325-1.325v-21.35c0-0.73-0.595-1.325-1.325-1.325z"/></svg>
-              </a>
-              
-              <a 
-                href="https://x.com/uthman_dev?t=0byug7sWjHZjQ5dZ6fQelQ&s=09" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-text/70 hover:text-acc transition-all duration-300 transform hover:scale-110"
-                aria-label="Twitter (X)"
-                title="View my X profile"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-              </a>
-              
-              <a 
-                href="https://github.com/codetesla51" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-text/70 hover:text-acc transition-all duration-300 transform hover:scale-110"
-                aria-label="GitHub"
-                title="View my GitHub profile"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-              
-              <a 
-                href="https://www.linkedin.com/in/oladele-uthman-a61578298" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="text-text/70 hover:text-acc transition-all duration-300 transform hover:scale-110"
-                aria-label="LinkedIn"
-                title="View my LinkedIn profile"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Short bio -->
+    <p class="text-neutral-500 text-sm sm:text-base max-w-md mx-auto mb-10 leading-relaxed animate-slide-up">
+      Building backend systems, APIs, and developer tools.
+      Focused on performance and clean architecture.
+    </p>
+
+    <!-- Skills -->
+    <div class="flex flex-wrap justify-center gap-2 mb-10 animate-fade-in">
+      {#each skills as skill, i}
+        <span 
+          class="px-3 py-1.5 text-xs sm:text-sm font-mono text-neutral-400 bg-neutral-900/50 border border-neutral-800/50 rounded-lg hover:border-neutral-700 hover:bg-neutral-800/50 transition-all cursor-default"
+          style="animation-delay: {i * 50}ms"
+        >
+          {skill}
+        </span>
+      {/each}
+    </div>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 animate-slide-up">
+      <a 
+        href="#projects" 
+        class="group w-full sm:w-auto px-6 py-3 bg-white text-black text-sm font-medium rounded-lg hover:bg-neutral-100 transition-all flex items-center justify-center gap-2"
+      >
+        View Projects
+        <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+      <a 
+        href={Resume} 
+        download 
+        class="w-full sm:w-auto px-6 py-3 text-neutral-400 text-sm border border-neutral-800 rounded-lg hover:text-white hover:border-neutral-600 hover:bg-neutral-900/50 transition-all flex items-center justify-center gap-2"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3M6 20h12a2 2 0 002-2V8l-6-6H6a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+        </svg>
+        Resume
+      </a>
+    </div>
+
+    <!-- Social links -->
+    <div class="flex items-center justify-center gap-5 animate-fade-in">
+      <a 
+        href="https://github.com/codetesla51" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="p-2 text-neutral-600 hover:text-white hover:bg-neutral-800/50 rounded-lg transition-all"
+        aria-label="GitHub"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+      <a 
+        href="https://x.com/uthman_dev" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="p-2 text-neutral-600 hover:text-white hover:bg-neutral-800/50 rounded-lg transition-all"
+        aria-label="X (Twitter)"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a 
+        href="https://dev.to/uthman_dev" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="p-2 text-neutral-600 hover:text-white hover:bg-neutral-800/50 rounded-lg transition-all"
+        aria-label="DEV.to"
+      >
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6v4.36h.58c.37 0 .65-.08.84-.23.21-.16.31-.42.31-.79v-2.32c0-.37-.1-.63-.31-.79zM0 4.94v14.12h24V4.94H0zM8.56 15.3c-.44.58-1.06.77-1.98.77H4.69V8.53h1.93c.92 0 1.54.19 1.98.77.38.5.56 1.18.56 2.02v1.96c0 .84-.18 1.52-.56 2.02h-.04zm4.01-5.87c0 .59-.47 1.06-1.06 1.06s-1.06-.47-1.06-1.06.47-1.06 1.06-1.06 1.06.47 1.06 1.06zm-.04 6.34h-2.09V10.3h2.09v5.47zm6.44-2.04c0 1.39-.52 2.17-1.93 2.17-1.02 0-1.7-.51-1.93-1.23l1.15-.66c.09.37.36.77.81.77.47 0 .73-.26.73-.77v-4.71h1.17v4.43z"/>
+        </svg>
+      </a>
+      <span class="h-4 w-px bg-neutral-800"></span>
+      <a 
+        href="mailto:{personalInfo.email}" 
+        class="text-xs sm:text-sm text-neutral-500 hover:text-white transition-colors"
+      >
+        {personalInfo.email}
+      </a>
     </div>
   </div>
 </section>

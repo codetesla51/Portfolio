@@ -1,22 +1,23 @@
-import { withLoading } from '$lib/stores/loader';
-
-/** @type {import('./$types').PageLoad} */
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch }) {
-  return {
-    projects: await withLoading(async () => {
-      try {
-        const res = await fetch('https://portfolio-backend-x9in.vercel.app/projects');
+  try {
+    const res = await fetch('https://portfolio-backend-x9in.vercel.app/projects');
 
-        if (!res.ok) {
-          throw new Error(`Failed to fetch projects: ${res.status}`);
-        }
+    if (!res.ok) {
+      console.error(`Failed to fetch projects: ${res.status}`);
+      return { projects: [], error: 'Failed to load projects' };
+    }
 
-        const data = await res.json();
-        return data.data || [];
-      } catch (error) {
-        console.error(error);
-        return [];
-      }
-    })
-  };
+    const data = await res.json();
+    return { 
+      projects: data.data || [],
+      error: null
+    };
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    return { 
+      projects: [],
+      error: 'Failed to load projects'
+    };
+  }
 }
