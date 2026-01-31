@@ -53,7 +53,8 @@ onMount(async () => {
         
         const response = await fetch('https://portfolio-backend-x9in.vercel.app/projects', {
           headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
           }
         });
         
@@ -104,7 +105,8 @@ onMount(async () => {
       } else {
         const contactsResponse = await fetch('https://portfolio-backend-x9in.vercel.app/contacts', {
           headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
           }
         });
         
@@ -187,7 +189,8 @@ const toggleProjectStatus = async (id) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json'
       }
     });
 
@@ -225,7 +228,8 @@ const toggleProjectStatus = async (id) => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json'
         },
       });
       
@@ -285,7 +289,8 @@ const replyToMessage = (email, subject, originalContent) => {
         const response = await fetch(`https://portfolio-backend-x9in.vercel.app/contacts/${id}`, {
           method: 'DELETE',
           headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
           }
         });
         
@@ -317,7 +322,8 @@ const replyToMessage = (email, subject, originalContent) => {
         await fetch('https://portfolio-backend-x9in.vercel.app/admin/logout', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
           }
         });
       }
@@ -432,7 +438,8 @@ const replyToMessage = (email, subject, originalContent) => {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
           },
           body: JSON.stringify(projectData)
         });
@@ -442,7 +449,8 @@ const replyToMessage = (email, subject, originalContent) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
           },
           body: JSON.stringify(projectData)
         });

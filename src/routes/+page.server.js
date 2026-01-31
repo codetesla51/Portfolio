@@ -1,7 +1,11 @@
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch }) {
   try {
-    const res = await fetch('https://portfolio-backend-x9in.vercel.app/projects');
+    const res = await fetch('https://portfolio-backend-x9in.vercel.app/projects', {
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
 
     if (!res.ok) {
       console.error(`Failed to fetch projects: ${res.status}`);

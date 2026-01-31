@@ -4,7 +4,11 @@ export async function load({ params, fetch }) {
 
   try {
     // First try the direct slug endpoint
-    const res = await fetch(`https://portfolio-backend-x9in.vercel.app/projects/${slug}`);
+    const res = await fetch(`https://portfolio-backend-x9in.vercel.app/projects/${slug}`, {
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
     
     // Check if response is JSON
     const contentType = res.headers.get('content-type');
@@ -17,7 +21,11 @@ export async function load({ params, fetch }) {
     }
     
     // Fallback: fetch all projects and find by slug
-    const allRes = await fetch('https://portfolio-backend-x9in.vercel.app/projects');
+    const allRes = await fetch('https://portfolio-backend-x9in.vercel.app/projects', {
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
     if (!allRes.ok) {
       return { project: null };
     }
