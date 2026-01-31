@@ -1,6 +1,9 @@
 import { writable } from 'svelte/store';
 import { goto } from '$app/navigation';
 
+// Base API URL
+const API_URL = 'https://portfolio-backend-x9in.vercel.app/api';
+
 // Create auth store with initial values
 export const auth = writable({
   isAuthenticated: false,
@@ -10,7 +13,6 @@ export const auth = writable({
 
 // Initialize auth state from localStorage
 export function initAuth() {
-  // Need to check if we're in browser environment for SSR compatibility
   if (typeof window !== 'undefined') {
     const token = localStorage.getItem('admin_token');
     
@@ -39,10 +41,10 @@ export async function login(adminKey) {
   auth.update(state => ({ ...state, isLoading: true }));
   
   try {
-    const response = await fetch('https://portfolio-backend-x9in.vercel.app/admin/login', {
+    const response = await fetch(`${API_URL}/admin/login`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         admin_key: adminKey
@@ -74,6 +76,7 @@ export async function login(adminKey) {
       };
     }
   } catch (err) {
+    console.error('Login error:', err);
     auth.update(state => ({ ...state, isLoading: false }));
     return { 
       success: false, 
@@ -87,19 +90,18 @@ export async function logout() {
   try {
     const token = localStorage.getItem('admin_token');
     
-    // Call backend logout endpoint
     if (token) {
-      await fetch('https://portfolio-backend-x9in.vercel.app/admin/logout', {
+      await fetch(`${API_URL}/admin/logout`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
         }
       });
     }
   } catch (error) {
     console.error('Logout API error:', error);
   } finally {
-    // Always clear local storage and update state
     localStorage.removeItem('admin_token');
     
     auth.update(state => ({
