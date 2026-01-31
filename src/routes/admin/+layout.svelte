@@ -14,8 +14,8 @@
     // Get admin token from localStorage
     const adminToken = localStorage.getItem('admin_token');
     
-    // Check if we're on the login page
-    const isLoginPage = $page.url.pathname === '/admin/auth';
+    // Check if we're on the login page (/admin or /admin/auth)
+    const isLoginPage = $page.url.pathname === '/admin/auth' || $page.url.pathname === '/admin';
     
     if (adminToken) {
       // User has a token, consider them authenticated
@@ -31,7 +31,7 @@
       
       // If not on login page and not authenticated, redirect to login
       if (!isLoginPage) {
-        goto('/admin/auth');
+        goto('/admin');
       }
     }
     

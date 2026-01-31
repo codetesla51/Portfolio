@@ -1,31 +1,57 @@
 <script>
   import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
+  
   let adminKey = '';
   let error = '';
   let loading = false;
+  
+  onMount(() => {
+    // Check if already authenticated
+    const token = localStorage.getItem('admin_token');
+    if (token) {
+      goto('/admin/dashboard');
+    }
+  });
   
   const handleLogin = async () => {
     loading = true;
     error = '';
     
+    if (!adminKey.trim()) {
+      error = 'Please enter your admin key';
+      loading = false;
+      return;
+    }
+    
     try {
       const response = await fetch('https://portfolio-backend-x9in.vercel.app/admin/login', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
           admin_key: adminKey
         })
       });
       
+      // Check content-type before parsing
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        console.error('API did not return JSON, got:', contentType);
+        error = 'Server error. Please try again later.';
+        loading = false;
+        return;
+      }
+      
       const data = await response.json();
       
-      if (response.ok) {
+      if (response.ok && data.token) {
         localStorage.setItem('admin_token', data.token);
         goto('/admin/dashboard');
       } else {
-        error = data.message || 'Authentication failed';
+        error = data.message || data.error || 'Authentication failed';
       }
     } catch (err) {
       error = 'Connection error. Please try again.';

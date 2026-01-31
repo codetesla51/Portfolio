@@ -308,11 +308,27 @@ const replyToMessage = (email, subject, originalContent) => {
     }
   };
   
-  const logout = () => {
-    
+  const logout = async () => {
+    try {
+      const token = localStorage.getItem('admin_token');
+      
+      // Call backend logout endpoint
+      if (token) {
+        await fetch('https://portfolio-backend-x9in.vercel.app/admin/logout', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Logout API error:', error);
+    } finally {
+      // Always clear local storage and redirect
       localStorage.removeItem('admin_token');
-      goto('/admin/auth');
-    } 
+      goto('/admin');
+    }
+  };
 
   const addNewProject = () => {
     editMode = false;

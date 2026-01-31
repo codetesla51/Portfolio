@@ -39,7 +39,7 @@ export async function login(adminKey) {
   auth.update(state => ({ ...state, isLoading: true }));
   
   try {
-    const response = await fetch('http://127.0.0.1:8000/admin/login', {
+    const response = await fetch('https://portfolio-backend-x9in.vercel.app/admin/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -83,14 +83,31 @@ export async function login(adminKey) {
 }
 
 // Logout function
-export function logout() {
-  localStorage.removeItem('admin_token');
-  
-  auth.update(state => ({
-    ...state,
-    isAuthenticated: false,
-    token: null
-  }));
-  
-  goto('/admin/login');
+export async function logout() {
+  try {
+    const token = localStorage.getItem('admin_token');
+    
+    // Call backend logout endpoint
+    if (token) {
+      await fetch('https://portfolio-backend-x9in.vercel.app/admin/logout', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+    }
+  } catch (error) {
+    console.error('Logout API error:', error);
+  } finally {
+    // Always clear local storage and update state
+    localStorage.removeItem('admin_token');
+    
+    auth.update(state => ({
+      ...state,
+      isAuthenticated: false,
+      token: null
+    }));
+    
+    goto('/admin');
+  }
 }
