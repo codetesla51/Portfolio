@@ -5,71 +5,71 @@
   export let submitProject;
 </script>
 
-<div class="bg-card rounded-lg border border-acc/30 backdrop-blur-sm p-6 mb-6">
-  <h3 class="text-xl font-ice text-acc mb-4">{editMode ? 'EDIT PROJECT' : 'ADD NEW PROJECT'}</h3>
+<div class="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6 mb-6">
+  <h3 class="text-lg font-medium text-white mb-6">{editMode ? 'Edit Project' : 'New Project'}</h3>
   
-  <div class="space-y-4">
+  <div class="space-y-5">
     <div>
-      <label class="block text-sm font-mono text-text/70 mb-1">PROJECT NAME</label>
+      <label class="block text-sm text-neutral-400 mb-2">Name</label>
       <input 
         type="text" 
         bind:value={newProject.name} 
-        class="w-full p-3 border bg-sec text-text font-mono border-acc/50 focus:border-acc focus:ring-1 focus:ring-acc rounded-md outline-none"
-        placeholder="Enter project name"
+        class="w-full px-4 py-2.5 bg-black border border-neutral-800 rounded-lg text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors"
+        placeholder="Project name"
       />
     </div>
     
     <div>
-      <label class="block text-sm font-mono text-text/70 mb-1">TECH STACK (comma separated)</label>
+      <label class="block text-sm text-neutral-400 mb-2">Tech Stack</label>
       <input 
         type="text" 
         bind:value={newProject.tech_stack} 
-        class="w-full p-3 border bg-sec text-text font-mono border-acc/50 focus:border-acc focus:ring-1 focus:ring-acc rounded-md outline-none"
-        placeholder="Laravel, Svelte, TailwindCSS, MySQL"
+        class="w-full px-4 py-2.5 bg-black border border-neutral-800 rounded-lg text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors"
+        placeholder="Go, PostgreSQL, Redis (comma separated)"
       />
     </div>
     
     <div>
-      <label class="block text-sm font-mono text-text/70 mb-1">DESCRIPTION</label>
+      <label class="block text-sm text-neutral-400 mb-2">Description</label>
       <textarea 
         bind:value={newProject.description} 
-        class="w-full p-3 border bg-sec text-text font-mono border-acc/50 focus:border-acc focus:ring-1 focus:ring-acc rounded-md outline-none h-32"
-        placeholder="Enter project description"
+        class="w-full px-4 py-2.5 bg-black border border-neutral-800 rounded-lg text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors h-32 resize-none"
+        placeholder="Project description..."
       ></textarea>
     </div>
     
     <div>
-      <label class="block text-sm font-mono text-text/70 mb-1">IMAGE URL</label>
+      <label class="block text-sm text-neutral-400 mb-2">Image URL</label>
       <input 
         type="text" 
         bind:value={newProject.image} 
-        class="w-full p-3 border bg-sec text-text font-mono border-acc/50 focus:border-acc focus:ring-1 focus:ring-acc rounded-md outline-none"
-        placeholder="https://example.com/your-project-image.png"
+        class="w-full px-4 py-2.5 bg-black border border-neutral-800 rounded-lg text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors"
+        placeholder="https://..."
       />
     </div>
     
-    <div class="flex items-center">
+    <div class="flex items-center gap-3">
       <input 
         type="checkbox" 
         id="display_status" 
         bind:checked={newProject.display_status} 
-        class="mr-2 h-4 w-4 border-acc/50 focus:ring-acc text-acc"
+        class="w-4 h-4 rounded border-neutral-700 bg-black text-white focus:ring-0 focus:ring-offset-0"
       />
-      <label for="display_status" class="text-sm font-mono text-text/70">DISPLAY ON PORTFOLIO</label>
+      <label for="display_status" class="text-sm text-neutral-400">Show on portfolio</label>
     </div>
     
-    <div class="flex justify-end space-x-4 mt-6">
+    <div class="flex justify-end gap-3 pt-4">
       <button 
         on:click={cancelAddProject}
-        class="px-4 py-2 border border-text/30 text-text font-mono text-sm rounded hover:bg-text/10"
+        class="px-4 py-2 text-sm text-neutral-400 hover:text-white transition-colors"
       >
-        CANCEL
+        Cancel
       </button>
       <button 
         on:click={submitProject}
-        class="px-4 py-2 bg-acc text-sec font-mono text-sm rounded hover:bg-acc/80"
+        class="px-4 py-2 text-sm bg-white text-black rounded-lg hover:bg-neutral-200 transition-colors"
       >
-        {editMode ? 'UPDATE PROJECT' : 'SAVE PROJECT'}
+        {editMode ? 'Update' : 'Create'}
       </button>
     </div>
   </div>

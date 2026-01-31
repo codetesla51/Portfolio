@@ -1,9 +1,12 @@
 <!-- src/routes/+layout.svelte -->
 <script>
+  import { page } from '$app/stores';
   import Nav from "$lib/components/nav.svelte";
   import Footer from "$lib/components/footer.svelte";
   import Loader from '$lib/components/loader.svelte';
   import "../app.css";
+  
+  $: isAdmin = $page.url.pathname.startsWith('/admin');
 </script>
 
 <svelte:head>
@@ -15,12 +18,16 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col relative">
-  <Nav />
+  {#if !isAdmin}
+    <Nav />
+  {/if}
   <Loader />
   
   <main class="flex-1">
     <slot />
   </main>
   
-  <Footer />
+  {#if !isAdmin}
+    <Footer />
+  {/if}
 </div>

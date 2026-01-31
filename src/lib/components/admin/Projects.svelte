@@ -1,5 +1,5 @@
 <script>
-import ProjectForm from './Projects/ProjectForm.svelte';  
+  import ProjectForm from './Projects/ProjectForm.svelte';  
   export let projects;
   export let showProjectForm;
   export let editMode;
@@ -14,10 +14,13 @@ import ProjectForm from './Projects/ProjectForm.svelte';
 </script>
 
 <div>
-  <div class="mb-6 flex justify-between items-center">
-    <h2 class="text-2xl font-ice text-acc">PROJECTS</h2>
-    <button on:click={addNewProject} class="text-sm font-mono px-4 py-2 bg-acc text-sec rounded hover:bg-acc/80 transition-all duration-300">
-      + ADD PROJECT
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-semibold text-white">Projects</h1>
+    <button 
+      on:click={addNewProject} 
+      class="px-4 py-2 text-sm bg-white text-black rounded-lg hover:bg-neutral-200 transition-colors"
+    >
+      + New Project
     </button>
   </div>
   
@@ -30,63 +33,118 @@ import ProjectForm from './Projects/ProjectForm.svelte';
     />
   {/if}
   
-  <div class="bg-card rounded-lg border border-acc/30 backdrop-blur-sm overflow-hidden">
+  <!-- Desktop Table -->
+  <div class="hidden md:block bg-neutral-900/50 border border-neutral-800 rounded-xl overflow-hidden">
     <table class="w-full">
       <thead>
-        <tr class="border-b border-acc/30">
-          <th class="text-left px-4 py-3 font-mono font-normal text-sm text-text/70">ID</th>
-          <th class="text-left px-4 py-3 font-mono font-normal text-sm text-text/70">PROJECT NAME</th>
-          <th class="text-left px-4 py-3 font-mono font-normal text-sm text-text/70">TECH STACK</th>
-          <th class="text-left px-4 py-3 font-mono font-normal text-sm text-text/70">CREATED</th>
-          <th class="text-left px-4 py-3 font-mono font-normal text-sm text-text/70">STATUS</th>
-          <th class="text-left px-4 py-3 font-mono font-normal text-sm text-text/70">ACTIONS</th>
+        <tr class="border-b border-neutral-800">
+          <th class="text-left px-5 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Name</th>
+          <th class="text-left px-5 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Stack</th>
+          <th class="text-left px-5 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Date</th>
+          <th class="text-left px-5 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Status</th>
+          <th class="text-right px-5 py-3 text-xs font-medium text-neutral-500 uppercase tracking-wider">Actions</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="divide-y divide-neutral-800/50">
         {#each projects as project}
-          <tr class="border-b border-acc/10">
-            <td class="px-4 py-3 font-mono">{project.id}</td>
-            <td class="px-4 py-3 font-mono">{project.name}</td>
-            <td class="px-4 py-3">
+          <tr class="hover:bg-neutral-800/30 transition-colors">
+            <td class="px-5 py-4 text-sm text-white">{project.name}</td>
+            <td class="px-5 py-4">
               <div class="flex flex-wrap gap-1">
-                {#each project.tech_stack as tech}
-                  <span class="inline-block px-2 py-0.5 text-xs font-mono bg-acc/10 text-acc rounded">
+                {#each (Array.isArray(project.tech_stack) ? project.tech_stack.slice(0, 3) : []) as tech}
+                  <span class="px-2 py-0.5 text-xs bg-neutral-800 text-neutral-400 rounded">
                     {tech}
                   </span>
                 {/each}
               </div>
             </td>
-            <td class="px-4 py-3 font-mono text-sm">{formatDate(project.created_at)}</td>
-            <td class="px-4 py-3">
-              <span class="inline-block px-2 py-1 text-xs font-mono rounded {project.display_status ? 'bg-acc/20 text-acc' : 'bg-red-500/20 text-red-400'}">
-                {project.display_status ? 'ACTIVE' : 'DISABLED'}
+            <td class="px-5 py-4 text-sm text-neutral-500">{formatDate(project.created_at)}</td>
+            <td class="px-5 py-4">
+              <span class="px-2 py-0.5 text-xs rounded-full {project.display_status ? 'bg-green-500/10 text-green-400' : 'bg-neutral-800 text-neutral-500'}">
+                {project.display_status ? 'Active' : 'Hidden'}
               </span>
             </td>
-            <td class="px-4 py-3">
-              <div class="flex space-x-2">
+            <td class="px-5 py-4">
+              <div class="flex justify-end gap-2">
                 <button 
                   on:click={() => toggleProjectStatus(project.id)}
-                  class="text-xs font-mono px-2 py-1 rounded border {project.display_status ? 'border-red-500/50 text-red-400 hover:bg-red-500/10' : 'border-acc/50 text-acc hover:bg-acc/10'}"
+                  class="px-2 py-1 text-xs rounded border {project.display_status ? 'border-neutral-700 text-neutral-400 hover:text-white' : 'border-green-500/30 text-green-400 hover:border-green-500'} transition-colors"
                 >
-                  {project.display_status ? 'DISABLE' : 'ENABLE'}
+                  {project.display_status ? 'Hide' : 'Show'}
                 </button>
                 <button 
                   on:click={() => editProject(project)}
-                  class="text-xs font-mono px-2 py-1 rounded border border-acc/50 text-acc hover:bg-acc/10"
+                  class="px-2 py-1 text-xs rounded border border-neutral-700 text-neutral-400 hover:text-white transition-colors"
                 >
-                  EDIT
+                  Edit
                 </button>
                 <button 
                   on:click={() => deleteProject(project.id)}
-                  class="text-xs font-mono px-2 py-1 rounded border border-red-500/50 text-red-400 hover:bg-red-500/10"
+                  class="px-2 py-1 text-xs rounded border border-red-500/30 text-red-400 hover:border-red-500 transition-colors"
                 >
-                  DELETE
+                  Delete
                 </button>
               </div>
+            </td>
+          </tr>
+        {:else}
+          <tr>
+            <td colspan="5" class="px-5 py-8 text-center text-sm text-neutral-600">
+              No projects yet
             </td>
           </tr>
         {/each}
       </tbody>
     </table>
+  </div>
+  
+  <!-- Mobile Cards -->
+  <div class="md:hidden space-y-3">
+    {#each projects as project}
+      <div class="bg-neutral-900/50 border border-neutral-800 rounded-xl p-4">
+        <div class="flex items-start justify-between mb-3">
+          <div>
+            <h3 class="text-sm font-medium text-white">{project.name}</h3>
+            <p class="text-xs text-neutral-500 mt-0.5">{formatDate(project.created_at)}</p>
+          </div>
+          <span class="px-2 py-0.5 text-xs rounded-full {project.display_status ? 'bg-green-500/10 text-green-400' : 'bg-neutral-800 text-neutral-500'}">
+            {project.display_status ? 'Active' : 'Hidden'}
+          </span>
+        </div>
+        
+        <div class="flex flex-wrap gap-1 mb-4">
+          {#each (Array.isArray(project.tech_stack) ? project.tech_stack.slice(0, 3) : []) as tech}
+            <span class="px-2 py-0.5 text-xs bg-neutral-800 text-neutral-400 rounded">
+              {tech}
+            </span>
+          {/each}
+        </div>
+        
+        <div class="flex gap-2">
+          <button 
+            on:click={() => toggleProjectStatus(project.id)}
+            class="flex-1 py-1.5 text-xs rounded border {project.display_status ? 'border-neutral-700 text-neutral-400' : 'border-green-500/30 text-green-400'}"
+          >
+            {project.display_status ? 'Hide' : 'Show'}
+          </button>
+          <button 
+            on:click={() => editProject(project)}
+            class="flex-1 py-1.5 text-xs rounded border border-neutral-700 text-neutral-400"
+          >
+            Edit
+          </button>
+          <button 
+            on:click={() => deleteProject(project.id)}
+            class="flex-1 py-1.5 text-xs rounded border border-red-500/30 text-red-400"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    {:else}
+      <div class="bg-neutral-900/50 border border-neutral-800 rounded-xl p-8 text-center text-sm text-neutral-600">
+        No projects yet
+      </div>
+    {/each}
   </div>
 </div>

@@ -22,61 +22,61 @@
       const data = await response.json();
       
       if (response.ok) {
-        // Store token in localStorage
         localStorage.setItem('admin_token', data.token);
-        // Redirect to dashboard
         goto('/admin/dashboard');
       } else {
         error = data.message || 'Authentication failed';
       }
     } catch (err) {
       error = 'Connection error. Please try again.';
-      console.error('Login error:', err);am
+      console.error('Login error:', err);
     } finally {
       loading = false;
     }
   };
 </script>
 
-<div class="flex items-center justify-center min-h-screen bg-sec">
-  <div class="w-full max-w-md p-8 rounded-lg bg-card backdrop-blur-sm border border-acc/30">
-    <h1 class="text-4xl font-ice text-acc mb-8 text-center">SYSTEM ACCESS</h1>
+<div class="min-h-screen bg-black flex items-center justify-center px-6">
+  <div class="w-full max-w-sm">
+    <div class="text-center mb-8">
+      <h1 class="text-2xl font-semibold text-white mb-2">Admin</h1>
+      <p class="text-sm text-neutral-500">Enter your admin key to continue</p>
+    </div>
     
-    <form on:submit|preventDefault={handleLogin} class="space-y-6">
+    <form on:submit|preventDefault={handleLogin} class="space-y-4">
       <div>
-        <label for="adminKey" class="block text-text font-mono mb-2">ADMIN KEY</label>
         <input
           type="password"
-          id="adminKey"
           bind:value={adminKey}
-          class="w-full p-3 border bg-sec text-text font-mono border-acc/50 focus:border-acc focus:ring-1 focus:ring-acc rounded-md outline-none"
-          placeholder="_enter_security_key_"
+          class="w-full px-4 py-3 bg-black border border-neutral-800 rounded-lg text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors"
+          placeholder="Admin key"
+          autocomplete="current-password"
         />
       </div>
       
       {#if error}
-        <div class="text-red-500 font-mono text-sm">{error}</div>
+        <p class="text-sm text-red-400">{error}</p>
       {/if}
       
       <button
         type="submit"
         disabled={loading}
-        class="w-full py-3 bg-acc hover:bg-acc/80 text-sec font-ice text-xl rounded-md transition-all duration-300 flex justify-center items-center"
+        class="w-full py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
         {#if loading}
-          <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <svg class="animate-spin h-4 w-4" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
           </svg>
-          AUTHENTICATING...
+          Authenticating...
         {:else}
-          LOGIN
+          Login
         {/if}
       </button>
     </form>
     
-    <div class="mt-6 text-center text-text/50 font-mono text-sm">
-      SECURE SYSTEM v2.5.12
-    </div>
+    <p class="mt-8 text-center text-xs text-neutral-700">
+      <a href="/" class="hover:text-neutral-500 transition-colors">← Back to site</a>
+    </p>
   </div>
 </div>

@@ -40,9 +40,9 @@
 </script>
 
 {#if isLoading}
-  <div class="flex items-center justify-center min-h-screen bg-sec">
-    <div class="w-8 h-8 border-4 border-acc border-t-transparent rounded-full animate-spin"></div>
+  <div class="flex items-center justify-center min-h-screen bg-black">
+    <div class="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
   </div>
-{:else if isAuthenticated || $page.url.pathname === '/admin/auth'}
+{:else if isAuthenticated || $page.url.pathname === '/admin/auth' || $page.url.pathname === '/admin'}
   <slot />
 {/if}

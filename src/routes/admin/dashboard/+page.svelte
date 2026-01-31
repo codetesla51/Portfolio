@@ -464,46 +464,16 @@ const replyToMessage = (email, subject, originalContent) => {
     }
   };
 </script>
-<div class="min-h-screen bg-sec text-text">
-  <Header {logout} />
+
+<div class="min-h-screen bg-black text-white">
+  <Header {logout} bind:activeTab />
   
-  <!-- Main content -->
-  <main class="container mx-auto px-4 py-6">
+  <main class="max-w-6xl mx-auto px-6 py-8">
     {#if loading}
       <div class="flex justify-center items-center h-64">
-        <div class="text-acc font-mono">LOADING SYSTEM DATA...</div>
+        <div class="text-neutral-500">Loading...</div>
       </div>
     {:else}
-      <!-- Navigation -->
-      <nav class="mb-8">
-        <ul class="flex border-b border-acc/30">
-          <li>
-            <button 
-              class="px-4 py-2 font-mono {activeTab === 'dashboard' ? 'border-b-2 border-acc text-acc' : 'text-text/70'}"
-              on:click={() => activeTab = 'dashboard'}
-            >
-              DASHBOARD
-            </button>
-          </li>
-          <li>
-            <button 
-              class="px-4 py-2 font-mono {activeTab === 'projects' ? 'border-b-2 border-acc text-acc' : 'text-text/70'}"
-              on:click={() => activeTab = 'projects'}
-            >
-              PROJECTS ({projects.length})
-            </button>
-          </li>
-          <li>
-            <button 
-              class="px-4 py-2 font-mono {activeTab === 'messages' ? 'border-b-2 border-acc text-acc' : 'text-text/70'}"
-              on:click={() => activeTab = 'messages'}
-            >
-              MESSAGES ({messages.length})
-            </button>
-          </li>
-        </ul>
-      </nav>
-
       {#if activeTab === 'dashboard'}
         <Dashboard 
           {stats} 
@@ -539,6 +509,4 @@ const replyToMessage = (email, subject, originalContent) => {
       {/if}
     {/if}
   </main>
-  
-  <Footer {formatDate} />
 </div>
