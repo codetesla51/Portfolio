@@ -4,7 +4,7 @@ export async function load({ params, fetch }) {
 
   try {
     // First try the direct slug endpoint
-    const res = await fetch(`https://portfolio-backend-x9in.vercel.app/projects/${slug}`, {
+    const res = await fetch(`https://portfolio-backend-rawhttp-codetesla517280-9dphthj2.leapcell.dev/api/projects/${slug}`, {
       headers: {
         'Accept': 'application/json'
       }

@@ -1,7 +1,7 @@
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch }) {
   try {
-    const res = await fetch('https://portfolio-backend-x9in.vercel.app/projects', {
+    const res = await fetch('https://portfolio-backend-rawhttp-codetesla517280-9dphthj2.leapcell.dev/api/projects', {
       headers: {
         'Accept': 'application/json'
       }
