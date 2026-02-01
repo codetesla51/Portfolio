@@ -59,7 +59,7 @@
     </div>
 
     <!-- Social links -->
-    <div class="flex items-center justify-center gap-5 animate-fade-in">
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5 animate-fade-in">
       <a 
         href="https://github.com/codetesla51" 
         target="_blank" 

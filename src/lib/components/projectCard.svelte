@@ -19,7 +19,7 @@
 </script>
 
 {#if project}
-<article class="group relative bg-neutral-900/30 border border-neutral-800 rounded-xl p-6 md:p-8 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/50">
+<article class="group relative bg-neutral-900/30 border border-neutral-800 rounded-xl p-4 sm:p-6 md:p-8 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/50">
   <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
     <!-- Left: Project Info -->
     <div class="flex-1 min-w-0">
@@ -53,7 +53,7 @@
     </div>
 
     <!-- Right: Actions -->
-    <div class="flex items-center gap-3 ml-8 md:ml-0">
+    <div class="flex items-center gap-2 sm:gap-3 ml-8 md:ml-0 flex-wrap">
       {#if project.github_url}
         <a 
           href={project.github_url}

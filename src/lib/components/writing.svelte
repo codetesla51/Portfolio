@@ -19,11 +19,11 @@
   ];
 </script>
 
-<section id="writing" class="py-20 px-6">
+<section id="writing" class="py-16 sm:py-20 px-4 sm:px-6">
   <div class="max-w-2xl mx-auto">
     <!-- Section header -->
-    <div class="mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Writing</h2>
+    <div class="mb-8 sm:mb-12">
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3">Writing</h2>
       <p class="text-neutral-500 text-sm">Technical articles and deep dives</p>
     </div>
 

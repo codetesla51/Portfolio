@@ -130,14 +130,14 @@
       />
     </div>  
 
-    <div class="grid lg:grid-cols-2 gap-16 items-start">  
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">  
       
       <!-- Left Content - Simplified -->  
       <div class="space-y-8" data-aos="fade-right" data-aos-duration="1000">  
         
         <!-- Main bio card -->
-        <div class="bg-card/60 backdrop-blur-sm rounded-2xl p-8 border border-acc/20 shadow-xl hover:shadow-2xl hover:border-acc/40 transition-all duration-500">  
-          <div class="space-y-6 text-lg leading-relaxed">  
+        <div class="bg-card/60 backdrop-blur-sm rounded-2xl p-5 sm:p-8 border border-acc/20 shadow-xl hover:shadow-2xl hover:border-acc/40 transition-all duration-500">  
+          <div class="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">  
             <p class="text-text/90">  
               Hey, I'm <span class="text-acc font-bold text-xl">Oladele Uthman</span>, a Computer Science student and Go backend engineer focused on systems design and compiler theory.  
             </p>  
@@ -208,12 +208,12 @@
             </div>  
           </div>  
 
-          <!-- Terminal content -->  
+          <!-- Terminal content -->
           <div   
             bind:this={terminalElement}  
-            class="bg-card/40 p-6 font-mono text-sm text-text overflow-auto"   
-            style="height: 420px;"  
-          >  
+            class="bg-card/40 p-4 sm:p-6 font-mono text-xs sm:text-sm text-text overflow-auto"   
+            style="height: 320px;"
+          >
             {#each bioTerminalLines as line, i}  
               <div class="flex hover:bg-acc/5 rounded transition-colors duration-200 py-0.5">  
                 <span class="text-acc/60 mr-4 select-none w-6 text-right text-xs leading-relaxed">{(i + 1).toString().padStart(2, '0')}</span>  

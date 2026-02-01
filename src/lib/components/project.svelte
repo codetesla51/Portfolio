@@ -3,15 +3,15 @@
   import ProjectCard from '$lib/components/projectCard.svelte';
 </script>
 
-<section id="projects" class="py-24 md:py-32">
+<section id="projects" class="py-16 sm:py-24 md:py-32">
   <div class="section-container">
     <!-- Section Header -->
-    <div class="mb-16">
+    <div class="mb-10 sm:mb-16">
       <span class="text-neutral-500 text-sm font-mono tracking-wider uppercase mb-4 block">Portfolio</span>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
         Selected Work
       </h2>
-      <p class="text-neutral-500 text-lg max-w-2xl">
+      <p class="text-neutral-500 text-base sm:text-lg max-w-2xl">
         A collection of projects showcasing backend engineering, API design, and systems architecture.
       </p>
     </div>

@@ -113,16 +113,16 @@
   }
 </script>
 
-<section id="contact" class="py-24 md:py-32 border-t border-neutral-900">
+<section id="contact" class="py-16 sm:py-24 md:py-32 border-t border-neutral-900">
   <div class="section-container">
     <div class="max-w-2xl mx-auto">
       <!-- Section Header -->
-      <div class="text-center mb-12">
+      <div class="text-center mb-8 sm:mb-12">
         <span class="text-neutral-500 text-sm font-mono tracking-wider uppercase mb-4 block">Contact</span>
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
           Get in Touch
         </h2>
-        <p class="text-neutral-500 text-lg">
+        <p class="text-neutral-500 text-base sm:text-lg">
           Have a project in mind or just want to chat? Send me a message.
         </p>
       </div>
