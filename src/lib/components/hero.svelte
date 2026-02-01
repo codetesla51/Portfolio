@@ -5,38 +5,26 @@
   const skills = ['Go', 'PHP', 'Svelte', 'Bash', 'PostgreSQL', 'MySQL'];
 </script>
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
-  <!-- Subtle gradient orbs -->
-  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-white/[0.02] rounded-full blur-3xl"></div>
-  <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/[0.015] rounded-full blur-3xl"></div>
-  
-  <!-- Grid pattern overlay -->
-  <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,black_40%,transparent_100%)]"></div>
+<section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-black">
+  <!-- Subtle glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.02] rounded-full blur-3xl"></div>
 
   <div class="relative max-w-2xl w-full text-center py-20">
-    <!-- Status badge -->
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-8 border border-neutral-800 rounded-full text-xs text-neutral-500 animate-fade-in">
-      <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
-      Available for work
-    </div>
-
-    <!-- Name with subtle gradient -->
+    <!-- Name -->
     <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 animate-slide-up">
-      <span class="bg-gradient-to-b from-white via-white to-neutral-400 bg-clip-text text-transparent">
-        Uthman Oladele
-      </span>
+      <span class="bg-gradient-to-r from-white to-neutral-600 bg-clip-text text-transparent">Uthman Oladele</span>
     </h1>
 
-    <!-- Role with accent -->
+    <!-- Role -->
     <p class="text-lg sm:text-xl text-neutral-400 mb-6 animate-slide-up">
       Backend Engineer
     </p>
 
     <!-- Divider -->
     <div class="flex items-center justify-center gap-4 mb-8 animate-fade-in">
-      <div class="h-px w-12 bg-gradient-to-r from-transparent to-neutral-700"></div>
-      <span class="text-neutral-700 text-xs font-mono">///</span>
-      <div class="h-px w-12 bg-gradient-to-l from-transparent to-neutral-700"></div>
+      <div class="h-px w-12 bg-neutral-700"></div>
+      <div class="w-1 h-1 rounded-full bg-white"></div>
+      <div class="h-px w-12 bg-neutral-700"></div>
     </div>
 
     <!-- Short bio -->
@@ -45,23 +33,13 @@
       Focused on performance and clean architecture.
     </p>
 
-    <!-- Skills -->
-    <div class="flex flex-wrap justify-center gap-2 mb-10 animate-fade-in">
-      {#each skills as skill, i}
-        <span 
-          class="px-3 py-1.5 text-xs sm:text-sm font-mono text-neutral-400 bg-neutral-900/50 border border-neutral-800/50 rounded-lg hover:border-neutral-700 hover:bg-neutral-800/50 transition-all cursor-default"
-          style="animation-delay: {i * 50}ms"
-        >
-          {skill}
-        </span>
-      {/each}
-    </div>
+
 
     <!-- CTAs -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 animate-slide-up">
       <a 
         href="#projects" 
-        class="group w-full sm:w-auto px-6 py-3 bg-white text-black text-sm font-medium rounded-lg hover:bg-neutral-100 transition-all flex items-center justify-center gap-2"
+        class="group w-full sm:w-auto px-6 py-3 bg-white text-black text-sm font-medium rounded-lg hover:bg-neutral-200 transition-all flex items-center justify-center gap-2"
       >
         View Projects
         <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +49,7 @@
       <a 
         href={Resume} 
         download 
-        class="w-full sm:w-auto px-6 py-3 text-neutral-400 text-sm border border-neutral-800 rounded-lg hover:text-white hover:border-neutral-600 hover:bg-neutral-900/50 transition-all flex items-center justify-center gap-2"
+        class="w-full sm:w-auto px-6 py-3 text-neutral-400 text-sm border border-neutral-800 rounded-lg hover:text-white hover:border-neutral-600 transition-all flex items-center justify-center gap-2"
       >
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3M6 20h12a2 2 0 002-2V8l-6-6H6a2 2 0 00-2 2v14a2 2 0 002 2z"/>
