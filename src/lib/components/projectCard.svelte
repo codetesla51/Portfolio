@@ -19,21 +19,21 @@
 </script>
 
 {#if project}
-<article class="group relative bg-neutral-900/30 border border-neutral-800 rounded-xl p-4 sm:p-6 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/50">
+<article class="group relative bg-neutral-900/30 border border-neutral-800 rounded-xl p-4 sm:p-6 transition-all duration-300 hover:border-neutral-700 hover:bg-neutral-900/50 overflow-hidden">
   <div class="flex flex-col gap-4">
     <!-- Project Info -->
     <div class="flex-1 min-w-0">
       <!-- Project Number & Title -->
-      <div class="flex items-start gap-3 sm:gap-4 mb-3">
-        <span class="text-neutral-600 font-mono text-xs sm:text-sm mt-1 shrink-0">
+      <div class="flex items-start gap-2 sm:gap-4 mb-3">
+        <span class="text-neutral-600 font-mono text-sm mt-1 shrink-0">
           {String(index + 1).padStart(2, '0')}
         </span>
         <div class="flex-1 min-w-0">
-          <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-white group-hover:text-gradient transition-all duration-300 break-words">
+          <h3 class="text-xl sm:text-xl md:text-2xl font-semibold text-white group-hover:text-gradient transition-all duration-300 break-words">
             {project.name}
           </h3>
           {#if plainDescription}
-            <p class="text-neutral-500 mt-2 line-clamp-2 text-xs sm:text-sm md:text-base">
+            <p class="text-neutral-500 mt-2 line-clamp-2 text-sm sm:text-sm md:text-base">
               {plainDescription}
             </p>
           {/if}
@@ -42,9 +42,9 @@
 
       <!-- Tech Stack Tags -->
       {#if techStack.length > 0}
-        <div class="flex flex-wrap gap-1.5 sm:gap-2 ml-6 sm:ml-8">
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 ml-7 sm:ml-8">
           {#each techStack as tech}
-            <span class="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-400">
+            <span class="px-2 sm:px-3 py-0.5 sm:py-1 text-xs sm:text-xs font-mono bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-400">
               {tech}
             </span>
           {/each}
@@ -53,7 +53,7 @@
     </div>
 
     <!-- Actions -->
-    <div class="flex items-center gap-2 ml-6 sm:ml-8">
+    <div class="flex items-center gap-2 ml-7 sm:ml-8">
       {#if project.github_url}
         <a 
           href={project.github_url}
@@ -86,10 +86,10 @@
 
       <a 
         href="/projects/{project.slug}"
-        class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-white bg-neutral-800 border border-neutral-700 rounded-lg hover:bg-neutral-700 hover:border-neutral-600 transition-all duration-200"
+        class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-sm font-medium text-white bg-neutral-800 border border-neutral-700 rounded-lg hover:bg-neutral-700 hover:border-neutral-600 transition-all duration-200"
       >
         Details
-        <svg class="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
         </svg>
       </a>

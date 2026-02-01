@@ -18,7 +18,7 @@
     
     {#if projects && projects.length > 0}
       <!-- Projects Grid -->
-      <div class="grid gap-6 md:gap-8">
+      <div class="grid gap-4 sm:gap-6 md:gap-8">
         {#each projects as project, i}
           <ProjectCard {project} index={i} />
         {/each}
