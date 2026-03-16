@@ -6,7 +6,7 @@
 </script>
 
 {#if project}
-<article class="group relative bg-neutral-900/40 border border-neutral-800 rounded-xl p-6 sm:p-8 transition-all duration-500 hover:border-neutral-700 hover:bg-neutral-900/60 hover:shadow-2xl hover:shadow-black/20">
+<article class="group relative bg-neutral-900/40 border border-neutral-800 rounded-xl p-4 sm:p-8 transition-all duration-500 hover:border-neutral-700 hover:bg-neutral-900/60 hover:shadow-2xl hover:shadow-black/20">
   <!-- Top accent line -->
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 

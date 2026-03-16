@@ -29,7 +29,7 @@
             <div class="flex-1">
                 <!-- Name -->
                 <h1
-                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] mb-6 animate-slide-up"
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.85] mb-4 sm:mb-6 animate-slide-up"
                 >
                     <span class="text-white">Uthman</span>
                     <br />
