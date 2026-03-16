@@ -8,7 +8,7 @@
 
 <section
     id="hero"
-    class="relative min-h-screen flex items-end sm:items-center overflow-hidden bg-black"
+    class="relative min-h-screen flex items-start sm:items-center overflow-hidden bg-black pt-20 sm:pt-0"
 >
     <!-- Dot grid background -->
     <div
