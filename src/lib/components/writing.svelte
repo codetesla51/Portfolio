@@ -23,9 +23,10 @@
   ];
 </script>
 
-<section id="writing" class="py-16 sm:py-20 md:py-28">
+<section id="writing" class="relative py-16 sm:py-20 md:py-28 lg:py-32">
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent"></div>
   <div class="section-container">
-    <div class="mb-10 sm:mb-14 md:mb-16">
+    <div class="mb-10 sm:mb-14 md:mb-16" data-reveal>
       <div class="flex items-center gap-3 mb-4">
         <span class="h-px w-8 bg-neutral-700"></span>
         <span class="text-neutral-500 text-sm font-mono tracking-widest uppercase">Writing</span>
@@ -35,13 +36,15 @@
       </h2>
     </div>
 
-    <div class="grid gap-4">
+    <div class="grid gap-4 sm:gap-5">
       {#each articles as article, i}
         <a 
           href={article.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="group animate-slide-up stagger-{i + 1} relative flex items-center gap-4 p-5 sm:p-6 bg-neutral-900/40 border border-neutral-800 rounded-xl hover:border-neutral-700 hover:bg-neutral-900/60 transition-all duration-300"
+          class="group hover-lift relative flex items-center gap-4 p-5 sm:p-6 bg-neutral-900/35 border border-neutral-800 rounded-xl hover:border-neutral-700 hover:bg-neutral-900/60 transition-all duration-300"
+          data-reveal
+          data-delay={70 + i * 70}
         >
           <span class="text-2xl sm:text-3xl font-bold text-neutral-800 group-hover:text-neutral-700 transition-colors duration-300">
             {String(i + 1).padStart(2, '0')}
@@ -58,7 +61,7 @@
       {/each}
     </div>
 
-    <div class="mt-10">
+    <div class="mt-10" data-reveal data-delay={180}>
       <a 
         href="https://dev.to/uthman_dev" 
         target="_blank" 

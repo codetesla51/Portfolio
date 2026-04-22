@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import Hero from "$lib/components/hero.svelte";
   import Projects from "$lib/components/project.svelte";
   import Writing from "$lib/components/writing.svelte";
@@ -12,6 +13,37 @@
     email: "uoladele99@gmail.com",
     location: "Lagos, Nigeria"
   };
+
+  onMount(() => {
+    /** @type {HTMLElement[]} */
+    const revealElements = Array.from(document.querySelectorAll("[data-reveal]")).filter(
+      (element) => element instanceof HTMLElement
+    );
+
+    if (!revealElements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px"
+      }
+    );
+
+    for (const element of revealElements) {
+      const delay = Number(element.getAttribute("data-delay") || 0);
+      element.style.setProperty("--reveal-delay", `${delay}ms`);
+      observer.observe(element);
+    }
+
+    return () => observer.disconnect();
+  });
 </script>
 
 <svelte:head>
