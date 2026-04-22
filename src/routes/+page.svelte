@@ -15,7 +15,10 @@
   };
 
   onMount(() => {
-    const revealElements = Array.from(document.querySelectorAll("[data-reveal]"));
+    /** @type {HTMLElement[]} */
+    const revealElements = Array.from(document.querySelectorAll("[data-reveal]")).filter(
+      (element) => element instanceof HTMLElement
+    );
 
     if (!revealElements.length) return;
 

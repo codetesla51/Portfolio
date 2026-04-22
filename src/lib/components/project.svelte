@@ -1,7 +1,7 @@
 <script>
   import ProjectCard from '$lib/components/projectCard.svelte';
 
-  const projects = [
+  export let projects = [
     {
       name: 'Logos Programming Language',
       description: 'A scripting language built in Go with a tree-walking interpreter. Features first-class functions, closures, tables, arrays, concurrency primitives, sandbox mode, and a rich standard library. Embeddable in Go apps.',
