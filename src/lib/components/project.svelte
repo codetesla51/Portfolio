@@ -16,6 +16,12 @@
       github_url: 'https://github.com/codetesla51/limitz'
     },
     {
+      name: 'Seal',
+      description: 'Lightweight JWT authentication library for Go with token rotation, single-use refresh tokens, and multiple storage backends (Redis, PostgreSQL, MySQL, SQLite)',
+      tech_stack: ['Go', 'JWT', 'Redis', 'PostgreSQL'],
+      github_url: 'https://github.com/codetesla51/seal'
+    },
+    {
       name: 'kyu',
       description: 'Distributed job queue for Go backed by PostgreSQL and Redis. Workers pop from Redis sorted set, fetch from Postgres. Exponential backoff retries, scheduled jobs, Prometheus metrics.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis', 'Distributed Systems'],
