@@ -6,15 +6,14 @@
 </script>
 
 {#if project}
-<article class="group relative overflow-hidden bg-neutral-900/35 border border-neutral-800 rounded-2xl p-4 sm:p-7 md:p-8 transition-all duration-500 hover:border-neutral-700 hover:bg-neutral-900/60 hover:shadow-2xl hover:shadow-black/20">
+<article class="group relative bg-neutral-900/40 border border-neutral-800 rounded-xl p-4 sm:p-8 transition-all duration-500 hover:border-neutral-700 hover:bg-neutral-900/60 hover:shadow-2xl hover:shadow-black/20">
   <!-- Top accent line -->
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-  <div class="pointer-events-none absolute -right-20 -top-24 h-44 w-44 rounded-full bg-neutral-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-  <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-7">
+  <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
     <!-- Number indicator -->
-    <div class="flex sm:flex-col items-center sm:items-start gap-3 sm:gap-2 sm:pt-1">
-      <span class="text-2xl sm:text-4xl font-bold text-neutral-800 group-hover:text-neutral-700 transition-colors duration-500 tracking-tight">
+    <div class="flex sm:flex-col items-center sm:items-start gap-3 sm:gap-2">
+      <span class="text-2xl sm:text-4xl font-bold text-neutral-800 group-hover:text-neutral-700 transition-colors duration-500">
         {String(index + 1).padStart(2, '0')}
       </span>
       <div class="hidden sm:block w-px h-12 sm:h-full bg-neutral-800 group-hover:bg-neutral-700 transition-colors duration-500"></div>
@@ -23,9 +22,9 @@
     <!-- Content -->
     <div class="flex-1 min-w-0">
       <!-- Header -->
-      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4 sm:mb-5">
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
         <div class="flex items-center gap-3">
-          <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-white transition-colors tracking-tight">
+          <h3 class="text-xl sm:text-2xl font-bold text-white group-hover:text-white transition-colors">
             {project.name}
           </h3>
           <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-neutral-600 group-hover:bg-white transition-colors duration-300"></span>
@@ -62,15 +61,15 @@
       </div>
 
       <!-- Description -->
-      <p class="text-neutral-400 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6">
+      <p class="text-neutral-400 text-sm sm:text-base leading-relaxed mb-5">
         {project.description}
       </p>
 
       <!-- Tech Stack -->
-      <div class="flex flex-wrap gap-2.5">
+      <div class="flex flex-wrap gap-2">
         {#each techStack as tech, i}
           <span 
-            class="px-3 py-1.5 text-xs font-mono bg-neutral-800/40 border border-neutral-700/50 rounded-lg text-neutral-400 group-hover:text-neutral-300 group-hover:border-neutral-600 transition-all duration-300"
+            class="px-3 py-1.5 text-xs font-mono bg-neutral-800/50 border border-neutral-700/50 rounded-lg text-neutral-400 group-hover:text-neutral-300 group-hover:border-neutral-600 transition-all duration-300"
             style="transition-delay: {i * 50}ms"
           >
             {tech}
