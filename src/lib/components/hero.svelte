@@ -15,8 +15,6 @@
         class="absolute inset-0 opacity-[0.04]"
         style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 24px 24px;"
     ></div>
-    <div class="absolute -top-32 right-1/3 h-72 w-72 rounded-full bg-neutral-600/10 blur-3xl"></div>
-    <div class="absolute -bottom-20 left-1/4 h-60 w-60 rounded-full bg-neutral-700/10 blur-3xl"></div>
 
     <!-- Vertical accent line -->
     <div
@@ -24,15 +22,14 @@
     ></div>
 
     <div
-        class="relative w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-14 sm:pb-0 py-12 sm:py-20 md:py-24"
+        class="relative w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-16 lg:px-24 pb-16 sm:pb-0 py-12 sm:py-20"
     >
-        <div class="flex flex-col lg:flex-row items-start gap-10 md:gap-12 lg:gap-20">
+        <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
             <!-- Text Content -->
             <div class="flex-1">
                 <!-- Name -->
                 <h1
-                    class="text-[2.85rem] sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.85] mb-5 sm:mb-7"
-                    data-load
+                    class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.85] mb-4 sm:mb-6 animate-slide-up"
                 >
                     <span class="text-white">Uthman</span>
                     <br />
@@ -41,9 +38,7 @@
 
                 <!-- Role with cursor -->
                 <div
-                    class="flex items-center gap-3 mb-7"
-                    data-load
-                    style="--load-delay: 90ms"
+                    class="flex items-center gap-3 mb-6 animate-slide-up stagger-1"
                 >
                     <div class="h-px w-8 bg-white"></div>
                     <p
@@ -55,24 +50,20 @@
 
                 <!-- Bio -->
                 <p
-                    class="text-neutral-400 text-sm sm:text-base leading-relaxed max-w-xl mb-8"
-                    data-load
-                    style="--load-delay: 170ms"
+                    class="text-neutral-400 text-sm sm:text-base max-w-lg mb-8 animate-slide-up stagger-2"
                 >
                     I write software. Mostly Go. Mostly backend.
                 </p>
                 <!-- Tech Stack Icons -->
                 <div
-                    class="flex flex-wrap items-center gap-3 sm:gap-4 mb-8"
-                    data-load
-                    style="--load-delay: 230ms"
+                    class="flex items-center gap-4 mb-8 animate-slide-up stagger-2"
                 >
                     <span class="text-neutral-600 text-sm font-mono">using</span
                     >
-                    <div class="flex items-center gap-2 rounded-full border border-neutral-800/80 bg-neutral-900/30 px-3 py-2">
+                    <div class="flex items-center gap-2">
                         {#each [{ name: "Go", icon: "go" }, { name: "PostgreSQL", icon: "postgresql" }, { name: "Svelte", icon: "svelte" }] as stack}
                             <img
-                                class="w-5 h-5 opacity-60 hover:opacity-100 transition-opacity duration-300"
+                                class="w-5 h-5 opacity-60 hover:opacity-100 transition-opacity"
                                 src={`https://skillicons.dev/icons?i=${stack.icon}`}
                                 alt={stack.name}
                             />
@@ -82,13 +73,11 @@
 
                 <!-- CTAs -->
                 <div
-                    class="flex items-center gap-3 sm:gap-4 mb-11"
-                    data-load
-                    style="--load-delay: 300ms"
+                    class="flex items-center gap-4 mb-12 animate-slide-up stagger-3"
                 >
                     <a
                         href="#projects"
-                        class="inline-flex items-center rounded-full border border-neutral-800 bg-neutral-900/20 px-4 py-2 text-sm text-neutral-400 hover:text-white hover:border-neutral-600 hover:bg-neutral-900/70 transition-all duration-300"
+                        class="text-sm text-neutral-400 hover:text-white transition-colors"
                     >
                         Projects
                     </a>
@@ -96,7 +85,7 @@
                     <a
                         href={Resume}
                         download
-                        class="inline-flex items-center rounded-full border border-neutral-800 bg-neutral-900/20 px-4 py-2 text-sm text-neutral-400 hover:text-white hover:border-neutral-600 hover:bg-neutral-900/70 transition-all duration-300"
+                        class="text-sm text-neutral-400 hover:text-white transition-colors"
                     >
                         Resume
                     </a>
@@ -105,26 +94,24 @@
 
             <!-- Logo Image -->
             <div
-                class="hidden lg:block w-[350px] flex-shrink-0"
-                data-load
-                style="--load-delay: 260ms"
+                class="hidden lg:block w-[350px] flex-shrink-0 animate-fade-in"
             >
                 <img
                     src={Logo}
                     alt="Uthman Oladele"
-                    class="w-full h-auto rounded-2xl border border-neutral-800/80 bg-neutral-900/20 p-2 grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-85"
+                    class="w-full h-auto rounded-2xl grayscale hover:grayscale-0 transition-all duration-500 opacity-60"
                     style="transform: scaleX(-1);"
                 />
             </div>
         </div>
 
         <!-- Social links — bottom bar -->
-        <div class="flex flex-wrap items-center gap-4 sm:gap-5" data-load style="--load-delay: 380ms">
+        <div class="flex items-center gap-5 animate-fade-in stagger-4">
             <a
                 href="https://github.com/codetesla51"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-neutral-600 hover:text-white transition-colors duration-300"
+                class="text-neutral-600 hover:text-white transition-colors"
                 aria-label="GitHub"
             >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -137,7 +124,7 @@
                 href="https://x.com/uthman_dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-neutral-600 hover:text-white transition-colors duration-300"
+                class="text-neutral-600 hover:text-white transition-colors"
                 aria-label="X (Twitter)"
             >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -150,7 +137,7 @@
                 href="https://dev.to/uthman_dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-neutral-600 hover:text-white transition-colors duration-300"
+                class="text-neutral-600 hover:text-white transition-colors"
                 aria-label="DEV.to"
             >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -162,7 +149,7 @@
             <span class="h-4 w-px bg-neutral-800"></span>
             <a
                 href="mailto:{personalInfo.email}"
-                class="font-mono text-xs text-neutral-500 hover:text-white transition-colors duration-300 break-all"
+                class="font-mono text-xs text-neutral-500 hover:text-white transition-colors"
             >
                 {personalInfo.email}
             </a>
