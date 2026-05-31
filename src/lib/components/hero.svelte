@@ -11,12 +11,8 @@
     class="relative min-h-screen flex items-start sm:items-center overflow-hidden pt-20 sm:pt-0"
 >
     <div
-        class="absolute inset-0 opacity-[0.08]"
-        style="background-image: radial-gradient(circle, var(--border-strong) 1px, transparent 1px); background-size: 30px 30px;"
-    ></div>
-    <div
-        class="absolute inset-x-0 top-0 h-72"
-        style="background: radial-gradient(55% 100% at 50% 0%, rgba(245, 245, 245, 0.08) 0%, transparent 100%);"
+        class="absolute inset-0 opacity-[0.06]"
+        style="background-image: radial-gradient(circle, var(--border-strong) 1px, transparent 1px); background-size: 28px 28px;"
     ></div>
 
     <!-- Vertical accent line -->
@@ -28,36 +24,37 @@
     <div
         class="relative w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-16 lg:px-24 pb-16 sm:pb-0 py-12 sm:py-20"
     >
-        <div class="flex flex-col lg:flex-row items-start gap-10 lg:gap-16 rounded-3xl border p-6 sm:p-8 lg:p-10" style="border-color: var(--border); background: var(--surface-soft);">
+        <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
             <!-- Text Content -->
             <div class="flex-1">
-                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[0.9] mb-4 sm:mb-5 animate-slide-up">
+                <!-- Name -->
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-0.04em] leading-[0.9] mb-4 sm:mb-6 animate-slide-up">
                     <span style="color: var(--text);">Uthman</span>
                     <br />
-                    <span class="text-gradient">Oladele</span>
+                    <span style="color: var(--text-muted);">Oladele</span>
                 </h1>
 
+                <!-- Role with cursor -->
                 <div
-                    class="flex flex-wrap items-center gap-3 mb-6 animate-slide-up stagger-1"
+                    class="flex items-center gap-3 mb-6 animate-slide-up stagger-1"
                 >
                     <div class="h-px w-8" style="background-color: var(--border-strong);"></div>
-                    <p class="font-mono text-xs sm:text-sm tracking-[0.18em] uppercase" style="color: var(--text-muted);">
-                        Backend Engineer <span class="animate-blink" style="color: var(--text);">_</span>
+                    <p class="font-mono text-xs sm:text-sm tracking-[0.2em] uppercase" style="color: var(--text-muted);">
+                        Backend Engineer<span class="animate-blink" style="color: var(--text);">_</span>
                     </p>
-                    <span class="text-xs font-medium px-2.5 py-1 rounded-full" style="background: var(--surface-elevated); border: 1px solid var(--border); color: var(--text-muted);">Lagos, Nigeria</span>
                 </div>
 
                 <!-- Bio -->
                 <p
-                    class="text-sm sm:text-base md:text-lg max-w-xl mb-8 animate-slide-up stagger-2 leading-relaxed"
+                    class="text-sm sm:text-base md:text-lg max-w-xl mb-10 animate-slide-up stagger-2 leading-relaxed"
                     style="color: var(--text-soft);"
                 >
                     I build backend systems and developer tools with a focus on reliability, performance, and maintainable architecture.
                 </p>
                 <div
-                    class="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 animate-slide-up stagger-2"
+                    class="flex flex-wrap items-center gap-3 sm:gap-4 mb-10 animate-slide-up stagger-2"
                 >
-                    <span class="text-sm font-mono" style="color: var(--text-muted);">Core Stack</span
+                    <span class="text-sm font-mono" style="color: var(--text-muted);">using</span
                     >
                     <div class="flex flex-wrap items-center gap-2">
                         {#each [{ name: "Go", icon: "go" }, { name: "PostgreSQL", icon: "postgresql" }, { name: "Svelte", icon: "svelte" }] as stack}
@@ -70,31 +67,24 @@
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-2 mb-10 animate-slide-up stagger-3">
-                    {#each skills as skill}
-                        <span class="px-3 py-1.5 rounded-lg text-xs font-mono" style="background: var(--surface-elevated); border: 1px solid var(--border); color: var(--text-muted);">
-                            {skill}
-                        </span>
-                    {/each}
-                </div>
-
                 <div
-                    class="flex flex-wrap items-center gap-3 mb-10 animate-slide-up stagger-4"
+                    class="flex items-center gap-4 mb-12 animate-slide-up stagger-3"
                 >
                     <a
                         href="#projects"
-                        class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300"
-                        style="background: var(--text); color: var(--bg);"
+                        class="text-sm transition-colors"
+                        style="color: var(--text-muted);"
                     >
-                        View Projects
+                        Projects
                     </a>
+                    <span style="color: var(--border-strong);">/</span>
                     <a
                         href={Resume}
                         download
-                        class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300"
-                        style="border: 1px solid var(--border-strong); color: var(--text);"
+                        class="text-sm transition-colors"
+                        style="color: var(--text-muted);"
                     >
-                        Download Resume
+                        Resume
                     </a>
                 </div>
             </div>
@@ -106,18 +96,18 @@
                 <img
                     src={Logo}
                     alt="Uthman Oladele"
-                    class="w-full h-auto rounded-2xl transition-all duration-500 opacity-95 border"
-                    style="border-color: var(--border); transform: scaleX(-1); box-shadow: 0 24px 56px rgba(0,0,0,0.25);"
+                    class="w-full h-auto rounded-2xl grayscale hover:grayscale-0 transition-all duration-500 opacity-80 border"
+                    style="border-color: var(--border); transform: scaleX(-1);"
                 />
             </div>
         </div>
 
-        <div class="flex flex-wrap items-center gap-4 sm:gap-5 animate-fade-in stagger-5 pt-6 pb-6 sm:pb-0">
+        <div class="flex flex-wrap items-center gap-4 sm:gap-5 animate-fade-in stagger-4 pb-6 sm:pb-0">
             <a
                 href="https://github.com/codetesla51"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="transition-colors hover:opacity-100"
+                class="transition-colors"
                 style="color: var(--text-muted);"
                 aria-label="GitHub"
             >
@@ -131,7 +121,7 @@
                 href="https://x.com/uthman_dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="transition-colors hover:opacity-100"
+                class="transition-colors"
                 style="color: var(--text-muted);"
                 aria-label="X (Twitter)"
             >
@@ -145,7 +135,7 @@
                 href="https://dev.to/uthman_dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="transition-colors hover:opacity-100"
+                class="transition-colors"
                 style="color: var(--text-muted);"
                 aria-label="DEV.to"
             >
@@ -158,7 +148,7 @@
             <span class="h-4 w-px" style="background-color: var(--border);"></span>
             <a
                 href="mailto:{personalInfo.email}"
-                class="font-mono text-xs sm:text-sm transition-colors hover:opacity-100"
+                class="font-mono text-xs sm:text-sm transition-colors"
                 style="color: var(--text-muted);"
             >
                 {personalInfo.email}
