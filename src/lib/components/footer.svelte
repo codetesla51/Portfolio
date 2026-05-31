@@ -7,6 +7,7 @@
           href="https://github.com/codetesla51" 
           target="_blank" 
           rel="noopener noreferrer"
+          aria-label="GitHub profile"
           class="text-neutral-500 hover:text-white transition-colors"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -17,6 +18,7 @@
           href="https://x.com/uthman_dev" 
           target="_blank" 
           rel="noopener noreferrer"
+          aria-label="X profile"
           class="text-neutral-500 hover:text-white transition-colors"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -27,6 +29,7 @@
           href="https://dev.to/uthman_dev" 
           target="_blank" 
           rel="noopener noreferrer"
+          aria-label="Dev.to profile"
           class="text-neutral-500 hover:text-white transition-colors"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
