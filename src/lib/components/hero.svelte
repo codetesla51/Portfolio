@@ -51,6 +51,9 @@
                 >
                     I build backend systems and developer tools with a focus on reliability, performance, and maintainable architecture.
                 </p>
+                <p class="text-xs sm:text-sm font-mono mb-6 animate-slide-up stagger-2" style="color: var(--text-muted);">
+                    Currently building: Kyu - a distributed job queue for Go with PostgreSQL persistence and Redis priority scheduling.
+                </p>
                 <div
                     class="flex flex-wrap items-center gap-3 sm:gap-4 mb-10 animate-slide-up stagger-2"
                 >

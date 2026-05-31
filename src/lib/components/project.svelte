@@ -4,26 +4,26 @@
   const projects = [
     {
       name: 'Logos Programming Language',
-      description: 'A scripting language built in Go with a tree-walking interpreter. Features first-class functions, closures, tables, arrays, concurrency primitives, sandbox mode, and a rich standard library.',
+      description: 'A scripting language built in Go with a tree-walking interpreter. Includes built-in HTTP, JSON, concurrency, and standalone binary compilation.',
       tech_stack: ['Go', 'Compilers', 'Interpreters', 'AST'],
       github_url: 'https://github.com/codetesla51/logos',
       doc_url: 'https://logos-lang.vercel.app/'
     },
     {
       name: 'Seal',
-      description: 'Lightweight JWT authentication library for Go with token rotation, single-use refresh tokens, and multiple storage backends (Redis, PostgreSQL, MySQL, SQLite).',
+      description: 'JWT authentication library for Go with rotating refresh tokens, middleware protection, and 4 storage backends (Redis, PostgreSQL, MySQL, SQLite).',
       tech_stack: ['Go', 'JWT', 'Redis', 'PostgreSQL'],
       github_url: 'https://github.com/codetesla51/seal'
     },
     {
       name: 'Limitz',
-      description: 'Production-ready rate limiting library for Go. Five algorithms (Token Bucket, Fixed Window, Sliding Window, Leaky Bucket). Three storage backends (in-memory, Redis, PostgreSQL). Battle-tested in production.',
+      description: 'Rate limiting library for Go with five algorithms and three storage backends. Delivers sub-millisecond performance on most algorithms and is used in production.',
       tech_stack: ['Go', 'Distributed Systems', 'Redis', 'PostgreSQL'],
       github_url: 'https://github.com/codetesla51/limitz'
     },
     {
       name: 'kyu',
-      description: 'Distributed job queue for Go backed by PostgreSQL and Redis. Workers pop from Redis sorted set, fetch from Postgres. Exponential backoff retries, scheduled jobs, Prometheus metrics.',
+      description: 'Distributed job queue for Go backed by PostgreSQL and Redis with retries, scheduling, and Prometheus metrics. Benchmarks show sub-microsecond dispatch path.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis', 'Distributed Systems'],
       github_url: 'https://github.com/codetesla51/kyu'
     },
