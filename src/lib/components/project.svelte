@@ -10,16 +10,16 @@
       doc_url: 'https://logos-lang.vercel.app/'
     },
     {
-      name: 'Limitz',
-      description: 'Production-ready rate limiting library for Go. Five algorithms (Token Bucket, Fixed Window, Sliding Window, Leaky Bucket). Three storage backends (in-memory, Redis, PostgreSQL). Battle-tested in production.',
-      tech_stack: ['Go', 'Distributed Systems', 'Redis', 'PostgreSQL'],
-      github_url: 'https://github.com/codetesla51/limitz'
-    },
-    {
       name: 'Seal',
       description: 'Lightweight JWT authentication library for Go with token rotation, single-use refresh tokens, and multiple storage backends (Redis, PostgreSQL, MySQL, SQLite).',
       tech_stack: ['Go', 'JWT', 'Redis', 'PostgreSQL'],
       github_url: 'https://github.com/codetesla51/seal'
+    },
+    {
+      name: 'Limitz',
+      description: 'Production-ready rate limiting library for Go. Five algorithms (Token Bucket, Fixed Window, Sliding Window, Leaky Bucket). Three storage backends (in-memory, Redis, PostgreSQL). Battle-tested in production.',
+      tech_stack: ['Go', 'Distributed Systems', 'Redis', 'PostgreSQL'],
+      github_url: 'https://github.com/codetesla51/limitz'
     },
     {
       name: 'kyu',
