@@ -25,7 +25,8 @@
       name: 'kyu',
       description: 'Distributed job queue for Go backed by PostgreSQL and Redis with retries, scheduling, and Prometheus metrics. Benchmarks show sub-microsecond dispatch path.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis', 'Distributed Systems'],
-      github_url: 'https://github.com/codetesla51/kyu'
+      github_url: 'https://github.com/codetesla51/kyu',
+      doc_url: 'https://kyu-job-queue.vercel.app/'
     },
     {
       name: 'go-git',
