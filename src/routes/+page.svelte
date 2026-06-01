@@ -4,7 +4,7 @@
   import Writing from "$lib/components/writing.svelte";
 
   export let data;
-  let { projects } = data;
+  let { projects, currentlyBuilding } = data;
 
   const personalInfo = {
     fullName: "Oladele Uthman",
@@ -19,6 +19,6 @@
   <meta name="description" content="Backend developer specializing in Go, PHP, and PostgreSQL. Building scalable APIs, distributed systems, and developer tools. Based in Lagos, Nigeria.">
 </svelte:head>
 
-<Hero {personalInfo} />
+<Hero {personalInfo} {currentlyBuilding} />
 <Projects {projects} />
 <Writing />

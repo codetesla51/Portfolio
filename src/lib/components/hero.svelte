@@ -2,6 +2,7 @@
     import Resume from "../../assets/OLADELE USMAN.pdf";
     import Logo from "../../assets/logo.png";
     export let personalInfo;
+    export let currentlyBuilding = null;
 
     const skills = ["Go", "PHP", "Svelte", "Bash", "PostgreSQL", "MySQL"];
 </script>
@@ -51,9 +52,14 @@
                 >
                     I build backend systems and developer tools with a focus on reliability, performance, and maintainable architecture.
                 </p>
-                <p class="text-xs sm:text-sm font-mono mb-6 animate-slide-up stagger-2" style="color: var(--text-muted);">
-                    Currently building: Kyu - a distributed job queue for Go with PostgreSQL persistence and Redis priority scheduling.
-                </p>
+                {#if currentlyBuilding?.name && currentlyBuilding?.url}
+                    <p class="text-xs sm:text-sm font-mono mb-6 animate-slide-up stagger-2" style="color: var(--text-muted);">
+                        Currently building:
+                        <a href={currentlyBuilding.url} target="_blank" rel="noopener noreferrer" class="underline underline-offset-4" style="color: var(--text);">
+                            {currentlyBuilding.name}
+                        </a>
+                    </p>
+                {/if}
                 <div
                     class="flex flex-wrap items-center gap-3 sm:gap-4 mb-10 animate-slide-up stagger-2"
                 >
