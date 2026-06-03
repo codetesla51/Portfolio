@@ -60,7 +60,7 @@
         Stuff I built
       </h2>
     </div>
-    
+
     <div class="grid gap-4 sm:gap-6">
       {#each projects as project, i}
         <div class="animate-slide-up stagger-{i + 1}">
