@@ -1,9 +1,16 @@
-<footer class="py-10" style="border-top: 1px solid var(--border);">
-  <div class="section-container flex items-center justify-between">
+<footer class="py-8" style="border-top: 1px solid var(--border);">
+  <div class="section-container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
 
-    <span class="font-mono text-xs" style="color: var(--text-muted);">
-      © {new Date().getFullYear()} Uthman Oladele
-    </span>
+    <div>
+      <p class="text-sm mb-1" style="color: var(--text-muted);">Got a project or opportunity?</p>
+      <a
+        href="mailto:uoladele99@gmail.com"
+        class="font-mono text-xs link-fade"
+        style="color: var(--text);"
+      >
+        uoladele99@gmail.com
+      </a>
+    </div>
 
     <div class="flex items-center gap-5">
       <a href="https://github.com/codetesla51" target="_blank" rel="noopener noreferrer"
@@ -35,4 +42,11 @@
     transition: opacity 0.18s ease;
   }
   .icon-link:hover { opacity: 1; }
+
+  .link-fade {
+    opacity: 0.7;
+    text-decoration: none;
+    transition: opacity 0.18s ease;
+  }
+  .link-fade:hover { opacity: 1; }
 </style>
