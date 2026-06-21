@@ -66,9 +66,9 @@ html[data-theme='light'] {
   }
 
   section {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
+  padding-top: clamp(2rem, 5vw, 3.5rem);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
 
   #hero {
     padding-top: 0;
