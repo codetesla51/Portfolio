@@ -36,6 +36,14 @@
       private: false
     },
     {
+      name: 'go-git',
+      description: 'Git implementation built from first principles in Go. Covers object storage, content addressing, branching, and commit history — built to understand how version control actually works under the hood.',
+      tech_stack: ['Go', 'VCS', 'Systems'],
+      github_url: 'https://github.com/codetesla51/go-git',
+      doc_url: null,
+      private: false
+    },
+    {
       name: 'Limitz',
       description: 'Rate limiting library for Go with five algorithms and pluggable storage backends. Sub-millisecond latency, built for production use.',
       tech_stack: ['Go', 'Redis', 'PostgreSQL'],
@@ -134,7 +142,7 @@
 
         <!-- Bio -->
         <p class="max-w-md mb-6" style="color: var(--text-soft); font-size: 15px; line-height: 1.78;">
-          I build backend systems and developer tools in Go. Job queues, auth libraries, rate limiters, a programming language. Built to run in production.
+          I'm a self-taught backend engineer. I write Go, build things from scratch, and care enough to ship them to production.
         </p>
 
         <!-- Currently building -->
