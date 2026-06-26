@@ -16,32 +16,48 @@
       description: 'A scripting language written in Go. Pratt parser, tree-walking interpreter, closures, goroutine-backed concurrency, sandboxed VM, and cross-platform binary compilation.',
       tech_stack: ['Go', 'Compilers', 'AST'],
       github_url: 'https://github.com/codetesla51/logos',
-      doc_url: 'https://logos-lang.vercel.app/'
+      doc_url: 'https://logos-lang.vercel.app/',
+      private: false
     },
     {
       name: 'Kyu',
       description: 'Distributed job queue for Go backed by PostgreSQL and Redis. Retries, scheduling, middleware chain, Prometheus metrics, and a stale job reaper.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis'],
       github_url: 'https://github.com/codetesla51/kyu',
-      doc_url: 'https://kyu-job-queue.vercel.app/'
+      doc_url: 'https://kyu-job-queue.vercel.app/',
+      private: false
     },
     {
       name: 'Raw-HTTP',
       description: 'HTTP/1.1 server built from TCP sockets. Keep-alive, TLS, static file serving, graceful shutdown. Buffer pooling pushed throughput from 5,000 to 11,000 RPS.',
       tech_stack: ['Go', 'TCP/IP', 'TLS'],
-      github_url: 'https://github.com/codetesla51/raw-http'
+      github_url: 'https://github.com/codetesla51/raw-http',
+      doc_url: null,
+      private: false
     },
     {
       name: 'Limitz',
       description: 'Rate limiting library for Go with five algorithms and pluggable storage backends. Sub-millisecond latency, built for production use.',
       tech_stack: ['Go', 'Redis', 'PostgreSQL'],
-      github_url: 'https://github.com/codetesla51/limitz'
+      github_url: 'https://github.com/codetesla51/limitz',
+      doc_url: null,
+      private: false
     },
     {
       name: 'Seal',
       description: 'JWT authentication library for Go. Rotating refresh tokens, theft detection, and four storage backends: Redis, PostgreSQL, MySQL, and SQLite.',
       tech_stack: ['Go', 'JWT', 'Redis'],
-      github_url: 'https://github.com/codetesla51/seal'
+      github_url: 'https://github.com/codetesla51/seal',
+      doc_url: null,
+      private: false
+    },
+    {
+      name: 'Oladele Ledger',
+      description: 'Private family finance app. Two money pools with approval-gated withdrawals, dual auth, manual transaction input, and Supabase storage. Background jobs handled by Kyu — first real production deployment of my own queue.',
+      tech_stack: ['Go', 'SvelteKit', 'Supabase'],
+      github_url: null,
+      doc_url: null,
+      private: true
     }
   ];
 
@@ -205,17 +221,24 @@
       {#each projects as project}
         <article class="py-7" style="border-top: 1px solid var(--border);">
           <div class="flex items-baseline justify-between gap-6 mb-3">
-            <h3 class="text-lg font-semibold" style="color: var(--text);">{project.name}</h3>
-            <div class="flex items-center gap-4 flex-shrink-0">
-              {#if project.doc_url}
-                <a href={project.doc_url} target="_blank" rel="noopener noreferrer"
-                  class="font-mono text-xs card-link" style="color: var(--text-muted);">Docs ↗</a>
-              {/if}
-              {#if project.github_url}
-                <a href={project.github_url} target="_blank" rel="noopener noreferrer"
-                  class="font-mono text-xs card-link" style="color: var(--text-muted);">GitHub ↗</a>
+            <div class="flex items-baseline gap-3">
+              <h3 class="text-lg font-semibold" style="color: var(--text);">{project.name}</h3>
+              {#if project.private}
+                <span class="font-mono text-xs" style="color: var(--border-strong);">private</span>
               {/if}
             </div>
+            {#if project.doc_url || project.github_url}
+              <div class="flex items-center gap-4 flex-shrink-0">
+                {#if project.doc_url}
+                  <a href={project.doc_url} target="_blank" rel="noopener noreferrer"
+                    class="font-mono text-xs card-link" style="color: var(--text-muted);">Docs ↗</a>
+                {/if}
+                {#if project.github_url}
+                  <a href={project.github_url} target="_blank" rel="noopener noreferrer"
+                    class="font-mono text-xs card-link" style="color: var(--text-muted);">GitHub ↗</a>
+                {/if}
+              </div>
+            {/if}
           </div>
           <p class="text-sm leading-relaxed mb-5 max-w-2xl" style="color: var(--text-soft);">
             {project.description}
