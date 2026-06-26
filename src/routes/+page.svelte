@@ -1,41 +1,45 @@
 <script>
   export let data;
-  let { currentlyBuilding } = data;
 
   const personalInfo = {
     email: "uoladele99@gmail.com",
   };
 
+  const currentlyBuilding = {
+    name: 'Logos',
+    url: 'https://logos-lang.vercel.app/'
+  };
+
   const projects = [
     {
       name: 'Logos',
-      description: 'A scripting language built in Go with a tree-walking interpreter. Includes built-in HTTP, JSON, concurrency, and standalone binary compilation.',
+      description: 'A scripting language written in Go. Pratt parser, tree-walking interpreter, closures, goroutine-backed concurrency, sandboxed VM, and cross-platform binary compilation.',
       tech_stack: ['Go', 'Compilers', 'AST'],
       github_url: 'https://github.com/codetesla51/logos',
       doc_url: 'https://logos-lang.vercel.app/'
     },
     {
       name: 'Kyu',
-      description: 'Distributed job queue for Go backed by PostgreSQL and Redis with retries, scheduling, and Prometheus metrics. Sub-microsecond dispatch path.',
+      description: 'Distributed job queue for Go backed by PostgreSQL and Redis. Retries, scheduling, middleware chain, Prometheus metrics, and a stale job reaper.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis'],
       github_url: 'https://github.com/codetesla51/kyu',
       doc_url: 'https://kyu-job-queue.vercel.app/'
     },
     {
       name: 'Raw-HTTP',
-      description: 'HTTP/1.1 server built from TCP sockets. Keep-alive, TLS, static files, graceful shutdown. Buffer pooling pushed throughput from 5,000 to 11,000 RPS.',
+      description: 'HTTP/1.1 server built from TCP sockets. Keep-alive, TLS, static file serving, graceful shutdown. Buffer pooling pushed throughput from 5,000 to 11,000 RPS.',
       tech_stack: ['Go', 'TCP/IP', 'TLS'],
       github_url: 'https://github.com/codetesla51/raw-http'
     },
     {
       name: 'Limitz',
-      description: 'Rate limiting library for Go with five algorithms and pluggable storage backends. Sub-millisecond performance, used in production.',
+      description: 'Rate limiting library for Go with five algorithms and pluggable storage backends. Sub-millisecond latency, built for production use.',
       tech_stack: ['Go', 'Redis', 'PostgreSQL'],
       github_url: 'https://github.com/codetesla51/limitz'
     },
     {
       name: 'Seal',
-      description: 'JWT authentication library for Go with rotating refresh tokens, theft detection, and four storage backends — Redis, PostgreSQL, MySQL, and SQLite.',
+      description: 'JWT authentication library for Go. Rotating refresh tokens, theft detection, and four storage backends: Redis, PostgreSQL, MySQL, and SQLite.',
       tech_stack: ['Go', 'JWT', 'Redis'],
       github_url: 'https://github.com/codetesla51/seal'
     }
@@ -114,35 +118,18 @@
 
         <!-- Bio -->
         <p class="max-w-md mb-6" style="color: var(--text-soft); font-size: 15px; line-height: 1.78;">
-          I build Go-first backend systems and developer tools — job queues, auth libraries, rate limiters, and programming languages — designed for production, not demos.
+          I build backend systems and developer tools in Go. Job queues, auth libraries, rate limiters, a programming language. Built to run in production.
         </p>
 
-        <!-- Arch Linux tag -->
-        <div class="flex items-center gap-2 mb-10">
-          <span class="font-mono text-xs" style="color: var(--border-strong);">
-            Arch Linux · Hyprland ·
-            <a
-              href="https://github.com/codetesla51/uthman_dotfiles"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="dotfiles-link"
-              style="color: var(--text-muted);"
-            >56★ dotfiles</a>
-          </span>
-        </div>
-
         <!-- Currently building -->
-        {#if currentlyBuilding?.name && currentlyBuilding?.url}
-          <div class="flex items-center gap-2.5 mb-10">
-            <span class="dot-pulse inline-block w-1.5 h-1.5 rounded-full" style="background-color: #22c55e;"></span>
-            <p class="font-mono text-xs" style="color: var(--text-muted);">
-              Currently building:
-              <a href={currentlyBuilding.url} target="_blank" rel="noopener noreferrer"
-                class="underline underline-offset-4 transition-opacity hover:opacity-100 opacity-80"
-                style="color: var(--text);">{currentlyBuilding.name}</a>
-            </p>
-          </div>
-        {/if}
+        <div class="flex items-center gap-2.5 mb-10">
+          <p class="font-mono text-xs" style="color: var(--text-muted);">
+            currently building →
+            <a href={currentlyBuilding.url} target="_blank" rel="noopener noreferrer"
+              class="link-fade"
+              style="color: var(--text);">{currentlyBuilding.name}</a>
+          </p>
+        </div>
 
         <!-- Nav links -->
         <div class="flex items-center mb-14">
@@ -185,11 +172,17 @@
 
       </div>
 
-      <!-- Image -->
-      <div class="hidden lg:block w-[300px] xl:w-[330px] flex-shrink-0">
-        <img src={Logo} alt="Uthman Oladele"
-          class="w-full h-auto rounded-2xl grayscale hover:grayscale-0 transition-all duration-500"
-          style="opacity: 0.72; transform: scaleX(-1); border: 1px solid var(--border);" />
+      <!-- Rice -->
+      <div class="hidden lg:flex w-[300px] xl:w-[330px] flex-shrink-0 items-end justify-start">
+        <a
+          href="https://github.com/codetesla51/uthman_dotfiles"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rice-link font-mono text-xs"
+          style="color: var(--text-muted);"
+        >
+          wanna see my Arch rice? ↗
+        </a>
       </div>
 
     </div>
@@ -286,12 +279,6 @@
   }
   .blink { animation: blink 1s step-end infinite; }
 
-  @keyframes dot-pulse {
-    0%, 100% { opacity: 0.9; }
-    50% { opacity: 0.3; }
-  }
-  .dot-pulse { animation: dot-pulse 2.4s ease-in-out infinite; }
-
   .link-fade {
     opacity: 0.55;
     text-decoration: none;
@@ -323,4 +310,11 @@
     transition: opacity 0.18s ease;
   }
   .dotfiles-link:hover { opacity: 0.7; }
+
+  .rice-link {
+    opacity: 0.4;
+    text-decoration: none;
+    transition: opacity 0.18s ease;
+  }
+  .rice-link:hover { opacity: 0.85; }
 </style>
