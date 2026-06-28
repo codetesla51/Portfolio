@@ -3,13 +3,6 @@
 
   const projects = [
     {
-      name: 'Logos',
-      description: 'A scripting language built in Go with a tree-walking interpreter. Includes built-in HTTP, JSON, concurrency, and standalone binary compilation.',
-      tech_stack: ['Go', 'Compilers', 'AST'],
-      github_url: 'https://github.com/codetesla51/logos',
-      doc_url: 'https://logos-lang.vercel.app/'
-    },
-    {
       name: 'Kyu',
       description: 'Distributed job queue for Go backed by PostgreSQL and Redis with retries, scheduling, and Prometheus metrics. Sub-microsecond dispatch path.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis'],
@@ -27,7 +20,13 @@
       description: 'Rate limiting library for Go with five algorithms and pluggable storage backends. Sub-millisecond performance, used in production.',
       tech_stack: ['Go', 'Redis', 'PostgreSQL'],
       github_url: 'https://github.com/codetesla51/limitz'
+    },
+    {
+      name: 'Ledger System',
+      description: 'Family savings management system with dual-pool accounting, care fund requests, and automatic overdue tracking. Go/PostgreSQL backend with Redis-backed notifications and JWT authentication.',
+      tech_stack: ['Go', 'PostgreSQL', 'Redis', 'Supabase', 'Kyu'],
     }
+
   ];
 </script>
 
