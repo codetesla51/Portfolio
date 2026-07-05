@@ -21,7 +21,7 @@
     },
     {
       name: 'Kyu',
-      description: 'Distributed job queue for Go backed by PostgreSQL and Redis. Retries, scheduling, middleware chain, Prometheus metrics, and a stale job reaper.',
+      description: 'Distributed job queue for Go backed by PostgreSQL and Redis. Retries, scheduling, middleware chain, Prometheus metrics, and a stale job reaper. Benchmarked at 52ns/op with zero allocations.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis'],
       github_url: 'https://github.com/codetesla51/kyu',
       doc_url: 'https://kyu-job-queue.vercel.app/',
@@ -45,7 +45,7 @@
     },
     {
       name: 'Limitz',
-      description: 'Rate limiting library for Go with five algorithms and pluggable storage backends. Sub-millisecond latency, built for production use.',
+      description: 'Rate limiting library for Go. Five algorithms — fixed window, sliding window, token bucket, leaky bucket, sliding log — with pluggable storage backends. Swap Redis for Postgres without touching call sites.',
       tech_stack: ['Go', 'Redis', 'PostgreSQL'],
       github_url: 'https://github.com/codetesla51/limitz',
       doc_url: null,
@@ -53,7 +53,7 @@
     },
     {
       name: 'Seal',
-      description: 'JWT authentication library for Go. Rotating refresh tokens, theft detection, and four storage backends: Redis, PostgreSQL, MySQL, and SQLite.',
+      description: 'JWT authentication library for Go. Rotating refresh tokens with theft detection via typed errors, and four pluggable storage backends: Redis, PostgreSQL, MySQL, SQLite.',
       tech_stack: ['Go', 'JWT', 'Redis'],
       github_url: 'https://github.com/codetesla51/seal',
       doc_url: null,
