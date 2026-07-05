@@ -61,8 +61,8 @@
     },
     {
       name: 'Oladele Ledger',
-      description: 'Private family finance app. Two money pools with approval-gated withdrawals, dual auth, manual transaction input, and Supabase storage. Background jobs handled by Kyu — first real production deployment of my own queue.',
-      tech_stack: ['Go', 'SvelteKit', 'Supabase'],
+      description: 'Family savings platform in Go. Two isolated money pools, dual JWT auth via separate Seal instances for members and admins, and an async approval pipeline on Kyu with automatic retries. Pool transfers use SERIALIZABLE transactions with row-level locking to prevent race conditions.',
+      tech_stack: ['Go', 'PostgreSQL', 'Redis'],
       github_url: null,
       doc_url: null,
       private: true
