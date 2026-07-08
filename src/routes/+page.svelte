@@ -210,16 +210,13 @@
         </div>
       </div>
 
-      <!-- Rice -->
-      <div class="hidden lg:flex w-[260px] xl:w-[300px] flex-shrink-0 items-end justify-start">
-        <a
-          href="https://github.com/codetesla51/uthman_dotfiles"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="rice-link text-xs text-mute"
-        >
-          wanna see my Arch rice? ↗
-        </a>
+      <!-- Logo -->
+      <div class="hidden md:flex flex-shrink-0 items-center justify-center w-full" style="max-width: clamp(160px, 22vw, 320px);">
+        <img
+          src={Logo}
+          alt="Uthman Oladele"
+          class="logo-mark w-full h-auto"
+        />
       </div>
 
     </div>
@@ -316,11 +313,19 @@
 </section>
 
 <style>
-  .link-fade, .card-link, .rice-link {
+  .link-fade, .card-link {
     opacity: 0.6;
     transition: opacity 0.15s ease;
   }
-  .link-fade:hover, .card-link:hover, .rice-link:hover { opacity: 1; }
+  .link-fade:hover, .card-link:hover { opacity: 1; }
+
+  .logo-mark {
+    opacity: 0.5;
+    transform: scaleX(-1);
+    transition: opacity 0.2s ease;
+    object-fit: contain;
+  }
+  .logo-mark:hover { opacity: 0.75; }
 
   .ascii-name {
     display: block;
