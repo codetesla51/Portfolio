@@ -1,4 +1,3 @@
-
 <script>
   export let data;
 
@@ -132,13 +131,19 @@
             Oladele
           </span>
           <span class="sr-only">Uthman</span>
-          <pre class="ascii-name text-ink" aria-hidden="true">{`
- ██╗   ██╗████████╗██╗  ██╗███╗   ███╗ █████╗ ███╗   ██╗
- ██║   ██║╚══██╔══╝██║  ██║████╗ ████║██╔══██╗████╗  ██║
- ██║   ██║   ██║   ███████║██╔████╔██║███████║██╔██╗ ██║
- ██║   ██║   ██║   ██╔══██║██║╚██╔╝██║██╔══██║██║╚██╗██║
- ╚██████╔╝   ██║   ██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
-  ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝`}</pre>
+          <div class="ascii-name" aria-hidden="true">
+            <svg viewBox="0 0 720 98" preserveAspectRatio="none" style="width: 100%; height: auto; display: block;">
+              <text x="0" y="12" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: pre; user-select: none;" fill="currentColor">
+                <tspan x="0" dy="0"> ___  ___  _________  ___  ___  _____ ______   ________  ________      </tspan>
+                <tspan x="0" dy="14">|\  \|\  \|\___   ___\\  \|\  \|\   _ \  _   \|\   __  \|\   ___  \    </tspan>
+                <tspan x="0" dy="14">\ \  \\\  \|___ \  \_\ \  \\\  \ \  \\\__\ \  \ \  \|\  \ \  \\ \  \   </tspan>
+                <tspan x="0" dy="14"> \ \  \\\  \   \ \  \ \ \   __  \ \  \\|__| \  \ \   __  \ \  \\ \  \  </tspan>
+                <tspan x="0" dy="14">  \ \  \\\  \   \ \  \ \ \  \ \  \ \  \    \ \  \ \  \ \  \ \  \\ \  \ </tspan>
+                <tspan x="0" dy="14">   \ \_______\   \ \__\ \ \__\ \__\ \__\    \ \__\ \__\ \__\ \__\\ \__\</tspan>
+                <tspan x="0" dy="14">    \|_______|    \|__|  \|__|\|__|\|__|     \|__|\|__|\|__|\|__| \|__|</tspan>
+              </text>
+            </svg>
+          </div>
         </h1>
 
         <!-- Role + Tech stack -->
@@ -337,24 +342,10 @@
   .logo-mark:hover { opacity: 0.75; }
 
   .ascii-name {
-    display: block;
-    margin: 0;
-    font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, "Liberation Mono", Menlo, Monaco, "Courier New", monospace;
-    font-weight: 700;
-    font-size: clamp(4.2px, 2.05vw, 15px);
-    font-variant-ligatures: none;
-  
-    letter-spacing: 0;
-    white-space: pre;
-    overflow-x: auto;
-    max-width: 100%;
-    -webkit-font-smoothing: antialiased;
-    scrollbar-width: none;
-  line-height: 1;
-  letter-spacing: 0;
-
+    width: 100%;
+    color: var(--ink);
+    overflow: hidden;
   }
-  .ascii-name::-webkit-scrollbar { display: none; }
 
   .icon-link { opacity: 0.55; transition: opacity 0.15s ease; }
   .icon-link:hover { opacity: 1; }
