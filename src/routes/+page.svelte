@@ -1,3 +1,4 @@
+```svelte
 <script>
   export let data;
 
@@ -219,7 +220,7 @@
       </div>
 
       <!-- Logo -->
-      <div class="hidden md:flex flex-shrink-0 items-center justify-center w-full" style="max-width: clamp(160px, 22vw, 320px);">
+      <div class="hidden lg:flex flex-shrink-0 items-center justify-center w-full" style="max-width: clamp(160px, 22vw, 320px);">
         <img
           src={Logo}
           alt="Uthman Oladele"
