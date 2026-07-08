@@ -1,17 +1,8 @@
 <!-- src/routes/+layout.svelte -->
 <script>
-  import { onMount } from 'svelte';
   import Loader from '$lib/components/loader.svelte';
   import Resume from "../assets/OLADELE USMAN.pdf";
   import "../app.css";
-
-  let scrolled = false;
-
-  onMount(() => {
-    const handleScroll = () => { scrolled = window.scrollY > 100; };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  });
 </script>
 
 <svelte:head>
@@ -22,19 +13,14 @@
 
 <div class="min-h-screen flex flex-col font-mono">
 
-  <!-- ═══════════════════════════════════════════
-       DESKTOP: right side dots
-  ════════════════════════════════════════════ -->
+  <!-- Desktop: right side dots -->
   <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-4">
-    <a href="/" class="nav-btn" aria-label="Home">[+]</a>
     <a href="/#projects" class="dot" aria-label="Projects"></a>
     <a href="/#writing" class="dot" aria-label="Writing"></a>
-    <a href={Resume} download class="nav-btn" aria-label="Resume" style="font-size: 0.65rem;">CV</a>
+    <a href={Resume} download class="nav-btn" aria-label="Resume" style="font-size: 0.6rem;">CV</a>
   </nav>
 
-  <!-- ═══════════════════════════════════════════
-       MOBILE: bottom nav
-  ════════════════════════════════════════════ -->
+  <!-- Mobile: bottom nav -->
   <nav class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-canvas border-t border-hairline">
     <div class="flex items-center justify-around py-3 px-4">
       <a href="/#projects" class="mob-link">
@@ -58,28 +44,13 @@
     </div>
   </nav>
 
-  <!-- Scroll to top -->
-  {#if scrolled}
-    <button
-      on:click={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      class="fixed bottom-20 md:bottom-6 left-6 z-50 nav-btn"
-      aria-label="Scroll to top"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
-      </svg>
-    </button>
-  {/if}
-
   <Loader />
 
   <main class="flex-1">
     <slot />
   </main>
 
-  <!-- ═══════════════════════════════════════════
-       FOOTER — simple
-  ════════════════════════════════════════════ -->
+  <!-- Footer -->
   <footer class="py-8 border-t border-hairline bg-canvas">
     <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
 
@@ -130,9 +101,9 @@
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 4px;
-    border: 1px solid var(--hairline, rgba(15,0,0,0.12));
-    background: var(--canvas, #fdfcfc);
-    color: var(--mute, #646262);
+    border: 1px solid var(--hairline);
+    background: var(--canvas);
+    color: var(--mute);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,32 +113,32 @@
     cursor: pointer;
   }
   .nav-btn:hover {
-    color: var(--ink, #201d1d);
-    border-color: var(--mute, #646262);
+    color: var(--ink);
+    border-color: var(--mute);
   }
 
   .dot {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 9999px;
-    background: var(--mute, #646262);
+    background: var(--mute);
     transition: background 0.18s ease;
   }
-  .dot:hover { background: var(--ink, #201d1d); }
+  .dot:hover { background: var(--ink); }
 
   .mob-link {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
-    color: var(--mute, #646262);
+    color: var(--mute);
     text-decoration: none;
     background: none;
     border: none;
     cursor: pointer;
     transition: color 0.18s ease;
   }
-  .mob-link:hover { color: var(--ink, #201d1d); }
+  .mob-link:hover { color: var(--ink); }
 
   .icon-link {
     opacity: 0.5;
