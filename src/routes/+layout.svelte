@@ -124,14 +124,16 @@
   }
 
   .dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 9999px;
-    background: var(--mute);
-    transition: background 0.18s ease;
-  }
-  .dot:hover { background: var(--ink); }
-
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--ink);
+  opacity: 0.55;
+  transition: opacity 0.18s ease, background 0.18s ease;
+}
+.dot:hover {
+  opacity: 1;
+}
   .mob-link {
     display: flex;
     flex-direction: column;
