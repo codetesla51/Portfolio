@@ -343,13 +343,16 @@
     font-weight: 700;
     font-size: clamp(4.2px, 2.05vw, 15px);
     font-variant-ligatures: none;
-    line-height: 1.15;
+  
     letter-spacing: 0;
     white-space: pre;
     overflow-x: auto;
     max-width: 100%;
     -webkit-font-smoothing: antialiased;
     scrollbar-width: none;
+  line-height: 1;
+  letter-spacing: 0;
+
   }
   .ascii-name::-webkit-scrollbar { display: none; }
 
