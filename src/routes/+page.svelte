@@ -123,9 +123,18 @@
       <div class="flex-1 min-w-0 w-full">
 
         <!-- Name -->
-        <h1 class="font-bold leading-[1.05] mb-8 text-ink" style="font-size: clamp(38px, 8vw, 72px); letter-spacing: 0;">
-          Uthman<br />
-          <span class="text-mute">Oladele</span>
+        <h1 class="mb-8">
+          <span class="block font-bold leading-[1.1] text-mute" style="font-size: clamp(20px, 3.4vw, 28px); letter-spacing: 0.02em;">
+            Oladele
+          </span>
+          <span class="sr-only">Uthman</span>
+          <pre class="ascii-name text-ink" aria-hidden="true">{`
+ ██╗   ██╗████████╗██╗  ██╗███╗   ███╗ █████╗ ███╗   ██╗
+ ██║   ██║╚══██╔══╝██║  ██║████╗ ████║██╔══██╗████╗  ██║
+ ██║   ██║   ██║   ███████║██╔████╔██║███████║██╔██╗ ██║
+ ██║   ██║   ██║   ██╔══██║██║╚██╔╝██║██╔══██║██║╚██╗██║
+ ╚██████╔╝   ██║   ██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║
+  ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝`}</pre>
         </h1>
 
         <!-- Role -->
@@ -309,6 +318,22 @@
     transition: opacity 0.15s ease;
   }
   .link-fade:hover, .card-link:hover, .rice-link:hover { opacity: 1; }
+
+  .ascii-name {
+    display: block;
+    margin: 0;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: clamp(4.2px, 2.05vw, 15px);
+    line-height: 1.15;
+    letter-spacing: 0;
+    white-space: pre;
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+    scrollbar-width: none;
+  }
+  .ascii-name::-webkit-scrollbar { display: none; }
 
   .icon-link { opacity: 0.55; transition: opacity 0.15s ease; }
   .icon-link:hover { opacity: 1; }
