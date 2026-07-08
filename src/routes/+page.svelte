@@ -1,4 +1,4 @@
-```svelte
+
 <script>
   export let data;
 
