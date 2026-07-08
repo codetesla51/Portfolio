@@ -61,6 +61,14 @@
       github_url: null,
       doc_url: null,
       private: true
+    },
+    {
+      name: 'Dotfiles / Arch Rice',
+      description: 'Dynamic wallpaper-based rice for Arch Linux on Hyprland, built over Omarchy. Matugen extracts a Material You palette from any wallpaper and templates it into Waybar, Ghostty, btop, Cava, SwayNC, and GTK, so the whole desktop recolors on a wallpaper change. Installer handles dependency checks, config backups, and symlinking via GNU Stow.',
+      tech_stack: ['Hyprland', 'Wayland', 'Matugen'],
+      github_url: 'https://github.com/codetesla51/uthman_dotfiles',
+      doc_url: null,
+      private: false
     }
   ];
 
