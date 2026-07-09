@@ -127,23 +127,23 @@
 
         <!-- Name -->
         <h1 class="mb-8">
-          <span class="block font-bold leading-[1.1] text-mute" style="font-size: clamp(20px, 3.4vw, 28px); letter-spacing: 0.02em;">
-            Oladele
-          </span>
-          <span class="sr-only">Uthman</span>
-          <div class="ascii-name" aria-hidden="true">
-            <svg viewBox="0 0 620 84" preserveAspectRatio="none" style="width: 100%; height: auto; display: block;">
-              <text x="0" y="12" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: pre; user-select: none;" fill="currentColor">
-                <tspan x="0" dy="0">   ██╗   ██╗████████╗██╗  ██╗███╗   ███╗ █████╗ ███╗   ██╗</tspan>
-                <tspan x="0" dy="14">   ██║   ██║╚══██╔══╝██║  ██║████╗ ████║██╔══██╗████╗  ██║</tspan>
-                <tspan x="0" dy="14">   ██║   ██║   ██║   ███████║██╔████╔██║███████║██╔██╗ ██║</tspan>
-                <tspan x="0" dy="14">   ██║   ██║   ██║   ██╔══██║██║╚██╔╝██║██╔══██║██║╚██╗██║</tspan>
-                <tspan x="0" dy="14">   ╚██████╔╝   ██║   ██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║</tspan>
-                <tspan x="0" dy="14">    ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝</tspan>
-              </text>
-            </svg>
-          </div>
-        </h1>
+  <span class="block leading-[1.1] text-mute mb-3" style="font-size: clamp(20px, 3.4vw, 28px);">
+    Oladele
+  </span>
+  <span class="sr-only">Uthman</span>
+  <div class="ascii-name" aria-hidden="true">
+    <svg viewBox="0 0 620 84" preserveAspectRatio="none" style="width: 100%; height: auto; display: block;">
+      <text x="0" y="12" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: pre; user-select: none;" fill="currentColor">
+        <tspan x="0" dy="0">   ██╗   ██╗████████╗██╗  ██╗███╗   ███╗ █████╗ ███╗   ██╗</tspan>
+        <tspan x="0" dy="14">   ██║   ██║╚══██╔══╝██║  ██║████╗ ████║██╔══██╗████╗  ██║</tspan>
+        <tspan x="0" dy="14">   ██║   ██║   ██║   ███████║██╔████╔██║███████║██╔██╗ ██║</tspan>
+        <tspan x="0" dy="14">   ██║   ██║   ██║   ██╔══██║██║╚██╔╝██║██╔══██║██║╚██╗██║</tspan>
+        <tspan x="0" dy="14">   ╚██████╔╝   ██║   ██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║</tspan>
+        <tspan x="0" dy="14">    ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝</tspan>
+      </text>
+    </svg>
+  </div>
+</h1>
 
         <!-- Role + Tech stack -->
         <div class="flex flex-wrap items-center gap-x-4 gap-y-3 mb-8">
