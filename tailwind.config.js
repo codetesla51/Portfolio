@@ -7,9 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Berkeley Mono is proprietary/paid — JetBrains Mono is the closest open-source match
         mono: [
-          'Berkeley Mono',
           'JetBrains Mono',
           'IBM Plex Mono',
           'ui-monospace',
@@ -22,7 +20,6 @@ export default {
           'monospace',
         ],
         sans: [
-          'Berkeley Mono',
           'JetBrains Mono',
           'IBM Plex Mono',
           'ui-monospace',
@@ -31,27 +28,27 @@ export default {
       },
 
       colors: {
-        primary: '#e2dfdf',
-        'on-primary': '#030202',
-        ink: '#e2dfdf',
-        'ink-deep': '#fff0f0',
-        charcoal: '#d3cfcf',
-        body: '#bababd',
-        mute: '#9d9b9b',
-        stone: '#8c8c91',
-        ash: '#676565',
+        primary: '#201d1d',
+        'on-primary': '#fdfcfc',
+        ink: '#201d1d',
+        'ink-deep': '#0f0000',
+        charcoal: '#302c2c',
+        body: '#424245',
+        mute: '#646262',
+        stone: '#6e6e73',
+        ash: '#9a9898',
 
-        canvas: '#030202',
-        'surface-soft': '#080707',
-        'surface-card': '#110e0e',
-        'surface-dark': '#e2dfdf',
-        'surface-dark-elevated': '#d3cfcf',
+        canvas: '#fdfcfc',
+        'surface-soft': '#f8f7f7',
+        'surface-card': '#f1eeee',
+        'surface-dark': '#201d1d',
+        'surface-dark-elevated': '#302c2c',
 
-        hairline: 'rgba(255,240,240,0.12)',
-        'hairline-strong': '#9d9b9b',
+        hairline: 'rgba(15,0,0,0.12)',
+        'hairline-strong': '#646262',
 
-        'on-dark': '#030202',
-        'on-dark-mute': '#676565',
+        'on-dark': '#fdfcfc',
+        'on-dark-mute': '#9a9898',
 
         accent: '#007aff',
         'accent-hover': '#0056b3',
@@ -65,12 +62,12 @@ export default {
         success: '#30d158',
 
         // legacy aliases kept so existing classes don't break
-        background: '#e2dfdf',
-        foreground: '#030202',
-        border: 'rgba(255,240,240,0.12)',
-        'border-hover': '#9d9b9b',
-        card: '#110e0e',
-        'card-hover': '#080707',
+        background: '#201d1d',
+        foreground: '#fdfcfc',
+        border: 'rgba(15,0,0,0.12)',
+        'border-hover': '#646262',
+        card: '#f1eeee',
+        'card-hover': '#f8f7f7',
       },
 
       fontSize: {
@@ -102,7 +99,6 @@ export default {
         section: '96px',
       },
 
-      // no shadows/gradients in this system — flat, hairline-divided sections
       boxShadow: {
         none: 'none',
       },
