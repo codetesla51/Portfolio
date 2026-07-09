@@ -64,7 +64,7 @@
     },
     {
       name: 'Dotfiles / Arch Rice',
-      description: 'Dynamic wallpaper-based rice for Arch Linux on Hyprland, built over Omarchy. Matugen extracts a Material You palette from any wallpaper and templates it into Waybar, Ghostty, btop, Cava, SwayNC, and GTK, so the whole desktop recolors on a wallpaper change. Installer handles dependency checks, config backups, and symlinking via GNU Stow.',
+      description: 'Dynamic wallpaper-based rice for Arch Linux on Hyprland, built over Omarchy. Matugen extracts a palette from any wallpaper and templates it into Waybar, Ghostty, btop, Cava, SwayNC, and GTK. Installer handles dependency checks, backups, and symlinking via GNU Stow.',
       tech_stack: ['Hyprland', 'Wayland', 'Matugen'],
       github_url: 'https://github.com/codetesla51/uthman_dotfiles',
       doc_url: null,
@@ -132,15 +132,14 @@
           </span>
           <span class="sr-only">Uthman</span>
           <div class="ascii-name" aria-hidden="true">
-            <svg viewBox="0 0 720 98" preserveAspectRatio="none" style="width: 100%; height: auto; display: block;">
+            <svg viewBox="0 0 620 84" preserveAspectRatio="none" style="width: 100%; height: auto; display: block;">
               <text x="0" y="12" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: pre; user-select: none;" fill="currentColor">
-                <tspan x="0" dy="0"> ___  ___  _________  ___  ___  _____ ______   ________  ________      </tspan>
-                <tspan x="0" dy="14">|\  \|\  \|\___   ___\\  \|\  \|\   _ \  _   \|\   __  \|\   ___  \    </tspan>
-                <tspan x="0" dy="14">\ \  \\\  \|___ \  \_\ \  \\\  \ \  \\\__\ \  \ \  \|\  \ \  \\ \  \   </tspan>
-                <tspan x="0" dy="14"> \ \  \\\  \   \ \  \ \ \   __  \ \  \\|__| \  \ \   __  \ \  \\ \  \  </tspan>
-                <tspan x="0" dy="14">  \ \  \\\  \   \ \  \ \ \  \ \  \ \  \    \ \  \ \  \ \  \ \  \\ \  \ </tspan>
-                <tspan x="0" dy="14">   \ \_______\   \ \__\ \ \__\ \__\ \__\    \ \__\ \__\ \__\ \__\\ \__\</tspan>
-                <tspan x="0" dy="14">    \|_______|    \|__|  \|__|\|__|\|__|     \|__|\|__|\|__|\|__| \|__|</tspan>
+                <tspan x="0" dy="0">   ██╗   ██╗████████╗██╗  ██╗███╗   ███╗ █████╗ ███╗   ██╗</tspan>
+                <tspan x="0" dy="14">   ██║   ██║╚══██╔══╝██║  ██║████╗ ████║██╔══██╗████╗  ██║</tspan>
+                <tspan x="0" dy="14">   ██║   ██║   ██║   ███████║██╔████╔██║███████║██╔██╗ ██║</tspan>
+                <tspan x="0" dy="14">   ██║   ██║   ██║   ██╔══██║██║╚██╔╝██║██╔══██║██║╚██╗██║</tspan>
+                <tspan x="0" dy="14">   ╚██████╔╝   ██║   ██║  ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║</tspan>
+                <tspan x="0" dy="14">    ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝</tspan>
               </text>
             </svg>
           </div>
