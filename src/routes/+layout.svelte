@@ -17,7 +17,11 @@
   <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-4 nav-glass rounded-full px-2 py-4">
     <a href="/#projects" class="dot" aria-label="Projects"></a>
     <a href="/#writing" class="dot" aria-label="Writing"></a>
-    <a href={Resume} download class="nav-btn" aria-label="Resume" style="font-size: 0.6rem;">CV</a>
+    <a href={Resume} download class="nav-btn" aria-label="Resume">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+      </svg>
+    </a>
   </nav>
 
   <!-- Mobile: bottom nav -->
@@ -98,7 +102,7 @@
 
 <style>
   .nav-glass {
-    background: color-mix(in srgb, var(--canvas) 70%, transparent);
+    background: color-mix(in srgb, #030202 70%, transparent);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
@@ -107,9 +111,9 @@
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 4px;
-    border: 1px solid var(--hairline);
+    border: 1px solid #9d9b9b;
     background: transparent;
-    color: var(--mute);
+    color: #9d9b9b;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,34 +123,33 @@
     cursor: pointer;
   }
   .nav-btn:hover {
-    color: var(--ink);
-    border-color: var(--mute);
+    color: #e2dfdf;
+    border-color: #e2dfdf;
   }
 
   .dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 9999px;
-  background: var(--ink);
-  opacity: 0.55;
-  transition: opacity 0.18s ease, background 0.18s ease;
-}
-.dot:hover {
-  opacity: 1;
-}
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: #e2dfdf;
+    opacity: 0.55;
+    transition: opacity 0.18s ease;
+  }
+  .dot:hover { opacity: 1; }
+
   .mob-link {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
-    color: var(--mute);
+    color: #9d9b9b;
     text-decoration: none;
     background: none;
     border: none;
     cursor: pointer;
     transition: color 0.18s ease;
   }
-  .mob-link:hover { color: var(--ink); }
+  .mob-link:hover { color: #e2dfdf; }
 
   .icon-link {
     opacity: 0.5;
