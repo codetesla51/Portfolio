@@ -77,6 +77,14 @@
       github_url: 'https://github.com/codetesla51/dsa-notes',
       doc_url: null,
       private: false
+    },
+    {
+      name: 'golexer',
+      description: 'A comprehensive lexical analyzer (tokenizer) library for Go. Designed for building programming languages, domain-specific languages (DSLs), configuration parsers, and template engines.',
+      tech_stack: ['Go', 'Compilers', 'DSL'],
+      github_url: 'https://github.com/codetesla51/golexer',
+      doc_url: null,
+      private: false
     }
   ];
 
