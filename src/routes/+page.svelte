@@ -69,6 +69,14 @@
       github_url: 'https://github.com/codetesla51/uthman_dotfiles',
       doc_url: null,
       private: false
+    },
+    {
+      name: 'DSA Notes',
+      description: 'Complete DSA curriculum with Go implementations and 4000+ lines of study notes. Covers data structures, algorithms, and complexity analysis with working code examples.',
+      tech_stack: ['Go', 'Algorithms', 'Education'],
+      github_url: 'https://github.com/codetesla51/dsa-notes',
+      doc_url: null,
+      private: false
     }
   ];
 
@@ -127,10 +135,7 @@
 
         <!-- Name -->
         <h1 class="mb-10">
-          <span class="block leading-[1.1] text-mute mb-4" style="font-size: clamp(18px, 3vw, 24px);">
-            Oladele
-          </span>
-          <span class="sr-only">Uthman</span>
+          <span class="sr-only">Uthman Oladele</span>
           <div class="ascii-name" aria-hidden="true">
             <svg viewBox="0 0 620 84" preserveAspectRatio="none" style="width: 100%; height: auto; display: block;">
               <text x="0" y="12" style="font-family: 'Geist Mono', monospace; font-size: 11px; white-space: pre; user-select: none;" fill="currentColor">
@@ -143,6 +148,9 @@
               </text>
             </svg>
           </div>
+          <span class="block mt-3 text-[12px] tracking-[0.25em] uppercase text-ash font-normal">
+            oladele
+          </span>
         </h1>
 
         <!-- Role + Tech stack -->
