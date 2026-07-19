@@ -43,7 +43,7 @@ html[data-theme='light'] {
   body {
     background-color: var(--bg);
     color: var(--text);
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
@@ -56,19 +56,19 @@ html[data-theme='light'] {
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Kanit', 'Roboto', sans-serif;
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     letter-spacing: -0.02em;
     color: var(--text);
   }
 
   code, .font-mono {
-    font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   }
 
   section {
-  padding-top: clamp(2rem, 5vw, 3.5rem);
-  padding-bottom: clamp(2rem, 5vw, 3.5rem);
-}
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
 
   #hero {
     padding-top: 0;

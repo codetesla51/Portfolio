@@ -8,21 +8,21 @@ export default {
     extend: {
       fontFamily: {
         mono: [
-          'JetBrains Mono',
-          'IBM Plex Mono',
+          'Geist Mono',
           'ui-monospace',
           'SFMono-Regular',
           'Menlo',
           'Monaco',
           'Consolas',
-          'Liberation Mono',
-          'Courier New',
           'monospace',
         ],
         sans: [
-          'JetBrains Mono',
-          'IBM Plex Mono',
+          'Geist Sans',
           'ui-monospace',
+          'SFMono-Regular',
+          'Menlo',
+          'Monaco',
+          'Consolas',
           'monospace',
         ],
       },
@@ -60,14 +60,6 @@ export default {
         'danger-hover': '#d70015',
         'danger-active': '#a50011',
         success: '#30d158',
-
-        // legacy aliases kept so existing classes don't break
-        background: '#e2dfdf',
-        foreground: '#030202',
-        border: 'rgba(255,240,240,0.12)',
-        'border-hover': '#9d9b9b',
-        card: '#110e0e',
-        'card-hover': '#080707',
       },
 
       fontSize: {

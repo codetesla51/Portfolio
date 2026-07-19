@@ -7,16 +7,15 @@
 
 <svelte:head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 </svelte:head>
 
 <div class="min-h-screen flex flex-col font-mono">
 
   <!-- Desktop: right side dots -->
-  <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-4 nav-glass rounded-full px-2 py-4">
+  <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-5 nav-glass rounded-full px-2 py-5">
     <a href="/#projects" class="dot" aria-label="Projects"></a>
     <a href="/#writing" class="dot" aria-label="Writing"></a>
+    <span class="w-3 h-px bg-hairline"></span>
     <a href={Resume} download class="nav-btn" aria-label="Resume">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
@@ -26,24 +25,24 @@
 
   <!-- Mobile: bottom nav -->
   <nav class="fixed bottom-0 left-0 right-0 z-50 md:hidden nav-glass border-t border-hairline">
-    <div class="flex items-center justify-around py-3 px-4">
+    <div class="flex items-center justify-around py-3 px-6">
       <a href="/#projects" class="mob-link">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
-        <span class="text-xs">Projects</span>
+        <span class="text-[11px] tracking-wide">Projects</span>
       </a>
       <a href="/#writing" class="mob-link">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
         </svg>
-        <span class="text-xs">Writing</span>
+        <span class="text-[11px] tracking-wide">Writing</span>
       </a>
       <a href={Resume} download class="mob-link" aria-label="Resume">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
         </svg>
-        <span class="text-xs">Resume</span>
+        <span class="text-[11px] tracking-wide">Resume</span>
       </a>
     </div>
   </nav>
@@ -55,11 +54,11 @@
   </main>
 
   <!-- Footer -->
-  <footer class="py-8 border-t border-hairline bg-canvas">
+  <footer class="py-10 border-t border-hairline bg-canvas">
     <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
 
       <div>
-        <p class="text-sm mb-1 text-mute">Got a project or opportunity?</p>
+        <p class="text-sm mb-1.5 text-mute">Got a project or opportunity?</p>
         <a
           href="mailto:uoladele99@gmail.com"
           class="font-mono text-xs link-fade text-ink"
@@ -90,7 +89,7 @@
         <a href="https://www.linkedin.com/in/oladele-usman-4a56833b1" target="_blank" rel="noopener noreferrer"
           class="icon-link text-mute" aria-label="LinkedIn">
           <svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-1.445-2.136-2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
           </svg>
         </a>
       </div>
@@ -102,16 +101,16 @@
 
 <style>
   .nav-glass {
-    background: color-mix(in srgb, #030202 70%, transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: color-mix(in srgb, #030202 75%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .nav-btn {
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 4px;
-    border: 1px solid #9d9b9b;
+    border: 1px solid rgba(157, 155, 155, 0.4);
     background: transparent;
     color: #9d9b9b;
     display: flex;
@@ -128,11 +127,11 @@
   }
 
   .dot {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.4rem;
+    height: 0.4rem;
     border-radius: 9999px;
     background: #e2dfdf;
-    opacity: 0.55;
+    opacity: 0.4;
     transition: opacity 0.18s ease;
   }
   .dot:hover { opacity: 1; }
@@ -141,7 +140,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.3rem;
     color: #9d9b9b;
     text-decoration: none;
     background: none;
@@ -152,7 +151,7 @@
   .mob-link:hover { color: #e2dfdf; }
 
   .icon-link {
-    opacity: 0.5;
+    opacity: 0.45;
     transition: opacity 0.18s ease;
   }
   .icon-link:hover { opacity: 1; }
