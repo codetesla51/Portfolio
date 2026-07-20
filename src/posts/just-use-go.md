@@ -7,6 +7,8 @@ draft: false
 ogImage: "https://raw.githubusercontent.com/codetesla51/web-site-files/refs/heads/main/images/1000819989-removebg-preview.png"
 ---
 
+![Go gopher](https://raw.githubusercontent.com/codetesla51/web-site-files/refs/heads/main/images/1000819989-removebg-preview.png)
+
 I came from PHP, JavaScript, and Ruby. All three are fine languages. None of them made me actually want to understand what my code was doing.
 
 Go did. That's the whole pitch.
