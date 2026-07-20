@@ -1,3 +1,5 @@
+import { getPosts } from '$lib/utils/posts.js';
+
 const GITHUB_USER = 'codetesla51';
 
 async function getCurrentlyBuilding(fetch) {
@@ -46,6 +48,7 @@ async function getCurrentlyBuilding(fetch) {
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ fetch }) {
   const currentlyBuilding = await getCurrentlyBuilding(fetch);
+  const posts = await getPosts();
 
   try {
     const res = await fetch('https://portfolio-backend-rawhttp-codetesla517280-9dphthj2.leapcell.dev/api/projects', {
@@ -56,12 +59,13 @@ export async function load({ fetch }) {
 
     if (!res.ok) {
       console.error(`Failed to fetch projects: ${res.status}`);
-      return { projects: [], error: 'Failed to load projects' };
+      return { projects: [], posts, error: 'Failed to load projects' };
     }
 
     const data = await res.json();
     return { 
       projects: data.data || [],
+      posts,
       currentlyBuilding,
       error: null
     };
@@ -69,6 +73,7 @@ export async function load({ fetch }) {
     console.error('Error fetching projects:', error);
     return { 
       projects: [],
+      posts,
       currentlyBuilding,
       error: 'Failed to load projects'
     };

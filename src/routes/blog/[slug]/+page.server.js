@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { getPosts, getPost } from '$lib/utils/posts.js';
+import { getPosts, getPost, renderMarkdown } from '$lib/utils/posts.js';
 
 export async function load({ params }) {
   const post = await getPost(params.slug);
@@ -8,19 +8,23 @@ export async function load({ params }) {
     throw error(404, 'Post not found');
   }
 
-  const modules = import.meta.glob('/src/posts/**/*.md', { eager: true });
-  let content = '';
+  // Get raw markdown content using ?raw import
+  const modules = import.meta.glob('/src/posts/**/*.md', { query: '?raw', eager: true });
+  let rawContent = '';
   
   for (const [path, module] of Object.entries(modules)) {
-    const metadata = module.metadata;
+    // Extract slug from path
     const filename = path.split('/').pop().replace('.md', '');
-    const slug = metadata.slug || metadata.title?.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-').replace(/^-+|-+$/g, '') || filename;
+    const pathSlug = filename.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-').replace(/^-+|-+$/g, '');
     
-    if (slug === params.slug) {
-      content = module.default?.render?.().html || '';
+    if (pathSlug === params.slug) {
+      rawContent = module.default || '';
       break;
     }
   }
+  
+  // Render markdown to HTML
+  const content = rawContent ? renderMarkdown(rawContent) : '';
 
   return { post, content };
 }

@@ -18,7 +18,7 @@
 
     <div class="border-t border-hairline">
       {#each data.posts as post}
-        <a href="/writing/{post.slug}" class="article-row flex items-baseline justify-between gap-6 py-7 border-b border-hairline">
+        <a href="/blog/{post.slug}" class="article-row flex items-baseline justify-between gap-6 py-7 border-b border-hairline">
           <div class="min-w-0">
             <span class="flex items-baseline gap-3 text-[14px] leading-[1.7] text-body">{post.title}</span>
             {#if post.description}

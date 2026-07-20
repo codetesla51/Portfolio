@@ -1,5 +1,12 @@
 import { slugify } from './slug.js';
 import { readingTime } from './reading-time.js';
+import { marked } from 'marked';
+
+// Configure marked
+marked.setOptions({
+  gfm: true,
+  breaks: false
+});
 
 export async function getPosts() {
   const modules = import.meta.glob('/src/posts/**/*.md', { eager: true });
@@ -7,7 +14,8 @@ export async function getPosts() {
 
   for (const [path, module] of Object.entries(modules)) {
     const { metadata } = module;
-    const rawContent = module.default?.render?.().html || '';
+    // Get raw content from the module
+    const rawContent = module.__raw || module.default?.toString() || '';
     const plainText = rawContent.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     
     const filename = path.split('/').pop().replace('.md', '');
@@ -29,4 +37,8 @@ export async function getPosts() {
 export async function getPost(slug) {
   const posts = await getPosts();
   return posts.find(p => p.slug === slug) || null;
+}
+
+export function renderMarkdown(content) {
+  return marked(content);
 }

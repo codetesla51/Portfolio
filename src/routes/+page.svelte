@@ -1,6 +1,8 @@
 <script>
   export let data;
-
+  
+  let activeTab = 'blog';
+  
   const personalInfo = {
     email: "uoladele99@gmail.com",
   };
@@ -308,27 +310,73 @@
 <section id="writing" class="bg-canvas font-mono">
   <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-12 md:py-28">
 
-    <div class="flex items-center gap-3 mb-12">
+    <div class="flex items-center gap-3 mb-8">
       <span class="text-ink font-bold">#</span>
       <span class="text-sm sm:text-base font-bold tracking-[0.1em] uppercase text-ink">Writing</span>
     </div>
 
-    <div class="border-t border-hairline">
-      {#each articles as article}
-        <a href={article.url} target="_blank" rel="noopener noreferrer"
-          class="article-row flex items-baseline justify-between gap-6 py-7 border-b border-hairline">
-          <span class="flex items-baseline gap-3 text-[14px] leading-[1.7] text-body">
-            {article.title}
-          </span>
-          <span class="text-xs flex-shrink-0 text-mute opacity-50 group-hover:opacity-100">↗</span>
-        </a>
-      {/each}
+    <!-- Tabs -->
+    <div class="flex gap-6 mb-8 border-b border-hairline">
+      <button 
+        onclick={() => activeTab = 'blog'}
+        class="pb-3 text-xs tracking-[0.08em] uppercase transition-colors {activeTab === 'blog' ? 'text-ink border-b-2 border-ink' : 'text-mute hover:text-body'}"
+      >
+        Blog
+      </button>
+      <button 
+        onclick={() => activeTab = 'writing'}
+        class="pb-3 text-xs tracking-[0.08em] uppercase transition-colors {activeTab === 'writing' ? 'text-ink border-b-2 border-ink' : 'text-mute hover:text-body'}"
+      >
+        Writing
+      </button>
     </div>
 
-    <div class="mt-12 pt-6 border-t border-hairline">
-      <a href="/blog"
-        class="link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-um">All posts →</a>
-    </div>
+    <!-- Blog Tab -->
+    {#if activeTab === 'blog'}
+      <div class="border-t border-hairline">
+        {#if data.posts && data.posts.length > 0}
+          {#each data.posts as post}
+            <a href="/blog/{post.slug}" class="article-row flex items-baseline justify-between gap-6 py-7 border-b border-hairline">
+              <div class="min-w-0">
+                <span class="flex items-baseline gap-3 text-[14px] leading-[1.7] text-body">{post.title}</span>
+                {#if post.description}
+                  <p class="text-[13px] text-mute mt-1 leading-relaxed">{post.description}</p>
+                {/if}
+                <div class="flex items-center gap-3 mt-2">
+                  <time class="text-[11px] text-ash" datetime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
+                  <span class="text-[11px] text-ash">·</span>
+                  <span class="text-[11px] text-ash">{post.readingTime} min read</span>
+                  {#if post.tags}
+                    {#each post.tags as tag}
+                      <span class="text-[11px] text-ash">·</span>
+                      <span class="text-[11px] text-mute">{tag}</span>
+                    {/each}
+                  {/if}
+                </div>
+              </div>
+              <span class="text-xs flex-shrink-0 text-mute opacity-50 group-hover:opacity-100">↗</span>
+            </a>
+          {/each}
+        {:else}
+          <p class="py-7 text-[13px] text-mute">No blog posts yet.</p>
+        {/if}
+      </div>
+    {/if}
+
+    <!-- Writing Tab (dev.to articles) -->
+    {#if activeTab === 'writing'}
+      <div class="border-t border-hairline">
+        {#each articles as article}
+          <a href={article.url} target="_blank" rel="noopener noreferrer"
+            class="article-row flex items-baseline justify-between gap-6 py-7 border-b border-hairline">
+            <span class="flex items-baseline gap-3 text-[14px] leading-[1.7] text-body">
+              {article.title}
+            </span>
+            <span class="text-xs flex-shrink-0 text-mute opacity-50 group-hover:opacity-100">↗</span>
+          </a>
+        {/each}
+      </div>
+    {/if}
 
   </div>
 </section>
