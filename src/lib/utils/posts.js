@@ -19,7 +19,7 @@ export async function getPosts() {
     const plainText = rawContent.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     
     const filename = path.split('/').pop().replace('.md', '');
-    const slug = metadata.slug || slugify(metadata.title || filename);
+    const slug = slugify(filename);
 
     posts.push({
       ...metadata,

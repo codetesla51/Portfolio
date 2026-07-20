@@ -13,7 +13,7 @@ export async function load({ params }) {
   let rawContent = '';
   
   for (const [path, module] of Object.entries(modules)) {
-    // Extract slug from path
+    // Extract slug from filename (same logic as posts.js)
     const filename = path.split('/').pop().replace('.md', '');
     const pathSlug = filename.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-').replace(/^-+|-+$/g, '');
     
