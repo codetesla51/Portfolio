@@ -144,6 +144,9 @@
         <!-- Name -->
         <h1 class="mb-10">
           <span class="sr-only">Uthman Oladele</span>
+          <div class="mb-4 text-[12px] text-ash">
+            <span class="text-stone">»</span> oladele
+          </div>
           <div class="ascii-name" aria-hidden="true">
             <svg viewBox="0 0 620 84" preserveAspectRatio="none" style="width: 100%; height: auto; display: block;">
               <text x="0" y="12" style="font-family: 'Geist Mono', monospace; font-size: 11px; white-space: pre; user-select: none;" fill="currentColor">
@@ -155,9 +158,6 @@
                 <tspan x="0" dy="14">    ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝</tspan>
               </text>
             </svg>
-          </div>
-          <div class="mt-5 text-[12px] text-ash">
-            <span class="text-stone">»</span> oladele
           </div>
         </h1>
 
