@@ -133,10 +133,10 @@
 <!-- ═══════════════════════════════════════════
      HERO
 ════════════════════════════════════════════ -->
-<section id="hero" class="relative min-h-screen flex items-center overflow-hidden bg-canvas font-mono">
+<section id="hero" class="relative md:min-h-screen md:flex md:items-center overflow-hidden bg-canvas font-mono">
   <div class="hidden md:block absolute left-6 md:left-12 lg:left-20 top-0 bottom-0 w-px bg-hairline"></div>
 
-  <div class="relative w-full max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-24 sm:py-0 sm:min-h-screen sm:flex sm:items-center">
+  <div class="relative w-full max-w-5xl mx-auto px-6 md:px-16 lg:px-24 pt-20 pb-12 md:py-0 md:min-h-screen md:flex md:items-center">
     <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-28 w-full">
 
       <div class="flex-1 min-w-0 w-full">
@@ -258,7 +258,7 @@
      PROJECTS
 ════════════════════════════════════════════ -->
 <section id="projects" class="bg-canvas font-mono">
-  <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-20 md:py-28">
+  <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-12 md:py-28">
 
     <div class="flex items-center gap-3 mb-12">
       <span class="text-ink font-bold">[+]</span>
@@ -315,7 +315,7 @@
      WRITING
 ════════════════════════════════════════════ -->
 <section id="writing" class="bg-canvas font-mono">
-  <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-20 md:py-28">
+  <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-12 md:py-28">
 
     <div class="flex items-center gap-3 mb-12">
       <span class="text-ink font-bold">[+]</span>
