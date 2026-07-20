@@ -191,6 +191,9 @@
         </p>
 
         <!-- Nav links -->
+        <div class="flex items-center mb-4 text-sm">
+          <a href="/why-hire-me" class="link-fade text-ink underline underline-offset-4 decoration-hairline hover:decoration-ink">Why hire me</a>
+        </div>
         <div class="flex items-center mb-16 text-sm">
           <a href="#projects" class="link-fade text-ink underline underline-offset-4 decoration-hairline hover:decoration-ink">Projects</a>
           <span class="mx-4 text-ash">/</span>
