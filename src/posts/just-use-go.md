@@ -1,5 +1,5 @@
 ---
-title: "Just Fucking Use Go"
+title: "Just Use Go"
 description: "Coming from PHP, JavaScript, and Ruby, Go is the first language that made me want to understand what my code was doing. Here's why."
 date: "2026-07-20"
 tags: ["go", "opinion"]
