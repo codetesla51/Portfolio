@@ -9,6 +9,10 @@
     if (typeof Prism !== 'undefined') {
       Prism.highlightAll();
     }
+    // Init code block headers after navigation
+    setTimeout(() => {
+      if (typeof initCodeBlocks === 'function') initCodeBlocks();
+    }, 100);
   });
 </script>
 

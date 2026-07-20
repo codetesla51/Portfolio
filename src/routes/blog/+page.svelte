@@ -24,13 +24,14 @@
             {#if post.description}
               <p class="text-[12px] sm:text-[13px] text-mute mt-1 leading-relaxed">{post.description}</p>
             {/if}
-            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1.5 mt-2.5">
               <time class="text-[11px] text-ash whitespace-nowrap" datetime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
               <span class="text-[11px] text-ash">·</span>
               <span class="text-[11px] text-ash whitespace-nowrap">{post.readingTime} min read</span>
               {#if post.tags}
-                <span class="text-[11px] text-ash">·</span>
-                <span class="text-[11px] text-mute whitespace-nowrap">{post.tags.join(', ')}</span>
+                {#each post.tags as tag}
+                  <span class="inline-block text-[10px] text-mute bg-surface px-2 py-0.5 rounded-full border border-hairline whitespace-nowrap">{tag}</span>
+                {/each}
               {/if}
             </div>
           </div>

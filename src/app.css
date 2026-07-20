@@ -179,25 +179,79 @@
     transform: translateY(0);
   }
 
-  /* Code blocks - Prism.js */
+  /* Code blocks - Ayu Dark theme */
   pre[class*="language-"] {
     margin: 1.5rem 0;
     border-radius: 8px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.65;
     font-family: 'Geist Mono', monospace;
+    background: #050607;
+    color: #e6e1cf;
+    padding: 0;
+    position: relative;
   }
 
   code[class*="language-"] {
     font-family: 'Geist Mono', monospace;
+    background: transparent;
+    padding: 1rem;
+    display: block;
+    overflow-x: auto;
   }
 
+  /* Ayu Dark token colors */
   .token.comment,
   .token.prolog,
   .token.doctype,
   .token.cdata {
-    color: #6a737d;
+    color: #5c6773;
+    font-style: italic;
+  }
+
+  .token.punctuation {
+    color: #e6e1cf;
+  }
+
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol {
+    color: #ffaf0f;
+  }
+
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin {
+    color: #c2d94c;
+  }
+
+  .token.operator,
+  .token.entity,
+  .token.url {
+    color: #e6e1cf;
+  }
+
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+    color: #ff8f40;
+  }
+
+  .token.function,
+  .token.class-name {
+    color: #36a3d9;
+  }
+
+  .token.regex,
+  .token.important,
+  .token.variable {
+    color: #e6e1cf;
   }
 
   /* Prose styles for blog content */
@@ -332,12 +386,14 @@
     border-bottom: 1px solid var(--hairline);
   }
 
-  .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    max-width: 100%;
+  .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"], figcaption *)) {
+    max-width: 55%;
     height: auto;
-    border-radius: 4px;
-    margin-top: 0;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
+    display: block;
   }
 
   .prose :where(figcaption):not(:where([class~="not-prose"], [class~="not-prose"], figcaption *)) {
@@ -353,6 +409,10 @@
   .prose {
     font-size: 14px;
     line-height: 1.7;
+  }
+
+  .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"], figcaption *)) {
+    max-width: 80%;
   }
   
   .prose pre[class*="language-"] {
@@ -375,33 +435,43 @@
   }
 }
 
-/* Code block copy button positioning */
-pre[class*="language-"] {
-  position: relative;
-}
-
-pre[class*="language-"] .toolbar {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  z-index: 10;
-}
-
-pre[class*="language-"] .copy-to-clipboard-button {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 4px;
-  color: rgba(255, 255, 255, 0.5);
+/* Code block header bar + copy button */
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px 8px 0 0;
   font-family: 'Geist Mono', monospace;
   font-size: 11px;
-  padding: 2px 8px;
-  cursor: pointer;
-  transition: all 0.15s ease;
+  color: rgba(255, 255, 255, 0.35);
 }
 
-pre[class*="language-"] .copy-to-clipboard-button:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.8);
+.code-header .code-lang {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.code-header .code-copy-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  padding: 2px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.4;
+}
+
+.code-header .code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 /* Code block scroll improvements */

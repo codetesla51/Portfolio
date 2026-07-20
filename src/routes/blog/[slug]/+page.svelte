@@ -62,7 +62,7 @@
       {#if post.tags}
         <div class="flex flex-wrap gap-2 mt-4">
           {#each post.tags as tag}
-            <span class="text-[11px] text-mute bg-surface px-2 py-0.5 rounded">{tag}</span>
+            <span class="inline-block text-[10px] text-mute bg-surface px-2.5 py-0.5 rounded-full border border-hairline">{tag}</span>
           {/each}
         </div>
       {/if}

@@ -78,10 +78,7 @@
   </script>
 
   <!-- Prism.js for syntax highlighting -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-dark.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js" defer></script>
@@ -96,6 +93,52 @@
 
 <body data-sveltekit-preload-data="hover">
   <div style="display: contents">%sveltekit.body%</div>
+  
+  <script>
+    function initCodeBlocks() {
+      document.querySelectorAll('pre[class*="language-"]:not(.code-initialized)').forEach(pre => {
+        pre.classList.add('code-initialized');
+        const code = pre.querySelector('code');
+        if (!code) return;
+        
+        // Extract language from class
+        const langMatch = pre.className.match(/language-(\w+)/);
+        const lang = langMatch ? langMatch[1] : 'code';
+        
+        // Create header
+        const header = document.createElement('div');
+        header.className = 'code-header';
+        header.innerHTML = `
+          <span class="code-lang">${lang}</span>
+          <button class="code-copy-btn" type="button">Copy</button>
+        `;
+        
+        // Insert header at the start of pre
+        pre.insertBefore(header, code);
+        
+        // Copy handler
+        const btn = header.querySelector('.code-copy-btn');
+        btn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(code.textContent);
+            btn.textContent = 'Copied!';
+            setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+          } catch {
+            btn.textContent = 'Failed';
+            setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+          }
+        });
+      });
+    }
+    
+    // Run on load and after SvelteKit navigation
+    document.addEventListener('DOMContentLoaded', initCodeBlocks);
+    document.addEventListener('astro:page-load', initCodeBlocks);
+    // SvelteKit uses popstate
+    window.addEventListener('popstate', () => setTimeout(initCodeBlocks, 100));
+    // Also run on any click that might trigger navigation
+    document.addEventListener('click', () => setTimeout(initCodeBlocks, 200));
+  </script>
 </body>
 
 </html>
