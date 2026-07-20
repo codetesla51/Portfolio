@@ -8,7 +8,6 @@
   export let messages;
   export let addNewProject;
   export let markAsRead;
-  export let formatDate;
 </script>
 
 <div>

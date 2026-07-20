@@ -1,6 +1,6 @@
 import { getPosts } from '$lib/utils/posts.js';
 
-export async function render() {
+export async function GET() {
   const posts = await getPosts();
   const siteUrl = 'https://devuthman.vercel.app';
   

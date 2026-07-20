@@ -14,7 +14,7 @@ The existing options — Sidekiq, Bull, Celery — all assume you're running the
 
 ## The Architecture
 
-Kyu uses PostgreSQL as the source of truth and Redis for fast lookups. Jobs are stored in a `jobs` table with状态 tracking, retry counts, and scheduled-at timestamps.
+Kyu uses PostgreSQL as the source of truth and Redis for fast lookups. Jobs are stored in a `jobs` table with state tracking, retry counts, and scheduled-at timestamps.
 
 ```go
 type Job struct {

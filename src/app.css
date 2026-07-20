@@ -179,58 +179,25 @@
     transform: translateY(0);
   }
 
-  /* Code blocks */
-  .code-block {
+  /* Code blocks - Prism.js */
+  pre[class*="language-"] {
     margin: 1.5rem 0;
     border-radius: 8px;
-    overflow: hidden;
-    background: #0d1117;
     border: 1px solid var(--border);
-  }
-
-  .code-block pre {
-    margin: 0;
-    padding: 1rem;
-    overflow-x: auto;
     font-size: 13px;
     line-height: 1.6;
-  }
-
-  .code-block code {
     font-family: 'Geist Mono', monospace;
   }
 
-  .code-block-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background: #161b22;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .code-lang {
-    font-size: 11px;
-    color: var(--ash);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .copy-btn {
-    font-size: 11px;
-    color: var(--ash);
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2px 8px;
-    cursor: pointer;
+  code[class*="language-"] {
     font-family: 'Geist Mono', monospace;
-    transition: all 0.15s ease;
   }
 
-  .copy-btn:hover {
-    color: var(--ink);
-    border-color: var(--ash);
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #6a737d;
   }
 
   /* Prose styles for blog content */
@@ -380,6 +347,5 @@
     color: var(--muted);
     text-align: center;
     margin-top: 0.5rem;
-  }
   }
 }

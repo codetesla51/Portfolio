@@ -3,6 +3,13 @@
   import Loader from '$lib/components/loader.svelte';
   import Resume from "../assets/OLADELE USMAN.pdf";
   import "../app.css";
+  import { afterNavigate } from '$app/navigation';
+
+  afterNavigate(() => {
+    if (typeof Prism !== 'undefined') {
+      Prism.highlightAll();
+    }
+  });
 </script>
 
 <svelte:head>

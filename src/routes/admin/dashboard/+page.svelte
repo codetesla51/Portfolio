@@ -531,7 +531,6 @@ const replyToMessage = (email, subject, originalContent) => {
           {messages} 
           {addNewProject} 
           {markAsRead} 
-          {formatDate} 
           {replyToMessage}
         />
       {:else if activeTab === 'projects'}
