@@ -156,9 +156,11 @@
               </text>
             </svg>
           </div>
-          <span class="block mt-3 text-[12px] tracking-[0.25em] uppercase text-ash font-normal">
-            oladele
-          </span>
+          <div class="mt-5 flex items-center gap-4">
+            <span class="flex-1 h-px bg-hairline"></span>
+            <span class="text-[11px] tracking-[0.3em] uppercase text-ash">oladele</span>
+            <span class="flex-1 h-px bg-hairline"></span>
+          </div>
         </h1>
 
         <!-- Role + Tech stack -->
