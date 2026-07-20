@@ -1,38 +1,64 @@
-# sv
+# Portfolio — Uthman Oladele
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal portfolio and blog. Backend developer based in Lagos, Nigeria — Go, systems programming, and building things from scratch.
 
-## Creating a project
+**Live:** [devuthman.vercel.app](https://devuthman.vercel.app)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## What This Does
+
+A single-page portfolio with project showcases, a native markdown blog, and a "Why Hire Me" page. Blog posts are written in `.md` files, processed at build time with mdsvex and syntax-highlighted with Prism.js. Deployed on Vercel.
+
+## Tech Stack
+
+- **Framework**: SvelteKit 5 — SSR, file-based routing, server-side data loading
+- **Styling**: Tailwind CSS v4 — utility-first, dark/light theme via `prefers-color-scheme`
+- **Fonts**: Geist Sans + Geist Mono — via jsDelivr CDN
+- **Animations**: GSAP + AOS — scroll reveals, staggered entrances
+- **Blog**: mdsvex — markdown files as Svelte components, frontmatter parsing
+- **Syntax highlighting**: Prism.js — Ayu Dark theme, CDN-loaded language components
+- **Deployment**: Vercel — `adapter-vercel`, Node 22
+
+## Getting Started
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+git clone https://github.com/codetesla51/Portfolio.git
+cd Portfolio
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## How It Works
 
-To create a production version of your app:
+**Blog posts** live in `src/posts/*.md` with YAML frontmatter (title, description, date, tags, draft, ogImage). The `posts.js` utility strips frontmatter, renders markdown with `marked`, and calculates reading time. Routes: `/blog` (listing), `/blog/[slug]` (individual post).
 
-```bash
-npm run build
+**Projects** are fetched from a Leapcell-hosted backend API at build time. GitHub events are pulled for the "currently building" indicator.
+
+**Theme** uses CSS custom properties with `prefers-color-scheme` media query — no JS toggle, no localStorage. All accent colors pass WCAG AA against their backgrounds.
+
+## Project Structure
+
+```
+src/
+├── posts/              # Markdown blog posts
+├── routes/
+│   ├── blog/           # Blog listing + [slug] pages
+│   ├── why-hire-me/    # Standalone page
+│   └── admin/          # Dashboard (project management)
+├── lib/
+│   ├── components/     # Reusable Svelte components
+│   └── utils/          # posts.js, reading-time.js, slug.js
+├── assets/             # Resume PDF, images
+├── app.html            # Shell HTML, Prism.js CDN links
+└── app.css             # Tailwind + prose styles + Ayu Dark tokens
 ```
 
-You can preview the production build with `npm run preview`.
+## What I Learned
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- SvelteKit 5 with `$props()` runes and server-side `load` functions
+- Building a markdown blog pipeline from scratch without a CMS
+- CSS custom properties for zero-JS theme switching
+- Prism.js integration with custom header bars and copy-to-clipboard
+
+## License
+
+Personal project.
