@@ -19,9 +19,20 @@
   <meta property="og:description" content={post.description} />
   <meta property="og:url" content={postUrl} />
   <meta property="og:image" content={imageUrl} />
+  <meta property="og:site_name" content="Uthman Oladele" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content={post.date} />
+  <meta property="article:author" content="Uthman Oladele" />
+  {#if post.tags}
+    {#each post.tags as tag}
+      <meta property="article:tag" content={tag} />
+    {/each}
+  {/if}
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@uthman_dev" />
+  <meta name="twitter:creator" content="@uthman_dev" />
   <meta name="twitter:title" content={post.title} />
   <meta name="twitter:description" content={post.description} />
   <meta name="twitter:image" content={imageUrl} />
@@ -33,7 +44,13 @@
     "headline": post.title,
     "description": post.description,
     "datePublished": post.date,
+    "keywords": post.tags || [],
     "author": {
+      "@type": "Person",
+      "name": "Uthman Oladele",
+      "url": siteUrl
+    },
+    "publisher": {
       "@type": "Person",
       "name": "Uthman Oladele",
       "url": siteUrl
