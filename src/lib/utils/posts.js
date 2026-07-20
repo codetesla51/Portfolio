@@ -39,6 +39,16 @@ export async function getPost(slug) {
   return posts.find(p => p.slug === slug) || null;
 }
 
+export function stripFrontmatter(content) {
+  // Match --- at start, content, then ---
+  const match = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+  if (match) {
+    return match[2];
+  }
+  return content;
+}
+
 export function renderMarkdown(content) {
-  return marked(content);
+  const body = stripFrontmatter(content);
+  return marked(body);
 }

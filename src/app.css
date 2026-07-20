@@ -211,8 +211,7 @@
     margin-top: 2rem;
     margin-bottom: 1rem;
     color: var(--ink);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
@@ -221,8 +220,7 @@
     margin-top: 2rem;
     margin-bottom: 0.75rem;
     color: var(--ink);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
@@ -375,4 +373,51 @@
     border-left: none;
     border-right: none;
   }
+}
+
+/* Code block copy button positioning */
+pre[class*="language-"] {
+  position: relative;
+}
+
+pre[class*="language-"] .toolbar {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+}
+
+pre[class*="language-"] .copy-to-clipboard-button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+pre[class*="language-"] .copy-to-clipboard-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Code block scroll improvements */
+pre[class*="language-"] code::-webkit-scrollbar {
+  height: 6px;
+}
+
+pre[class*="language-"] code::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+pre[class*="language-"] code::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+pre[class*="language-"] code::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
 }

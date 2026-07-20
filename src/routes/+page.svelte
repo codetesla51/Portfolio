@@ -336,25 +336,22 @@
       <div class="border-t border-hairline">
         {#if data.posts && data.posts.length > 0}
           {#each data.posts as post}
-            <a href="/blog/{post.slug}" class="article-row flex items-baseline justify-between gap-6 py-7 border-b border-hairline">
+            <a href="/blog/{post.slug}" class="article-row block py-6 sm:py-7 border-b border-hairline group">
               <div class="min-w-0">
-                <span class="flex items-baseline gap-3 text-[14px] leading-[1.7] text-body">{post.title}</span>
+                <span class="text-[14px] leading-[1.7] text-body block">{post.title}</span>
                 {#if post.description}
-                  <p class="text-[13px] text-mute mt-1 leading-relaxed">{post.description}</p>
+                  <p class="text-[12px] sm:text-[13px] text-mute mt-1 leading-relaxed">{post.description}</p>
                 {/if}
-                <div class="flex items-center gap-3 mt-2">
-                  <time class="text-[11px] text-ash" datetime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
+                <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2">
+                  <time class="text-[11px] text-ash whitespace-nowrap" datetime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
                   <span class="text-[11px] text-ash">·</span>
-                  <span class="text-[11px] text-ash">{post.readingTime} min read</span>
+                  <span class="text-[11px] text-ash whitespace-nowrap">{post.readingTime} min read</span>
                   {#if post.tags}
-                    {#each post.tags as tag}
-                      <span class="text-[11px] text-ash">·</span>
-                      <span class="text-[11px] text-mute">{tag}</span>
-                    {/each}
+                    <span class="text-[11px] text-ash">·</span>
+                    <span class="text-[11px] text-mute whitespace-nowrap">{post.tags.join(', ')}</span>
                   {/if}
                 </div>
               </div>
-              <span class="text-xs flex-shrink-0 text-mute opacity-50 group-hover:opacity-100">↗</span>
             </a>
           {/each}
         {:else}
