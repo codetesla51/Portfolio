@@ -1,9 +1,9 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
-import shiki from 'shiki';
+import { createHighlighter } from 'shiki';
 
-const highlighter = await shiki.createHighlighter({
+const highlighter = await createHighlighter({
   themes: ['github-dark'],
   langs: ['go', 'bash', 'javascript', 'typescript', 'python', 'rust', 'c', 'sql', 'json', 'yaml', 'markdown', 'html', 'css']
 });
