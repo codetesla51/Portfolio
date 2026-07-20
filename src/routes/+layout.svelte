@@ -101,7 +101,7 @@
 
 <style>
   .nav-glass {
-    background: color-mix(in srgb, #030202 75%, transparent);
+    background: color-mix(in srgb, var(--color-canvas) 75%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
@@ -110,9 +110,9 @@
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 4px;
-    border: 1px solid rgba(157, 155, 155, 0.4);
+    border: 1px solid color-mix(in srgb, var(--color-mute) 40%, transparent);
     background: transparent;
-    color: #9d9b9b;
+    color: var(--color-mute);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,15 +122,15 @@
     cursor: pointer;
   }
   .nav-btn:hover {
-    color: #e2dfdf;
-    border-color: #e2dfdf;
+    color: var(--color-ink);
+    border-color: var(--color-ink);
   }
 
   .dot {
     width: 0.4rem;
     height: 0.4rem;
     border-radius: 9999px;
-    background: #e2dfdf;
+    background: var(--color-ink);
     opacity: 0.4;
     transition: opacity 0.18s ease;
   }
@@ -141,14 +141,14 @@
     flex-direction: column;
     align-items: center;
     gap: 0.3rem;
-    color: #9d9b9b;
+    color: var(--color-mute);
     text-decoration: none;
     background: none;
     border: none;
     cursor: pointer;
     transition: color 0.18s ease;
   }
-  .mob-link:hover { color: #e2dfdf; }
+  .mob-link:hover { color: var(--color-ink); }
 
   .icon-link {
     opacity: 0.45;

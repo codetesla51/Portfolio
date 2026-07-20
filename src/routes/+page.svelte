@@ -368,7 +368,7 @@
   .article-row:hover { opacity: 0.7; }
 
   a:focus-visible, button:focus-visible {
-    outline: 1px solid #201d1d;
+    outline: 1px solid var(--color-ash);
     outline-offset: 2px;
   }
 </style>
