@@ -6,7 +6,7 @@ export async function render() {
   
   const postUrls = posts.map(post => `
     <url>
-      <loc>${siteUrl}/writing/${post.slug}</loc>
+      <loc>${siteUrl}/blog/${post.slug}</loc>
       <lastmod>${post.date}</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
@@ -21,7 +21,7 @@ export async function render() {
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>${siteUrl}/writing</loc>
+    <loc>${siteUrl}/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

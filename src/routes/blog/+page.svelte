@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-  <title>Writing — Uthman Oladele</title>
+  <title>Blog — Uthman Oladele</title>
   <meta name="description" content="Technical writing about Go, systems programming, and building things from scratch." />
 </svelte:head>
 
@@ -14,7 +14,7 @@
 
     <a href="/" class="link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute mb-12 inline-block">← Back</a>
 
-    <h1 class="text-lg sm:text-xl font-bold tracking-[0.08em] uppercase text-ink mb-12">Writing</h1>
+    <h1 class="text-lg sm:text-xl font-bold tracking-[0.08em] uppercase text-ink mb-12">Blog</h1>
 
     <div class="border-t border-hairline">
       {#each data.posts as post}

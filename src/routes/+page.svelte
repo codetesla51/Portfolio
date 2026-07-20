@@ -326,7 +326,7 @@
     </div>
 
     <div class="mt-12 pt-6 border-t border-hairline">
-      <a href="/writing"
+      <a href="/blog"
         class="link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-um">All posts →</a>
     </div>
 
