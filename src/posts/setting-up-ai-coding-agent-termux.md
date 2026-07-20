@@ -3,7 +3,7 @@ title: "Setting Up an AI Coding Agent on Termux (Nobody Codes on a Phone, I Know
 description: "Nobody codes on a phone. I do anyway, and I went down a real rabbit hole finding an AI coding agent light enough to actually live there. Here's what I found."
 date: "2026-07-20"
 tags: ["termux", "ai", "workflow"]
-draft: true
+draft: false
 ogImage: ""
 ---
 
