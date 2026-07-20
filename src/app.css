@@ -426,12 +426,11 @@
     font-size: 13px;
   }
   
-  .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
+  .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"], figcaption *)) {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
 }
 

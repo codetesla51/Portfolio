@@ -27,26 +27,24 @@
   <meta name="twitter:image" content={imageUrl} />
   
   <!-- JSON-LD -->
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": post.title,
-      "description": post.description,
-      "datePublished": post.date,
-      "author": {
-        "@type": "Person",
-        "name": "Uthman Oladele",
-        "url": siteUrl
-      },
-      "url": postUrl,
-      "image": imageUrl
-    })}
-  </script>
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.description,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": "Uthman Oladele",
+      "url": siteUrl
+    },
+    "url": postUrl,
+    "image": imageUrl
+  })}</script>`}
 </svelte:head>
 
 <main class="flex-1 bg-canvas font-mono">
-  <article class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-12 md:py-28">
+  <article class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 py-10 sm:py-12 md:py-28">
 
     <a href="/blog" class="link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute mb-12 inline-block">← All posts</a>
 

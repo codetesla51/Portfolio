@@ -1,7 +1,7 @@
 <script>
   export let data;
   
-  let activeTab = 'blog';
+  let activeTab = 'writing';
   
   const personalInfo = {
     email: "uoladele99@gmail.com",
