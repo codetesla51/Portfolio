@@ -16,33 +16,51 @@
 
     <div class="max-w-2xl space-y-10 text-sm sm:text-[15px] leading-[1.8] text-body">
 
+      <p>
+        Anyone can prompt an AI into a working demo now. That's not a skill anymore — it's a baseline. The question worth asking isn't "can they build something," it's "do they know what they built."
+      </p>
+
       <section>
-        <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">I Build From Scratch</h2>
+        <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">What I can do</h2>
         <p>
-          I don't just use frameworks — I understand what's underneath. I've built an HTTP server from TCP sockets, a git implementation from first principles, a scripting language with a Pratt parser and tree-walking interpreter, and a distributed job queue backed by PostgreSQL and Redis. When something breaks at 3 AM, I know exactly where to look.
+          I build backend systems from the ground up — job queues, auth libraries, rate limiters, a scripting language with its own interpreter. Not tutorials, not wrappers around someone else's library — the actual thing, understood well enough that I can tell you why it's built the way it is. I don't trust code just because it runs, including my own — I write unit tests for everything, and I don't consider something done until it's tested, not just working. For systems that need to hold up under load, I simulate high request volume against them to find where they actually break, not where I assume they might. I know how to actually use AI — not just prompt it, but plan work with it, build with agents, and know when to trust the output and when to throw it out. I use it as a tool the way I'd use any other tool: fast when it's right, discarded when it's wrong. I show up, I finish what I start, and I'll code from a phone in a pinch if that's what I've got — I already have.
         </p>
       </section>
 
       <section>
-        <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">I Ship To Production</h2>
+        <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">What I can't do</h2>
         <p>
-          Every project I've built is deployed and running. Logos has documentation served live. Kyu is benchmarked at 52ns/op with zero allocations. My rate limiter library has five algorithms and pluggable storage backends. These aren't homework assignments — they're production-grade tools I use myself and trust other people to use.
+          I haven't worked on a large engineering team yet, and I haven't shipped anything at scale under real production traffic — my load simulations are me finding my own systems' limits, not the same thing as production traffic finding them for me. There are gaps that only real team experience fills, and I haven't had that yet. I'm not going to pretend otherwise.
         </p>
       </section>
 
       <section>
-        <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">I Write Clearly</h2>
-        <p>
-          I write technical blog posts on Dev.to that break down complex systems into digestible explanations. I document my projects thoroughly. I believe that if you can't explain what you built, you don't really understand it. Clear writing means clear thinking, and clear thinking means fewer bugs in production.
-        </p>
+        <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">Three reasons anyway</h2>
+        <ol class="space-y-8 list-none">
+          <li>
+            <span class="text-ink font-bold">1.</span> I don't trust code until it's tested — including mine.
+            <p class="mt-2">
+              I write unit tests as a default, not an afterthought, and I stress-test systems under simulated load before I call them done. I've built things complex enough (a tree-walking interpreter, a distributed job queue with a stale-job reaper) that untested code would've broken immediately. It didn't, because I tested it before I trusted it.
+            </p>
+          </li>
+          <li>
+            <span class="text-ink font-bold">2.</span> I know how to work with AI, not just talk to it.
+            <p class="mt-2">
+              Planning a build with an agent, deciding what it should own versus what I should own, catching when it's confidently wrong — that's the actual skill now, and it's separate from knowing how to code. I have both.
+            </p>
+          </li>
+          <li>
+            <span class="text-ink font-bold">3.</span> Circumstances don't stop me.
+            <p class="mt-2">
+              I wrote my first code on a phone, before I owned a laptop. I've built a working DSL and set up dev tooling with nothing but a touchscreen. If the setup's not ideal, I adapt — I don't wait for ideal.
+            </p>
+          </li>
+        </ol>
       </section>
 
-      <section>
-        <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">I Care About The Details</h2>
-        <p>
-          I notice the things most people skip. Buffer pooling that doubled my HTTP server's throughput. Graceful shutdown that actually drains connections. JWT rotation with theft detection. SERIALIZABLE transactions with row-level locking to prevent race conditions. I don't ship code that works — I ship code that works correctly under pressure.
-        </p>
-      </section>
+      <p class="border-t border-hairline pt-8">
+        I don't have a company name on my resume yet. What I have instead is a body of work you can actually read the source of, tests included, and the judgment to know what's good in it and what isn't. Look at the projects, not just this page.
+      </p>
 
     </div>
 
