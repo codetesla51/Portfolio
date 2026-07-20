@@ -5,7 +5,7 @@
   const siteUrl = 'https://devuthman.vercel.app';
   const postUrl = `${siteUrl}/writing/${post.slug}`;
   const defaultImage = `${siteUrl}/og-default.png`;
-  const imageUrl = post.image || defaultImage;
+  const imageUrl = post.ogImage || post.image || defaultImage;
 </script>
 
 <svelte:head>
