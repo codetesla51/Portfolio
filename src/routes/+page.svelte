@@ -164,7 +164,7 @@
         <!-- Role + Tech stack -->
         <div class="flex flex-wrap items-center gap-x-5 gap-y-3 mb-10">
           <div class="flex items-center gap-3">
-            <span class="text-ink font-bold">[+]</span>
+            <span class="text-ink font-bold">#</span>
             <p class="text-xs sm:text-sm tracking-[0.15em] uppercase text-mute">
               Backend Engineer
             </p>
@@ -259,7 +259,7 @@
   <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-12 md:py-28">
 
     <div class="flex items-center gap-3 mb-12">
-      <span class="text-ink font-bold">[+]</span>
+      <span class="text-ink font-bold">#</span>
       <span class="text-sm sm:text-base font-bold tracking-[0.1em] uppercase text-ink">Projects</span>
     </div>
 
@@ -316,7 +316,7 @@
   <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-12 md:py-28">
 
     <div class="flex items-center gap-3 mb-12">
-      <span class="text-ink font-bold">[+]</span>
+      <span class="text-ink font-bold">#</span>
       <span class="text-sm sm:text-base font-bold tracking-[0.1em] uppercase text-ink">Writing</span>
     </div>
 
