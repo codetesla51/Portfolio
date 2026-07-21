@@ -138,8 +138,8 @@
 <section id="hero" class="relative md:min-h-screen md:flex md:items-center overflow-hidden bg-canvas font-mono">
   <div class="hidden md:block absolute left-6 md:left-12 lg:left-20 top-0 bottom-0 w-px bg-hairline"></div>
 
-  <div class="relative w-full max-w-5xl mx-auto px-6 md:px-16 lg:px-24 pt-20 pb-12 md:py-0 md:min-h-screen md:flex md:items-center">
-    <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-28 w-full">
+  <div class="relative w-full max-w-5xl mx-auto px-5 sm:px-6 md:px-16 lg:px-24 pt-20 pb-12 md:py-0 md:min-h-screen md:flex md:items-center">
+    <div class="flex flex-col lg:flex-row items-start gap-12 sm:gap-16 lg:gap-28 w-full">
 
       <div class="flex-1 min-w-0 w-full">
 
@@ -150,7 +150,7 @@
             <span class="text-stone">»</span> oladele
           </div>
           <div class="ascii-name" aria-hidden="true">
-            <svg viewBox="0 0 620 84" preserveAspectRatio="none" style="width: 100%; height: auto; display: block;">
+            <svg viewBox="0 0 620 84" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block; max-width: 100%;">
               <text x="0" y="12" style="font-family: 'Geist Mono', monospace; font-size: 11px; white-space: pre; user-select: none;" fill="currentColor">
                 <tspan x="0" dy="0">   ██╗   ██╗████████╗██╗  ██╗███╗   ███╗ █████╗ ███╗   ██╗</tspan>
                 <tspan x="0" dy="14">   ██║   ██║╚══██╔══╝██║  ██║████╗ ████║██╔══██╗████╗  ██║</tspan>
@@ -251,7 +251,7 @@
      PROJECTS
 ════════════════════════════════════════════ -->
 <section id="projects" class="bg-canvas font-mono">
-  <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-12 md:py-28">
+  <div class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 py-12 md:py-28">
 
     <div class="flex items-center gap-3 mb-12">
       <span class="text-ink font-bold">#</span>
@@ -308,7 +308,7 @@
      WRITING
 ════════════════════════════════════════════ -->
 <section id="writing" class="bg-canvas font-mono">
-  <div class="max-w-[960px] mx-auto px-6 md:px-16 lg:px-24 py-12 md:py-28">
+  <div class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 py-12 md:py-28">
 
     <div class="flex items-center gap-3 mb-8">
       <span class="text-ink font-bold">#</span>

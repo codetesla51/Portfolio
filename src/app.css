@@ -412,14 +412,15 @@
   }
 
   .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"], figcaption *)) {
-    max-width: 80%;
+    max-width: 100%;
   }
   
   .prose pre[class*="language-"] {
     font-size: 12px;
-    padding: 1rem;
+    padding: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
   }
   
   .prose code {
@@ -431,6 +432,18 @@
     margin-right: 0;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Mobile nav adjustments */
+  .mob-link {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"], figcaption *)) {
+    max-width: 65%;
   }
 }
 
