@@ -138,7 +138,7 @@
 <section id="hero" class="relative md:min-h-screen md:flex md:items-center overflow-hidden bg-canvas font-mono">
   <div class="hidden md:block absolute left-6 md:left-12 lg:left-20 top-0 bottom-0 w-px bg-hairline"></div>
 
-  <div class="relative w-full max-w-5xl mx-auto px-5 sm:px-6 md:px-16 lg:px-24 pt-20 pb-12 md:py-0 md:min-h-screen md:flex md:items-center">
+  <div class="relative w-full max-w-5xl mx-auto px-5 sm:px-6 md:px-16 lg:px-24 pt-10 pb-12 md:py-0 md:min-h-screen md:flex md:items-center">
     <div class="flex flex-col lg:flex-row items-start gap-12 sm:gap-16 lg:gap-28 w-full">
 
       <div class="flex-1 min-w-0 w-full">
@@ -164,14 +164,13 @@
         </h1>
 
         <!-- Role + Tech stack -->
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-3 mb-10">
-          <div class="flex items-center gap-3">
+        <div class="mb-10">
+          <div class="flex items-center gap-3 mb-4">
             <span class="text-ink font-bold">#</span>
             <p class="text-xs sm:text-sm tracking-[0.15em] uppercase text-mute">
               Backend Engineer
             </p>
           </div>
-          <span class="hidden sm:block h-4 w-px bg-hairline"></span>
           <div class="flex flex-wrap items-center gap-4">
             <span class="icon-link" aria-label="Go" title="Go">
               <svg class="w-[20px] h-[20px]" viewBox="0 0 207 78" xmlns="http://www.w3.org/2000/svg"><g fill="#fff" fill-rule="evenodd"><path d="m16.2 24.1c-.4 0-.5-.2-.3-.5l2.1-2.7c.2-.3.7-.5 1.1-.5h35.7c.4 0 .5.3.3.6l-1.7 2.6c-.2.3-.7.6-1 .6z"/><path d="m1.1 33.3c-.4 0-.5-.2-.3-.5l2.1-2.7c.2-.3.7-.5 1.1-.5h45.6c.4 0 .6.3.5.6l-.8 2.4c-.1.4-.5.6-.9.6z"/><path d="m25.3 42.5c-.4 0-.5-.3-.3-.6l1.4-2.5c.2-.3.6-.6 1-.6h20c.4 0 .6.3.6.7l-.2 2.4c0 .4-.4.7-.7.7z"/><g transform="translate(55)"><path d="m74.1 22.3c-6.3 1.6-10.6 2.8-16.8 4.4-1.5.4-1.6.5-2.9-1-1.5-1.7-2.6-2.8-4.7-3.8-6.3-3.1-12.4-2.2-18.1 1.5-6.8 4.4-10.3 10.9-10.2 19 .1 8 5.6 14.6 13.5 15.7 6.8.9 12.5-1.5 17-6.6.9-1.1 1.7-2.3 2.7-3.7-3.6 0-8.1 0-19.3 0-2.1 0-2.6-1.3-1.9-3 1.3-3.1 3.7-8.3 5.1-10.9.3-.6 1-1.6 2.5-1.6h36.4c-.2 2.7-.2 5.4-.6 8.1-1.1 7.2-3.8 13.8-8.2 19.6-7.2 9.5-16.6 15.4-28.5 17-9.8 1.3-18.9-.6-26.9-6.6-7.4-5.6-11.6-13-12.7-22.2-1.3-10.9 1.9-20.7 8.5-29.3 7.1-9.3 16.5-15.2 28-17.3 9.4-1.7 18.4-.6 26.5 4.9 5.3 3.5 9.1 8.3 11.6 14.1.6.9.2 1.4-1 1.7z"/><path d="m107.2 77.6c-9.1-.2-17.4-2.8-24.4-8.8-5.9-5.1-9.6-11.6-10.8-19.3-1.8-11.3 1.3-21.3 8.1-30.2 7.3-9.6 16.1-14.6 28-16.7 10.2-1.8 19.8-.8 28.5 5.1 7.9 5.4 12.8 12.7 14.1 22.3 1.7 13.5-2.2 24.5-11.5 33.9-6.6 6.7-14.7 10.9-24 12.8-2.7.5-5.4.6-8 .9zm23.8-40.4c-.1-1.3-.1-2.3-.3-3.3-1.8-9.9-10.9-15.5-20.4-13.3-9.3 2.1-15.3 8-17.5 17.4-1.8 7.8 2 15.7 9.2 18.9 5.5 2.4 11 2.1 16.3-.6 7.9-4.1 12.2-10.5 12.7-19.1z" fill-rule="nonzero"/></g></g></svg>
@@ -186,6 +185,7 @@
               <svg class="w-[20px] h-[20px]" fill="#1793D1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.39.605C10.376 3.092 9.764 4.72 8.635 7.132c.693.734 1.543 1.589 2.923 2.554-1.484-.61-2.496-1.224-3.252-1.86C6.86 10.842 4.596 15.138 0 23.395c3.612-2.085 6.412-3.37 9.021-3.862a6.61 6.61 0 01-.171-1.547l.003-.115c.058-2.315 1.261-4.095 2.687-3.973 1.426.12 2.534 2.096 2.478 4.409a6.52 6.52 0 01-.146 1.243c2.58.505 5.352 1.787 8.914 3.844-.702-1.293-1.33-2.459-1.929-3.57-.943-.73-1.926-1.682-3.933-2.713 1.38.359 2.367.772 3.137 1.234-6.09-11.334-6.582-12.84-8.67-17.74zM22.898 21.36v-.623h-.234v-.084h.562v.084h-.234v.623h.331v-.707h.142l.167.5.034.107a2.26 2.26 0 01.038-.114l.17-.493H24v.707h-.091v-.593l-.206.593h-.084l-.205-.602v.602h-.091"/></svg>
             </span>
           </div>
+        </div>
 
         <!-- Bio -->
         <p class="max-w-md mb-12 text-sm sm:text-[15px] leading-relaxed text-body">
@@ -193,7 +193,7 @@
         </p>
 
         <!-- Nav links -->
-        <div class="flex items-center mb-16 text-sm">
+        <div class="flex items-center mb-6 text-sm">
           <a href="/why-hire-me" class="link-fade text-ink underline underline-offset-4 decoration-hairline hover:decoration-ink">Why hire me</a>
           <span class="mx-4 text-ash">/</span>
           <a href="#projects" class="link-fade text-ink underline underline-offset-4 decoration-hairline hover:decoration-ink">Projects</a>
@@ -202,7 +202,7 @@
         </div>
 
         <!-- Socials + email -->
-        <div class="flex flex-wrap items-center gap-5">
+        <div class="flex flex-wrap items-center gap-4 mt-6">
           <a href="https://github.com/codetesla51" target="_blank" rel="noopener noreferrer"
             class="icon-link text-mute" aria-label="GitHub">
             <svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24">
