@@ -17,26 +17,26 @@
     <div class="max-w-2xl space-y-10 text-sm sm:text-[15px] leading-[1.8] text-body">
 
       <p>
-        Anyone can prompt an AI into a working demo now. That's not a skill anymore — it's a baseline. Filtering signal from noise is harder than it's ever been, because the noise looks more convincing than it used to. The question worth asking isn't "can they build something," it's "do they know what they built, and can they defend every decision in it."
+        Anyone can prompt an AI into a working demo now — that's a baseline, not a skill. The real question isn't "can they build something," it's "do they know what they built, and can they defend every decision in it."
       </p>
 
       <section>
         <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">What I can do</h2>
         <p>
-          I build backend systems — job queues, auth libraries, rate limiters, a scripting language with its own interpreter, a Git implementation, an HTTP server built straight off TCP sockets. Some started from tutorials or AI-assisted builds; none stayed there — I pushed past the tutorial ceiling until I could explain and defend every design decision, not just reproduce steps.
+          I build backend systems — job queues, auth libraries, rate limiters, a scripting language with its own interpreter, a Git implementation, an HTTP server built straight off TCP sockets. Some started from tutorials or AI-assisted builds. None stayed there. I push until I can explain and defend every design decision, not just reproduce the steps.
         </p>
       </section>
 
       <section>
         <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">What I can't do</h2>
         <p>
-          I haven't worked on a large engineering team yet, and I haven't shipped anything at scale under real production traffic. My load simulations are me finding my own systems' limits — not the same thing as production traffic finding them for me, with real users, real edge cases, and real cost pressure attached. There are gaps that only real team experience fills: code review from senior engineers, working inside someone else's architecture instead of one I designed myself, and coordinating with people instead of just AI agents. I haven't had that yet. I'm not going to pretend otherwise — I'd rather you know going in than find out later.
+          I haven't worked on a large engineering team yet, and I haven't shipped anything at scale under real production traffic. Barrage tells me where my own systems break. That's not the same as production traffic finding the breaks for me — real users, real edge cases, real cost pressure. There are gaps that only real team experience fills: code review from senior engineers, working inside someone else's architecture instead of one I designed myself, and coordinating with people instead of just AI agents. I haven't had that yet. I'm not going to pretend otherwise — I'd rather you know going in than find out later.
         </p>
       </section>
 
       <section>
         <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">Three reasons anyway</h2>
-        <ol class="space-y-8 list-none">
+        <ul class="space-y-8 list-none">
           <li>
             <span class="text-ink font-bold">1.</span> I don't trust code until it's tested — including mine.
             <p class="mt-2">
@@ -55,7 +55,7 @@
               I wrote my first code on a phone, before I owned a laptop — no proper keyboard, no multiple monitors, none of the setup people assume you need to be productive. If the setup's not ideal, I adapt. I don't wait for ideal conditions to start doing good work, and I won't wait for them on your team either.
             </p>
           </li>
-        </ol>
+        </ul>
       </section>
 
       <p class="border-t border-hairline pt-8">
