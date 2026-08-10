@@ -1,10 +1,10 @@
 ---
 title: "HTML Is Enough"
-description: "You can build a website with only HTML and CSS. Here's why I reach for the browser's built-in tools before adding another layer on top of them — with the receipts."
+description: "Build a website with only HTML and CSS. Form validation, modals, dropdowns — zero JavaScript. With the receipts."
 date: "2026-08-10"
 tags: ["html", "css", "opinion"]
 draft: false
-ogImage: "https://t3.ftcdn.net/jpg/03/21/24/30/360_F_321243084_GstfWflk1eTLlzUdRZ5mjoP5IG1iCc8J.jpg"
+ogImage: "https://devuthman.vercel.app/og/html-is-enough.png"
 ---
 
 ![HTML Is Enough](https://t3.ftcdn.net/jpg/03/21/24/30/360_F_321243084_GstfWflk1eTLlzUdRZ5mjoP5IG1iCc8J.jpg)
