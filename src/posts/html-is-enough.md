@@ -17,24 +17,17 @@ HTML is actually pretty damn capable. Not in the abstract — concretely, with z
 
 ## Form validation, no JS
 
-<form>
-  <label for="email">Email</label>
-  <input type="email" id="email" required>
-
-  <label for="age">Age (18+)</label>
-  <input type="number" id="age" min="18" max="120" required>
-
-  <button type="submit">Submit</button>
+<form style="display:flex; flex-direction:column; gap:6px; padding:1.5rem; border:1px solid #333; border-radius:12px; background:#0d0d0d; margin:1.5rem 0;">
+  <label for="email" style="font-size:13px; color:#9ca3af;">Email</label>
+  <input type="email" id="email" required style="width:100%; padding:10px 12px; background:#111; border:1px solid #444; border-radius:8px; color:#e5e7eb; font:inherit; box-sizing:border-box;">
+  <label for="age" style="font-size:13px; color:#9ca3af;">Age (18+)</label>
+  <input type="number" id="age" min="18" max="120" required style="width:100%; padding:10px 12px; background:#111; border:1px solid #444; border-radius:8px; color:#e5e7eb; font:inherit; box-sizing:border-box;">
+  <button type="submit" style="margin-top:12px; align-self:flex-start; padding:10px 18px; background:#e5e7eb; color:#111; border:none; border-radius:8px; font:inherit; font-weight:600; cursor:pointer;">Submit</button>
 </form>
 
 <style>
-  input:invalid {
-    border: 2px solid red;
-  }
-
-  input:valid {
-    border: 2px solid green;
-  }
+  input:invalid { border-color: #ef4444 !important; box-shadow: 0 0 0 1px #ef4444; }
+  input:valid   { border-color: #22c55e !important; }
 </style>
 
 That's real validation. Wrong email format, empty field, age under 18 — the browser blocks submission and shows a native error message. No library, no onChange handler, no state.
@@ -43,15 +36,14 @@ Want custom styling on invalid fields instead of the browser's default popup? Th
 
 ## A modal, no JS
 
-<dialog id="confirm">
-  <p>Are you sure?</p>
-  <form method="dialog">
-    <button value="cancel">Cancel</button>
-    <button value="confirm">Confirm</button>
+<dialog id="confirm" style="background:#111; color:#e5e7eb; border:1px solid #333; border-radius:12px; padding:1.5rem; max-width:320px;">
+  <p style="margin:0 0 1rem; font-size:14px;">Are you sure?</p>
+  <form method="dialog" style="display:flex; gap:8px; justify-content:flex-end; margin:0;">
+    <button value="cancel" style="padding:8px 14px; background:transparent; border:1px solid #444; border-radius:8px; color:#9ca3af; font:inherit; cursor:pointer;">Cancel</button>
+    <button value="confirm" style="padding:8px 14px; background:#ef4444; border:none; border-radius:8px; color:#fff; font:inherit; font-weight:600; cursor:pointer;">Confirm</button>
   </form>
 </dialog>
-
-<button onclick={() => document.getElementById('confirm').showModal()}>Delete</button>
+<button onclick={() => document.getElementById('confirm').showModal()} style="padding:8px 14px; background:#e5e7eb; border:none; border-radius:8px; color:#111; font:inherit; font-weight:600; cursor:pointer;">Delete</button>
 
 `<dialog>` gives you a real modal — backdrop, focus trap, Esc to close — built into the element. The one line of onclick is the absolute minimum JS to open it; closing it is handled by method="dialog" alone.
 
