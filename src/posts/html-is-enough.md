@@ -17,64 +17,48 @@ HTML is actually pretty damn capable. Not in the abstract — concretely, with z
 
 ## Form validation, no JS
 
-```html
-<form>
-  <label for="email">Email</label>
-  <input type="email" id="email" required>
-
-  <label for="age">Age (18+)</label>
-  <input type="number" id="age" min="18" max="120" required>
-
-  <button type="submit">Submit</button>
+<form style="display:flex; flex-direction:column; gap:6px; padding:1.5rem; border:1px solid #333; border-radius:12px; background:#0d0d0d; margin:1.5rem 0;">
+  <label for="email" style="font-size:13px; color:#9ca3af;">Email</label>
+  <input type="email" id="email" required style="width:100%; padding:10px 12px; background:#111; border:1px solid #444; border-radius:8px; color:#e5e7eb; font:inherit; box-sizing:border-box;">
+  <label for="age" style="font-size:13px; color:#9ca3af;">Age (18+)</label>
+  <input type="number" id="age" min="18" max="120" required style="width:100%; padding:10px 12px; background:#111; border:1px solid #444; border-radius:8px; color:#e5e7eb; font:inherit; box-sizing:border-box;">
+  <button type="submit" style="margin-top:12px; align-self:flex-start; padding:10px 18px; background:#e5e7eb; color:#111; border:none; border-radius:8px; font:inherit; font-weight:600; cursor:pointer;">Submit</button>
 </form>
-```
+
+<style>
+  input:invalid { border-color: #ef4444 !important; box-shadow: 0 0 0 1px #ef4444; }
+  input:valid   { border-color: #22c55e !important; }
+</style>
 
 That's real validation. Wrong email format, empty field, age under 18 — the browser blocks submission and shows a native error message. No library, no onChange handler, no state.
 
-Want custom styling on invalid fields instead of the browser's default popup?
-
-```css
-input:invalid {
-  border: 2px solid red;
-}
-
-input:valid {
-  border: 2px solid green;
-}
-```
-
-`:invalid` and `:valid` pseudo-classes give you that for free, styled entirely in CSS.
+Want custom styling on invalid fields instead of the browser's default popup? Try the inputs above — empty or wrong-format fields get a red border, valid ones turn green. All of it CSS.
 
 ## A modal, no JS
 
-```html
-<dialog id="confirm">
-  <p>Are you sure?</p>
-  <form method="dialog">
-    <button value="cancel">Cancel</button>
-    <button value="confirm">Confirm</button>
-  </form>
+<dialog id="confirm" popover style="background:#111; color:#e5e7eb; border:1px solid #333; border-radius:12px; padding:1.5rem; max-width:320px; margin:auto;">
+  <p style="margin:0 0 1rem; font-size:14px;">Are you sure?</p>
+  <div style="display:flex; gap:8px; justify-content:flex-end;">
+    <button popovertarget="confirm" popovertargetaction="hide" value="cancel" style="padding:8px 14px; background:transparent; border:1px solid #444; border-radius:8px; color:#9ca3af; font:inherit; cursor:pointer;">Cancel</button>
+    <button popovertarget="confirm" popovertargetaction="hide" value="confirm" style="padding:8px 14px; background:#ef4444; border:none; border-radius:8px; color:#fff; font:inherit; font-weight:600; cursor:pointer;">Confirm</button>
+  </div>
 </dialog>
+<button popovertarget="confirm" style="padding:8px 14px; background:#e5e7eb; border:none; border-radius:8px; color:#111; font:inherit; font-weight:600; cursor:pointer;">Delete</button>
 
-<button onclick="confirm.showModal()">Delete</button>
-```
-
-`<dialog>` gives you a real modal — backdrop, focus trap, Esc to close — built into the element. The one line of onclick is the absolute minimum JS to open it; closing it is handled by method="dialog" alone.
+`<dialog>` gives you a real modal — top layer, backdrop, focus trap, Esc to close — built into the element. Opening it takes zero JavaScript: the `popovertarget` attribute on the button does it, and clicking outside, pressing Esc, or hitting Cancel closes it. Try it.
 
 ## A dropdown menu, no JS
 
-```html
-<details>
-  <summary>Options</summary>
-  <ul>
-    <li>Edit</li>
-    <li>Duplicate</li>
-    <li>Delete</li>
+<details style="background:#0d0d0d; border:1px solid #333; border-radius:12px; margin:1.5rem 0; padding:0;">
+  <summary style="list-style:none; padding:14px 18px; font-size:14px; color:#e5e7eb; cursor:pointer; display:flex; justify-content:space-between; align-items:center;">Options<span style="color:#6b7280;">▾</span></summary>
+  <ul style="margin:0; padding:0 0 8px; list-style:none;">
+    <li style="padding:10px 18px; font-size:13px; color:#9ca3af; cursor:pointer;">Edit</li>
+    <li style="padding:10px 18px; font-size:13px; color:#9ca3af; cursor:pointer;">Duplicate</li>
+    <li style="padding:10px 18px; font-size:13px; color:#ef4444; cursor:pointer;">Delete</li>
   </ul>
 </details>
-```
 
-`<details>`/`<summary>` is a fully functional disclosure widget. Click to expand, click to collapse. Style it with CSS to not look like a `<details>` element and most users will never know.
+`<details>`/`<summary>` is a fully functional disclosure widget — the one above is live. Click to expand, click to collapse. The CSS inlines the styling so it doesn't look like a `<details>` element at all, and most users will never know.
 
 ## Now the part everyone skips: where this actually stops being enough
 
