@@ -51,7 +51,7 @@ Want custom styling on invalid fields instead of the browser's default popup? Th
   </form>
 </dialog>
 
-<button onclick="confirm.showModal()">Delete</button>
+<button onclick={() => document.getElementById('confirm').showModal()}>Delete</button>
 
 `<dialog>` gives you a real modal — backdrop, focus trap, Esc to close — built into the element. The one line of onclick is the absolute minimum JS to open it; closing it is handled by method="dialog" alone.
 
