@@ -9,6 +9,14 @@
 
   const projects = [
     {
+      name: 'Phylax',
+      description: 'Minimal PostgreSQL logical replication client. Streams committed row changes straight from the WAL — self-provisions its replication slot and publication, resumes from the saved LSN after restarts, and delivers changes to a five-line OnChange callback, webhooks, or an embedded live console with SSE. Load-tested with barrage against Postgres 16: decoded 100% of everything generated up to ~37k changes/s with lag pinned at zero.',
+      tech_stack: ['Go', 'PostgreSQL', 'WAL', 'SSE'],
+      github_url: 'https://github.com/codetesla51/phylax',
+      doc_url: null,
+      private: false
+    },
+    {
       name: 'Logos',
       description: 'A scripting language written in Go. Pratt parser, tree-walking interpreter, closures, goroutine-backed concurrency, sandboxed VM, and cross-platform binary compilation.',
       tech_stack: ['Go', 'Compilers', 'AST'],
@@ -18,8 +26,8 @@
     },
     {
       name: 'Kyu',
-      description: 'Distributed job queue for Go backed by PostgreSQL and Redis. Retries, scheduling, middleware chain, Prometheus metrics, and a stale job reaper. Benchmarked at 52ns/op with zero allocations.',
-      tech_stack: ['Go', 'PostgreSQL', 'Redis'],
+      description: 'Distributed job queue for Go built for production: PostgreSQL is the durable source of truth for every job, attempt, and error, while Redis exists only as the low-latency priority index that decides what runs next. Dead-letter management, an embedded dashboard, and a CLI — jobs survive a full Redis wipe. Benchmarked at 52ns/op with 0 allocations on registration and 950ns/op on execution, with a Prometheus endpoint and a pre-built Grafana dashboard.',
+      tech_stack: ['Go', 'PostgreSQL', 'Redis', 'Prometheus', 'Grafana'],
       github_url: 'https://github.com/codetesla51/kyu',
       doc_url: 'https://kyu-job-queue.vercel.app/',
       private: false
