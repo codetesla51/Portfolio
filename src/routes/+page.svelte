@@ -360,9 +360,9 @@
         <span class="text-sm sm:text-base font-bold tracking-[0.1em] uppercase text-ink">Writing</span>
         <span class="hidden sm:inline text-[11px] tracking-wide text-ash">· {data.posts?.length || 0} posts · {articles.length} external</span>
       </div>
-      <div class="inline-flex items-center gap-1 p-1 rounded-full border border-hairline bg-canvas">
-        <button onclick={() => activeTab = 'blog'} class="px-4 py-1.5 text-xs leading-none rounded-full transition-colors {activeTab === 'blog' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">Blog</button>
-        <button onclick={() => activeTab = 'writing'} class="px-4 py-1.5 text-xs leading-none rounded-full transition-colors {activeTab === 'writing' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">External</button>
+      <div class="inline-flex items-center gap-1 p-1 rounded-full bg-transparent">
+        <button onclick={() => activeTab = 'blog'} class="px-4 py-1.5 text-xs leading-none rounded-full transition-colors {activeTab === 'blog' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink hover:bg-surface-soft/50'}">Blog</button>
+        <button onclick={() => activeTab = 'writing'} class="px-4 py-1.5 text-xs leading-none rounded-full transition-colors {activeTab === 'writing' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink hover:bg-surface-soft/50'}">External</button>
       </div>
     </div>
 
