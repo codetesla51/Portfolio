@@ -360,9 +360,9 @@
         <span class="text-sm sm:text-base font-bold tracking-[0.1em] uppercase text-ink">Writing</span>
         <span class="hidden sm:inline text-[11px] tracking-wide text-ash">· {data.posts?.length || 0} posts · {articles.length} external</span>
       </div>
-      <div class="flex items-center gap-1 p-0.5 sm:p-1 rounded-full border border-hairline bg-canvas max-w-full">
-        <button onclick={() => activeTab = 'blog'} class="flex-1 sm:flex-none px-3 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs leading-none rounded-full transition-colors {activeTab === 'blog' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">Blog</button>
-        <button onclick={() => activeTab = 'writing'} class="flex-1 sm:flex-none px-3 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs leading-none rounded-full transition-colors {activeTab === 'writing' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">External</button>
+      <div class="inline-flex items-center gap-1 p-1 rounded-full border border-hairline bg-canvas">
+        <button onclick={() => activeTab = 'blog'} class="px-4 py-1.5 text-xs leading-none rounded-full transition-colors {activeTab === 'blog' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">Blog</button>
+        <button onclick={() => activeTab = 'writing'} class="px-4 py-1.5 text-xs leading-none rounded-full transition-colors {activeTab === 'writing' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">External</button>
       </div>
     </div>
 
