@@ -171,7 +171,7 @@
      HERO — CENTERED
 ════════════════════════════════════════════ -->
 <section id="hero" class="relative bg-canvas font-mono overflow-hidden">
-  <div class="max-w-5xl mx-auto px-5 sm:px-6 md:px-16 lg:px-24 pt-12 pb-10 md:pt-16 md:pb-14 flex flex-col items-center text-center">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-16 lg:px-24 pt-8 sm:pt-12 pb-8 sm:pb-10 md:pt-16 md:pb-14 flex flex-col items-center text-center">
     <!-- Name — centered signature -->
     <h1 class="mb-10 w-full">
       <span class="sr-only">Uthman Oladele</span>
@@ -190,8 +190,8 @@
     </h1>
 
     <!-- Role + stack — centered, SVGs tight beside text -->
-    <div class="flex flex-wrap items-center justify-center gap-2.5 mb-5">
-      <p class="text-xs sm:text-sm tracking-[0.16em] uppercase text-mute">Backend Engineer</p>
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-4 sm:mb-5">
+      <p class="text-[11px] sm:text-sm tracking-[0.16em] uppercase text-mute">Backend Engineer</p>
       <div class="flex flex-wrap items-center justify-center gap-2.5">
         <span class="icon-link" aria-label="Go" title="Go">
           <svg class="w-[22px] h-[22px]" viewBox="0 0 207 78" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor" fill-rule="evenodd"><path d="m16.2 24.1c-.4 0-.5-.2-.3-.5l2.1-2.7c.2-.3.7-.5 1.1-.5h35.7c.4 0 .5.3.3.6l-1.7 2.6c-.2.3-.7.6-1 .6z"/><path d="m1.1 33.3c-.4 0-.5-.2-.3-.5l2.1-2.7c.2-.3.7-.5 1.1-.5h45.6c.4 0 .6.3.5.6l-.8 2.4c-.1.4-.5.6-.9.6z"/><path d="m25.3 42.5c-.4 0-.5-.3-.3-.6l1.4-2.5c.2-.3.6-.6 1-.6h20c.4 0 .6.3.6.7l-.2 2.4c0 .4-.4.7-.7.7z"/><g transform="translate(55)"><path d="m74.1 22.3c-6.3 1.6-10.6 2.8-16.8 4.4-1.5.4-1.6.5-2.9-1-1.5-1.7-2.6-2.8-4.7-3.8-6.3-3.1-12.4-2.2-18.1 1.5-6.8 4.4-10.3 10.9-10.2 19 .1 8 5.6 14.6 13.5 15.7 6.8.9 12.5-1.5 17-6.6.9-1.1 1.7-2.3 2.7-3.7-3.6 0-8.1 0-19.3 0-2.1 0-2.6-1.3-1.9-3 1.3-3.1 3.7-8.3 5.1-10.9.3-.6 1-1.6 2.5-1.6h36.4c-.2 2.7-.2 5.4-.6 8.1-1.1 7.2-3.8 13.8-8.2 19.6-7.2 9.5-16.6 15.4-28.5 17-9.8 1.3-18.9-.6-26.9-6.6-7.4-5.6-11.6-13-12.7-22.2-1.3-10.9 1.9-20.7 8.5-29.3 7.1-9.3 16.5-15.2 28-17.3 9.4-1.7 18.4-.6 26.5 4.9 5.3 3.5 9.1 8.3 11.6 14.1.6.9.2 1.4-1 1.7z"/><path d="m107.2 77.6c-9.1-.2-17.4-2.8-24.4-8.8-5.9-5.1-9.6-11.6-10.8-19.3-1.8-11.3 1.3-21.3 8.1-30.2 7.3-9.6 16.1-14.6 28-16.7 10.2-1.8 19.8-.8 28.5 5.1 7.9 5.4 12.8 12.7 14.1 22.3 1.7 13.5-2.2 24.5-11.5 33.9-6.6 6.7-14.7 10.9-24 12.8-2.7.5-5.4.6-8 .9zm23.8-40.4c-.1-1.3-.1-2.3-.3-3.3-1.8-9.9-10.9-15.5-20.4-13.3-9.3 2.1-15.3 8-17.5 17.4-1.8 7.8 2 15.7 9.2 18.9 5.5 2.4 11 2.1 16.3-.6 7.9-4.1 12.2-10.5 12.7-19.1z" fill-rule="nonzero"/></g></g></svg>
@@ -208,13 +208,13 @@
       </div>
     </div>
 
-    <p class="max-w-[600px] text-sm sm:text-[15px] leading-[1.6] text-body text-center">
+    <p class="max-w-[600px] text-[13px] sm:text-[15px] leading-[1.5] sm:leading-[1.6] text-body text-center px-2 sm:px-0">
       Backend engineer. I write Go (sometimes it compiles).<br>
       I think first, build second — so it tends to hold up in production.<br>
       <span class="text-mute">Don't take my word for it. Look below.</span>
     </p>
 
-    <div class="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm">
+    <div class="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm">
       <a href="/why-hire-me" class="text-ink underline underline-offset-4 decoration-hairline hover:decoration-ink">Why hire me</a>
       <span class="text-ash">·</span>
       <a href="#projects" class="text-ink underline underline-offset-4 decoration-hairline hover:decoration-ink">Projects</a>
@@ -222,7 +222,7 @@
       <a href={Resume} download class="text-ink underline underline-offset-4 decoration-hairline hover:decoration-ink">Resume</a>
     </div>
 
-    <div class="mt-8 flex flex-col items-center gap-4">
+    <div class="mt-6 sm:mt-8 flex flex-col items-center gap-3 sm:gap-4">
       <div class="flex items-center gap-3">
         <a href="https://github.com/codetesla51" target="_blank" rel="noopener noreferrer" class="icon-link text-mute" aria-label="GitHub">
           <svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -243,7 +243,7 @@
     <div class="mt-10 w-full max-w-[560px] mx-auto flex justify-center">
       <RubikCube />
     </div>
-    <p class="mt-3 text-[11px] tracking-wide text-ash text-center">play with the cube — drag, click, or press <span class="text-mute">r</span> <span class="text-mute">u</span> <span class="text-mute">f</span></p>
+    <p class="mt-2 sm:mt-3 text-[10px] sm:text-[11px] tracking-wide text-ash text-center leading-tight px-4">play with the cube — <span class="hidden sm:inline">drag, click, or press </span><span class="sm:hidden">drag / tap / </span><span class="text-mute">r</span> <span class="text-mute">u</span> <span class="text-mute">f</span></p>
   </div>
 </section>
 
@@ -312,13 +312,13 @@
       {/each}
     </div>
 
-    <!-- pagination -->
-    <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-hairline pt-6">
-      <div class="flex items-center gap-2">
+    <!-- pagination — responsive -->
+    <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between border-t border-hairline pt-6">
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
         <button
           onclick={() => goToPage(currentPage - 1)}
           disabled={currentPage === 1}
-          class="text-xs px-3 py-1.5 border border-hairline rounded-sm text-mute hover:text-ink hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          class="text-xs px-2.5 sm:px-3 py-1.5 border border-hairline rounded-sm text-mute hover:text-ink hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           aria-label="Previous page"
         >← Prev</button>
         <div class="flex items-center gap-1">
@@ -334,7 +334,7 @@
         <button
           onclick={() => goToPage(currentPage + 1)}
           disabled={currentPage === totalPages}
-          class="text-xs px-3 py-1.5 border border-hairline rounded-sm text-mute hover:text-ink hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          class="text-xs px-2.5 sm:px-3 py-1.5 border border-hairline rounded-sm text-mute hover:text-ink hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           aria-label="Next page"
         >Next →</button>
       </div>
@@ -360,9 +360,9 @@
         <span class="text-sm sm:text-base font-bold tracking-[0.1em] uppercase text-ink">Writing</span>
         <span class="hidden sm:inline text-[11px] tracking-wide text-ash">· {data.posts?.length || 0} posts · {articles.length} external</span>
       </div>
-      <div class="flex items-center gap-1 p-1 rounded-full border border-hairline bg-canvas">
-        <button onclick={() => activeTab = 'blog'} class="px-3.5 py-1.5 text-xs rounded-full transition-colors {activeTab === 'blog' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">Blog</button>
-        <button onclick={() => activeTab = 'writing'} class="px-3.5 py-1.5 text-xs rounded-full transition-colors {activeTab === 'writing' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">External</button>
+      <div class="flex items-center gap-1 p-0.5 sm:p-1 rounded-full border border-hairline bg-canvas max-w-full">
+        <button onclick={() => activeTab = 'blog'} class="flex-1 sm:flex-none px-3 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs leading-none rounded-full transition-colors {activeTab === 'blog' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">Blog</button>
+        <button onclick={() => activeTab = 'writing'} class="flex-1 sm:flex-none px-3 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs leading-none rounded-full transition-colors {activeTab === 'writing' ? 'bg-ink text-canvas' : 'text-mute hover:text-ink'}">External</button>
       </div>
     </div>
 

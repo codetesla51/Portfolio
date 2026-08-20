@@ -254,6 +254,7 @@
 		border-radius: 0;
 		cursor: grab;
 		touch-action: none;
+		-webkit-tap-highlight-color: transparent;
 	}
 
 	.rubik-wrap:active {
@@ -286,7 +287,8 @@
 	.rubik-hint {
 		position: absolute;
 		left: 50%;
-		bottom: 10px;
+		bottom: 8px;
+		max-width: 90%;
 		transform: translateX(-50%);
 		pointer-events: none;
 		font-family: 'Geist Mono', ui-monospace, monospace;

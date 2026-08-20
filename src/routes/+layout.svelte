@@ -42,16 +42,16 @@
   </nav>
 
   <!-- Mobile: bottom nav — improved: pill, active, hairline -->
-  <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden nav-glass border border-hairline rounded-full px-2 py-2 flex items-center gap-1">
-    <a href="/#projects" class="mob-link px-3 py-1.5 rounded-full hover:bg-surface-soft transition-colors">
-      <span class="text-[11px] tracking-wide">Projects</span>
+  <nav class="fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden nav-glass border border-hairline rounded-full px-1.5 sm:px-2 py-1.5 sm:py-2 flex items-center gap-0.5 sm:gap-1 max-w-[90vw]">
+    <a href="/#projects" class="mob-link px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-surface-soft transition-colors">
+      <span class="text-[10px] sm:text-[11px] tracking-wide whitespace-nowrap">Projects</span>
     </a>
     <span class="w-px h-4 bg-hairline"></span>
-    <a href="/#writing" class="mob-link px-3 py-1.5 rounded-full hover:bg-surface-soft transition-colors">
-      <span class="text-[11px] tracking-wide">Writing</span>
+    <a href="/#writing" class="mob-link px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-surface-soft transition-colors">
+      <span class="text-[10px] sm:text-[11px] tracking-wide whitespace-nowrap">Writing</span>
     </a>
     <span class="w-px h-4 bg-hairline"></span>
-    <a href={Resume} download class="mob-link px-3 py-1.5 rounded-full bg-ink text-canvas hover:opacity-90 transition-opacity" aria-label="Resume">
+    <a href={Resume} download class="mob-link px-2.5 sm:px-3 py-1.5 rounded-full bg-ink text-canvas hover:opacity-90 transition-opacity whitespace-nowrap" aria-label="Resume">
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
       </svg>
