@@ -22,40 +22,40 @@
 
 <div class="min-h-screen flex flex-col font-mono">
 
-  <!-- Desktop: right side dots -->
-  <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-5 nav-glass rounded-full px-2 py-5">
-    <a href="/#projects" class="dot" aria-label="Projects"></a>
-    <a href="/#writing" class="dot" aria-label="Writing"></a>
-    <span class="w-3 h-px bg-hairline"></span>
-    <a href={Resume} download class="nav-btn" aria-label="Resume">
+  <!-- Desktop: side dots — improved: pill, hairline, hover labels -->
+  <nav class="fixed right-5 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-4 nav-glass rounded-full px-3 py-6 border border-hairline">
+    <a href="/#projects" class="group relative flex items-center justify-center" aria-label="Projects">
+      <span class="dot group-hover:opacity-100 group-hover:scale-125 transition-all"></span>
+      <span class="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-sm border border-hairline bg-canvas px-2 py-1 text-[11px] tracking-wide text-mute opacity-0 group-hover:opacity-100 transition-opacity">Projects</span>
+    </a>
+    <a href="/#writing" class="group relative flex items-center justify-center" aria-label="Writing">
+      <span class="dot group-hover:opacity-100 group-hover:scale-125 transition-all"></span>
+      <span class="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-sm border border-hairline bg-canvas px-2 py-1 text-[11px] tracking-wide text-mute opacity-0 group-hover:opacity-100 transition-opacity">Writing</span>
+    </a>
+    <span class="w-4 h-px bg-hairline my-1"></span>
+    <a href={Resume} download class="nav-btn group relative" aria-label="Resume">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
       </svg>
+      <span class="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-sm border border-hairline bg-canvas px-2 py-1 text-[11px] tracking-wide text-mute opacity-0 group-hover:opacity-100 transition-opacity">Resume</span>
     </a>
   </nav>
 
-  <!-- Mobile: bottom nav -->
-  <nav class="fixed bottom-0 left-0 right-0 z-50 md:hidden nav-glass border-t border-hairline">
-    <div class="flex items-center justify-around py-3 px-6">
-      <a href="/#projects" class="mob-link">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <span class="text-[11px] tracking-wide">Projects</span>
-      </a>
-      <a href="/#writing" class="mob-link">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-        </svg>
-        <span class="text-[11px] tracking-wide">Writing</span>
-      </a>
-      <a href={Resume} download class="mob-link" aria-label="Resume">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
-        </svg>
-        <span class="text-[11px] tracking-wide">Resume</span>
-      </a>
-    </div>
+  <!-- Mobile: bottom nav — improved: pill, active, hairline -->
+  <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden nav-glass border border-hairline rounded-full px-2 py-2 flex items-center gap-1">
+    <a href="/#projects" class="mob-link px-3 py-1.5 rounded-full hover:bg-surface-soft transition-colors">
+      <span class="text-[11px] tracking-wide">Projects</span>
+    </a>
+    <span class="w-px h-4 bg-hairline"></span>
+    <a href="/#writing" class="mob-link px-3 py-1.5 rounded-full hover:bg-surface-soft transition-colors">
+      <span class="text-[11px] tracking-wide">Writing</span>
+    </a>
+    <span class="w-px h-4 bg-hairline"></span>
+    <a href={Resume} download class="mob-link px-3 py-1.5 rounded-full bg-ink text-canvas hover:opacity-90 transition-opacity" aria-label="Resume">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+      </svg>
+    </a>
   </nav>
 
   <Loader />
@@ -114,7 +114,7 @@
 
 <style>
   .nav-glass {
-    background: color-mix(in srgb, var(--color-canvas) 75%, transparent);
+    background: color-mix(in srgb, var(--color-canvas) 82%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
@@ -122,44 +122,39 @@
   .nav-btn {
     width: 2.25rem;
     height: 2.25rem;
-    border-radius: 4px;
-    border: 1px solid color-mix(in srgb, var(--color-mute) 40%, transparent);
+    border-radius: 9999px;
+    border: 1px solid color-mix(in srgb, var(--color-mute) 35%, transparent);
     background: transparent;
     color: var(--color-mute);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: inherit;
     text-decoration: none;
-    transition: color 0.18s ease, border-color 0.18s ease;
+    transition: color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
     cursor: pointer;
   }
   .nav-btn:hover {
     color: var(--color-ink);
     border-color: var(--color-ink);
+    transform: scale(1.05);
   }
 
   .dot {
-    width: 0.4rem;
-    height: 0.4rem;
+    width: 0.38rem;
+    height: 0.38rem;
     border-radius: 9999px;
     background: var(--color-ink);
-    opacity: 0.4;
-    transition: opacity 0.18s ease;
+    opacity: 0.35;
+    transition: opacity 0.18s ease, transform 0.18s ease;
   }
-  .dot:hover { opacity: 1; }
 
   .mob-link {
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 0.3rem;
     color: var(--color-mute);
     text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.18s ease;
+    transition: color 0.18s ease, background 0.18s ease;
   }
   .mob-link:hover { color: var(--color-ink); }
 

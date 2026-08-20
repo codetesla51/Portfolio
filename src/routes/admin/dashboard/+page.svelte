@@ -6,7 +6,6 @@
   import Dashboard from '$lib/components/admin/Dashboard.svelte';
   import Projects from '$lib/components/admin/Projects.svelte';
   import Messages from '$lib/components/admin/Messages.svelte';
-  import Footer from '$lib/components/admin/Footer.svelte';
   
   // Import data from the page load function
   export let data;
