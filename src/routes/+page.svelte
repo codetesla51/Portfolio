@@ -19,6 +19,15 @@
   };
 
   const projects = [
+
+    {
+      name: 'Kyu',
+      description: 'Distributed job queue for Go. PostgreSQL is the durable source of truth, Redis only the priority index — jobs survive a full Redis wipe. Dead-letter management, embedded dashboard, CLI, and Prometheus metrics. Benchmarked at 52ns/op with 0 allocations.',
+      tech_stack: ['Go', 'PostgreSQL', 'Redis', 'Prometheus', 'Grafana'],
+      github_url: 'https://github.com/codetesla51/kyu',
+      doc_url: 'https://kyu-job-queue.vercel.app/',
+      private: false
+    },
     {
       name: 'Phylax',
       description: 'Minimal PostgreSQL logical replication client. Streams committed row changes from the WAL — a five-line OnChange callback, webhooks, or a live SSE console. Decoded ~37k changes/s with lag pinned at zero.',
@@ -36,50 +45,10 @@
       private: false
     },
     {
-      name: 'Flick',
-      description: 'Self-hostable feature-flag service backed by Postgres: flags live in your database and sync to flagd in real time — no polling, no extra platform, no vendor lock-in.',
-      tech_stack: ['Go', 'PostgreSQL', 'flagd'],
-      github_url: 'https://github.com/codetesla51/flick',
-      doc_url: null,
-      private: false
-    },
-    {
-      name: 'Kyu',
-      description: 'Distributed job queue for Go. PostgreSQL is the durable source of truth, Redis only the priority index — jobs survive a full Redis wipe. Dead-letter management, embedded dashboard, CLI, and Prometheus metrics. Benchmarked at 52ns/op with 0 allocations.',
-      tech_stack: ['Go', 'PostgreSQL', 'Redis', 'Prometheus', 'Grafana'],
-      github_url: 'https://github.com/codetesla51/kyu',
-      doc_url: 'https://kyu-job-queue.vercel.app/',
-      private: false
-    },
-    {
       name: 'Barrage',
       description: 'Load testing tool for Go. Fires HTTP, DB, and TCP load simultaneously and correlates latency across all three layers to find where a system actually breaks under real cross-layer load.',
       tech_stack: ['Go', 'HTTP', 'PostgreSQL'],
       github_url: 'https://github.com/codetesla51/barrage',
-      doc_url: null,
-      private: false
-    },
-    {
-      name: 'Raw-HTTP',
-      description: 'HTTP/1.1 server built from TCP sockets. Keep-alive, TLS, static file serving, graceful shutdown. Buffer pooling pushed throughput from 5,000 to 11,000 RPS.',
-      tech_stack: ['Go', 'TCP/IP', 'TLS'],
-      github_url: 'https://github.com/codetesla51/raw-http',
-      doc_url: null,
-      private: false
-    },
-    {
-      name: 'go-git',
-      description: 'Git implementation built from first principles in Go. Covers object storage, content addressing, branching, and commit history — built to understand how version control actually works under the hood.',
-      tech_stack: ['Go', 'VCS', 'Systems'],
-      github_url: 'https://github.com/codetesla51/go-git',
-      doc_url: null,
-      private: false
-    },
-    {
-      name: 'Limitz',
-      description: 'Rate limiting library for Go. Five algorithms — fixed window, sliding window, token bucket, leaky bucket, sliding log — with pluggable storage backends. Swap Redis for Postgres without touching call sites.',
-      tech_stack: ['Go', 'Redis', 'PostgreSQL'],
-      github_url: 'https://github.com/codetesla51/limitz',
       doc_url: null,
       private: false
     },
@@ -92,12 +61,68 @@
       private: false
     },
     {
+      name: 'Flick',
+      description: 'Self-hostable feature-flag service backed by Postgres: flags live in your database and sync to flagd in real time — no polling, no extra platform, no vendor lock-in.',
+      tech_stack: ['Go', 'PostgreSQL', 'flagd'],
+      github_url: 'https://github.com/codetesla51/flick',
+      doc_url: null,
+      private: false
+    },
+    {
+      name: 'Raw-HTTP',
+      description: 'HTTP/1.1 server built from TCP sockets. Keep-alive, TLS, static file serving, graceful shutdown. Buffer pooling pushed throughput from 5,000 to 11,000 RPS.',
+      tech_stack: ['Go', 'TCP/IP', 'TLS'],
+      github_url: 'https://github.com/codetesla51/raw-http',
+      doc_url: null,
+      private: false
+    },
+    {
+      name: 'Limitz',
+      description: 'Rate limiting library for Go. Five algorithms — fixed window, sliding window, token bucket, leaky bucket, sliding log — with pluggable storage backends. Swap Redis for Postgres without touching call sites.',
+      tech_stack: ['Go', 'Redis', 'PostgreSQL'],
+      github_url: 'https://github.com/codetesla51/limitz',
+      doc_url: null,
+      private: false
+    },
+    {
+      name: 'Nine-Fives',
+      description: 'Systems-design tower defense, sim-first. Headless Go engine with 23 components, a balance-gated suite, and AWS-measured pricing.',
+      tech_stack: ['Go', 'JavaScript', 'Simulation'],
+      github_url: 'https://github.com/codetesla51/nine-fives',
+      doc_url: null,
+      private: false
+    },
+    {
+      name: 'Kyfram',
+      description: 'Keyframe-driven rendering engine. Declare states at times and Go renders to mp4/png via gg and ffmpeg.',
+      tech_stack: ['Go', 'ffmpeg', 'Rendering'],
+      github_url: 'https://github.com/codetesla51/kyfram',
+      doc_url: 'https://kyfram.dev',
+      private: false
+    },
+    {
       name: 'Oladele Ledger',
       description: 'Family savings platform in Go. Two isolated money pools, dual JWT auth via separate Seal instances for members and admins, and an async approval pipeline on Kyu with automatic retries. Pool transfers use SERIALIZABLE transactions with row-level locking to prevent race conditions.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis'],
       github_url: null,
       doc_url: null,
       private: true
+    },
+    {
+      name: 'go-git',
+      description: 'Git implementation built from first principles in Go. Covers object storage, content addressing, branching, and commit history — built to understand how version control actually works under the hood.',
+      tech_stack: ['Go', 'VCS', 'Systems'],
+      github_url: 'https://github.com/codetesla51/go-git',
+      doc_url: null,
+      private: false
+    },
+    {
+      name: 'golexer',
+      description: 'A comprehensive lexical analyzer (tokenizer) library for Go. Designed for building programming languages, domain-specific languages (DSLs), configuration parsers, and template engines.',
+      tech_stack: ['Go', 'Compilers', 'DSL'],
+      github_url: 'https://github.com/codetesla51/golexer',
+      doc_url: null,
+      private: false
     },
     {
       name: 'Dotfiles / Arch Rice',
@@ -114,15 +139,8 @@
       github_url: 'https://github.com/codetesla51/dsa-notes',
       doc_url: null,
       private: false
-    },
-    {
-      name: 'golexer',
-      description: 'A comprehensive lexical analyzer (tokenizer) library for Go. Designed for building programming languages, domain-specific languages (DSLs), configuration parsers, and template engines.',
-      tech_stack: ['Go', 'Compilers', 'DSL'],
-      github_url: 'https://github.com/codetesla51/golexer',
-      doc_url: null,
-      private: false
     }
+  
   ];
 
   const articles = [
