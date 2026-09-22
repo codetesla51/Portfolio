@@ -244,8 +244,8 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
-		min-height: 420px;
-		max-height: 560px;
+		min-height: 240px;
+		max-height: 320px;
 		aspect-ratio: 1;
 		overflow: hidden;
 		background: transparent;
@@ -338,8 +338,8 @@
 
 	@media (max-width: 1024px) {
 		.rubik-wrap {
-			min-height: 320px;
-			max-height: 420px;
+			min-height: 200px;
+			max-height: 260px;
 		}
 	}
 

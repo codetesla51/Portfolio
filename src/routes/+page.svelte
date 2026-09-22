@@ -3,7 +3,7 @@
   
   let activeTab = 'writing';
   let currentPage = 1;
-  const perPage = 6;
+  const perPage = 8;
   $: totalPages = Math.ceil(projects.length / perPage);
   $: paginatedProjects = projects.slice((currentPage - 1) * perPage, currentPage * perPage);
   $: startIdx = (currentPage - 1) * perPage + 1;
@@ -21,16 +21,32 @@
   const projects = [
 
     {
+      name: 'vex',
+      description: 'Git is opaque, so I rebuilt its core to see how it works. A working version control system from scratch in Go — init, add, commit, branch, checkout, status, log, and diff over content-addressed SHA-256 objects, with an LCS diff engine and a Bubble Tea TUI. ~1k lines, zero git libraries.',
+      tech_stack: ['Go', 'SHA-256', 'Bubble Tea'],
+      github_url: 'https://github.com/codetesla51/go-git',
+      doc_url: null,
+      private: false
+    },
+    {
       name: 'Kyu',
-      description: 'Distributed job queue for Go. PostgreSQL is the durable source of truth, Redis only the priority index — jobs survive a full Redis wipe. Dead-letter management, embedded dashboard, CLI, and Prometheus metrics. Benchmarked at 52ns/op with 0 allocations.',
+      description: 'Background work that must not get lost. Distributed job queue for Go — PostgreSQL is the durable source of truth, Redis only the priority index, so jobs survive a full Redis wipe. Dead-letter management, embedded dashboard, CLI, and Prometheus metrics. Benchmarked at 52ns/op with 0 allocations.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis', 'Prometheus', 'Grafana'],
       github_url: 'https://github.com/codetesla51/kyu',
       doc_url: 'https://kyu-job-queue.vercel.app/',
       private: false
     },
     {
+      name: 'Barrage',
+      description: 'Load testing that finds the real bottleneck. Fires HTTP, database, and Redis load on one clock, correlates latency across all three layers, and ships a shareable HTML report.',
+      tech_stack: ['Go', 'PostgreSQL', 'Redis', 'CLI'],
+      github_url: 'https://github.com/codetesla51/barrage',
+      doc_url: 'https://barrage-psi.vercel.app/',
+      private: false
+    },
+    {
       name: 'Phylax',
-      description: 'Minimal PostgreSQL logical replication client. Streams committed row changes from the WAL — a five-line OnChange callback, webhooks, or a live SSE console. Decoded ~37k changes/s with lag pinned at zero.',
+      description: 'Stop polling the database. Minimal PostgreSQL logical replication client — streams committed row changes from the WAL with a five-line OnChange callback, webhooks, or a live SSE console. Decode kept pace up to ~37k changes/s with lag draining to zero.',
       tech_stack: ['Go', 'PostgreSQL', 'WAL', 'SSE'],
       github_url: 'https://github.com/codetesla51/phylax',
       doc_url: null,
@@ -38,18 +54,10 @@
     },
     {
       name: 'Logos',
-      description: 'A scripting language written in Go. Pratt parser, tree-walking interpreter, closures, goroutine-backed concurrency, sandboxed VM, and cross-platform binary compilation.',
+      description: 'Existing scripting languages felt either too heavy or too unreadable, so I wrote one. A scripting language in Go — Pratt parser, tree-walking interpreter, closures, goroutine-backed concurrency, sandboxed VM, and cross-platform binary compilation. Now the scripting layer for kyfram, a keyframe animation engine (linked below), and logos2d, a declarative 2D game framework.',
       tech_stack: ['Go', 'Compilers', 'AST'],
       github_url: 'https://github.com/codetesla51/logos',
       doc_url: 'https://logos-lang.vercel.app/',
-      private: false
-    },
-    {
-      name: 'Barrage',
-      description: 'Load testing tool for Go. Fires HTTP, DB, and TCP load simultaneously and correlates latency across all three layers to find where a system actually breaks under real cross-layer load.',
-      tech_stack: ['Go', 'HTTP', 'PostgreSQL'],
-      github_url: 'https://github.com/codetesla51/barrage',
-      doc_url: null,
       private: false
     },
     {
@@ -77,6 +85,14 @@
       private: false
     },
     {
+      name: 'Screentime',
+      description: 'Per-app screen-time tracker with productivity scoring. Go daemon records the focused window to SQLite across Hyprland, Sway, GNOME, and KDE; daily exports feed a Quickshell UI. CI builds and ships Linux release binaries.',
+      tech_stack: ['Go', 'SQLite', 'Linux'],
+      github_url: 'https://github.com/codetesla51/screentime',
+      doc_url: null,
+      private: false
+    },
+    {
       name: 'Limitz',
       description: 'Rate limiting library for Go. Five algorithms — fixed window, sliding window, token bucket, leaky bucket, sliding log — with pluggable storage backends. Swap Redis for Postgres without touching call sites.',
       tech_stack: ['Go', 'Redis', 'PostgreSQL'],
@@ -89,32 +105,24 @@
       description: 'Systems-design tower defense, sim-first. Headless Go engine with 23 components, a balance-gated suite, and AWS-measured pricing.',
       tech_stack: ['Go', 'JavaScript', 'Simulation'],
       github_url: 'https://github.com/codetesla51/nine-fives',
-      doc_url: null,
+      doc_url: 'https://nine-fives.vercel.app/',
       private: false
     },
     {
       name: 'Kyfram',
-      description: 'Keyframe-driven rendering engine. Declare states at times and Go renders to mp4/png via gg and ffmpeg.',
+      description: 'Video from code, no timeline editor. Keyframe-driven rendering engine — declare states at times and Go renders to mp4/png via gg and ffmpeg, with Logos as the scripting layer.',
       tech_stack: ['Go', 'ffmpeg', 'Rendering'],
       github_url: 'https://github.com/codetesla51/kyfram',
-      doc_url: 'https://kyfram.dev',
+      doc_url: 'https://kyfram-site-68056d.gitlab.io/',
       private: false
     },
     {
-      name: 'Oladele Ledger',
+      name: 'Odelade Ledger',
       description: 'Family savings platform in Go. Two isolated money pools, dual JWT auth via separate Seal instances for members and admins, and an async approval pipeline on Kyu with automatic retries. Pool transfers use SERIALIZABLE transactions with row-level locking to prevent race conditions.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis'],
       github_url: null,
       doc_url: null,
       private: true
-    },
-    {
-      name: 'go-git',
-      description: 'Git implementation built from first principles in Go. Covers object storage, content addressing, branching, and commit history — built to understand how version control actually works under the hood.',
-      tech_stack: ['Go', 'VCS', 'Systems'],
-      github_url: 'https://github.com/codetesla51/go-git',
-      doc_url: null,
-      private: false
     },
     {
       name: 'golexer',
@@ -138,6 +146,14 @@
       tech_stack: ['Go', 'Algorithms', 'Education'],
       github_url: 'https://github.com/codetesla51/dsa-notes',
       doc_url: null,
+      private: false
+    },
+    {
+      name: 'Goauntlet',
+      description: 'Learn Go by playing. Guided lessons with a real compiler, quiz/speed/debug battle modes with lives and streaks, and daily quests — static frontend with a serverless compile proxy.',
+      tech_stack: ['TypeScript', 'Go', 'Vercel'],
+      github_url: 'https://github.com/codetesla51/goauntlet',
+      doc_url: 'https://goauntlet.vercel.app',
       private: false
     }
   
@@ -189,7 +205,7 @@
      HERO — CENTERED
 ════════════════════════════════════════════ -->
 <section id="hero" class="relative bg-canvas font-mono overflow-hidden">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-16 lg:px-24 pt-8 sm:pt-12 pb-8 sm:pb-10 md:pt-16 md:pb-14 flex flex-col items-center text-center">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-16 lg:px-24 pt-8 sm:pt-12 pb-4 sm:pb-6 md:pt-16 md:pb-8 flex flex-col items-center text-center">
     <!-- Name — centered signature -->
     <h1 class="mb-10 w-full">
       <span class="sr-only">Uthman Oladele</span>
@@ -257,8 +273,20 @@
       </div>
     </div>
 
-    <!-- cube — centered, visible on all sizes — bigger original -->
-    <div class="mt-10 w-full max-w-[560px] mx-auto flex justify-center">
+    <!-- cube — centered, small accent -->
+    <div class="mt-10 relative w-full max-w-[300px] mx-auto flex flex-col items-center">
+      <!-- doodle annotation — left of cube, absolute on sm+ -->
+      <div class="mb-1 flex max-w-full flex-col items-center gap-0 px-4 text-center text-ash sm:absolute sm:right-full sm:top-2 sm:mb-0 sm:mr-3 sm:w-44 sm:shrink-0 sm:items-end sm:px-0 sm:text-right" aria-hidden="true">
+        <p class="max-w-full text-[13px] sm:text-sm tracking-wide font-mono -rotate-6 italic opacity-90 leading-snug">fun, right? now scroll — the production Go work below is why you're here</p>
+        <svg class="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rotate-[12deg] -mt-1 text-mute" fill="currentColor" viewBox="0 0 375.01 375.01" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <g>
+              <path d="M330.254,210.966c-56.916,1.224-110.16,25.704-167.076,28.764c-16.524,0.612-33.048-1.224-45.9-8.568 c23.256-4.283,45.288-12.239,61.812-27.54c17.749-15.911,19.584-45.287,8.568-66.095c-10.404-19.584-36.72-20.196-55.08-15.3 C89.125,132.63,59.75,184.65,84.229,221.369c-26.928,1.836-53.856,0-80.172,1.225c-5.508,0.611-5.508,8.567,0.612,8.567 c26.928,1.836,59.364,4.284,91.188,2.448c1.836,1.225,3.672,3.061,5.508,4.284c64.872,45.288,159.732-11.628,229.5-13.464 C338.821,223.817,338.821,210.354,330.254,210.966z M89.737,196.277c-6.732-25.091,15.3-46.511,35.496-56.916 c20.196-10.404,48.96-10.404,55.692,15.912c7.956,30.6-18.36,48.959-43.452,56.916c-11.628,3.672-22.644,6.12-34.272,7.344 C96.47,213.413,92.186,206.069,89.737,196.277z"/>
+              <path d="M371.869,211.577c-8.567-5.508-16.523-11.016-24.479-16.523c-6.732-4.896-13.464-10.404-21.42-12.24 c-6.12-1.836-12.24,7.344-6.732,11.627c6.732,4.896,14.076,9.18,20.809,13.464c4.896,3.061,9.792,6.732,14.075,9.792 c-4.896,2.448-9.792,4.284-14.688,6.732c-3.672,1.836-7.956,3.672-11.628,5.508c-1.224,0.612-2.448,1.836-3.061,3.06 c-1.836,2.448-0.611,1.225,0,0.612c-2.447,1.836-2.447,7.956,1.837,7.344l0,0c1.224,0.612,2.447,0.612,4.283,0.612 c4.284-1.224,9.181-3.06,13.464-4.896c9.181-3.673,18.36-7.345,26.929-12.24C376.153,220.758,376.153,214.025,371.869,211.577z"/>
+            </g>
+          </g>
+        </svg>
+      </div>
       <RubikCube />
     </div>
     <p class="mt-2 sm:mt-3 text-[10px] sm:text-[11px] tracking-wide text-ash text-center leading-tight px-4">play with the cube — <span class="hidden sm:inline">drag, click, or press </span><span class="sm:hidden">drag / tap / </span><span class="text-mute">r</span> <span class="text-mute">u</span> <span class="text-mute">f</span></p>
@@ -269,7 +297,7 @@
      PROJECTS
 ════════════════════════════════════════════ -->
 <section id="projects" class="bg-canvas font-mono">
-  <div class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 py-12 md:py-28">
+  <div class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 pt-4 md:pt-8 pb-12 md:pb-28">
 
     <div class="flex items-center gap-3 mb-12">
       <span class="text-ink font-bold">#</span>
@@ -371,7 +399,7 @@
      WRITING — REDESIGNED
 ════════════════════════════════════════════ -->
 <section id="writing" class="bg-canvas font-mono">
-  <div class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 py-12 md:py-20">
+  <div class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 pt-4 md:pt-8 pb-12 md:pb-20">
     <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
       <div class="flex items-center gap-3">
         <span class="text-ink font-bold">#</span>

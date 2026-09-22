@@ -35,6 +35,16 @@
       </section>
 
       <section>
+        <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">The awkward part</h2>
+        <p>
+          Heads-up: I'm a weird person on calls. I've spent most of my life barely interacting with people, so live conversation isn't my strong suit — I'll stumble, go quiet, or explain badly something I understand perfectly in writing. I'm working on it.
+        </p>
+        <p class="mt-4">
+          Not telling you this for clout or sympathy points. I'm telling you because it's cost me interviews before, and I'd rather you judge the work than a shaky first call. Yes, I'll pretend to be confident. No, I'm not. The code doesn't stutter, though.
+        </p>
+      </section>
+
+      <section>
         <h2 class="text-xs font-bold tracking-[0.15em] uppercase text-mute mb-4">Three reasons anyway</h2>
         <ul class="space-y-8 list-none">
           <li>
