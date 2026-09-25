@@ -1,4 +1,6 @@
 <script>
+  import ArrowLeft from '$lib/components/ArrowLeft.svelte';
+
   let { data } = $props();
   const { post, content } = data;
   
@@ -63,7 +65,7 @@
 <main class="flex-1 bg-canvas font-mono">
   <article class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 py-10 sm:py-12 md:py-28">
 
-    <a href="/blog" class="link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute mb-12 inline-block">← All posts</a>
+    <a href="/blog" class="group link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute mb-12 inline-flex items-center gap-1.5"><ArrowLeft />All posts</a>
 
     <header class="mb-12">
       <h1 class="text-lg sm:text-xl font-bold tracking-[0.08em] uppercase text-ink mb-4">{post.title}</h1>
@@ -88,7 +90,7 @@
     </div>
 
     <footer class="mt-16 pt-6 border-t border-hairline">
-      <a href="/blog" class="link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute">← Back to all posts</a>
+      <a href="/blog" class="group link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute inline-flex items-center gap-1.5"><ArrowLeft />Back to all posts</a>
     </footer>
 
   </article>

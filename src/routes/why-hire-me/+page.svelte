@@ -1,5 +1,6 @@
 <script>
   import Resume from "../../assets/OLADELE USMAN.pdf";
+  import ArrowLeft from '$lib/components/ArrowLeft.svelte';
 </script>
 
 <svelte:head>
@@ -10,7 +11,7 @@
 <main class="flex-1 bg-canvas font-mono">
   <section class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 py-12 md:py-28">
 
-    <a href="/" class="link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute mb-12 inline-block">← Back</a>
+    <a href="/" class="group link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute mb-12 inline-flex items-center gap-1.5"><ArrowLeft />Back</a>
 
     <h1 class="text-lg sm:text-xl font-bold tracking-[0.08em] uppercase text-ink mb-12">Why You Should Hire Me</h1>
 

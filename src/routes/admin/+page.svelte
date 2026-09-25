@@ -1,6 +1,7 @@
 <script>
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
+  import ArrowLeft from '$lib/components/ArrowLeft.svelte';
   
   let adminKey = '';
   let error = '';
@@ -102,7 +103,7 @@
     </form>
     
     <p class="mt-8 text-center text-xs text-neutral-700">
-      <a href="/" class="hover:text-neutral-500 transition-colors">← Back to site</a>
+      <a href="/" class="group inline-flex items-center gap-1.5 hover:text-neutral-500 transition-colors"><ArrowLeft />Back to site</a>
     </p>
   </div>
 </div>

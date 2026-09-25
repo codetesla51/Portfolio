@@ -1,4 +1,6 @@
 <script>
+  import ArrowLeft from '$lib/components/ArrowLeft.svelte';
+
   export let data;
   
   // Parse tech stack into array
@@ -29,13 +31,11 @@
     <article>
       <div class="max-w-4xl mx-auto px-6">
         <!-- Back link -->
-        <a 
+        <a
           href="/#projects"
-          class="inline-flex items-center gap-2 text-neutral-500 hover:text-white transition-colors group text-sm mb-8"
+          class="group inline-flex items-center gap-2 text-neutral-500 hover:text-white transition-colors text-sm mb-8"
         >
-          <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-          </svg>
+          <ArrowLeft class="w-4 h-4" />
           Back to Projects
         </a>
 
