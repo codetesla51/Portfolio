@@ -168,15 +168,29 @@
   .stagger-5 { animation-delay: 0.40s; opacity: 0; }
   .stagger-6 { animation-delay: 0.48s; opacity: 0; }
 
+  /* Scroll reveal. Applied from JS only, so with JS off nothing is ever
+     hidden. Transition opacity/transform explicitly rather than `all`. */
   .reveal {
     opacity: 0;
-    transform: translateY(14px);
-    transition: all 0.5s ease-out;
+    transform: translateY(12px);
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
   }
 
-  .reveal.visible {
+  .reveal.is-revealed {
     opacity: 1;
     transform: translateY(0);
+    /* Keep the row's own hover transition alive once it has landed —
+       `transition` is a shorthand, so without this the reveal's value wins
+       for every property and the hover background stops animating. */
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out, background-color 0.15s ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 
   /* Code blocks - Ayu Dark theme */

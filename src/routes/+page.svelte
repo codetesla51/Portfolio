@@ -1,47 +1,53 @@
 <script>
+  import { onMount } from 'svelte';
+
   export let data;
-  
-  let activeTab = 'writing';
-  let currentPage = 1;
-  const perPage = 8;
-  $: totalPages = Math.ceil(projects.length / perPage);
-  $: paginatedProjects = projects.slice((currentPage - 1) * perPage, currentPage * perPage);
-  $: startIdx = (currentPage - 1) * perPage + 1;
-  $: endIdx = Math.min(currentPage * perPage, projects.length);
-  function goToPage(n) {
-    if (n < 1 || n > totalPages) return;
-    currentPage = n;
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  
+
+  let activeTab = 'blog';
+
+  // Projects fade in as they come into view, so scrolling the page walks
+  // through the work instead of dumping a wall of it. The hidden class is
+  // added from JS on purpose: if the observer never runs (no JS, old browser),
+  // the list is simply visible rather than stuck at opacity 0.
+  onMount(() => {
+    const rows = document.querySelectorAll('[data-reveal]');
+    if (!rows.length) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
+    );
+
+    for (const row of rows) {
+      row.classList.add('reveal');
+      observer.observe(row);
+    }
+
+    return () => observer.disconnect();
+  });
+
   const personalInfo = {
     email: "uoladele99@gmail.com",
   };
 
   const projects = [
 
-    {
-      name: 'vex',
-      description: 'Git is opaque, so I rebuilt its core to see how it works. A working version control system from scratch in Go — init, add, commit, branch, checkout, status, log, and diff over content-addressed SHA-256 objects, with an LCS diff engine and a Bubble Tea TUI. ~1k lines, zero git libraries.',
-      tech_stack: ['Go', 'SHA-256', 'Bubble Tea'],
-      github_url: 'https://github.com/codetesla51/go-git',
-      doc_url: null,
-      private: false
-    },
+
     {
       name: 'Kyu',
       description: 'Background work that must not get lost. Distributed job queue for Go — PostgreSQL is the durable source of truth, Redis only the priority index, so jobs survive a full Redis wipe. Dead-letter management, embedded dashboard, CLI, and Prometheus metrics. Benchmarked at 52ns/op with 0 allocations.',
       tech_stack: ['Go', 'PostgreSQL', 'Redis', 'Prometheus', 'Grafana'],
       github_url: 'https://github.com/codetesla51/kyu',
       doc_url: 'https://kyu-job-queue.vercel.app/',
-      private: false
-    },
-    {
-      name: 'Barrage',
-      description: 'Load testing that finds the real bottleneck. Fires HTTP, database, and Redis load on one clock, correlates latency across all three layers, and ships a shareable HTML report.',
-      tech_stack: ['Go', 'PostgreSQL', 'Redis', 'CLI'],
-      github_url: 'https://github.com/codetesla51/barrage',
-      doc_url: 'https://barrage-psi.vercel.app/',
       private: false
     },
     {
@@ -53,19 +59,19 @@
       private: false
     },
     {
-      name: 'Logos',
-      description: 'Existing scripting languages felt either too heavy or too unreadable, so I wrote one. A scripting language in Go — Pratt parser, tree-walking interpreter, closures, goroutine-backed concurrency, sandboxed VM, and cross-platform binary compilation. Now the scripting layer for kyfram, a keyframe animation engine (linked below), and logos2d, a declarative 2D game framework.',
-      tech_stack: ['Go', 'Compilers', 'AST'],
-      github_url: 'https://github.com/codetesla51/logos',
-      doc_url: 'https://logos-lang.vercel.app/',
+      name: 'Redis CDC',
+      description: 'Cache invalidation nobody can forget to call. Watches Postgres\'s WAL with phylax and DELs the matching Redis key on every insert, update, and delete — from any writer, no polling, and no code change when writers are added. Scales horizontally: a producer publishes WAL events to a Redis Stream, and a consumer group shares the deletes across as many boxes as you want. 1.19M writes at P99 103ms, invalidation lag p50 7.5ms, zero drops.',
+      tech_stack: ['Go', 'Redis', 'PostgreSQL', 'WAL'],
+      github_url: 'https://github.com/codetesla51/redis-cdc-invalidation',
+      doc_url: null,
       private: false
     },
     {
-      name: 'Seal',
-      description: 'JWT authentication library for Go. Rotating refresh tokens with theft detection via typed errors, and four pluggable storage backends: Redis, PostgreSQL, MySQL, SQLite.',
-      tech_stack: ['Go', 'JWT', 'Redis'],
-      github_url: 'https://github.com/codetesla51/seal',
-      doc_url: null,
+      name: 'Barrage',
+      description: 'Load testing that finds the real bottleneck. Fires HTTP, database, and Redis load on one clock, correlates latency across all three layers, and ships a shareable HTML report.',
+      tech_stack: ['Go', 'PostgreSQL', 'Redis', 'CLI'],
+      github_url: 'https://github.com/codetesla51/barrage',
+      doc_url: 'https://barrage-psi.vercel.app/',
       private: false
     },
     {
@@ -77,18 +83,10 @@
       private: false
     },
     {
-      name: 'Raw-HTTP',
-      description: 'HTTP/1.1 server built from TCP sockets. Keep-alive, TLS, static file serving, graceful shutdown. Buffer pooling pushed throughput from 5,000 to 11,000 RPS.',
-      tech_stack: ['Go', 'TCP/IP', 'TLS'],
-      github_url: 'https://github.com/codetesla51/raw-http',
-      doc_url: null,
-      private: false
-    },
-    {
-      name: 'Screentime',
-      description: 'Per-app screen-time tracker with productivity scoring. Go daemon records the focused window to SQLite across Hyprland, Sway, GNOME, and KDE; daily exports feed a Quickshell UI. CI builds and ships Linux release binaries.',
-      tech_stack: ['Go', 'SQLite', 'Linux'],
-      github_url: 'https://github.com/codetesla51/screentime',
+      name: 'Seal',
+      description: 'JWT authentication library for Go. Rotating refresh tokens with theft detection via typed errors, and four pluggable storage backends: Redis, PostgreSQL, MySQL, SQLite.',
+      tech_stack: ['Go', 'JWT', 'Redis'],
+      github_url: 'https://github.com/codetesla51/seal',
       doc_url: null,
       private: false
     },
@@ -101,19 +99,35 @@
       private: false
     },
     {
-      name: 'Nine-Fives',
-      description: 'Systems-design tower defense, sim-first. Headless Go engine with 23 components, a balance-gated suite, and AWS-measured pricing.',
-      tech_stack: ['Go', 'JavaScript', 'Simulation'],
-      github_url: 'https://github.com/codetesla51/nine-fives',
-      doc_url: 'https://nine-fives.vercel.app/',
+      name: 'golexer',
+      description: 'A comprehensive lexical analyzer (tokenizer) library for Go. Designed for building programming languages, domain-specific languages (DSLs), configuration parsers, and template engines.',
+      tech_stack: ['Go', 'Compilers', 'DSL'],
+      github_url: 'https://github.com/codetesla51/golexer',
+      doc_url: null,
       private: false
     },
     {
-      name: 'Kyfram',
-      description: 'Video from code, no timeline editor. Keyframe-driven rendering engine — declare states at times and Go renders to mp4/png via gg and ffmpeg, with Logos as the scripting layer.',
-      tech_stack: ['Go', 'ffmpeg', 'Rendering'],
-      github_url: 'https://github.com/codetesla51/kyfram',
-      doc_url: 'https://kyfram-site-68056d.gitlab.io/',
+      name: 'vex',
+      description: 'Git is opaque, so I rebuilt its core to see how it works. A working version control system from scratch in Go — init, add, commit, branch, checkout, status, log, and diff over content-addressed SHA-256 objects, with an LCS diff engine and a Bubble Tea TUI. ~1k lines, zero git libraries.',
+      tech_stack: ['Go', 'SHA-256', 'Bubble Tea'],
+      github_url: 'https://github.com/codetesla51/go-git',
+      doc_url: null,
+      private: false
+    },
+    {
+      name: 'Logos',
+      description: 'Existing scripting languages felt either too heavy or too unreadable, so I wrote one. A scripting language in Go — Pratt parser, tree-walking interpreter, closures, goroutine-backed concurrency, sandboxed VM, and cross-platform binary compilation. Now the scripting layer for kyfram, a keyframe animation engine (linked below), and logos2d, a declarative 2D game framework.',
+      tech_stack: ['Go', 'Compilers', 'AST'],
+      github_url: 'https://github.com/codetesla51/logos',
+      doc_url: 'https://logos-lang.vercel.app/',
+      private: false
+    },
+    {
+      name: 'Raw-HTTP',
+      description: 'HTTP/1.1 server built from TCP sockets. Keep-alive, TLS, static file serving, graceful shutdown. Buffer pooling pushed throughput from 5,000 to 11,000 RPS.',
+      tech_stack: ['Go', 'TCP/IP', 'TLS'],
+      github_url: 'https://github.com/codetesla51/raw-http',
+      doc_url: null,
       private: false
     },
     {
@@ -125,10 +139,34 @@
       private: true
     },
     {
-      name: 'golexer',
-      description: 'A comprehensive lexical analyzer (tokenizer) library for Go. Designed for building programming languages, domain-specific languages (DSLs), configuration parsers, and template engines.',
-      tech_stack: ['Go', 'Compilers', 'DSL'],
-      github_url: 'https://github.com/codetesla51/golexer',
+      name: 'Kyfram',
+      description: 'Video from code, no timeline editor. Keyframe-driven rendering engine — declare states at times and Go renders to mp4/png via gg and ffmpeg, with Logos as the scripting layer.',
+      tech_stack: ['Go', 'ffmpeg', 'Rendering'],
+      github_url: 'https://github.com/codetesla51/kyfram',
+      doc_url: 'https://kyfram-site-68056d.gitlab.io/',
+      private: false
+    },
+    {
+      name: 'Nine-Fives',
+      description: 'Systems-design tower defense, sim-first. Headless Go engine with 23 components, a balance-gated suite, and AWS-measured pricing.',
+      tech_stack: ['Go', 'JavaScript', 'Simulation'],
+      github_url: 'https://github.com/codetesla51/nine-fives',
+      doc_url: 'https://nine-fives.vercel.app/',
+      private: false
+    },
+    {
+      name: 'Goauntlet',
+      description: 'Learn Go by playing. Guided lessons with a real compiler, quiz/speed/debug battle modes with lives and streaks, and daily quests — static frontend with a serverless compile proxy.',
+      tech_stack: ['TypeScript', 'Go', 'Vercel'],
+      github_url: 'https://github.com/codetesla51/goauntlet',
+      doc_url: 'https://goauntlet.vercel.app',
+      private: false
+    },
+    {
+      name: 'Screentime',
+      description: 'Per-app screen-time tracker with productivity scoring. Go daemon records the focused window to SQLite across Hyprland, Sway, GNOME, and KDE; daily exports feed a Quickshell UI. CI builds and ships Linux release binaries.',
+      tech_stack: ['Go', 'SQLite', 'Linux'],
+      github_url: 'https://github.com/codetesla51/screentime',
       doc_url: null,
       private: false
     },
@@ -147,16 +185,7 @@
       github_url: 'https://github.com/codetesla51/dsa-notes',
       doc_url: null,
       private: false
-    },
-    {
-      name: 'Goauntlet',
-      description: 'Learn Go by playing. Guided lessons with a real compiler, quiz/speed/debug battle modes with lives and streaks, and daily quests — static frontend with a serverless compile proxy.',
-      tech_stack: ['TypeScript', 'Go', 'Vercel'],
-      github_url: 'https://github.com/codetesla51/goauntlet',
-      doc_url: 'https://goauntlet.vercel.app',
-      private: false
     }
-  
   ];
 
   const articles = [
@@ -183,7 +212,6 @@
   ];
 
   import Resume from "../assets/OLADELE USMAN.pdf";
-  import RubikCube from "$lib/components/RubikCube.svelte";
 </script>
 
 <svelte:head>
@@ -272,24 +300,6 @@
         </a>
       </div>
     </div>
-
-    <!-- cube — centered, small accent -->
-    <div class="mt-10 relative w-full max-w-[300px] mx-auto flex flex-col items-center">
-      <!-- doodle annotation — left of cube, absolute on sm+ -->
-      <div class="mb-1 flex max-w-full flex-col items-center gap-0 px-4 text-center text-ash sm:absolute sm:right-full sm:top-2 sm:mb-0 sm:mr-3 sm:w-44 sm:shrink-0 sm:items-end sm:px-0 sm:text-right" aria-hidden="true">
-        <p class="max-w-full text-[13px] sm:text-sm tracking-wide font-mono -rotate-6 italic opacity-90 leading-snug">fun, right? now scroll — the production Go work below is why you're here</p>
-        <svg class="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rotate-[12deg] -mt-1 text-mute" fill="currentColor" viewBox="0 0 375.01 375.01" xmlns="http://www.w3.org/2000/svg">
-          <g>
-            <g>
-              <path d="M330.254,210.966c-56.916,1.224-110.16,25.704-167.076,28.764c-16.524,0.612-33.048-1.224-45.9-8.568 c23.256-4.283,45.288-12.239,61.812-27.54c17.749-15.911,19.584-45.287,8.568-66.095c-10.404-19.584-36.72-20.196-55.08-15.3 C89.125,132.63,59.75,184.65,84.229,221.369c-26.928,1.836-53.856,0-80.172,1.225c-5.508,0.611-5.508,8.567,0.612,8.567 c26.928,1.836,59.364,4.284,91.188,2.448c1.836,1.225,3.672,3.061,5.508,4.284c64.872,45.288,159.732-11.628,229.5-13.464 C338.821,223.817,338.821,210.354,330.254,210.966z M89.737,196.277c-6.732-25.091,15.3-46.511,35.496-56.916 c20.196-10.404,48.96-10.404,55.692,15.912c7.956,30.6-18.36,48.959-43.452,56.916c-11.628,3.672-22.644,6.12-34.272,7.344 C96.47,213.413,92.186,206.069,89.737,196.277z"/>
-              <path d="M371.869,211.577c-8.567-5.508-16.523-11.016-24.479-16.523c-6.732-4.896-13.464-10.404-21.42-12.24 c-6.12-1.836-12.24,7.344-6.732,11.627c6.732,4.896,14.076,9.18,20.809,13.464c4.896,3.061,9.792,6.732,14.075,9.792 c-4.896,2.448-9.792,4.284-14.688,6.732c-3.672,1.836-7.956,3.672-11.628,5.508c-1.224,0.612-2.448,1.836-3.061,3.06 c-1.836,2.448-0.611,1.225,0,0.612c-2.447,1.836-2.447,7.956,1.837,7.344l0,0c1.224,0.612,2.447,0.612,4.283,0.612 c4.284-1.224,9.181-3.06,13.464-4.896c9.181-3.673,18.36-7.345,26.929-12.24C376.153,220.758,376.153,214.025,371.869,211.577z"/>
-            </g>
-          </g>
-        </svg>
-      </div>
-      <RubikCube />
-    </div>
-    <p class="mt-2 sm:mt-3 text-[10px] sm:text-[11px] tracking-wide text-ash text-center leading-tight px-4">play with the cube — <span class="hidden sm:inline">drag, click, or press </span><span class="sm:hidden">drag / tap / </span><span class="text-mute">r</span> <span class="text-mute">u</span> <span class="text-mute">f</span></p>
   </div>
 </section>
 
@@ -299,18 +309,41 @@
 <section id="projects" class="bg-canvas font-mono">
   <div class="max-w-[960px] mx-auto px-5 sm:px-6 md:px-16 lg:px-24 pt-4 md:pt-8 pb-12 md:pb-28">
 
-    <div class="flex items-center gap-3 mb-12">
+    <div class="flex items-center gap-3 mb-3">
       <span class="text-ink font-bold">#</span>
       <span class="text-sm sm:text-base font-bold tracking-[0.1em] uppercase text-ink">Projects</span>
+      <span class="text-[11px] tracking-wide text-ash">· {projects.length}</span>
     </div>
 
+    <aside class="note mb-14 max-w-xl border border-dashed border-hairline rounded-sm px-5 py-4 sm:px-6 sm:py-5">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="text-[10px] uppercase tracking-[0.18em] text-ash whitespace-nowrap">honest bit</span>
+        <span class="h-px flex-1 bg-hairline"></span>
+      </div>
+
+      <p class="text-[13px] sm:text-[14px] leading-[1.75] text-body">
+        I've shipped real things — not demos, not tutorials, things that run and come with
+        tests. That's the whole pitch. Scroll, click anything, read the source, judge it
+        yourself.
+      </p>
+      <p class="mt-2 text-[13px] sm:text-[14px] leading-[1.75] text-mute italic">
+        Fair warning, it's a long list and I'm trying very hard to prove to you that I can
+        build. If you reach the bottom and still don't care, I've genuinely got nothing left.
+      </p>
+
+      <div class="mt-3.5 flex items-center gap-2 text-[11px] tracking-wide text-ash">
+        <span class="note-arrow" aria-hidden="true">↓</span>
+        <span>keep going — apparently length is a personality trait</span>
+      </div>
+    </aside>
+
     <div class="border-t border-hairline">
-      {#each paginatedProjects as project, i}
-        <article class="group py-6 sm:py-7 border-b border-hairline hover:bg-surface-soft/30 transition-colors">
+      {#each projects as project, i}
+        <article data-reveal class="group py-6 sm:py-7 border-b border-hairline hover:bg-surface-soft/30 transition-colors">
           <div class="flex items-start justify-between gap-4 sm:gap-6">
             <div class="flex-1 min-w-0">
               <div class="flex items-baseline gap-2.5 flex-wrap">
-                <span class="hidden sm:inline text-[11px] font-mono tabular-nums text-ash">{String((currentPage - 1) * perPage + i + 1).padStart(2, '0')}</span>
+                <span class="hidden sm:inline text-[11px] font-mono tabular-nums text-ash">{String(i + 1).padStart(2, '0')}</span>
                 <h3 class="text-[15px] font-medium tracking-tight text-ink group-hover:text-ink transition-colors">{project.name}</h3>
                 {#if project.private}
                   <span class="text-[10px] tracking-wide text-ash border border-hairline rounded-full px-2 py-0.5">private</span>
@@ -358,38 +391,10 @@
       {/each}
     </div>
 
-    <!-- pagination — responsive -->
-    <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between border-t border-hairline pt-6">
-      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
-        <button
-          onclick={() => goToPage(currentPage - 1)}
-          disabled={currentPage === 1}
-          class="text-xs px-2.5 sm:px-3 py-1.5 border border-hairline rounded-sm text-mute hover:text-ink hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-          aria-label="Previous page"
-        >← Prev</button>
-        <div class="flex items-center gap-1">
-          {#each Array(totalPages) as _, i}
-            <button
-              onclick={() => goToPage(i + 1)}
-              class="w-7 h-7 text-xs rounded-sm border transition-colors {currentPage === i + 1 ? 'bg-ink text-canvas border-ink' : 'border-hairline text-mute hover:text-ink hover:border-ink'}"
-              aria-label="Go to page {i + 1}"
-              aria-current={currentPage === i + 1 ? 'page' : undefined}
-            >{i + 1}</button>
-          {/each}
-        </div>
-        <button
-          onclick={() => goToPage(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          class="text-xs px-2.5 sm:px-3 py-1.5 border border-hairline rounded-sm text-mute hover:text-ink hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-          aria-label="Next page"
-        >Next →</button>
-      </div>
-      <div class="flex items-center gap-4 text-xs">
-        <span class="text-ash tabular-nums">{startIdx}–{endIdx} of {projects.length}</span>
-        <span class="hidden sm:inline text-hairline">·</span>
-        <a href="https://github.com/codetesla51?tab=repositories" target="_blank" rel="noopener noreferrer"
-          class="link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute">More on GitHub →</a>
-      </div>
+    <div class="mt-8 flex flex-wrap items-center justify-between gap-3">
+      <span class="text-[12px] text-ash italic">you made it to the end, respect. writing's below, and it's shorter ↓</span>
+      <a href="https://github.com/codetesla51?tab=repositories" target="_blank" rel="noopener noreferrer"
+        class="link-fade text-xs text-mute underline decoration-hairline underline-offset-4 hover:decoration-mute">More on GitHub →</a>
     </div>
 
   </div>
@@ -475,6 +480,27 @@
 
   .icon-link { opacity: 0.5; transition: opacity 0.18s ease; }
   .icon-link:hover { opacity: 1; }
+
+  /* The "honest bit" note above the project list. */
+  .note {
+    position: relative;
+    background: linear-gradient(180deg, var(--color-surface-soft) 0%, transparent 70%);
+  }
+
+  /* Slow bob, like someone tapping the page to hurry you along. */
+  .note-arrow {
+    display: inline-block;
+    animation: note-bob 1.8s ease-in-out infinite;
+  }
+
+  @keyframes note-bob {
+    0%, 100% { transform: translateY(0); opacity: 0.55; }
+    50%      { transform: translateY(3px); opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .note-arrow { animation: none; }
+  }
 
   .article-row { text-decoration: none; transition: opacity 0.18s ease; }
   .article-row:hover { opacity: 0.7; }
