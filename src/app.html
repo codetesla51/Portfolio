@@ -4,7 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="%sveltekit.assets%/logo.svg">
+  <!-- Icons. Must be %sveltekit.assets% paths, not relative: a relative
+       href resolves against the current route, so /blog/post-x would look
+       for /blog/logo.svg and 404. -->
+  <link rel="icon" href="%sveltekit.assets%/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/logo.svg">
+  <link rel="apple-touch-icon" href="%sveltekit.assets%/favicon.png">
+  <link rel="mask-icon" href="%sveltekit.assets%/logo.svg" color="#030202">
 
   <!-- Geist Sans + Mono via jsDelivr CDN -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
